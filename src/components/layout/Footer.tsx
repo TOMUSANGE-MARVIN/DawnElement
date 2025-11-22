@@ -40,102 +40,207 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-          {/* About Us Column */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="h-12 w-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-gray-900">R</span>
-              </div>
-              <div>
-                <span className="text-xl font-bold">RNADW</span>
-                <p className="text-sm text-gray-400">Empowering Deaf Women</p>
-              </div>
-            </div>
-            <p className="text-gray-400 text-sm mb-4">
-              Rwanda National Association of Deaf Women - Empowering deaf women and girls through advocacy, education, and community building since 2005.
-            </p>
-            <p className="text-gray-400 text-sm">
-              Organization of People with Disabilities (OPD) fully registered with Rwanda Governance Board (RGB).
-            </p>
-          </div>
+    <footer className="relative overflow-hidden bg-gray-900">
 
-          {/* Quick Links Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-primary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Get Connected Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Get Connected</h3>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li className="flex items-start">
-                <svg className="h-5 w-5 mr-2 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-                <span>KK 78ST Kanombe, Kigali, Rwanda</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="h-5 w-5 mr-2 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                </svg>
-                <a href="tel:+250784591495" className="hover:text-primary transition-colors">
-                  +250 784 591 495 / 0788428965
-                </a>
-              </li>
-              <li className="flex items-start">
-                <svg className="h-5 w-5 mr-2 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
-                <a href="mailto:info@rnadw.org.rw" className="hover:text-primary transition-colors">
-                  info@rnadw.org.rw
-                </a>
-              </li>
-              <li className="text-xs text-gray-500 pt-2">
-                Monday - Friday: 9 AM - 5 PM
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Social Media & Copyright */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} RNADW. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 sm:mt-0">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-primary transition-colors"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-10">
+        {/* Yellow blob */}
+        <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: '#FACC15' }} />
+        {/* Blue blob */}
+        <div className="absolute -bottom-20 -left-20 w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: '#2563EB' }} />
       </div>
+
+      {/* Main Footer Content */}
+      <div className="relative z-10">
+
+        {/* Top Section - Large Typography & Info Grid */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-12">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+            {/* LEFT - Large Brand Section */}
+            <div className="lg:col-span-5">
+
+              {/* Large RNADW Typography */}
+              <div className="mb-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+                  <span className="text-xs font-black tracking-[0.3em] uppercase text-gray-500">Since 2005</span>
+                </div>
+
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-6">
+                  <span className="text-white">RNADW</span>
+                </h2>
+
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-1 w-16" style={{ backgroundColor: '#FACC15' }} />
+                  <p className="text-sm font-bold tracking-wider uppercase" style={{ color: '#FACC15' }}>
+                    Empowering Deaf Women
+                  </p>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-400 text-base leading-relaxed mb-6 max-w-md">
+                Rwanda National Association of Deaf Women — Empowering deaf women and girls through advocacy, education, and community building.
+              </p>
+
+              <p className="text-gray-500 text-sm leading-relaxed max-w-md">
+                Organization of People with Disabilities (OPD) fully registered with Rwanda Governance Board (RGB).
+              </p>
+
+              {/* Social Links - Large Buttons */}
+              <div className="mt-10">
+                <p className="text-xs font-black tracking-[0.2em] uppercase text-gray-500 mb-4">Follow Us</p>
+                <div className="flex gap-3">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-xl bg-white/5 border-2 border-white/10 flex items-center justify-center text-gray-400 hover:border-yellow-400 hover:text-yellow-400 transition-all hover:bg-white/10"
+                      aria-label={social.name}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT - Navigation & Contact Grid */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-16">
+
+              {/* Quick Links */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#2563EB' }} />
+                  <h3 className="text-xs font-black tracking-[0.2em] uppercase text-gray-500">Quick Links</h3>
+                </div>
+
+                <ul className="space-y-3">
+                  {quickLinks.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        className="group text-white hover:text-yellow-400 transition-colors text-lg font-bold flex items-center gap-2"
+                      >
+                        <span className="w-0 h-0.5 bg-yellow-400 group-hover:w-6 transition-all duration-300" />
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Information */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+                  <h3 className="text-xs font-black tracking-[0.2em] uppercase text-gray-500">Get in Touch</h3>
+                </div>
+
+                <ul className="space-y-5">
+                  {/* Location */}
+                  <li className="group">
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/10 group-hover:border-blue-400 transition-colors">
+                        <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1 pt-1">
+                        <p className="text-xs font-bold uppercase tracking-wider text-blue-300 mb-1">Address</p>
+                        <p className="text-sm text-gray-300 leading-relaxed">KK 78ST Kanombe,<br />Kigali, Rwanda</p>
+                      </div>
+                    </div>
+                  </li>
+
+                  {/* Phone */}
+                  <li className="group">
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/10 group-hover:border-blue-400 transition-colors">
+                        <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1 pt-1">
+                        <p className="text-xs font-bold uppercase tracking-wider text-blue-300 mb-1">Phone</p>
+                        <a href="tel:+250784591495" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors block">
+                          +250 784 591 495
+                        </a>
+                        <a href="tel:+250788428965" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors block">
+                          +250 788 428 965
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+
+                  {/* Email */}
+                  <li className="group">
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/10 group-hover:border-blue-400 transition-colors">
+                        <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                        </svg>
+                      </div>
+                      <div className="flex-1 pt-1">
+                        <p className="text-xs font-bold uppercase tracking-wider text-blue-300 mb-1">Email</p>
+                        <a href="mailto:info@rnadw.org.rw" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors">
+                          info@rnadw.org.rw
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+
+                  {/* Hours */}
+                  <li>
+                    <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                      <p className="text-xs font-bold uppercase tracking-wider text-yellow-400 mb-2">Office Hours</p>
+                      <p className="text-sm text-gray-300">Monday - Friday</p>
+                      <p className="text-sm text-gray-400">9:00 AM - 5:00 PM</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Bottom Section - Copyright & Legal */}
+        <div className="border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+
+              {/* Copyright */}
+              <div className="flex items-center gap-4">
+                <p className="text-sm text-gray-500">
+                  © {new Date().getFullYear()} RNADW. All rights reserved.
+                </p>
+                <div className="hidden sm:block w-px h-4 bg-gray-700" />
+                <p className="text-xs text-gray-600">Made with ❤️ in Rwanda</p>
+              </div>
+
+              {/* Legal Links */}
+              <div className="flex items-center gap-6 text-xs text-gray-500">
+                <Link href="/privacy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="hover:text-yellow-400 transition-colors">Terms of Use</Link>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </footer>
   );
 }
