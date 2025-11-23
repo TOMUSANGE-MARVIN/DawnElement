@@ -53,17 +53,17 @@ export default function Footer() {
   const footerSocialLinks = useScrollAnimation(0.2);
 
   const footerQuickLinksTitle = useScrollAnimation(0.2);
-  const footerQuickLink1 = useScrollAnimation(0.2);
-  const footerQuickLink2 = useScrollAnimation(0.2);
-  const footerQuickLink3 = useScrollAnimation(0.2);
-  const footerQuickLink4 = useScrollAnimation(0.2);
-  const footerQuickLink5 = useScrollAnimation(0.2);
+  const footerQuickLink1 = useScrollAnimation<HTMLLIElement>(0.2);
+  const footerQuickLink2 = useScrollAnimation<HTMLLIElement>(0.2);
+  const footerQuickLink3 = useScrollAnimation<HTMLLIElement>(0.2);
+  const footerQuickLink4 = useScrollAnimation<HTMLLIElement>(0.2);
+  const footerQuickLink5 = useScrollAnimation<HTMLLIElement>(0.2);
 
   const footerContactTitle = useScrollAnimation(0.2);
-  const footerLocation = useScrollAnimation(0.2);
-  const footerPhone = useScrollAnimation(0.2);
-  const footerEmail = useScrollAnimation(0.2);
-  const footerHours = useScrollAnimation(0.2);
+  const footerLocation = useScrollAnimation<HTMLLIElement>(0.2);
+  const footerPhone = useScrollAnimation<HTMLLIElement>(0.2);
+  const footerEmail = useScrollAnimation<HTMLLIElement>(0.2);
+  const footerHours = useScrollAnimation<HTMLLIElement>(0.2);
 
   const footerCopyright = useScrollAnimation(0.2);
   const footerLegal = useScrollAnimation(0.2);
