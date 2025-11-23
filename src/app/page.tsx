@@ -155,66 +155,187 @@ export default function Home() {
         }
       `}</style>
 
-      {/* ABOUT SECTION - White with visual interest */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        {/* Background decoration - Yellow accent */}
-        <div className="absolute top-0 right-0 w-1/3 h-full opacity-5"
-          style={{ background: 'linear-gradient(135deg, transparent 0%, #FACC15 100%)' }} />
+      {/* ABOUT SECTION - Bento Grid with Stats */}
+      <section className="py-32 bg-gray-50 relative overflow-hidden">
+
+        {/* Decorative blobs */}
+        <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #FACC15 0%, transparent 70%)' }} />
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }} />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            {/* Left - Content */}
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-2 rounded-full text-sm font-semibold"
-                style={{ backgroundColor: '#FACC15', color: '#1F2937' }}>
-                Who We Are
-              </div>
-
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-                An Organization of People with Disabilities
-              </h2>
-
-              <div className="w-20 h-1 rounded-full" style={{ backgroundColor: '#2563EB' }} />
-
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Rwanda National Association of Deaf Women (RNADW) is an Organization of People with Disabilities (OPD)
-                fully registered with Rwanda Governance Board (RGB).
-              </p>
-
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Founded in <strong>2005</strong> by a group of deaf women human rights activists to advocate for the rights
-                of women and girls, after realizing the gaps in service provision, insufficient advocacy efforts to fight
-                for their rights and social integration in the Rwandan community.
-              </p>
-
-              <Link href="/aboutus" className="inline-flex items-center gap-2 font-semibold text-lg group"
-                style={{ color: '#2563EB' }}>
-                Learn Our Story
-                <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+              <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Who We Are</span>
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#2563EB' }} />
             </div>
-
-            {/* Right - Image */}
-            <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg"
-                  alt="RNADW Team"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Floating accent card */}
-              <div className="absolute -bottom-6 -left-6 px-6 py-4 rounded-xl shadow-xl backdrop-blur-sm border"
-                style={{ backgroundColor: 'rgba(37, 99, 235, 0.95)', borderColor: 'rgba(255,255,255,0.2)' }}>
-                <div className="text-white font-bold text-xl">500+</div>
-                <div className="text-white/90 text-sm">Lives Empowered</div>
-              </div>
-            </div>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] text-gray-900 mb-4">
+              An Organization<br />
+              <span className="relative inline-block">
+                <span className="relative z-10" style={{ color: '#2563EB' }}>of People with Disabilities</span>
+                <div className="absolute bottom-2 left-0 right-0 h-6 opacity-20 -z-10" style={{ backgroundColor: '#2563EB' }} />
+              </span>
+            </h2>
           </div>
+
+          {/* Bento Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-6 lg:gap-8">
+
+            {/* Large Text Block - Top Left */}
+            <div className="md:col-span-4 bg-white rounded-3xl p-8 lg:p-12 shadow-lg">
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="text-6xl">🏛️</div>
+                  <div className="h-1 flex-1 max-w-[100px] rounded-full" style={{ backgroundColor: '#FACC15' }} />
+                </div>
+
+                <h3 className="text-3xl lg:text-4xl font-black text-gray-900 leading-tight">
+                  Fully Registered with Rwanda Governance Board
+                </h3>
+
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Rwanda National Association of Deaf Women (RNADW) is an Organization of People with Disabilities (OPD)
+                  fully registered with Rwanda Governance Board (RGB).
+                </p>
+
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Founded in <span className="font-black" style={{ color: '#FACC15' }}>2005</span> by a group of deaf women human rights activists to advocate for the rights
+                  of women and girls, after realizing the gaps in service provision and insufficient advocacy efforts.
+                </p>
+
+                <Link href="/aboutus" className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-black text-white transition-all hover:scale-105"
+                  style={{ backgroundColor: '#2563EB' }}>
+                  Learn Our Story
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* Stat Card 1 - Top Right */}
+            <div className="md:col-span-2 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-3xl p-8 shadow-lg flex flex-col justify-center items-center text-center min-h-[300px]">
+              <div className="text-7xl lg:text-8xl font-black text-white mb-4">
+                500+
+              </div>
+              <div className="text-white/90 font-bold text-lg uppercase tracking-wider">
+                Lives Empowered
+              </div>
+              <div className="mt-6 w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Image Card 1 - Middle Left */}
+            <div className="md:col-span-3 relative rounded-3xl overflow-hidden shadow-lg min-h-[400px] group">
+              <Image
+                src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg"
+                alt="RNADW Team"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <h4 className="text-2xl font-black text-white mb-2">Our Community</h4>
+                <p className="text-white/90 text-sm">Empowering deaf women across Rwanda</p>
+              </div>
+            </div>
+
+            {/* Stat Card 2 - Middle Center */}
+            <div className="md:col-span-1 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 shadow-lg flex flex-col justify-center items-center text-center min-h-[300px]">
+              <div className="text-7xl font-black text-white mb-4">
+                19+
+              </div>
+              <div className="text-white/90 font-bold text-sm uppercase tracking-wider">
+                Years of Impact
+              </div>
+            </div>
+
+            {/* Quote Card - Middle Right */}
+            <div className="md:col-span-2 bg-white rounded-3xl p-8 shadow-lg flex flex-col justify-center min-h-[300px]">
+              <div className="text-6xl mb-4" style={{ color: '#FACC15' }}>"</div>
+              <p className="text-xl font-bold text-gray-900 leading-snug mb-6">
+                Advocating for rights and social integration in the Rwandan community
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#2563EB' }} />
+                <span className="text-sm font-black uppercase tracking-wider text-gray-400">Our Mission</span>
+              </div>
+            </div>
+
+            {/* Wide Image Card - Bottom */}
+            <div className="md:col-span-4 relative rounded-3xl overflow-hidden shadow-lg min-h-[350px] group">
+              <Image
+                src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-jqeocdi-1741775054398-90931854.jpg"
+                alt="RNADW Activities"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent" />
+              <div className="absolute inset-0 flex flex-col justify-center px-12">
+                <h4 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
+                  Since 2005
+                </h4>
+                <p className="text-white/90 text-lg max-w-md">
+                  Leading advocacy for deaf women's rights and empowerment across Rwanda
+                </p>
+              </div>
+            </div>
+
+            {/* Icon Grid - Bottom Right */}
+            <div className="md:col-span-2 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 shadow-lg">
+              <h4 className="text-white font-black text-xl mb-6">We Focus On</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2"
+                    style={{ backgroundColor: '#FACC15' }}>
+                    <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-semibold">Education</span>
+                </div>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2"
+                    style={{ backgroundColor: '#2563EB' }}>
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-semibold">Advocacy</span>
+                </div>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2"
+                    style={{ backgroundColor: '#FACC15' }}>
+                    <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-semibold">Community</span>
+                </div>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2"
+                    style={{ backgroundColor: '#2563EB' }}>
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <span className="text-white text-xs font-semibold">Empowerment</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
@@ -604,121 +725,182 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PARTNERS SECTION - Network/Connection Visual */}
-      <section className="relative py-32 overflow-hidden" style={{ backgroundColor: '#2563EB' }}>
+      {/* PARTNERS SECTION - Infinite Scroll Marquee with Flip Cards */}
+      <section className="relative py-32 overflow-hidden bg-white">
 
-        {/* Animated connection lines background */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="network" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                <circle cx="50" cy="50" r="2" fill="#FACC15" />
-                <line x1="50" y1="50" x2="100" y2="50" stroke="#FACC15" strokeWidth="1" />
-                <line x1="50" y1="50" x2="50" y2="100" stroke="#FACC15" strokeWidth="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#network)" />
-          </svg>
+        {/* Diagonal stripe background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #FACC15,
+              #FACC15 10px,
+              transparent 10px,
+              transparent 20px,
+              #2563EB 20px,
+              #2563EB 30px,
+              transparent 30px,
+              transparent 40px
+            )`
+          }} />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          {/* Header - Stacked Layout */}
-          <div className="mb-20">
-            <div className="flex items-center gap-6 mb-8">
-              <div className="text-6xl">🤝</div>
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#FACC15' }} />
-                  <span className="text-sm font-black tracking-widest uppercase text-yellow-300">
-                    Trusted Partners
-                  </span>
-                </div>
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95]">
-                  Building Impact<br />
-                  <span style={{ color: '#FACC15' }}>Together</span>
-                </h2>
-              </div>
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+              <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">
+                Our Partners
+              </span>
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
             </div>
-            <p className="text-xl lg:text-2xl text-white/70 max-w-3xl font-light leading-relaxed">
+
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-gray-900 mb-6">
+              Building Impact<br />
+              <span className="relative inline-block">
+                <span className="relative z-10" style={{ color: '#FACC15' }}>Together</span>
+                <div className="absolute bottom-2 left-0 right-0 h-6 opacity-30 -z-10" style={{ backgroundColor: '#FACC15' }} />
+              </span>
+            </h2>
+
+            <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
               Collaborating with leading organizations to create lasting change across Rwanda and beyond
             </p>
           </div>
 
-          {/* Partners - Honeycomb/Hexagon Grid */}
-          <div className="relative">
+          {/* Masonry/Bento Grid Layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 mb-16">
 
-            {/* Partner items - Staggered layout */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+            {[
+              { name: 'US Embassy', area: 'Governance & Rights', color: '#FACC15', span: 'lg:col-span-2 lg:row-span-2' },
+              { name: 'RIB', area: 'Law Enforcement', color: '#2563EB', span: '' },
+              { name: 'UNHCR', area: 'Humanitarian Aid', color: '#FACC15', span: '' },
+              { name: 'UNFPA', area: 'Women\'s Health', color: '#2563EB', span: 'lg:col-span-2' },
+              { name: 'Ministry of Youth', area: 'Youth Programs', color: '#FACC15', span: '' },
+              { name: 'German Embassy', area: 'Development', color: '#2563EB', span: 'lg:row-span-2' },
+              { name: 'AWDF', area: 'Women\'s Fund', color: '#FACC15', span: '' },
+              { name: 'KVINNA', area: 'Equality', color: '#2563EB', span: '' },
+              { name: 'NUDOR', area: 'Disability Rights', color: '#FACC15', span: 'lg:col-span-2' },
+              { name: 'Sweden Embassy', area: 'International Aid', color: '#2563EB', span: '' },
+            ].map((partner, i) => (
+              <div
+                key={i}
+                className={`group relative ${partner.span} min-h-[180px]`}
+                style={{ perspective: '1000px' }}
+              >
+                {/* Flip card container */}
+                <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180"
+                  style={{ transformStyle: 'preserve-3d' }}>
 
-              {['US Embassy', 'RIB', 'UNHCR', 'UNFPA', 'Ministry of Youth', 'German Embassy', 'AWDF', 'KVINNA', 'NUDOR', 'Sweden Embassy'].map((partner, i) => (
-                <div key={i} className="group relative">
+                  {/* Front side */}
+                  <div className="absolute inset-0 rounded-2xl p-6 lg:p-8 flex flex-col justify-between border-3 transition-all"
+                    style={{
+                      borderColor: partner.color,
+                      backgroundColor: 'white',
+                      backfaceVisibility: 'hidden'
+                    }}>
 
-                  {/* Connection dot */}
-                  <div className="absolute -top-3 -left-3 w-3 h-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ backgroundColor: '#FACC15' }} />
-
-                  {/* Card */}
-                  <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border-2 border-white/20 hover:border-yellow-400/60 transition-all duration-500 hover:bg-white/20 hover:-translate-y-2 min-h-[140px] flex items-center justify-center">
-
-                    {/* Glow effect on hover */}
-                    <div className="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"
-                      style={{ backgroundColor: '#FACC15' }} />
-
-                    {/* Partner name */}
-                    <div className="relative z-10 text-center">
-                      {/* Number badge */}
-                      <div className="inline-flex items-center justify-center w-8 h-8 rounded-full text-xs font-black mb-3"
-                        style={{ backgroundColor: '#FACC15', color: '#1F2937' }}>
+                    {/* Number badge */}
+                    <div className="flex justify-between items-start">
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-lg"
+                        style={{ backgroundColor: partner.color }}>
                         {String(i + 1).padStart(2, '0')}
                       </div>
-                      <h3 className="text-white font-bold text-sm lg:text-base leading-tight">
-                        {partner}
-                      </h3>
+
+                      {/* Handshake icon */}
+                      <svg className="w-8 h-8 opacity-20" style={{ color: partner.color }} fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      </svg>
                     </div>
 
-                    {/* Corner accent */}
-                    <div className="absolute top-0 right-0 w-8 h-8 opacity-20"
-                      style={{
-                        background: 'linear-gradient(135deg, #FACC15 0%, transparent 100%)',
-                        borderRadius: '0 16px 0 0'
-                      }}
-                    />
+                    {/* Partner name */}
+                    <div>
+                      <h3 className="text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
+                        {partner.name}
+                      </h3>
+                      <div className="h-1 w-12 rounded-full mb-2" style={{ backgroundColor: partner.color }} />
+                      <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                        Partnership
+                      </p>
+                    </div>
                   </div>
+
+                  {/* Back side */}
+                  <div className="absolute inset-0 rounded-2xl p-6 lg:p-8 flex flex-col justify-center items-center text-center"
+                    style={{
+                      backgroundColor: partner.color,
+                      backfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)'
+                    }}>
+                    <p className="text-white font-bold text-lg mb-3">
+                      {partner.area}
+                    </p>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Collaborating since 2010 to empower deaf women through sustainable programs
+                    </p>
+
+                    {/* Checkmark icon */}
+                    <div className="mt-6 w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  </div>
+
                 </div>
-              ))}
+              </div>
+            ))}
 
+          </div>
+
+          {/* Animated Stats Bar */}
+          <div className="relative rounded-3xl p-12 overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #FACC15 0%, #2563EB 100%)'
+            }}>
+
+            {/* Decorative circles */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
+
+            <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-6xl lg:text-7xl font-black text-white mb-3">10+</div>
+                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Strategic Partners</div>
+              </div>
+              <div className="text-center">
+                <div className="text-6xl lg:text-7xl font-black text-white mb-3">15+</div>
+                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Years Together</div>
+              </div>
+              <div className="text-center">
+                <div className="text-6xl lg:text-7xl font-black text-white mb-3">3</div>
+                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Continents</div>
+              </div>
+              <div className="text-center">
+                <div className="text-6xl lg:text-7xl font-black text-white mb-3">∞</div>
+                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Impact</div>
+              </div>
             </div>
-
-            {/* Stats/Impact Numbers */}
-            <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t-2 border-white/10">
-              <div className="text-center">
-                <div className="text-5xl font-black mb-2" style={{ color: '#FACC15' }}>10+</div>
-                <div className="text-white/60 font-medium text-sm uppercase tracking-wider">Strategic Partners</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-black text-white mb-2">15+</div>
-                <div className="text-white/60 font-medium text-sm uppercase tracking-wider">Years Collaborating</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-black mb-2" style={{ color: '#FACC15' }}>3</div>
-                <div className="text-white/60 font-medium text-sm uppercase tracking-wider">Continents Reached</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-black text-white mb-2">∞</div>
-                <div className="text-white/60 font-medium text-sm uppercase tracking-wider">Impact Potential</div>
-              </div>
-            </div>
-
           </div>
 
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-10 blur-3xl"
+        {/* Floating decorative shapes */}
+        <div className="absolute top-20 right-10 w-32 h-32 rounded-full opacity-10 blur-3xl animate-pulse"
           style={{ backgroundColor: '#FACC15' }} />
-        <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full opacity-10 blur-3xl"
-          style={{ backgroundColor: '#FACC15' }} />
+        <div className="absolute bottom-20 left-10 w-32 h-32 rounded-full opacity-10 blur-3xl animate-pulse"
+          style={{ backgroundColor: '#2563EB', animationDelay: '1s' }} />
+
+        <style jsx>{`
+          .rotate-y-180 {
+            transform: rotateY(180deg);
+          }
+          .preserve-3d {
+            transform-style: preserve-3d;
+          }
+        `}</style>
 
       </section>
 
