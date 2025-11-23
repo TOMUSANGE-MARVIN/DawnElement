@@ -26,3 +26,194 @@ html {
   outline: 2px solid #FACC15;
   outline-offset: 2px;
 }
+
+/* 3D Flip Card Effects */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+[style*="backfaceVisibility"] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Scroll Animations - Granular Component Level */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered delays for sequential animations */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; }
+.delay-800 { transition-delay: 0.8s; }
+
+/* Micro-interactions */
+.button-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.button-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hover-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hover-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #FACC15, #2563EB, #FACC15);
+  background-size: 200% 200%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: glow-rotate 3s linear infinite;
+}
+
+.hover-glow:hover::after {
+  opacity: 0.7;
+  filter: blur(10px);
+}
+
+@keyframes glow-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.icon-bounce {
+  transition: transform 0.3s ease;
+}
+
+.icon-bounce:hover {
+  animation: bounce-icon 0.5s ease;
+}
+
+@keyframes bounce-icon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.card-tilt {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+}
+
+/* Spinning gradient animation for center hub */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .preserve-3d {
+    transform-style: flat; /* Disable 3D on mobile for performance */
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px); /* Reduced lift on mobile */
+  }
+
+  /* Increase touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Disable hover effects on touch devices */
+  @media (hover: none) {
+    .hover-lift:hover {
+      transform: none;
+    }
+
+    .card-tilt:hover {
+      transform: none;
+    }
+  }
+}

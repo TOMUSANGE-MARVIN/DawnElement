@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const quickLinks = [
   { name: 'About Us', href: '/aboutus' },
@@ -39,6 +42,32 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  // Footer animations
+  const footerBrand = useScrollAnimation(0.2);
+  const footerSince = useScrollAnimation(0.2);
+  const footerTitle = useScrollAnimation(0.2);
+  const footerTagline = useScrollAnimation(0.2);
+  const footerDescription = useScrollAnimation(0.2);
+  const footerRegistration = useScrollAnimation(0.2);
+  const footerSocialLabel = useScrollAnimation(0.2);
+  const footerSocialLinks = useScrollAnimation(0.2);
+
+  const footerQuickLinksTitle = useScrollAnimation(0.2);
+  const footerQuickLink1 = useScrollAnimation(0.2);
+  const footerQuickLink2 = useScrollAnimation(0.2);
+  const footerQuickLink3 = useScrollAnimation(0.2);
+  const footerQuickLink4 = useScrollAnimation(0.2);
+  const footerQuickLink5 = useScrollAnimation(0.2);
+
+  const footerContactTitle = useScrollAnimation(0.2);
+  const footerLocation = useScrollAnimation(0.2);
+  const footerPhone = useScrollAnimation(0.2);
+  const footerEmail = useScrollAnimation(0.2);
+  const footerHours = useScrollAnimation(0.2);
+
+  const footerCopyright = useScrollAnimation(0.2);
+  const footerLegal = useScrollAnimation(0.2);
+
   return (
     <footer className="relative overflow-hidden bg-gray-900">
 
@@ -65,16 +94,22 @@ export default function Footer() {
 
               {/* Large RNADW Typography */}
               <div className="mb-8">
-                <div className="flex items-center gap-4 mb-4">
+                <div
+                  ref={footerSince.ref}
+                  className={`flex items-center gap-4 mb-4 scroll-animate delay-100 ${footerSince.isVisible ? 'visible' : ''}`}>
                   <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
                   <span className="text-xs font-black tracking-[0.3em] uppercase text-gray-500">Since 2005</span>
                 </div>
 
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-6">
+                <h2
+                  ref={footerTitle.ref}
+                  className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-6 scroll-animate-left delay-200 ${footerTitle.isVisible ? 'visible' : ''}`}>
                   <span className="text-white">RNADW</span>
                 </h2>
 
-                <div className="flex items-center gap-3 mb-6">
+                <div
+                  ref={footerTagline.ref}
+                  className={`flex items-center gap-3 mb-6 scroll-animate delay-300 ${footerTagline.isVisible ? 'visible' : ''}`}>
                   <div className="h-1 w-16" style={{ backgroundColor: '#FACC15' }} />
                   <p className="text-sm font-bold tracking-wider uppercase" style={{ color: '#FACC15' }}>
                     Empowering Deaf Women
@@ -83,18 +118,26 @@ export default function Footer() {
               </div>
 
               {/* Description */}
-              <p className="text-gray-400 text-base leading-relaxed mb-6 max-w-md">
+              <p
+                ref={footerDescription.ref}
+                className={`text-gray-400 text-base leading-relaxed mb-6 max-w-md scroll-animate delay-400 ${footerDescription.isVisible ? 'visible' : ''}`}>
                 Rwanda National Association of Deaf Women — Empowering deaf women and girls through advocacy, education, and community building.
               </p>
 
-              <p className="text-gray-500 text-sm leading-relaxed max-w-md">
+              <p
+                ref={footerRegistration.ref}
+                className={`text-gray-500 text-sm leading-relaxed max-w-md scroll-animate delay-500 ${footerRegistration.isVisible ? 'visible' : ''}`}>
                 Organization of People with Disabilities (OPD) fully registered with Rwanda Governance Board (RGB).
               </p>
 
               {/* Social Links - Large Buttons */}
               <div className="mt-10">
-                <p className="text-xs font-black tracking-[0.2em] uppercase text-gray-500 mb-4">Follow Us</p>
-                <div className="flex gap-3">
+                <p
+                  ref={footerSocialLabel.ref}
+                  className={`text-xs font-black tracking-[0.2em] uppercase text-gray-500 mb-4 scroll-animate delay-600 ${footerSocialLabel.isVisible ? 'visible' : ''}`}>Follow Us</p>
+                <div
+                  ref={footerSocialLinks.ref}
+                  className={`flex gap-3 scroll-animate-scale delay-700 ${footerSocialLinks.isVisible ? 'visible' : ''}`}>
                   {socialLinks.map((social) => (
                     <a
                       key={social.name}
@@ -117,14 +160,19 @@ export default function Footer() {
 
               {/* Quick Links */}
               <div>
-                <div className="flex items-center gap-3 mb-6">
+                <div
+                  ref={footerQuickLinksTitle.ref}
+                  className={`flex items-center gap-3 mb-6 scroll-animate delay-100 ${footerQuickLinksTitle.isVisible ? 'visible' : ''}`}>
                   <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#2563EB' }} />
                   <h3 className="text-xs font-black tracking-[0.2em] uppercase text-gray-500">Quick Links</h3>
                 </div>
 
                 <ul className="space-y-3">
-                  {quickLinks.map((link) => (
-                    <li key={link.name}>
+                  {quickLinks.map((link, i) => (
+                    <li
+                      key={link.name}
+                      ref={[footerQuickLink1, footerQuickLink2, footerQuickLink3, footerQuickLink4, footerQuickLink5][i].ref}
+                      className={`scroll-animate-left delay-${(i + 2) * 100} ${[footerQuickLink1, footerQuickLink2, footerQuickLink3, footerQuickLink4, footerQuickLink5][i].isVisible ? 'visible' : ''}`}>
                       <Link
                         href={link.href}
                         className="group text-white hover:text-yellow-400 transition-colors text-lg font-bold flex items-center gap-2"
@@ -139,14 +187,18 @@ export default function Footer() {
 
               {/* Contact Information */}
               <div>
-                <div className="flex items-center gap-3 mb-6">
+                <div
+                  ref={footerContactTitle.ref}
+                  className={`flex items-center gap-3 mb-6 scroll-animate delay-100 ${footerContactTitle.isVisible ? 'visible' : ''}`}>
                   <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#FACC15' }} />
                   <h3 className="text-xs font-black tracking-[0.2em] uppercase text-gray-500">Get in Touch</h3>
                 </div>
 
                 <ul className="space-y-5">
                   {/* Location */}
-                  <li className="group">
+                  <li
+                    ref={footerLocation.ref}
+                    className={`group scroll-animate-right delay-200 ${footerLocation.isVisible ? 'visible' : ''}`}>
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/10 group-hover:border-blue-400 transition-colors">
                         <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -162,7 +214,9 @@ export default function Footer() {
                   </li>
 
                   {/* Phone */}
-                  <li className="group">
+                  <li
+                    ref={footerPhone.ref}
+                    className={`group scroll-animate-right delay-300 ${footerPhone.isVisible ? 'visible' : ''}`}>
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/10 group-hover:border-blue-400 transition-colors">
                         <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -182,7 +236,9 @@ export default function Footer() {
                   </li>
 
                   {/* Email */}
-                  <li className="group">
+                  <li
+                    ref={footerEmail.ref}
+                    className={`group scroll-animate-right delay-400 ${footerEmail.isVisible ? 'visible' : ''}`}>
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/10 group-hover:border-blue-400 transition-colors">
                         <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -199,7 +255,9 @@ export default function Footer() {
                   </li>
 
                   {/* Hours */}
-                  <li>
+                  <li
+                    ref={footerHours.ref}
+                    className={`scroll-animate-scale delay-500 ${footerHours.isVisible ? 'visible' : ''}`}>
                     <div className="bg-white/5 border border-white/10 rounded-lg p-4">
                       <p className="text-xs font-bold uppercase tracking-wider text-yellow-400 mb-2">Office Hours</p>
                       <p className="text-sm text-gray-300">Monday - Friday</p>
@@ -221,7 +279,9 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
 
               {/* Copyright */}
-              <div className="flex items-center gap-4">
+              <div
+                ref={footerCopyright.ref}
+                className={`flex items-center gap-4 scroll-animate delay-100 ${footerCopyright.isVisible ? 'visible' : ''}`}>
                 <p className="text-sm text-gray-500">
                   © {new Date().getFullYear()} RNADW. All rights reserved.
                 </p>
@@ -230,7 +290,9 @@ export default function Footer() {
               </div>
 
               {/* Legal Links */}
-              <div className="flex items-center gap-6 text-xs text-gray-500">
+              <div
+                ref={footerLegal.ref}
+                className={`flex items-center gap-6 text-xs text-gray-500 scroll-animate delay-300 ${footerLegal.isVisible ? 'visible' : ''}`}>
                 <Link href="/privacy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
                 <Link href="/terms" className="hover:text-yellow-400 transition-colors">Terms of Use</Link>
               </div>

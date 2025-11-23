@@ -1,9 +1,93 @@
 "use client";
 
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Home() {
+  // Mouse tracking state for center hub animation
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = React.useState(false);
+
+  // Individual component animations - granular control
+  // Hero section
+  const heroTitle1 = useScrollAnimation(0.1);
+  const heroTitle2 = useScrollAnimation(0.1);
+  const heroSubtitle = useScrollAnimation(0.1);
+  const heroButtons = useScrollAnimation(0.1);
+
+  // Vision & Mission
+  const visionCard = useScrollAnimation(0.2);
+  const missionCard = useScrollAnimation(0.2);
+
+  // Programs - Granular header animations
+  const programsVerticalText = useScrollAnimation(0.2);
+  const programsCircle = useScrollAnimation(0.2);
+  const programsYear = useScrollAnimation(0.2);
+  const programsNumberBadge = useScrollAnimation(0.2);
+  const programsNumberLine = useScrollAnimation(0.2);
+  const programsHeadingOur = useScrollAnimation(0.2);
+  const programsHeadingCore = useScrollAnimation(0.2);
+  const programsHeadingPrograms = useScrollAnimation(0.2);
+  const programsTagline = useScrollAnimation(0.2);
+  const programsStats = useScrollAnimation(0.2);
+  const programsCenterHub = useScrollAnimation(0.2);
+  const programCard1 = useScrollAnimation(0.1);
+  const programCard2 = useScrollAnimation(0.1);
+  const programCard3 = useScrollAnimation(0.1);
+  const programCard4 = useScrollAnimation(0.1);
+
+  // About section - Granular component animations
+  const aboutLabel = useScrollAnimation(0.2);
+  const aboutTitle = useScrollAnimation(0.2);
+  const aboutSubtitle = useScrollAnimation(0.2);
+  const aboutCard1 = useScrollAnimation(0.2);
+  const aboutCard2 = useScrollAnimation(0.2);
+  const aboutCard3 = useScrollAnimation(0.2);
+  const aboutCard4 = useScrollAnimation(0.2);
+  const aboutCard5 = useScrollAnimation(0.2);
+  const aboutCard6 = useScrollAnimation(0.2);
+  const aboutCard7 = useScrollAnimation(0.2);
+
+  // Partners - Granular animations
+  const partnersLabel = useScrollAnimation(0.2);
+  const partnersTitle = useScrollAnimation(0.2);
+  const partnersSubtitle = useScrollAnimation(0.2);
+  const partnersDescription = useScrollAnimation(0.2);
+  const partnerCard1 = useScrollAnimation(0.2);
+  const partnerCard2 = useScrollAnimation(0.2);
+  const partnerCard3 = useScrollAnimation(0.2);
+  const partnerCard4 = useScrollAnimation(0.2);
+  const partnerCard5 = useScrollAnimation(0.2);
+  const partnerCard6 = useScrollAnimation(0.2);
+  const partnerCard7 = useScrollAnimation(0.2);
+  const partnerCard8 = useScrollAnimation(0.2);
+  const partnerCard9 = useScrollAnimation(0.2);
+  const partnerCard10 = useScrollAnimation(0.2);
+
+  // Testimonials - Granular animations
+  const testimonialsLabel = useScrollAnimation(0.2);
+  const testimonialsTitle = useScrollAnimation(0.2);
+  const testimonialsSubtitle = useScrollAnimation(0.2);
+  const testimonialsDescription = useScrollAnimation(0.2);
+  const testimonial1 = useScrollAnimation(0.2);
+  const testimonial2 = useScrollAnimation(0.2);
+  const testimonial3 = useScrollAnimation(0.2);
+
+  // Newsletter - Granular animations
+  const newsletterIcon = useScrollAnimation(0.2);
+  const newsletterTitle = useScrollAnimation(0.2);
+  const newsletterDescription = useScrollAnimation(0.2);
+  const newsletterForm = useScrollAnimation(0.2);
+  const newsletterPrivacy = useScrollAnimation(0.2);
+
+  // CTA - Granular animations
+  const ctaLabel = useScrollAnimation(0.2);
+  const ctaTitle = useScrollAnimation(0.2);
+  const ctaCard1 = useScrollAnimation(0.2);
+  const ctaCard2 = useScrollAnimation(0.2);
+
   return (
     <>
       {/* HERO SECTION - Full-Width Video with CodePen Effects */}
@@ -44,31 +128,41 @@ export default function Home() {
 
           {/* Main Headline with mix-blend-mode difference effect - smaller */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 tracking-tight blend-text">
-            <span className="block">Empowering</span>
-            <span className="block mt-2 relative">
+            <span
+              ref={heroTitle1.ref}
+              className={`block scroll-animate-left delay-100 ${heroTitle1.isVisible ? 'visible' : ''}`}>
+              Empowering
+            </span>
+            <span
+              ref={heroTitle2.ref}
+              className={`block mt-2 relative scroll-animate-right delay-200 ${heroTitle2.isVisible ? 'visible' : ''}`}>
               Deaf Women
             </span>
           </h1>
 
           {/* Subheadline with blend mode - smaller */}
-          <p className="text-lg sm:text-xl lg:text-2xl font-light mb-8 blend-text">
+          <p
+            ref={heroSubtitle.ref}
+            className={`text-lg sm:text-xl lg:text-2xl font-light mb-8 blend-text scroll-animate delay-300 ${heroSubtitle.isVisible ? 'visible' : ''}`}>
             Building a Rwanda where deaf women thrive
           </p>
 
-          {/* CTA Section - smaller buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          {/* CTA Section - smaller buttons with micro-interactions */}
+          <div
+            ref={heroButtons.ref}
+            className={`flex flex-col sm:flex-row gap-4 scroll-animate-scale delay-400 ${heroButtons.isVisible ? 'visible' : ''}`}>
             <Link href="/aboutus" className="group relative cta-button">
               <div className="absolute inset-0 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition-opacity"
                 style={{ backgroundColor: '#FACC15' }}
               />
-              <button className="relative px-8 py-4 rounded-full font-bold text-base text-gray-900 transition-all transform group-hover:scale-110"
+              <button className="button-ripple hover-glow relative px-8 py-4 rounded-full font-bold text-base text-gray-900 transition-all transform group-hover:scale-110"
                 style={{ backgroundColor: '#FACC15' }}>
                 Our Story
               </button>
             </Link>
 
             <Link href="/donate" className="group cta-button">
-              <button className="px-8 py-4 rounded-full font-bold text-base text-white border-3 transition-all transform group-hover:scale-110 backdrop-blur-md group-hover:bg-white/20"
+              <button className="button-ripple hover-glow px-8 py-4 rounded-full font-bold text-base text-white border-3 transition-all transform group-hover:scale-110 backdrop-blur-md group-hover:bg-white/20"
                 style={{ borderColor: 'white', borderWidth: '3px', backgroundColor: 'rgba(255,255,255,0.1)' }}>
                 Donate Now
               </button>
@@ -167,15 +261,21 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-6">
+          <div className="mb-16">
+            <div
+              ref={aboutLabel.ref}
+              className={`flex items-center gap-3 mb-6 scroll-animate delay-100 ${aboutLabel.isVisible ? 'visible' : ''}`}>
               <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
               <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Who We Are</span>
               <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#2563EB' }} />
             </div>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] text-gray-900 mb-4">
+            <h2
+              ref={aboutTitle.ref}
+              className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] text-gray-900 mb-4 scroll-animate delay-200 ${aboutTitle.isVisible ? 'visible' : ''}`}>
               An Organization<br />
-              <span className="relative inline-block">
+              <span
+                ref={aboutSubtitle.ref}
+                className={`relative inline-block scroll-animate-scale delay-300 ${aboutSubtitle.isVisible ? 'visible' : ''}`}>
                 <span className="relative z-10" style={{ color: '#2563EB' }}>of People with Disabilities</span>
                 <div className="absolute bottom-2 left-0 right-0 h-6 opacity-20 -z-10" style={{ backgroundColor: '#2563EB' }} />
               </span>
@@ -186,7 +286,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-6 gap-6 lg:gap-8">
 
             {/* Large Text Block - Top Left */}
-            <div className="md:col-span-4 bg-white rounded-3xl p-8 lg:p-12 shadow-lg">
+            <div
+              ref={aboutCard1.ref}
+              className={`md:col-span-4 bg-white rounded-3xl p-8 lg:p-12 shadow-lg scroll-animate-left delay-100 ${aboutCard1.isVisible ? 'visible' : ''}`}>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="text-6xl">🏛️</div>
@@ -218,7 +320,9 @@ export default function Home() {
             </div>
 
             {/* Stat Card 1 - Top Right */}
-            <div className="md:col-span-2 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-3xl p-8 shadow-lg flex flex-col justify-center items-center text-center min-h-[300px]">
+            <div
+              ref={aboutCard2.ref}
+              className={`md:col-span-2 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-3xl p-8 shadow-lg flex flex-col justify-center items-center text-center min-h-[300px] scroll-animate-right delay-200 ${aboutCard2.isVisible ? 'visible' : ''}`}>
               <div className="text-7xl lg:text-8xl font-black text-white mb-4">
                 500+
               </div>
@@ -233,7 +337,9 @@ export default function Home() {
             </div>
 
             {/* Image Card 1 - Middle Left */}
-            <div className="md:col-span-3 relative rounded-3xl overflow-hidden shadow-lg min-h-[400px] group">
+            <div
+              ref={aboutCard3.ref}
+              className={`md:col-span-3 relative rounded-3xl overflow-hidden shadow-lg min-h-[400px] group scroll-animate-left delay-300 ${aboutCard3.isVisible ? 'visible' : ''}`}>
               <Image
                 src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg"
                 alt="RNADW Team"
@@ -248,7 +354,9 @@ export default function Home() {
             </div>
 
             {/* Stat Card 2 - Middle Center */}
-            <div className="md:col-span-1 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 shadow-lg flex flex-col justify-center items-center text-center min-h-[300px]">
+            <div
+              ref={aboutCard4.ref}
+              className={`md:col-span-1 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 shadow-lg flex flex-col justify-center items-center text-center min-h-[300px] scroll-animate-scale delay-400 ${aboutCard4.isVisible ? 'visible' : ''}`}>
               <div className="text-7xl font-black text-white mb-4">
                 19+
               </div>
@@ -258,7 +366,9 @@ export default function Home() {
             </div>
 
             {/* Quote Card - Middle Right */}
-            <div className="md:col-span-2 bg-white rounded-3xl p-8 shadow-lg flex flex-col justify-center min-h-[300px]">
+            <div
+              ref={aboutCard5.ref}
+              className={`md:col-span-2 bg-white rounded-3xl p-8 shadow-lg flex flex-col justify-center min-h-[300px] scroll-animate-right delay-500 ${aboutCard5.isVisible ? 'visible' : ''}`}>
               <div className="text-6xl mb-4" style={{ color: '#FACC15' }}>"</div>
               <p className="text-xl font-bold text-gray-900 leading-snug mb-6">
                 Advocating for rights and social integration in the Rwandan community
@@ -270,9 +380,11 @@ export default function Home() {
             </div>
 
             {/* Wide Image Card - Bottom */}
-            <div className="md:col-span-4 relative rounded-3xl overflow-hidden shadow-lg min-h-[350px] group">
+            <div
+              ref={aboutCard6.ref}
+              className={`md:col-span-4 relative rounded-3xl overflow-hidden shadow-lg min-h-[350px] group scroll-animate delay-600 ${aboutCard6.isVisible ? 'visible' : ''}`}>
               <Image
-                src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-jqeocdi-1741775054398-90931854.jpg"
+                src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg"
                 alt="RNADW Activities"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -289,7 +401,9 @@ export default function Home() {
             </div>
 
             {/* Icon Grid - Bottom Right */}
-            <div className="md:col-span-2 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 shadow-lg">
+            <div
+              ref={aboutCard7.ref}
+              className={`md:col-span-2 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 shadow-lg scroll-animate-right delay-700 ${aboutCard7.isVisible ? 'visible' : ''}`}>
               <h4 className="text-white font-black text-xl mb-6">We Focus On</h4>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col items-center text-center">
@@ -369,7 +483,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
             {/* VISION - Left side (Yellow theme) */}
-            <div className="relative p-12 lg:p-16 flex flex-col justify-center min-h-[600px]">
+            <div
+              ref={visionCard.ref}
+              className={`relative p-12 lg:p-16 flex flex-col justify-center min-h-[600px] scroll-animate-left delay-200 ${visionCard.isVisible ? 'visible' : ''}`}>
 
               {/* Large decorative number */}
               <div className="absolute top-8 left-8 text-[15rem] font-black leading-none opacity-10 select-none"
@@ -409,7 +525,9 @@ export default function Home() {
             </div>
 
             {/* MISSION - Right side (Blue theme) */}
-            <div className="relative p-12 lg:p-16 flex flex-col justify-center min-h-[600px] bg-gradient-to-br from-blue-600 to-blue-800">
+            <div
+              ref={missionCard.ref}
+              className={`relative p-12 lg:p-16 flex flex-col justify-center min-h-[600px] bg-gradient-to-br from-blue-600 to-blue-800 scroll-animate-right delay-400 ${missionCard.isVisible ? 'visible' : ''}`}>
 
               {/* Large decorative number */}
               <div className="absolute top-8 right-8 text-[15rem] font-black leading-none opacity-10 select-none text-white">
@@ -469,22 +587,33 @@ export default function Home() {
             <div className="lg:col-span-2 flex items-center justify-center lg:justify-start py-12 lg:py-0">
               <div className="flex lg:flex-col items-center gap-8 lg:gap-12">
                 {/* Rotating "What We Do" on desktop, horizontal on mobile */}
-                <div className="hidden lg:block" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                <div
+                  ref={programsVerticalText.ref}
+                  className={`hidden lg:block scroll-animate-left delay-100 ${programsVerticalText.isVisible ? 'visible' : ''}`}
+                  style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
                   <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">
                     What We Do
                   </span>
                 </div>
-                <div className="lg:hidden">
+                <div
+                  ref={programsVerticalText.ref}
+                  className={`lg:hidden scroll-animate delay-100 ${programsVerticalText.isVisible ? 'visible' : ''}`}>
                   <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">
                     What We Do
                   </span>
                 </div>
 
                 {/* Large decorative circle */}
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+                <div
+                  ref={programsCircle.ref}
+                  className={`w-3 h-3 rounded-full scroll-animate-scale delay-200 ${programsCircle.isVisible ? 'visible' : ''}`}
+                  style={{ backgroundColor: '#FACC15' }} />
 
                 {/* Year founded */}
-                <div className="hidden lg:block text-gray-300 font-black text-2xl" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                <div
+                  ref={programsYear.ref}
+                  className={`hidden lg:block text-gray-300 font-black text-2xl scroll-animate-left delay-300 ${programsYear.isVisible ? 'visible' : ''}`}
+                  style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
                   2005
                 </div>
               </div>
@@ -495,20 +624,35 @@ export default function Home() {
 
               {/* Number badge */}
               <div className="inline-flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center text-black font-black text-xl"
+                <div
+                  ref={programsNumberBadge.ref}
+                  className={`w-12 h-12 rounded-full flex items-center justify-center text-black font-black text-xl scroll-animate-scale delay-100 ${programsNumberBadge.isVisible ? 'visible' : ''}`}
                   style={{ backgroundColor: '#FACC15' }}>
                   04
                 </div>
-                <div className="h-px flex-1 max-w-[100px]" style={{ backgroundColor: '#FACC15' }} />
+                <div
+                  ref={programsNumberLine.ref}
+                  className={`h-px flex-1 max-w-[100px] scroll-animate-right delay-200 ${programsNumberLine.isVisible ? 'visible' : ''}`}
+                  style={{ backgroundColor: '#FACC15' }} />
               </div>
 
               {/* Main heading with mixed styles */}
               <div className="mb-12">
                 <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.85] mb-4">
-                  <span className="text-gray-300">Our</span>{' '}
-                  <span className="text-gray-900">Core</span>
+                  <span
+                    ref={programsHeadingOur.ref}
+                    className={`text-gray-300 scroll-animate-left delay-300 inline-block ${programsHeadingOur.isVisible ? 'visible' : ''}`}>
+                    Our
+                  </span>{' '}
+                  <span
+                    ref={programsHeadingCore.ref}
+                    className={`text-gray-900 scroll-animate delay-400 inline-block ${programsHeadingCore.isVisible ? 'visible' : ''}`}>
+                    Core
+                  </span>
                   <br />
-                  <span className="relative inline-block">
+                  <span
+                    ref={programsHeadingPrograms.ref}
+                    className={`relative inline-block scroll-animate-right delay-500 ${programsHeadingPrograms.isVisible ? 'visible' : ''}`}>
                     <span className="relative z-10" style={{ color: '#FACC15' }}>Programs</span>
                     {/* Underline decoration */}
                     <div className="absolute bottom-2 left-0 right-0 h-4 bg-yellow-50 -z-10" />
@@ -516,13 +660,17 @@ export default function Home() {
                 </h2>
 
                 {/* Tagline */}
-                <p className="text-xl lg:text-2xl text-gray-600 font-light max-w-2xl mt-8 leading-relaxed">
+                <p
+                  ref={programsTagline.ref}
+                  className={`text-xl lg:text-2xl text-gray-600 font-light max-w-2xl mt-8 leading-relaxed scroll-animate delay-600 ${programsTagline.isVisible ? 'visible' : ''}`}>
                   Four pillars of empowerment transforming lives across Rwanda
                 </p>
               </div>
 
               {/* Decorative stats line */}
-              <div className="flex items-center gap-8 text-gray-400 text-sm font-bold tracking-wider">
+              <div
+                ref={programsStats.ref}
+                className={`flex items-center gap-8 text-gray-400 text-sm font-bold tracking-wider scroll-animate delay-700 ${programsStats.isVisible ? 'visible' : ''}`}>
                 <span>EST. 2005</span>
                 <div className="w-px h-4 bg-gray-200" />
                 <span>4 PROGRAMS</span>
@@ -541,15 +689,49 @@ export default function Home() {
           {/* Central Hub */}
           <div className="relative flex items-center justify-center min-h-[800px] lg:min-h-[1000px]">
 
-            {/* Center Circle - Decorative */}
+            {/* Center Circle - Interactive Gradient */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full flex items-center justify-center"
+              <div
+                ref={programsCenterHub.ref}
+                className={`w-48 h-48 lg:w-64 lg:h-64 rounded-full flex items-center justify-center scroll-animate-scale delay-100 ${programsCenterHub.isVisible ? 'visible' : ''} relative overflow-hidden cursor-pointer group`}
                 style={{
-                  background: 'linear-gradient(135deg, #FACC15 0%, #2563EB 100%)',
-                  boxShadow: '0 30px 80px rgba(0,0,0,0.15)'
-                }}>
-                <div className="w-44 h-44 lg:w-60 lg:h-60 rounded-full bg-white flex flex-col items-center justify-center">
-                  <div className="text-6xl lg:text-7xl font-black" style={{ color: '#FACC15' }}>04</div>
+                  boxShadow: isHovering
+                    ? '0 40px 100px rgba(250, 204, 21, 0.3), 0 0 80px rgba(37, 99, 235, 0.2)'
+                    : '0 30px 80px rgba(0,0,0,0.15)'
+                }}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = ((e.clientX - rect.left) / rect.width) * 100;
+                  const y = ((e.clientY - rect.top) / rect.height) * 100;
+                  setMousePosition({ x, y });
+                }}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                {/* Animated gradient background */}
+                <div
+                  className="absolute inset-0 rounded-full transition-all duration-500"
+                  style={{
+                    background: `conic-gradient(from ${isHovering ? mousePosition.x * 3.6 : 0}deg at ${mousePosition.x}% ${mousePosition.y}%,
+                      #FACC15 0deg,
+                      #2563EB 90deg,
+                      #FACC15 180deg,
+                      #2563EB 270deg,
+                      #FACC15 360deg)`,
+                    animation: isHovering ? 'none' : 'spin 8s linear infinite'
+                  }}
+                />
+
+                {/* White inner circle */}
+                <div className="relative w-44 h-44 lg:w-60 lg:h-60 rounded-full bg-white flex flex-col items-center justify-center z-10 transition-transform duration-300 group-hover:scale-105">
+                  <div
+                    className="text-6xl lg:text-7xl font-black transition-all duration-300"
+                    style={{
+                      color: isHovering ? '#2563EB' : '#FACC15',
+                      transform: isHovering ? 'scale(1.1)' : 'scale(1)'
+                    }}>
+                    04
+                  </div>
                   <div className="text-sm font-bold text-gray-400 tracking-wider mt-2">PROGRAMS</div>
                 </div>
               </div>
@@ -558,13 +740,15 @@ export default function Home() {
             {/* Program 1 - Economic Empowerment (Top) */}
             <Link href="/activities/21"
               className="group absolute top-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80">
-              <div className="relative">
+              <div
+                ref={programCard1.ref}
+                className={`relative scroll-animate delay-200 ${programCard1.isVisible ? 'visible' : ''}`}>
                 {/* Connection line */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-32 lg:h-48"
                   style={{ background: 'linear-gradient(to bottom, #FACC15, transparent)' }} />
 
-                {/* Card */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
+                {/* Card with micro-interactions */}
+                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
                   <div className="aspect-[4/3] relative">
                     <Image
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-4_820x620-1755000886621-95849572.jpg"
@@ -602,12 +786,14 @@ export default function Home() {
             {/* Program 2 - Reproductive Health (Right) */}
             <Link href="/activities/20"
               className="group absolute top-1/2 right-0 transform -translate-y-1/2 w-72 lg:w-80">
-              <div className="relative">
+              <div
+                ref={programCard2.ref}
+                className={`relative scroll-animate-right delay-400 ${programCard2.isVisible ? 'visible' : ''}`}>
                 {/* Connection line */}
                 <div className="absolute top-1/2 right-full transform -translate-y-1/2 h-0.5 w-32 lg:w-48"
                   style={{ background: 'linear-gradient(to left, #2563EB, transparent)' }} />
 
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-x-2">
+                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-x-2">
                   <div className="aspect-[4/3] relative">
                     <Image
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-3_820x620-1755000263234-690758480.jpg"
@@ -643,12 +829,14 @@ export default function Home() {
             {/* Program 3 - Ending Violence (Bottom) */}
             <Link href="/activities/19"
               className="group absolute bottom-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80">
-              <div className="relative">
+              <div
+                ref={programCard3.ref}
+                className={`relative scroll-animate delay-600 ${programCard3.isVisible ? 'visible' : ''}`}>
                 {/* Connection line */}
                 <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0.5 h-32 lg:h-48"
                   style={{ background: 'linear-gradient(to top, #FACC15, transparent)' }} />
 
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-y-2">
+                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-y-2">
                   <div className="aspect-[4/3] relative">
                     <Image
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-2_820x620-1754999964914-58402428.jpg"
@@ -682,12 +870,14 @@ export default function Home() {
             {/* Program 4 - Education (Left) */}
             <Link href="/activities/18"
               className="group absolute top-1/2 left-0 transform -translate-y-1/2 w-72 lg:w-80">
-              <div className="relative">
+              <div
+                ref={programCard4.ref}
+                className={`relative scroll-animate-left delay-800 ${programCard4.isVisible ? 'visible' : ''}`}>
                 {/* Connection line */}
                 <div className="absolute top-1/2 left-full transform -translate-y-1/2 h-0.5 w-32 lg:w-48"
                   style={{ background: 'linear-gradient(to right, #2563EB, transparent)' }} />
 
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-x-2">
+                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-x-2">
                   <div className="aspect-[4/3] relative">
                     <Image
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-main_2-1754996414270-440707368.jpg"
@@ -747,9 +937,11 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          {/* Header */}
-          <div className="text-center mb-20">
-            <div className="flex items-center justify-center gap-4 mb-6">
+          {/* Header - Left Aligned */}
+          <div className="mb-20">
+            <div
+              ref={partnersLabel.ref}
+              className={`flex items-center gap-4 mb-6 scroll-animate delay-100 ${partnersLabel.isVisible ? 'visible' : ''}`}>
               <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
               <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">
                 Our Partners
@@ -757,15 +949,21 @@ export default function Home() {
               <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
             </div>
 
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-gray-900 mb-6">
+            <h2
+              ref={partnersTitle.ref}
+              className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-gray-900 mb-6 scroll-animate delay-200 ${partnersTitle.isVisible ? 'visible' : ''}`}>
               Building Impact<br />
-              <span className="relative inline-block">
+              <span
+                ref={partnersSubtitle.ref}
+                className={`relative inline-block scroll-animate-scale delay-300 ${partnersSubtitle.isVisible ? 'visible' : ''}`}>
                 <span className="relative z-10" style={{ color: '#FACC15' }}>Together</span>
                 <div className="absolute bottom-2 left-0 right-0 h-6 opacity-30 -z-10" style={{ backgroundColor: '#FACC15' }} />
               </span>
             </h2>
 
-            <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <p
+              ref={partnersDescription.ref}
+              className={`text-xl lg:text-2xl text-gray-600 font-light leading-relaxed scroll-animate delay-400 ${partnersDescription.isVisible ? 'visible' : ''}`}>
               Collaborating with leading organizations to create lasting change across Rwanda and beyond
             </p>
           </div>
@@ -774,20 +972,21 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 mb-16">
 
             {[
-              { name: 'US Embassy', area: 'Governance & Rights', color: '#FACC15', span: 'lg:col-span-2 lg:row-span-2' },
-              { name: 'RIB', area: 'Law Enforcement', color: '#2563EB', span: '' },
-              { name: 'UNHCR', area: 'Humanitarian Aid', color: '#FACC15', span: '' },
-              { name: 'UNFPA', area: 'Women\'s Health', color: '#2563EB', span: 'lg:col-span-2' },
-              { name: 'Ministry of Youth', area: 'Youth Programs', color: '#FACC15', span: '' },
-              { name: 'German Embassy', area: 'Development', color: '#2563EB', span: 'lg:row-span-2' },
-              { name: 'AWDF', area: 'Women\'s Fund', color: '#FACC15', span: '' },
-              { name: 'KVINNA', area: 'Equality', color: '#2563EB', span: '' },
-              { name: 'NUDOR', area: 'Disability Rights', color: '#FACC15', span: 'lg:col-span-2' },
-              { name: 'Sweden Embassy', area: 'International Aid', color: '#2563EB', span: '' },
+              { name: 'US Embassy', area: 'Governance & Rights', color: '#FACC15', span: 'lg:col-span-2 lg:row-span-2', ref: partnerCard1, delay: 'delay-100' },
+              { name: 'RIB', area: 'Law Enforcement', color: '#2563EB', span: '', ref: partnerCard2, delay: 'delay-200' },
+              { name: 'UNHCR', area: 'Humanitarian Aid', color: '#FACC15', span: '', ref: partnerCard3, delay: 'delay-300' },
+              { name: 'UNFPA', area: 'Women\'s Health', color: '#2563EB', span: 'lg:col-span-2', ref: partnerCard4, delay: 'delay-400' },
+              { name: 'Ministry of Youth', area: 'Youth Programs', color: '#FACC15', span: '', ref: partnerCard5, delay: 'delay-500' },
+              { name: 'German Embassy', area: 'Development', color: '#2563EB', span: '', ref: partnerCard6, delay: 'delay-600' },
+              { name: 'AWDF', area: 'Women\'s Fund', color: '#FACC15', span: '', ref: partnerCard7, delay: 'delay-100' },
+              { name: 'KVINNA', area: 'Equality', color: '#2563EB', span: '', ref: partnerCard8, delay: 'delay-200' },
+              { name: 'NUDOR', area: 'Disability Rights', color: '#FACC15', span: 'lg:col-span-2', ref: partnerCard9, delay: 'delay-300' },
+              { name: 'Sweden Embassy', area: 'International Aid', color: '#2563EB', span: '', ref: partnerCard10, delay: 'delay-400' },
             ].map((partner, i) => (
               <div
                 key={i}
-                className={`group relative ${partner.span} min-h-[180px]`}
+                ref={partner.ref.ref}
+                className={`group relative ${partner.span} min-h-[180px] scroll-animate ${partner.delay} ${partner.ref.isVisible ? 'visible' : ''}`}
                 style={{ perspective: '1000px' }}
               >
                 {/* Flip card container */}
@@ -855,36 +1054,6 @@ export default function Home() {
 
           </div>
 
-          {/* Animated Stats Bar */}
-          <div className="relative rounded-3xl p-12 overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, #FACC15 0%, #2563EB 100%)'
-            }}>
-
-            {/* Decorative circles */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-white/10 blur-2xl" />
-
-            <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-6xl lg:text-7xl font-black text-white mb-3">10+</div>
-                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Strategic Partners</div>
-              </div>
-              <div className="text-center">
-                <div className="text-6xl lg:text-7xl font-black text-white mb-3">15+</div>
-                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Years Together</div>
-              </div>
-              <div className="text-center">
-                <div className="text-6xl lg:text-7xl font-black text-white mb-3">3</div>
-                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Continents</div>
-              </div>
-              <div className="text-center">
-                <div className="text-6xl lg:text-7xl font-black text-white mb-3">∞</div>
-                <div className="text-white/90 font-bold text-sm uppercase tracking-wider">Impact</div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         {/* Floating decorative shapes */}
@@ -893,15 +1062,193 @@ export default function Home() {
         <div className="absolute bottom-20 left-10 w-32 h-32 rounded-full opacity-10 blur-3xl animate-pulse"
           style={{ backgroundColor: '#2563EB', animationDelay: '1s' }} />
 
-        <style jsx>{`
-          .rotate-y-180 {
-            transform: rotateY(180deg);
-          }
-          .preserve-3d {
-            transform-style: preserve-3d;
-          }
-        `}</style>
+      </section>
 
+      {/* TESTIMONIALS SECTION - Carousel with Impact Stories */}
+      <section className="relative py-32 overflow-hidden" style={{ backgroundColor: '#1F2937' }}>
+
+        {/* Decorative gradient blobs */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #FACC15 0%, transparent 70%)' }} />
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-20"
+          style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }} />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+          {/* Section Header - Left Aligned */}
+          <div className="mb-20">
+            <div
+              ref={testimonialsLabel.ref}
+              className={`flex items-center gap-4 mb-6 scroll-animate delay-100 ${testimonialsLabel.isVisible ? 'visible' : ''}`}>
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+              <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Impact Stories</span>
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
+            </div>
+
+            <h2
+              ref={testimonialsTitle.ref}
+              className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] text-white mb-6 scroll-animate delay-200 ${testimonialsTitle.isVisible ? 'visible' : ''}`}>
+              Voices of<br />
+              <span
+                ref={testimonialsSubtitle.ref}
+                className={`relative inline-block scroll-animate-scale delay-300 ${testimonialsSubtitle.isVisible ? 'visible' : ''}`}>
+                <span className="relative z-10" style={{ color: '#FACC15' }}>Empowerment</span>
+                <div className="absolute bottom-2 left-0 right-0 h-6 opacity-30 -z-10" style={{ backgroundColor: '#FACC15' }} />
+              </span>
+            </h2>
+
+            <p
+              ref={testimonialsDescription.ref}
+              className={`text-xl text-gray-400 scroll-animate delay-400 ${testimonialsDescription.isVisible ? 'visible' : ''}`}>
+              Real stories from the women and girls whose lives have been transformed
+            </p>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            {[
+              {
+                quote: "RNADW gave me the confidence to pursue my dreams. Today, I'm a business owner employing 5 people.",
+                name: "Marie K.",
+                role: "Entrepreneur",
+                image: "https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg",
+                ref: testimonial1,
+                delay: 'delay-100'
+              },
+              {
+                quote: "The skills training program changed my life. I can now support my family and inspire my daughters.",
+                name: "Grace M.",
+                role: "Program Graduate",
+                image: "https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-main_2-1754996414270-440707368.jpg",
+                ref: testimonial2,
+                delay: 'delay-300'
+              },
+              {
+                quote: "Being part of this community showed me I'm not alone. Together we're creating real change.",
+                name: "Sarah N.",
+                role: "Community Leader",
+                image: "https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg",
+                ref: testimonial3,
+                delay: 'delay-500'
+              }
+            ].map((testimonial, i) => (
+              <div
+                key={i}
+                ref={testimonial.ref.ref}
+                className={`group relative scroll-animate ${testimonial.delay} ${testimonial.ref.isVisible ? 'visible' : ''}`}>
+                {/* Card */}
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-white/10 hover:border-yellow-400/40 transition-all duration-500 hover:-translate-y-2 min-h-[400px] flex flex-col">
+
+                  {/* Quote mark */}
+                  <div className="text-7xl font-black mb-6 leading-none" style={{ color: '#FACC15' }}>"</div>
+
+                  {/* Quote text */}
+                  <p className="text-white/90 text-lg leading-relaxed mb-8 flex-1">
+                    {testimonial.quote}
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-4 pt-6 border-t-2 border-white/10">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <div className="text-white font-black text-lg">{testimonial.name}</div>
+                      <div className="text-gray-400 text-sm">{testimonial.role}</div>
+                    </div>
+                  </div>
+
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-20 h-20 opacity-20"
+                    style={{
+                      background: 'linear-gradient(135deg, #FACC15 0%, transparent 100%)',
+                      borderRadius: '0 24px 0 0'
+                    }} />
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* NEWSLETTER SECTION - Inline Subscribe Form */}
+      <section className="relative py-24 overflow-hidden bg-white">
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="relative rounded-3xl p-12 lg:p-16 overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #2563EB 0%, #1E40AF 100%)'
+            }}>
+
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-20"
+              style={{ backgroundColor: '#FACC15' }} />
+            <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full blur-3xl opacity-20"
+              style={{ backgroundColor: '#FACC15' }} />
+
+            {/* Content - Left Aligned */}
+            <div className="relative z-10">
+
+              {/* Icon */}
+              <div
+                ref={newsletterIcon.ref}
+                className={`flex items-center justify-center w-20 h-20 rounded-2xl mb-6 scroll-animate-scale delay-100 ${newsletterIcon.isVisible ? 'visible' : ''}`}
+                style={{ backgroundColor: '#FACC15' }}>
+                <svg className="w-10 h-10 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+
+              <h2
+                ref={newsletterTitle.ref}
+                className={`text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight scroll-animate delay-200 ${newsletterTitle.isVisible ? 'visible' : ''}`}>
+                Stay Connected
+              </h2>
+
+              <p
+                ref={newsletterDescription.ref}
+                className={`text-xl text-white/80 mb-10 scroll-animate delay-300 ${newsletterDescription.isVisible ? 'visible' : ''}`}>
+                Get updates on our programs, success stories, and upcoming events delivered to your inbox
+              </p>
+
+              {/* Newsletter Form */}
+              <div
+                ref={newsletterForm.ref}
+                className={`flex flex-col sm:flex-row gap-4 max-w-xl scroll-animate-scale delay-400 ${newsletterForm.isVisible ? 'visible' : ''}`}>
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="flex-1 px-6 py-4 rounded-2xl text-gray-900 font-medium placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/50 transition-all"
+                />
+                <button className="px-8 py-4 rounded-2xl font-black text-gray-900 transition-all hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3"
+                  style={{ backgroundColor: '#FACC15' }}>
+                  Subscribe
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
+
+              <p
+                ref={newsletterPrivacy.ref}
+                className={`text-white/60 text-sm mt-6 scroll-animate delay-500 ${newsletterPrivacy.isVisible ? 'visible' : ''}`}>
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
       </section>
 
       {/* CTA SECTION - Overlapping Tilted Cards with Gradient Mesh Background */}
@@ -923,14 +1270,18 @@ export default function Home() {
         {/* Main Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
 
-          {/* Section Label - Top Center */}
-          <div className="text-center mb-16 lg:mb-20">
-            <div className="inline-flex items-center gap-4 mb-6">
+          {/* Section Label - Left Aligned */}
+          <div className="mb-16 lg:mb-20">
+            <div
+              ref={ctaLabel.ref}
+              className={`flex items-center gap-4 mb-6 scroll-animate delay-100 ${ctaLabel.isVisible ? 'visible' : ''}`}>
               <div className="w-12 h-1 rounded-full" style={{ backgroundColor: '#FACC15' }} />
               <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Take Action</span>
               <div className="w-12 h-1 rounded-full" style={{ backgroundColor: '#2563EB' }} />
             </div>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-gray-900">
+            <h2
+              ref={ctaTitle.ref}
+              className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-gray-900 scroll-animate delay-200 ${ctaTitle.isVisible ? 'visible' : ''}`}>
               Join the<br />
               <span className="relative inline-block">
                 <span className="relative z-10" style={{ color: '#FACC15' }}>Movement</span>
@@ -943,7 +1294,9 @@ export default function Home() {
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center justify-center min-h-[600px]">
 
             {/* CARD 1 - Donate CTA (Yellow, tilted left on desktop) */}
-            <div className="group relative">
+            <div
+              ref={ctaCard1.ref}
+              className={`group relative scroll-animate-left delay-300 ${ctaCard1.isVisible ? 'visible' : ''}`}>
               <div className="relative transform lg:hover:scale-105 lg:hover:-rotate-2 transition-all duration-500 lg:-rotate-3"
                 style={{ transformOrigin: 'center' }}>
 
@@ -961,8 +1314,8 @@ export default function Home() {
                     01
                   </div>
 
-                  {/* Icon */}
-                  <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8"
+                  {/* Icon with bounce interaction */}
+                  <div className="icon-bounce w-20 h-20 rounded-2xl flex items-center justify-center mb-8"
                     style={{ backgroundColor: '#FACC15' }}>
                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -1007,7 +1360,9 @@ export default function Home() {
             </div>
 
             {/* CARD 2 - Contact CTA (Blue, tilted right on desktop) */}
-            <div className="group relative">
+            <div
+              ref={ctaCard2.ref}
+              className={`group relative scroll-animate-right delay-500 ${ctaCard2.isVisible ? 'visible' : ''}`}>
               <div className="relative transform lg:hover:scale-105 lg:hover:rotate-2 transition-all duration-500 lg:rotate-3"
                 style={{ transformOrigin: 'center' }}>
 
@@ -1025,8 +1380,8 @@ export default function Home() {
                     02
                   </div>
 
-                  {/* Icon */}
-                  <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8"
+                  {/* Icon with bounce interaction */}
+                  <div className="icon-bounce w-20 h-20 rounded-2xl flex items-center justify-center mb-8"
                     style={{ backgroundColor: '#2563EB' }}>
                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

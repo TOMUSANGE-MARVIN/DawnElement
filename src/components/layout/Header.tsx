@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -18,6 +19,11 @@ const navigation = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Header animations
+  const headerLogo = useScrollAnimation(0.1);
+  const headerNav = useScrollAnimation(0.1);
+  const headerCTA = useScrollAnimation(0.1);
 
   // Handle scroll effect
   useEffect(() => {
@@ -40,7 +46,9 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
 
           {/* Logo Section */}
-          <div className="flex items-center">
+          <div
+            ref={headerLogo.ref}
+            className={`flex items-center scroll-animate-left delay-100 ${headerLogo.isVisible ? 'visible' : ''}`}>
             <Link href="/" className="flex items-center gap-3 group">
               {/* Logo Image */}
               <div className="relative w-14 h-14 transition-transform group-hover:scale-105">
@@ -65,7 +73,9 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:gap-1">
+          <div
+            ref={headerNav.ref}
+            className={`hidden lg:flex lg:items-center lg:gap-1 scroll-animate delay-200 ${headerNav.isVisible ? 'visible' : ''}`}>
             {navigation.map((item, index) => (
               <Link
                 key={item.name}
@@ -89,7 +99,9 @@ export default function Header() {
           </div>
 
           {/* Desktop CTA Button */}
-          <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <div
+            ref={headerCTA.ref}
+            className={`hidden lg:flex lg:items-center lg:gap-3 scroll-animate-right delay-300 ${headerCTA.isVisible ? 'visible' : ''}`}>
             <Link
               href="/donate"
               className="group relative px-6 py-3 rounded-full font-black text-sm text-white overflow-hidden transition-all hover:scale-105"
