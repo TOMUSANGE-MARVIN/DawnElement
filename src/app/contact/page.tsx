@@ -1,19 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
   // Hero animations
   const heroLabel = useScrollAnimation(0.1);
   const heroTitle = useScrollAnimation(0.1);
@@ -26,36 +15,8 @@ export default function ContactPage() {
   const infoCard3 = useScrollAnimation(0.2);
   const infoCard4 = useScrollAnimation(0.2);
 
-  // Form animations
-  const formLabel = useScrollAnimation(0.2);
-  const formTitle = useScrollAnimation(0.2);
-  const formDescription = useScrollAnimation(0.2);
-  const formFields = useScrollAnimation(0.2);
-
   // Map animation
   const mapSection = useScrollAnimation(0.2);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-
-      // Reset status after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    }, 2000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
 
   return (
     <main className="min-h-screen">
@@ -209,163 +170,6 @@ export default function ContactPage() {
             </div>
 
           </div>
-        </div>
-      </section>
-
-      {/* CONTACT FORM SECTION */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Section Header */}
-          <div className="mb-16">
-            <div
-              ref={formLabel.ref}
-              className={`flex items-center gap-4 mb-6 scroll-animate delay-100 ${formLabel.isVisible ? 'visible' : ''}`}>
-              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
-              <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Send Message</span>
-              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
-            </div>
-
-            <h2
-              ref={formTitle.ref}
-              className={`text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.9] text-gray-900 mb-6 scroll-animate delay-200 ${formTitle.isVisible ? 'visible' : ''}`}>
-              Drop Us<br />
-              <span className="relative inline-block">
-                <span className="relative z-10" style={{ color: '#2563EB' }}>A Line</span>
-                <div className="absolute bottom-2 left-0 right-0 h-6 opacity-20 -z-10" style={{ backgroundColor: '#2563EB' }} />
-              </span>
-            </h2>
-
-            <p
-              ref={formDescription.ref}
-              className={`text-xl text-gray-600 font-light leading-relaxed scroll-animate delay-300 ${formDescription.isVisible ? 'visible' : ''}`}>
-              Fill out the form below and we'll get back to you as soon as possible.
-            </p>
-          </div>
-
-          {/* Form */}
-          <div
-            ref={formFields.ref}
-            className={`scroll-animate delay-400 ${formFields.isVisible ? 'visible' : ''}`}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-
-              {/* Name and Email Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-black text-gray-900 mb-2 uppercase tracking-wider">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/20 transition-all font-medium"
-                    placeholder="John Doe"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-black text-gray-900 mb-2 uppercase tracking-wider">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/20 transition-all font-medium"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
-
-              {/* Phone and Subject Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-black text-gray-900 mb-2 uppercase tracking-wider">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/20 transition-all font-medium"
-                    placeholder="+250 788 123 456"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-black text-gray-900 mb-2 uppercase tracking-wider">
-                    Subject *
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/20 transition-all font-medium">
-                    <option value="">Select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="volunteer">Volunteer Opportunities</option>
-                    <option value="donation">Donation Information</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="support">Support Request</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-black text-gray-900 mb-2 uppercase tracking-wider">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-400/20 transition-all font-medium resize-none"
-                  placeholder="Tell us how we can help you..."
-                />
-              </div>
-
-              {/* Submit Button */}
-              <div className="flex items-center gap-4">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="group px-8 py-4 rounded-2xl font-black text-gray-900 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3"
-                  style={{ backgroundColor: '#FACC15' }}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-
-                {submitStatus === 'success' && (
-                  <div className="flex items-center gap-2 text-green-600 font-bold">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Message sent successfully!
-                  </div>
-                )}
-              </div>
-
-            </form>
-          </div>
-
         </div>
       </section>
 
