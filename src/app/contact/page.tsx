@@ -173,21 +173,22 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* MAP SECTION */}
+      {/* MAP SECTION - Street View */}
       <section
         ref={mapSection.ref}
         className={`relative h-[500px] bg-gray-200 scroll-animate delay-100 ${mapSection.isVisible ? 'visible' : ''}`}>
 
-        {/* Google Maps Embed for KG 11 Ave, Kigali, Rwanda */}
+        {/* Google Street View Embed for KG 11 Ave, Kigali, Rwanda */}
+        {/* Coordinates: -1.946528, 30.128222 */}
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5167648534494!2d30.0588897!3d-1.9440727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca4258ed8e797%3A0x8a93b3c0a9b4c8a0!2sKG%2011%20Ave%2C%20Kigali!5e0!3m2!1sen!2srw!4v1234567890123!5m2!1sen!2srw"
+          src="https://www.google.com/maps/embed?pb=!4v1732451234567!6m8!1m7!1sCAoSLEFGMVFpcE5VeEhQaXdNWUJiMlBmQnNGdGxuUjZHVThHb0o5cWFsQXhOa2Rm!2m2!1d-1.946528!2d30.128222!3f0!4f0!5f0.7820865974627469"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="RNADW Office Location - KG 11 Ave, Kigali, Rwanda"
+          title="RNADW Office Street View - KG 11 Ave, Kigali, Rwanda"
         />
       </section>
 
