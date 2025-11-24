@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function VideosPage() {
@@ -9,94 +9,92 @@ export default function VideosPage() {
   const heroTitle = useScrollAnimation(0.1);
   const heroDescription = useScrollAnimation(0.1);
 
-  // Featured video
-  const featuredVideo = useScrollAnimation(0.2);
+  // Results count animation
+  const resultsCount = useScrollAnimation(0.2);
 
-  // Filter section
-  const filterSection = useScrollAnimation(0.2);
-
-  // Bento grid animations
-  const bentoCard1 = useScrollAnimation(0.2);
-  const bentoCard2 = useScrollAnimation(0.2);
-  const bentoCard3 = useScrollAnimation(0.2);
-  const bentoCard4 = useScrollAnimation(0.2);
-  const bentoCard5 = useScrollAnimation(0.2);
-  const bentoCard6 = useScrollAnimation(0.2);
-
-  // CTA section
-  const ctaSection = useScrollAnimation(0.2);
+  // Video card animations - create hooks for each video
+  const videoCards = Array.from({ length: 11 }, (_, i) => useScrollAnimation(0.2));
 
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [hoveredVideo, setHoveredVideo] = useState<number | null>(null);
+
+  // Horizontal scroll container ref
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const categories = [
     { id: 'all', name: 'All Videos', icon: '🎬' },
-    { id: 'stories', name: 'Impact Stories', icon: '💪' },
-    { id: 'programs', name: 'Our Programs', icon: '📚' },
-    { id: 'events', name: 'Events', icon: '🎉' },
-    { id: 'awareness', name: 'Awareness', icon: '🗣️' }
+    { id: 'sgbv', name: 'SGBV/VAWG', icon: '🛡️' },
+    { id: 'cedaw', name: 'CEDAW', icon: '⚖️' },
+    { id: 'srhr', name: 'SRHR/CSE', icon: '🏥' },
+    { id: 'stories', name: 'Impact Stories', icon: '💪' }
   ];
 
   const videos = [
     {
-      id: 1,
-      title: 'Empowering Deaf Women Through Skills Training',
-      description: 'Meet Sarah, who transformed her life through our vocational training program.',
-      category: 'stories',
-      thumbnail: '/videos/thumbnail-1.jpg',
-      duration: '4:32',
-      views: '1.2K',
-      date: 'Nov 15, 2024'
+      id: 'CpKlW3lK6XI',
+      title: 'Genderbasedviolence-Dufatanye kurwanya ihohoterwa rikorerwa Abana',
+      description: 'Join us in fighting violence against children through awareness and community action.',
+      category: 'sgbv'
     },
     {
-      id: 2,
-      title: 'RNADW Annual Conference 2024 Highlights',
-      description: 'Highlights from our largest gathering of deaf women leaders across Rwanda.',
-      category: 'events',
-      thumbnail: '/videos/thumbnail-2.jpg',
-      duration: '8:45',
-      views: '3.5K',
-      date: 'Nov 10, 2024'
+      id: 'rQ5UpQzFvxE',
+      title: 'Gukumira no kurwanya ihohoterwa rishingiye ku gitsina mu rubyiruko',
+      description: 'Preventing and fighting gender-based violence among youth.',
+      category: 'sgbv'
     },
     {
-      id: 3,
-      title: 'Understanding Reproductive Health Rights',
-      description: 'Educational video on reproductive health access for deaf women.',
-      category: 'awareness',
-      thumbnail: '/videos/thumbnail-3.jpg',
-      duration: '6:20',
-      views: '2.1K',
-      date: 'Oct 28, 2024'
+      id: 'YUTe3E5UqQM',
+      title: 'Uburyo bwo Gufasha uwahohotewe',
+      description: 'Ways to help survivors of violence and support their recovery journey.',
+      category: 'sgbv'
     },
     {
-      id: 4,
-      title: 'Economic Empowerment Program Overview',
-      description: 'Learn about our entrepreneurship training and microfinance initiatives.',
-      category: 'programs',
-      thumbnail: '/videos/thumbnail-4.jpg',
-      duration: '5:15',
-      views: '1.8K',
-      date: 'Oct 20, 2024'
+      id: 'A5VWUFgIAOg',
+      title: 'RIB launched the investigators training of sign language',
+      description: 'American embassy sponsored project to train investigators in sign language.',
+      category: 'stories'
     },
     {
-      id: 5,
-      title: 'Breaking the Silence on Gender-Based Violence',
-      description: 'Survivor stories and support resources for deaf women facing violence.',
-      category: 'awareness',
-      thumbnail: '/videos/thumbnail-5.jpg',
-      duration: '7:30',
-      views: '4.2K',
-      date: 'Oct 12, 2024'
+      id: 'BlwM1aYGHak',
+      title: "Dative's Story: I am a role model for Persons with Disabilities",
+      description: 'An inspiring story of empowerment and leadership in the deaf community.',
+      category: 'stories'
     },
     {
-      id: 6,
-      title: 'From Silence to Success: Rose\'s Journey',
-      description: 'How our education program helped Rose achieve her dreams.',
-      category: 'stories',
-      thumbnail: '/videos/thumbnail-6.jpg',
-      duration: '3:50',
-      views: '2.8K',
-      date: 'Oct 5, 2024'
+      id: '0l_TZZqnbE8',
+      title: 'CEDAW Quick and Concise Explaining the Principle of Non Discrimination',
+      description: 'Understanding the Convention on the Elimination of All Forms of Discrimination Against Women.',
+      category: 'cedaw'
+    },
+    {
+      id: 'OUV738An43g',
+      title: 'CEDAW Quick and Concise (Rwanda Sign Language)',
+      description: 'CEDAW principles explained in Rwanda Sign Language.',
+      category: 'cedaw'
+    },
+    {
+      id: 'Jr8TDRCxv28',
+      title: 'CEDAW Demystified Substantive Equality (Rwanda Sign Language)',
+      description: 'Understanding substantive equality through CEDAW framework.',
+      category: 'cedaw'
+    },
+    {
+      id: '8ENkmxqhghM',
+      title: 'UBUZIMA BW\'IMYOROROKERE / Comprehensive Sexual Education',
+      description: 'Comprehensive sexual education for reproductive health awareness.',
+      category: 'srhr'
+    },
+    {
+      id: 'enlmQx3695Q',
+      title: 'UBUMENYI KU MIBEREHO N\'IMIBANIRE Y\'URUBYIRUKO',
+      description: 'Knowledge about youth behavior and relationships.',
+      category: 'srhr'
+    },
+    {
+      id: 'KyyhxMSJvjA',
+      title: 'SERIVICE Z\'UBUZIMA BW\'IMYOROROKERE',
+      description: 'Reproductive health services and access for all.',
+      category: 'srhr'
     }
   ];
 
@@ -104,434 +102,300 @@ export default function VideosPage() {
     ? videos
     : videos.filter(v => v.category === selectedCategory);
 
-  const bentoRefs = [bentoCard1, bentoCard2, bentoCard3, bentoCard4, bentoCard5, bentoCard6];
-
   return (
     <main className="min-h-screen bg-black">
 
-      {/* CINEMATIC HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* HERO SECTION */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
 
-        {/* Animated film grain overlay */}
-        <div className="absolute inset-0 bg-black opacity-95" />
-
-        {/* Glowing orbs */}
+        {/* Decorative blobs */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl opacity-20 animate-pulse"
-            style={{ background: 'radial-gradient(circle, #FACC15 0%, transparent 60%)', animationDuration: '4s' }} />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-15 animate-pulse"
-            style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 60%)', animationDuration: '6s' }} />
+          <div className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl opacity-20"
+            style={{ background: 'radial-gradient(circle, #FACC15 0%, transparent 70%)' }} />
+          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] rounded-full blur-3xl opacity-15"
+            style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }} />
         </div>
 
-        {/* Film strip borders */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 flex flex-col justify-around py-8"
-          style={{ background: 'linear-gradient(90deg, #1F2937 0%, transparent 100%)' }}>
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className="w-6 h-6 rounded-sm mx-auto" style={{ backgroundColor: '#FACC15' }} />
-          ))}
-        </div>
-        <div className="absolute right-0 top-0 bottom-0 w-12 flex flex-col justify-around py-8"
-          style={{ background: 'linear-gradient(270deg, #1F2937 0%, transparent 100%)' }}>
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className="w-6 h-6 rounded-sm mx-auto" style={{ backgroundColor: '#2563EB' }} />
-          ))}
-        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-32">
-
-          {/* Film clapper icon */}
+          {/* Label */}
           <div
             ref={heroLabel.ref}
-            className={`inline-flex items-center gap-4 mb-8 scroll-animate delay-100 ${heroLabel.isVisible ? 'visible' : ''}`}>
-            <div className="relative">
-              <div className="w-16 h-16 rounded-xl flex items-center justify-center"
-                style={{ background: 'linear-gradient(135deg, #FACC15 0%, #F59E0B 100%)' }}>
-                <span className="text-3xl">🎬</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full animate-ping" style={{ backgroundColor: '#FACC15' }} />
-            </div>
-            <div>
-              <span className="block text-xs font-black tracking-[0.4em] uppercase" style={{ color: '#FACC15' }}>Now Showing</span>
-              <span className="block text-xs font-medium text-gray-500">2024 Collection</span>
-            </div>
+            className={`flex items-center gap-3 mb-6 scroll-animate delay-100 ${heroLabel.isVisible ? 'visible' : ''}`}>
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+            <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Our Video Library</span>
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#2563EB' }} />
           </div>
 
-          {/* Massive Title with 3D effect */}
+          {/* Title */}
           <h1
             ref={heroTitle.ref}
-            className={`mb-8 scroll-animate delay-200 ${heroTitle.isVisible ? 'visible' : ''}`}>
-            <div className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.85] text-white mb-4"
-              style={{
-                textShadow: '8px 8px 0px rgba(250, 204, 21, 0.3), 16px 16px 0px rgba(37, 99, 235, 0.2)',
-                letterSpacing: '-0.03em'
-              }}>
-              VOICES
-            </div>
-            <div className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.85] mb-4"
-              style={{
-                color: '#FACC15',
-                textShadow: '8px 8px 0px rgba(0, 0, 0, 0.4)',
-                letterSpacing: '-0.03em'
-              }}>
-              UNHEARD
-            </div>
-            <div className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.85] text-white"
-              style={{
-                textShadow: '8px 8px 0px rgba(37, 99, 235, 0.3)',
-                letterSpacing: '-0.03em'
-              }}>
-              NO MORE
-            </div>
+            className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-white mb-6 scroll-animate delay-200 ${heroTitle.isVisible ? 'visible' : ''}`}>
+            Stories That<br />
+            <span className="relative inline-block">
+              <span className="relative z-10" style={{ color: '#FACC15' }}>Inspire Change</span>
+              <div className="absolute bottom-2 left-0 right-0 h-6 opacity-30 -z-10" style={{ backgroundColor: '#FACC15' }} />
+            </span>
           </h1>
 
-          {/* Subtitle with marquee effect */}
+          {/* Description */}
           <p
             ref={heroDescription.ref}
-            className={`text-2xl lg:text-3xl font-light leading-relaxed max-w-3xl mb-12 scroll-animate delay-300 ${heroDescription.isVisible ? 'visible' : ''}`}
-            style={{ color: '#E5E7EB' }}>
-            Stories of <span className="font-black" style={{ color: '#FACC15' }}>resilience</span>, <span className="font-black" style={{ color: '#2563EB' }}>empowerment</span>, and <span className="font-black text-white">transformation</span> from deaf women across Rwanda
+            className={`text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl mb-10 scroll-animate delay-300 ${heroDescription.isVisible ? 'visible' : ''}`}>
+            Watch our collection of educational content, survivor stories, and community initiatives empowering deaf women across Rwanda.
           </p>
 
-          {/* Play all CTA */}
-          <button
-            className="group relative px-10 py-5 rounded-2xl font-black text-xl text-black overflow-hidden transition-all hover:scale-105"
-            style={{ backgroundColor: '#FACC15' }}>
-
-            {/* Animated background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-            <span className="relative z-10 flex items-center gap-3">
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              Watch All Stories
-              <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-
-            {/* Glow pulse */}
-            <div className="absolute inset-0 rounded-2xl blur-2xl opacity-0 group-hover:opacity-60 animate-pulse transition-opacity"
-              style={{ backgroundColor: '#FACC15' }} />
-          </button>
+          {/* Stats */}
+          <div className="flex items-center justify-center gap-12 mb-8">
+            <div>
+              <div className="text-4xl font-black" style={{ color: '#FACC15' }}>{videos.length}</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Videos</div>
+            </div>
+            <div className="w-px h-12 bg-gray-700" />
+            <div>
+              <div className="text-4xl font-black" style={{ color: '#2563EB' }}>{categories.length - 1}</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Categories</div>
+            </div>
+          </div>
 
         </div>
       </section>
 
-      {/* CATEGORY TABS - Vertical Film Strip Style */}
-      <section className="relative py-20 bg-black">
+      {/* Category Filter */}
+      <section className="sticky top-20 z-40 py-6 bg-black/90 backdrop-blur-lg border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div
-            ref={filterSection.ref}
-            className={`flex flex-wrap items-center justify-center gap-4 scroll-animate-scale delay-100 ${filterSection.isVisible ? 'visible' : ''}`}>
-            {categories.map((category, index) => (
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`group relative px-8 py-4 rounded-2xl font-black text-sm transition-all duration-500 hover:scale-110 ${
+                className={`px-6 py-3 rounded-full font-black text-sm transition-all hover:scale-105 ${
                   selectedCategory === category.id
-                    ? 'text-black scale-110'
-                    : 'text-white border-2 hover:border-white/40'
+                    ? 'text-black'
+                    : 'text-white border-2 border-gray-700 hover:border-gray-600'
                 }`}
                 style={{
-                  backgroundColor: selectedCategory === category.id ? '#FACC15' : 'transparent',
-                  borderColor: selectedCategory === category.id ? '#FACC15' : 'rgba(255, 255, 255, 0.2)',
-                  transform: selectedCategory === category.id ? 'rotate(-2deg)' : 'rotate(0deg)'
+                  backgroundColor: selectedCategory === category.id ? '#FACC15' : 'transparent'
                 }}
               >
-                <span className="flex items-center gap-3">
-                  <span className="text-2xl transform group-hover:scale-125 transition-transform">{category.icon}</span>
-                  <span className="uppercase tracking-wider">{category.name}</span>
+                <span className="flex items-center gap-2">
+                  <span>{category.icon}</span>
+                  {category.name}
                 </span>
-
-                {/* Active indicator - film strip style */}
-                {selectedCategory === category.id && (
-                  <>
-                    <div className="absolute -top-2 -left-2 w-3 h-3 rounded-sm" style={{ backgroundColor: '#2563EB' }} />
-                    <div className="absolute -top-2 -right-2 w-3 h-3 rounded-sm" style={{ backgroundColor: '#2563EB' }} />
-                    <div className="absolute -bottom-2 -left-2 w-3 h-3 rounded-sm" style={{ backgroundColor: '#2563EB' }} />
-                    <div className="absolute -bottom-2 -right-2 w-3 h-3 rounded-sm" style={{ backgroundColor: '#2563EB' }} />
-
-                    {/* Animated glow */}
-                    <div className="absolute inset-0 rounded-2xl blur-2xl opacity-40 animate-pulse -z-10"
-                      style={{ backgroundColor: '#FACC15', animationDuration: '3s' }} />
-                  </>
-                )}
               </button>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* ASYMMETRIC BENTO GRID - Creative Magazine Layout */}
-      <section className="py-32 bg-black">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Video Grid Section */}
+      <section ref={sectionRef} className="py-24 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Section header */}
-          <div className="mb-16 flex items-center justify-between">
-            <div>
-              <h2 className="text-5xl lg:text-6xl font-black text-white mb-2">Latest Stories</h2>
-              <p className="text-xl text-gray-400">
-                <span className="font-black" style={{ color: '#FACC15' }}>{filteredVideos.length}</span> powerful journeys to discover
-              </p>
+          {/* Results count - Enhanced UI */}
+          <div
+            ref={resultsCount.ref}
+            className={`mb-16 flex items-center justify-start scroll-animate-scale delay-100 ${resultsCount.isVisible ? 'visible' : ''}`}>
+            <div className="relative">
+              {/* Decorative background blob */}
+              <div className="absolute inset-0 rounded-3xl blur-2xl opacity-20"
+                style={{ background: 'linear-gradient(135deg, #FACC15 0%, #2563EB 100%)' }} />
+
+              {/* Main stats card */}
+              <div className="relative flex items-center gap-6 px-10 py-6 rounded-2xl border-2 backdrop-blur-sm"
+                style={{
+                  borderColor: '#FACC15',
+                  backgroundColor: 'rgba(31, 41, 55, 0.6)'
+                }}>
+
+                {/* Video icon */}
+                <div className="flex items-center justify-center w-16 h-16 rounded-xl"
+                  style={{ backgroundColor: '#FACC15' }}>
+                  <svg className="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+
+                {/* Divider */}
+                <div className="w-px h-12 bg-gray-700" />
+
+                {/* Count display */}
+                <div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-6xl font-black" style={{ color: '#FACC15' }}>
+                      {filteredVideos.length}
+                    </span>
+                    <span className="text-2xl font-bold text-gray-400">
+                      {filteredVideos.length === 1 ? 'video' : 'videos'}
+                    </span>
+                  </div>
+                  <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mt-1">
+                    {selectedCategory === 'all' ? 'Total Collection' : categories.find(c => c.id === selectedCategory)?.name}
+                  </p>
+                </div>
+
+                {/* Decorative accent */}
+                <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full animate-pulse"
+                  style={{ backgroundColor: '#2563EB' }} />
+              </div>
             </div>
           </div>
 
-          {/* BENTO GRID - Asymmetric 6-column layout */}
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-6 lg:gap-8">
+          {/* Video Grid - 3D Floating Cards with Magnetic Hover */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+                {filteredVideos.map((video, index) => {
+                  const categoryInfo = categories.find(c => c.id === video.category);
+                  const cardAnimation = videoCards[index];
 
-            {filteredVideos.map((video, index) => {
-              const ref = bentoRefs[index % bentoRefs.length];
-              const isHovered = hoveredVideo === video.id;
+                  // Alternate neon colors
+                  const neonColors = [
+                    { primary: '#FACC15', secondary: '#F59E0B', glow: 'rgba(250, 204, 21, 0.5)' },
+                    { primary: '#2563EB', secondary: '#3B82F6', glow: 'rgba(37, 99, 235, 0.5)' },
+                    { primary: '#EC4899', secondary: '#F472B6', glow: 'rgba(236, 72, 153, 0.5)' },
+                    { primary: '#10B981', secondary: '#34D399', glow: 'rgba(16, 185, 129, 0.5)' },
+                  ];
+                  const colors = neonColors[index % neonColors.length];
 
-              // Define unique sizes for each card position
-              const cardSizes = [
-                'md:col-span-4 md:row-span-2', // Large hero (top-left)
-                'md:col-span-2 md:row-span-1', // Tall right
-                'md:col-span-2 md:row-span-1', // Medium
-                'md:col-span-3 md:row-span-1', // Wide
-                'md:col-span-3 md:row-span-1', // Wide
-                'md:col-span-6 md:row-span-1'  // Full width
-              ];
+                  // Staggered delays for cascading effect
+                  const delays = ['delay-100', 'delay-200', 'delay-300', 'delay-100', 'delay-200', 'delay-300', 'delay-100', 'delay-200', 'delay-300', 'delay-100', 'delay-200'];
+                  const delayClass = delays[index % delays.length];
 
-              const aspectRatios = [
-                'aspect-[16/12]',  // Large card
-                'aspect-square',   // Square
-                'aspect-square',   // Square
-                'aspect-video',    // Video
-                'aspect-video',    // Video
-                'aspect-[21/9]'    // Cinematic ultra-wide
-              ];
-
-              return (
-                <div
-                  key={video.id}
-                  ref={ref?.ref}
-                  onMouseEnter={() => setHoveredVideo(video.id)}
-                  onMouseLeave={() => setHoveredVideo(null)}
-                  className={`group relative ${cardSizes[index % cardSizes.length]} rounded-3xl overflow-hidden cursor-pointer transition-all duration-700 hover:scale-[1.02] scroll-animate-scale delay-${100 + index * 100} ${ref?.isVisible ? 'visible' : ''}`}
-                  style={{
-                    backgroundColor: '#1F2937',
-                    boxShadow: isHovered
-                      ? '0 40px 80px -20px rgba(250, 204, 21, 0.4), 0 0 0 2px rgba(250, 204, 21, 0.5)'
-                      : '0 20px 40px -10px rgba(0, 0, 0, 0.5)'
-                  }}
-                >
-                  {/* Video Thumbnail with 3D depth */}
-                  <div className={`relative ${aspectRatios[index % aspectRatios.length]} overflow-hidden`}>
-
-                    {/* Gradient background */}
+                  return (
                     <div
-                      className="absolute inset-0 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
+                      key={video.id}
+                      ref={cardAnimation.ref}
+                      className={`group relative scroll-animate-scale ${delayClass} ${cardAnimation.isVisible ? 'visible' : ''}`}
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                  {/* 3D Morphing Blob Container */}
+                  <div className="relative transform-gpu transition-all duration-700 hover:scale-105 hover:-rotate-2" style={{ transformStyle: 'preserve-3d' }}>
+
+                    {/* Floating glow shadow */}
+                    <div
+                      className="absolute -inset-4 opacity-0 group-hover:opacity-70 transition-all duration-700 blur-2xl"
                       style={{
-                        background: index % 3 === 0
-                          ? 'linear-gradient(135deg, #FACC15 0%, #F59E0B 50%, #DC2626 100%)'
-                          : index % 3 === 1
-                          ? 'linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #DB2777 100%)'
-                          : 'linear-gradient(135deg, #059669 0%, #0891B2 50%, #6366F1 100%)'
+                        background: `radial-gradient(circle at 50% 50%, ${colors.glow} 0%, transparent 70%)`,
+                        transform: 'translateZ(-20px)'
                       }}
                     />
 
-                    {/* Noise texture overlay */}
-                    <div className="absolute inset-0 opacity-20 mix-blend-overlay"
-                      style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")' }}
-                    />
+                    {/* Glassomorphism card */}
+                    <div
+                      className="relative overflow-hidden backdrop-blur-xl border border-white/20 transition-all duration-700"
+                      style={{
+                        background: `linear-gradient(135deg, ${colors.primary}15 0%, ${colors.secondary}25 100%)`,
+                        borderRadius: '2rem',
+                        boxShadow: `0 8px 32px 0 ${colors.glow}`,
+                      }}
+                    >
 
-                    {/* Play button - 3D style */}
-                    <div className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${isHovered ? 'bg-black/60' : 'bg-black/30'}`}>
+                      {/* Animated gradient orb */}
                       <div
-                        className="relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500"
-                        style={{
-                          backgroundColor: isHovered ? '#FACC15' : 'rgba(255, 255, 255, 0.9)',
-                          transform: isHovered ? 'scale(1.2) rotate(90deg)' : 'scale(1) rotate(0deg)',
-                          boxShadow: isHovered ? '0 20px 40px rgba(250, 204, 21, 0.6)' : '0 10px 20px rgba(0, 0, 0, 0.3)'
-                        }}
-                      >
-                        <svg className={`w-10 h-10 ml-1 transition-colors ${isHovered ? 'text-black' : 'text-gray-900'}`} fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
+                        className="absolute top-4 right-4 w-24 h-24 rounded-full opacity-40 blur-2xl animate-pulse"
+                        style={{ background: `radial-gradient(circle, ${colors.primary} 0%, transparent 70%)` }}
+                      />
 
-                        {/* Spinning ring */}
-                        <div
-                          className="absolute inset-0 rounded-full border-4 border-transparent border-t-white/50 animate-spin"
-                          style={{ animationDuration: '3s' }}
-                        />
+                      {/* Main content area */}
+                      <div className="p-6">
+
+                        {/* Video section with frosted glass */}
+                        <div className="relative rounded-xl overflow-hidden mb-4 ring-2 ring-white/30 shadow-2xl">
+                          <div className="relative aspect-video bg-black/20 backdrop-blur-sm">
+                            <iframe
+                              src={`https://www.youtube.com/embed/${video.id}`}
+                              title={video.title}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                              className="absolute inset-0 w-full h-full"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Category badge with glow */}
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+                          style={{
+                            background: `linear-gradient(135deg, ${colors.primary}30 0%, ${colors.secondary}30 100%)`,
+                            backdropFilter: 'blur(10px)',
+                            border: `1px solid ${colors.primary}50`
+                          }}>
+                          <span className="text-2xl">{categoryInfo?.icon}</span>
+                          <span className="text-xs font-black uppercase tracking-wider text-white">
+                            {categoryInfo?.name}
+                          </span>
+                        </div>
+
+                        {/* Title with gradient - hidden by default, revealed on hover */}
+                        <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500">
+                          <h3
+                            className="text-2xl font-black leading-tight line-clamp-3"
+                            style={{
+                              background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              backgroundClip: 'text'
+                            }}>
+                            {video.title}
+                          </h3>
+                        </div>
                       </div>
                     </div>
-
-                    {/* Duration chip */}
-                    <div className="absolute bottom-4 right-4 px-4 py-2 rounded-xl backdrop-blur-md font-black text-sm"
-                      style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', color: '#FACC15' }}>
-                      {video.duration}
-                    </div>
-
-                    {/* Category chip - Top left */}
-                    <div className="absolute top-4 left-4 px-4 py-2 rounded-xl backdrop-blur-md font-black text-xs uppercase tracking-wider"
-                      style={{ backgroundColor: 'rgba(250, 204, 21, 0.95)', color: '#000' }}>
-                      {categories.find(c => c.id === video.category)?.icon} {categories.find(c => c.id === video.category)?.name}
-                    </div>
-
                   </div>
-
-                  {/* Content overlay - Slides up on hover */}
-                  <div className={`absolute inset-x-0 bottom-0 p-6 lg:p-8 transition-all duration-500 ${isHovered ? 'translate-y-0 bg-gradient-to-t from-black via-black/95 to-transparent' : 'translate-y-4 bg-gradient-to-t from-black/80 to-transparent'}`}>
-
-                    {/* Title */}
-                    <h3 className={`font-black text-white mb-3 leading-tight transition-all duration-500 ${index === 0 ? 'text-3xl lg:text-4xl' : 'text-xl lg:text-2xl'} ${isHovered ? 'text-shadow-lg' : ''}`}
-                      style={{ textShadow: isHovered ? '0 4px 20px rgba(250, 204, 21, 0.5)' : 'none' }}>
-                      {video.title}
-                    </h3>
-
-                    {/* Description - Shows on hover */}
-                    <p className={`text-gray-300 leading-relaxed mb-4 transition-all duration-500 overflow-hidden ${isHovered ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
-                      {video.description}
-                    </p>
-
-                    {/* Meta info */}
-                    <div className="flex items-center gap-6 text-sm text-gray-400">
-                      <div className="flex items-center gap-2">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                        <span className="font-bold">{video.views}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span className="font-bold">{video.date}</span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Corner accents - Film strip style */}
-                  <div className={`absolute top-4 right-4 w-4 h-4 rounded-sm transition-all duration-300 ${isHovered ? 'opacity-100 scale-110' : 'opacity-50'}`}
-                    style={{ backgroundColor: '#2563EB' }} />
-                  <div className={`absolute bottom-4 left-4 w-4 h-4 rounded-sm transition-all duration-300 ${isHovered ? 'opacity-100 scale-110' : 'opacity-50'}`}
-                    style={{ backgroundColor: '#2563EB' }} />
-
                 </div>
               );
             })}
-
           </div>
 
         </div>
       </section>
 
-      {/* CINEMATIC CTA SECTION */}
-      <section
-        ref={ctaSection.ref}
-        className={`relative py-40 overflow-hidden scroll-animate delay-100 ${ctaSection.isVisible ? 'visible' : ''}`}
-        style={{ backgroundColor: '#000' }}
-      >
-        {/* Spotlight effect */}
+      {/* CTA SECTION */}
+      <section className="relative py-24 overflow-hidden" style={{ backgroundColor: '#1F2937' }}>
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl opacity-20 animate-pulse"
-            style={{ background: 'radial-gradient(circle, #FACC15 0%, transparent 60%)', animationDuration: '5s' }} />
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
+            style={{ background: 'radial-gradient(circle, #FACC15 0%, transparent 70%)' }} />
+          <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-10"
+            style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }} />
         </div>
 
-        {/* Film strip decoration */}
-        <div className="absolute top-0 left-0 right-0 h-2 flex gap-4 px-8">
-          {[...Array(20)].map((_, i) => (
-            <div key={i} className="flex-1 h-full rounded-sm" style={{ backgroundColor: i % 2 === 0 ? '#FACC15' : '#2563EB' }} />
-          ))}
-        </div>
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-
-          {/* Director's clapper */}
-          <div className="inline-flex items-center gap-6 mb-10">
-            <div className="relative">
-              <div className="w-24 h-24 rounded-3xl flex items-center justify-center transform hover:rotate-12 transition-transform"
-                style={{ background: 'linear-gradient(135deg, #FACC15 0%, #F59E0B 100%)' }}>
-                <span className="text-5xl">🎬</span>
-              </div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full animate-ping" style={{ backgroundColor: '#FACC15' }} />
-            </div>
-            <div className="h-16 w-1 rounded-full" style={{ background: 'linear-gradient(180deg, #FACC15 0%, #2563EB 100%)' }} />
-            <div className="relative">
-              <div className="w-24 h-24 rounded-3xl flex items-center justify-center transform hover:-rotate-12 transition-transform"
-                style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }}>
-                <span className="text-5xl">📹</span>
-              </div>
-              <div className="absolute -top-2 -left-2 w-6 h-6 rounded-full animate-ping" style={{ backgroundColor: '#2563EB', animationDelay: '1s' }} />
-            </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6"
+            style={{ backgroundColor: '#FACC15' }}>
+            <span className="text-4xl">📹</span>
           </div>
 
-          {/* Title with 3D effect */}
-          <h2 className="text-5xl lg:text-7xl font-black text-white mb-6 leading-tight"
-            style={{ textShadow: '6px 6px 0px rgba(250, 204, 21, 0.3), 12px 12px 0px rgba(37, 99, 235, 0.2)' }}>
-            BE THE NEXT<br />
-            <span style={{ color: '#FACC15' }}>STORYTELLER</span>
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
+            Have a Story to Share?
           </h2>
 
-          {/* Description */}
-          <p className="text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
-            Your voice matters. Your journey inspires. Share your story and become part of a movement that's <span className="font-black text-white">changing lives</span>.
+          <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Your story could inspire and empower other deaf women. We'd love to feature your journey on our platform.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-
-            {/* Primary CTA - Film reel style */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              className="group relative px-10 py-6 rounded-2xl font-black text-xl text-black overflow-hidden transition-all hover:scale-110"
+              className="group relative px-8 py-4 rounded-full font-black text-lg text-gray-900 transition-all hover:scale-105"
               style={{ backgroundColor: '#FACC15' }}
             >
-              {/* Animated film grain */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity bg-gradient-to-r from-transparent via-white to-transparent animate-pulse" />
-
-              <span className="relative z-10 flex items-center gap-3">
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                </svg>
-                Share Your Story
-                <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="relative z-10 flex items-center gap-2">
+                Submit Your Story
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </span>
-
-              {/* Glow pulse */}
-              <div className="absolute inset-0 rounded-2xl blur-3xl opacity-0 group-hover:opacity-60 animate-pulse transition-opacity"
-                style={{ backgroundColor: '#FACC15' }} />
             </button>
 
-            {/* Secondary CTA - Cinematic border */}
             <button
-              className="group relative px-10 py-6 rounded-2xl font-black text-xl text-white border-4 transition-all hover:scale-110 overflow-hidden"
+              className="group relative px-8 py-4 rounded-full font-black text-lg text-white border-2 transition-all hover:scale-105"
               style={{ borderColor: '#2563EB' }}
             >
-              {/* Animated gradient background on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{ background: 'linear-gradient(135deg, #2563EB 0%, #7C3AED 100%)' }} />
-
-              <span className="relative z-10 flex items-center gap-3">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              <span className="relative z-10 flex items-center gap-2">
+                Subscribe to Channel
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
-                Browse Collection
               </span>
             </button>
-
           </div>
-
-          {/* Tagline */}
-          <p className="mt-12 text-sm font-black tracking-[0.3em] uppercase text-gray-600">
-            <span style={{ color: '#FACC15' }}>VOICES</span> · <span style={{ color: '#2563EB' }}>UNHEARD</span> · <span className="text-white">NO MORE</span>
-          </p>
-
-        </div>
-
-        {/* Bottom film strip decoration */}
-        <div className="absolute bottom-0 left-0 right-0 h-2 flex gap-4 px-8">
-          {[...Array(20)].map((_, i) => (
-            <div key={i} className="flex-1 h-full rounded-sm" style={{ backgroundColor: i % 2 === 0 ? '#2563EB' : '#FACC15' }} />
-          ))}
         </div>
       </section>
 
