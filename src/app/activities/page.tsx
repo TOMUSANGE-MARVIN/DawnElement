@@ -95,7 +95,18 @@ export default function ActivitiesPage() {
               ref={program1.ref}
               className={`group scroll-animate-scale delay-200 ${program1.isVisible ? 'visible' : ''}`}>
               <Link href="/activities/21" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(250,204,21,0.6)] hover:scale-[1.02]">
+
+                  {/* Glowing border effect on hover */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(45deg, #FACC15, #2563EB, #FACC15)',
+                      padding: '3px',
+                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                      WebkitMaskComposite: 'xor',
+                      maskComposite: 'exclude'
+                    }}
+                  />
 
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
@@ -103,46 +114,51 @@ export default function ActivitiesPage() {
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-4_820x620-1755000886621-95849572.jpg"
                       alt="Economic Empowerment"
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                    {/* Darker overlay on hover to make text more readable */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent group-hover:from-black group-hover:via-black/80 transition-all duration-700" />
                   </div>
 
-                  {/* Number Badge */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-black font-black text-2xl"
+                  {/* Number Badge - Rotates and scales on hover */}
+                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-black font-black text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
                     style={{ backgroundColor: '#FACC15' }}>
                     01
                   </div>
 
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="text-5xl mb-4">💼</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight">
+                  {/* Content - Slides up and expands on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
+                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">💼</div>
+                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
                       Economic<br />Empowerment
                     </h3>
-                    <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                      Life skills and entrepreneurship training for sustainable livelihoods and financial independence.
-                    </p>
 
-                    {/* Features List */}
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Vocational training programs</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Business development skills</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Financial literacy workshops</span>
-                      </li>
-                    </ul>
+                    {/* Description - Hidden by default, slides up on hover */}
+                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
+                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
+                        Life skills and entrepreneurship training for sustainable livelihoods and financial independence.
+                      </p>
 
-                    <div className="flex items-center gap-2 text-base font-bold group-hover:gap-3 transition-all"
-                      style={{ color: '#FACC15' }}>
-                      Learn More →
+                      {/* Features List */}
+                      <ul className="space-y-2 mb-6">
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Vocational training programs</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Business development skills</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Financial literacy workshops</span>
+                        </li>
+                      </ul>
+
+                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400"
+                        style={{ color: '#FACC15' }}>
+                        Learn More →
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -154,7 +170,18 @@ export default function ActivitiesPage() {
               ref={program2.ref}
               className={`group scroll-animate-scale delay-300 ${program2.isVisible ? 'visible' : ''}`}>
               <Link href="/activities/20" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:scale-[1.02]">
+
+                  {/* Glowing border effect on hover */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(45deg, #2563EB, #FACC15, #2563EB)',
+                      padding: '3px',
+                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                      WebkitMaskComposite: 'xor',
+                      maskComposite: 'exclude'
+                    }}
+                  />
 
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
@@ -162,46 +189,50 @@ export default function ActivitiesPage() {
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-3_820x620-1755000263234-690758480.jpg"
                       alt="Reproductive Health Rights"
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/50 to-transparent group-hover:from-blue-900 group-hover:via-blue-900/80 transition-all duration-700" />
                   </div>
 
                   {/* Number Badge */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl"
+                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
                     style={{ backgroundColor: '#2563EB' }}>
                     02
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="text-5xl mb-4">🏥</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
+                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">🏥</div>
+                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
                       Reproductive<br />Health Rights
                     </h3>
-                    <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                      Comprehensive sexual education and health rights advocacy for informed decision-making.
-                    </p>
 
-                    {/* Features List */}
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Sexual health education</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Access to healthcare services</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Family planning support</span>
-                      </li>
-                    </ul>
+                    {/* Description - Hidden by default, slides up on hover */}
+                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
+                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
+                        Comprehensive sexual education and health rights advocacy for informed decision-making.
+                      </p>
 
-                    <div className="flex items-center gap-2 text-base font-bold group-hover:gap-3 transition-all"
-                      style={{ color: '#FACC15' }}>
-                      Learn More →
+                      {/* Features List */}
+                      <ul className="space-y-2 mb-6">
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Sexual health education</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Access to healthcare services</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Family planning support</span>
+                        </li>
+                      </ul>
+
+                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400"
+                        style={{ color: '#FACC15' }}>
+                        Learn More →
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -213,7 +244,18 @@ export default function ActivitiesPage() {
               ref={program3.ref}
               className={`group scroll-animate-scale delay-400 ${program3.isVisible ? 'visible' : ''}`}>
               <Link href="/activities/19" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(31,41,55,0.8)] hover:scale-[1.02]">
+
+                  {/* Glowing border effect on hover */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(45deg, #1F2937, #FACC15, #1F2937)',
+                      padding: '3px',
+                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                      WebkitMaskComposite: 'xor',
+                      maskComposite: 'exclude'
+                    }}
+                  />
 
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
@@ -221,44 +263,48 @@ export default function ActivitiesPage() {
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-2_820x620-1754999964914-58402428.jpg"
                       alt="Ending Violence"
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-yellow-900 via-yellow-900/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-yellow-900 via-yellow-900/50 to-transparent group-hover:from-yellow-900 group-hover:via-yellow-900/80 transition-all duration-700" />
                   </div>
 
                   {/* Number Badge */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl bg-gray-900">
+                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl bg-gray-900 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
                     03
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="text-5xl mb-4">🛡️</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
+                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">🛡️</div>
+                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
                       Ending<br />Violence
                     </h3>
-                    <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                      GBV/SGBV prevention and protection for deaf women and girls through awareness and support.
-                    </p>
 
-                    {/* Features List */}
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>GBV awareness campaigns</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Survivor support services</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Community protection networks</span>
-                      </li>
-                    </ul>
+                    {/* Description - Hidden by default, slides up on hover */}
+                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
+                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
+                        GBV/SGBV prevention and protection for deaf women and girls through awareness and support.
+                      </p>
 
-                    <div className="flex items-center gap-2 text-base font-bold group-hover:gap-3 transition-all text-white">
-                      Learn More →
+                      {/* Features List */}
+                      <ul className="space-y-2 mb-6">
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>GBV awareness campaigns</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Survivor support services</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Community protection networks</span>
+                        </li>
+                      </ul>
+
+                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400 text-white">
+                        Learn More →
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -270,7 +316,18 @@ export default function ActivitiesPage() {
               ref={program4.ref}
               className={`group scroll-animate-scale delay-500 ${program4.isVisible ? 'visible' : ''}`}>
               <Link href="/activities/18" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:scale-[1.02]">
+
+                  {/* Glowing border effect on hover */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(45deg, #2563EB, #FACC15, #2563EB)',
+                      padding: '3px',
+                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                      WebkitMaskComposite: 'xor',
+                      maskComposite: 'exclude'
+                    }}
+                  />
 
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
@@ -278,46 +335,50 @@ export default function ActivitiesPage() {
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-main_2-1754996414270-440707368.jpg"
                       alt="Education & Skills Training"
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent group-hover:from-black group-hover:via-black/80 transition-all duration-700" />
                   </div>
 
                   {/* Number Badge */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl"
+                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
                     style={{ backgroundColor: '#2563EB' }}>
                     04
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="text-5xl mb-4">📚</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
+                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">📚</div>
+                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
                       Education &<br />Skills Training
                     </h3>
-                    <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                      Literacy programs and skills development for personal growth and career advancement.
-                    </p>
 
-                    {/* Features List */}
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Sign language education</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Literacy & numeracy programs</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-white/80">
-                        <span style={{ color: '#FACC15' }}>●</span>
-                        <span>Technical skills workshops</span>
-                      </li>
-                    </ul>
+                    {/* Description - Hidden by default, slides up on hover */}
+                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
+                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
+                        Literacy programs and skills development for personal growth and career advancement.
+                      </p>
 
-                    <div className="flex items-center gap-2 text-base font-bold group-hover:gap-3 transition-all"
-                      style={{ color: '#FACC15' }}>
-                      Learn More →
+                      {/* Features List */}
+                      <ul className="space-y-2 mb-6">
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Sign language education</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Literacy & numeracy programs</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                          <span style={{ color: '#FACC15' }}>●</span>
+                          <span>Technical skills workshops</span>
+                        </li>
+                      </ul>
+
+                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400"
+                        style={{ color: '#FACC15' }}>
+                        Learn More →
+                      </div>
                     </div>
                   </div>
                 </div>
