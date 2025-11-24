@@ -414,58 +414,123 @@ export default function ActivitiesPage() {
             </h2>
           </div>
 
-          {/* Impact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Bento Grid - Editorial Style */}
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-6 lg:gap-8">
 
-            {/* Impact 1 */}
+            {/* Large Hero Stat - Spans 4 columns */}
             <div
               ref={impact1.ref}
-              className={`bg-white p-8 rounded-3xl shadow-lg scroll-animate-scale delay-300 ${impact1.isVisible ? 'visible' : ''}`}>
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: '#FEF3C7' }}>
-                <svg className="w-8 h-8" style={{ color: '#FACC15' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
+              className={`md:col-span-4 relative overflow-hidden rounded-3xl p-12 lg:p-16 min-h-[400px] flex flex-col justify-between scroll-animate-left delay-300 ${impact1.isVisible ? 'visible' : ''}`}
+              style={{
+                background: 'linear-gradient(135deg, #FACC15 0%, #F59E0B 100%)',
+                boxShadow: '0 25px 50px -12px rgba(250, 204, 21, 0.25)'
+              }}>
+
+              {/* Decorative circles */}
+              <div className="absolute top-10 right-10 w-64 h-64 rounded-full opacity-20"
+                style={{ background: 'radial-gradient(circle, white 0%, transparent 70%)' }} />
+              <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full opacity-10"
+                style={{ background: 'radial-gradient(circle, white 0%, transparent 70%)' }} />
+
+              <div className="relative z-10">
+                {/* Year badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/10 backdrop-blur-sm mb-6">
+                  <div className="w-2 h-2 rounded-full bg-black/30" />
+                  <span className="text-sm font-black tracking-wider text-black/70">SINCE 2005</span>
+                </div>
+
+                {/* Main stat */}
+                <div className="mb-6">
+                  <div className="text-8xl lg:text-9xl font-black leading-none text-gray-900 mb-4">
+                    500<span className="text-6xl">+</span>
+                  </div>
+                  <h3 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-4">
+                    Lives<br />Empowered
+                  </h3>
+                </div>
               </div>
-              <div className="text-5xl font-black mb-3" style={{ color: '#FACC15' }}>500+</div>
-              <h3 className="text-xl font-black text-gray-900 mb-2">Lives Empowered</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Deaf women and girls have benefited from our programs since 2005, gaining skills and confidence.
+
+              {/* Bottom text */}
+              <p className="relative z-10 text-xl text-gray-800 font-medium leading-relaxed max-w-2xl">
+                Deaf women and girls have benefited from our programs, gaining skills, confidence, and opportunities for a brighter future.
               </p>
             </div>
 
-            {/* Impact 2 */}
+            {/* Vertical Stat - Spans 2 columns, 2 rows */}
             <div
               ref={impact2.ref}
-              className={`bg-white p-8 rounded-3xl shadow-lg scroll-animate-scale delay-400 ${impact2.isVisible ? 'visible' : ''}`}>
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: '#DBEAFE' }}>
-                <svg className="w-8 h-8" style={{ color: '#2563EB' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+              className={`md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl p-10 min-h-[400px] flex flex-col justify-between scroll-animate-right delay-400 ${impact2.isVisible ? 'visible' : ''}`}
+              style={{
+                background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                boxShadow: '0 25px 50px -12px rgba(37, 99, 235, 0.25)'
+              }}>
+
+              {/* Decorative element */}
+              <div className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-20"
+                style={{ background: 'radial-gradient(circle, white 0%, transparent 70%)' }} />
+
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8 bg-white/20 backdrop-blur-sm">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+
+                {/* Stat */}
+                <div className="text-7xl font-black leading-none text-white mb-6">
+                  200<span className="text-5xl">+</span>
+                </div>
+
+                <h3 className="text-3xl font-black text-white leading-tight mb-4">
+                  Economic<br />Opportunities
+                </h3>
               </div>
-              <div className="text-5xl font-black mb-3" style={{ color: '#2563EB' }}>200+</div>
-              <h3 className="text-xl font-black text-gray-900 mb-2">Economic Opportunities</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Women trained in vocational skills and entrepreneurship, now running their own businesses.
+
+              <p className="relative z-10 text-lg text-white/90 leading-relaxed">
+                Women trained in vocational skills, now running their own businesses and supporting their families.
               </p>
             </div>
 
-            {/* Impact 3 */}
+            {/* Wide Stat - Spans 4 columns */}
             <div
               ref={impact3.ref}
-              className={`bg-white p-8 rounded-3xl shadow-lg scroll-animate-scale delay-500 ${impact3.isVisible ? 'visible' : ''}`}>
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: '#FEF3C7' }}>
-                <svg className="w-8 h-8" style={{ color: '#FACC15' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+              className={`md:col-span-4 relative overflow-hidden rounded-3xl p-10 lg:p-12 min-h-[300px] flex items-center scroll-animate-left delay-500 ${impact3.isVisible ? 'visible' : ''}`}
+              style={{ backgroundColor: '#1F2937' }}>
+
+              {/* Decorative gradient */}
+              <div className="absolute inset-0 opacity-30"
+                style={{ background: 'linear-gradient(135deg, #FACC15 0%, transparent 50%, #2563EB 100%)' }} />
+
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+
+                {/* Left: Stat */}
+                <div>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
+                    style={{ backgroundColor: '#FACC15' }}>
+                    <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span className="text-sm font-black text-gray-900">PROTECTION</span>
+                  </div>
+
+                  <div className="text-7xl lg:text-8xl font-black leading-none text-white mb-4">
+                    100<span className="text-5xl">+</span>
+                  </div>
+
+                  <h3 className="text-3xl lg:text-4xl font-black text-white leading-tight">
+                    Protected Lives
+                  </h3>
+                </div>
+
+                {/* Right: Description */}
+                <div>
+                  <p className="text-xl text-white/90 leading-relaxed">
+                    Survivors of gender-based violence supported with comprehensive counseling, legal aid, and community protection services for healing and justice.
+                  </p>
+                </div>
+
               </div>
-              <div className="text-5xl font-black mb-3" style={{ color: '#FACC15' }}>100+</div>
-              <h3 className="text-xl font-black text-gray-900 mb-2">Protected Lives</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Survivors of GBV supported with counseling, legal aid, and community protection services.
-              </p>
             </div>
 
           </div>
