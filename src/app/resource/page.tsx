@@ -8,8 +8,19 @@ export default function ResourcesPage() {
   const heroTitle = useScrollAnimation(0.1);
   const heroDescription = useScrollAnimation(0.1);
 
-  // Resources data
+  // Resources data (including media sources)
   const resources = [
+    {
+      id: 0,
+      title: 'Photo Albums - International Week 2025',
+      description: 'Complete photo albums from International Week of Deaf People 2025 (3 days of celebrations)',
+      category: 'Media',
+      categoryColor: '#10B981',
+      type: 'ONLINE',
+      size: '33+ Photos',
+      icon: '📸',
+      downloadUrl: 'https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day1/'
+    },
     {
       id: 1,
       title: 'SGBV Prevention Guide',
