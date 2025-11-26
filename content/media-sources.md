@@ -40,28 +40,43 @@
 
 **Platform:** YouTube
 **Channel Name:** RNADW (Rwanda National Association of Deaf Women)
-**Channel URL:** 🔴 **TO BE ADDED**
-**Current Videos on Website:** 11 curated videos
+**Channel URL:** https://www.youtube.com/@rwandanationalassociationo8664
+**Total Videos on Channel:** 56 videos
+**Total Views:** 6,145+ views
 
 #### Video Categories:
-1. **SGBV/VAWG** (3 videos)
+1. **SGBV/VAWG** (16 videos)
    - Gender-based violence prevention
    - Youth awareness
    - Support for survivors
+   - Cultural variations
+   - Violence against deaf people
 
-2. **CEDAW** (3 videos)
+2. **CEDAW** (4 videos)
    - Non-discrimination principles
    - Rwanda Sign Language explanations
    - Substantive equality
+   - State obligation principles
 
-3. **SRHR/CSE** (3 videos)
+3. **SRHR/CSE** (11 videos)
    - Comprehensive sexual education
    - Youth behavior and relationships
    - Reproductive health services
+   - Conversation series (Ikiganiro)
 
-4. **Impact Stories** (2 videos)
-   - RIB sign language training
-   - Dative's story
+4. **HIV/AIDS** (3 videos)
+   - Prevention and awareness
+   - Community education
+
+5. **Menstrual Health** (5 videos)
+   - Ukwezi k'Umugore series
+   - Cultural practices and education
+
+6. **Impact Stories** (17 videos)
+   - #MyNameMyIdentity campaign
+   - Community testimonials
+   - About RNADW
+   - Equal rights advocacy
 
 **Website Integration:**
 - Videos page: `/src/app/videos/page.tsx`
@@ -92,10 +107,10 @@
 ### Official Channels
 - **Website:** https://rnadw.org.rw/
 - **Twitter/X:** @RwandaDeafwomen
+- **YouTube:** https://www.youtube.com/@rwandanationalassociationo8664 (56 videos)
 - **Facebook:** TBD
 - **Instagram:** TBD
 - **LinkedIn:** TBD
-- **YouTube:** 🔴 **TO BE ADDED**
 
 ---
 
@@ -165,9 +180,10 @@
 
 - **Total Photo Albums:** 3 (International Week 2025)
 - **Photos Extracted:** 33 (Day 1 only)
-- **Total Videos:** 11+ (on YouTube)
-- **Videos on Website:** 11 curated
-- **Categories Covered:** 4 (SGBV, CEDAW, SRHR, Stories)
+- **Total Videos:** 56 (on YouTube)
+- **Videos on Website:** 56 (all videos integrated)
+- **Video Categories:** 6 (SGBV/VAWG, CEDAW, SRHR/CSE, HIV/AIDS, Menstrual Health, Impact Stories)
+- **Total YouTube Views:** 6,145+
 
 ---
 

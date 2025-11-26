@@ -13,7 +13,7 @@ export default function VideosPage() {
   const resultsCount = useScrollAnimation(0.2);
 
   // Video card animations - create hooks for each video
-  const videoCards = Array.from({ length: 11 }, (_, i) => useScrollAnimation(0.2));
+  const videoCards = Array.from({ length: 56 }, (_, i) => useScrollAnimation(0.2));
 
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -26,75 +26,347 @@ export default function VideosPage() {
     { id: 'sgbv', name: 'SGBV/VAWG', icon: '🛡️' },
     { id: 'cedaw', name: 'CEDAW', icon: '⚖️' },
     { id: 'srhr', name: 'SRHR/CSE', icon: '🏥' },
+    { id: 'hiv', name: 'HIV/AIDS', icon: '🎗️' },
+    { id: 'menstruation', name: 'Menstrual Health', icon: '🩺' },
     { id: 'stories', name: 'Impact Stories', icon: '💪' }
   ];
 
   const videos = [
     {
       id: 'CpKlW3lK6XI',
-      title: 'Genderbasedviolence-Dufatanye kurwanya ihohoterwa rikorerwa Abana',
-      description: 'Join us in fighting violence against children through awareness and community action.',
+      title: '#Genderbasedviolence-Dufatanye kurwanya ihohoterwa rikorerwa Abana',
+      description: 'RNADW educational content and advocacy',
       category: 'sgbv'
     },
     {
       id: 'rQ5UpQzFvxE',
-      title: 'Gukumira no kurwanya ihohoterwa rishingiye ku gitsina mu rubyiruko',
-      description: 'Preventing and fighting gender-based violence among youth.',
+      title: '#genderbasedviolence -Gukumira no kurwanya ihohoterwa rishingiye ku gitsina mu rubyiruko',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'Xirgo33Vf1U',
+      title: '#genderbasedviolence -Ubundi bwoko bw\'ihohoterwa',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'i_SPaBuKwYc',
+      title: '#genderbasedviolence -Ibitera ihohoterwa rishingiye ku gitsina mu Rwanda',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'ffZeDfQZs3o',
+      title: '#genderbasedviolence -Uburyo bwo Gukumira ihohoterwa rishingiye ku gitsina',
+      description: 'RNADW educational content and advocacy',
       category: 'sgbv'
     },
     {
       id: 'YUTe3E5UqQM',
-      title: 'Uburyo bwo Gufasha uwahohotewe',
-      description: 'Ways to help survivors of violence and support their recovery journey.',
+      title: '#genderbasedviolence -Uburyo bwo Gufasha uwahohotewe',
+      description: 'RNADW educational content and advocacy',
       category: 'sgbv'
     },
     {
-      id: 'A5VWUFgIAOg',
-      title: 'RIB launched the investigators training of sign language',
-      description: 'American embassy sponsored project to train investigators in sign language.',
+      id: 'EeQkGC09ehI',
+      title: '#genderbasedviolence -Wabigenza ute igihe ukorewe ihohoterwa rishingiye ku gitsina',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'rELYSfwYIhE',
+      title: '#genderbasedviolence -Ihohoterwa rikorerwa abafite ubumuga bwo kutumva no kutavuga',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'N1mdwqWn-io',
+      title: '#genderbasedviolence -Ihohoterwa rishingiye ku gitsina rikorwa mu buryo butandukanye bitewe n\'umuco',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: '_A6aKfiHz3w',
+      title: '#genderbasedviolence - Twese tube maso duhagurukire kurwanya abasambanya abana',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'JveH_UWyn6M',
+      title: 'INDA Z\'ABANGAVU UBURYO BWO GUKUMIRA INDA Z\'ABANGAVU',
+      description: 'RNADW educational content and advocacy',
       category: 'stories'
     },
     {
-      id: 'BlwM1aYGHak',
-      title: "Dative's Story: I am a role model for Persons with Disabilities",
-      description: 'An inspiring story of empowerment and leadership in the deaf community.',
+      id: 'pLWXHSn9yMU',
+      title: 'SHORT VIDEO 03 - UBURINGANIRE N\'UBWUZUZANYE',
+      description: 'RNADW educational content and advocacy',
       category: 'stories'
+    },
+    {
+      id: 'lZHeiQ5kM2I',
+      title: 'SHORT VIDEO 02 - UBURINGANIRE N\'UBWUZUZANYE',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'epC-d0fImN8',
+      title: 'SHORT VIDEO 01 - UBURINGANIRE N\'UBWUZUZANYE',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'V0DjfsCrxr4',
+      title: 'FULL VIDEO - UBURINGANIRE N\'UBWUZUZANYE',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'vP7hskEAD1I',
+      title: 'SHORT  VIDEO 02 - KURWANYA NO GUKUMIRA VIRUSI ITERA SIDA',
+      description: 'RNADW educational content and advocacy',
+      category: 'hiv'
+    },
+    {
+      id: 'CDZghwHvHcY',
+      title: 'SHORT  VIDEO 01 - KURWANYA NO GUKUMIRA VIRUSI ITERA SIDA',
+      description: 'RNADW educational content and advocacy',
+      category: 'hiv'
+    },
+    {
+      id: 'sEKnJ8ZDKIc',
+      title: 'FULL  VIDEO - KURWANYA NO GUKUMIRA VIRUSI ITERA SIDA',
+      description: 'RNADW educational content and advocacy',
+      category: 'hiv'
+    },
+    {
+      id: 'Py7R5vYo_aM',
+      title: 'SHORT VIDEO 05- GUKUMIRA NO KURWANYA IHOHOTERWA',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'jjw0KXSPmFA',
+      title: 'SHORT VIDEO 04- GUKUMIRA NO KURWANYA IHOHOTERWA',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'XvDK4EYda0g',
+      title: 'SHORT VIDEO 03- GUKUMIRA NO KURWANYA IHOHOTERWA',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'MNyfuwvPFKQ',
+      title: 'SHORT VIDEO 02- GUKUMIRA NO KURWANYA IHOHOTERWA',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'WoJHDPRR73o',
+      title: 'SHORT VIDEO 01- GUKUMIRA NO KURWANYA IHOHOTERWA',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
+    },
+    {
+      id: 'TJRk1RzjKDA',
+      title: 'FULL VIDEO - GUKUMIRA NO KURWANYA IHOHOTERWA',
+      description: 'RNADW educational content and advocacy',
+      category: 'sgbv'
     },
     {
       id: '0l_TZZqnbE8',
       title: 'CEDAW Quick and Concise Explaining the Principle of Non Discrimination',
-      description: 'Understanding the Convention on the Elimination of All Forms of Discrimination Against Women.',
+      description: 'RNADW educational content and advocacy',
       category: 'cedaw'
     },
     {
       id: 'OUV738An43g',
-      title: 'CEDAW Quick and Concise (Rwanda Sign Language)',
-      description: 'CEDAW principles explained in Rwanda Sign Language.',
+      title: 'CEDAW Quick and Concise Explaining the Principle of Non Discrimination (Rwanda Sign language)',
+      description: 'RNADW educational content and advocacy',
       category: 'cedaw'
     },
     {
       id: 'Jr8TDRCxv28',
-      title: 'CEDAW Demystified Substantive Equality (Rwanda Sign Language)',
-      description: 'Understanding substantive equality through CEDAW framework.',
+      title: 'CEDAW Demystified Substantive Equality (Rwanda Sign Language )',
+      description: 'RNADW educational content and advocacy',
+      category: 'cedaw'
+    },
+    {
+      id: '2cE41m7yW_k',
+      title: 'CEDAW  Principle of State Obligation (Rwandan Sign language )',
+      description: 'RNADW educational content and advocacy',
       category: 'cedaw'
     },
     {
       id: '8ENkmxqhghM',
-      title: 'UBUZIMA BW\'IMYOROROKERE / Comprehensive Sexual Education',
-      description: 'Comprehensive sexual education for reproductive health awareness.',
+      title: 'UBUZIMA BW\'IMYOROROKERE /Comprehensive Sexual Education  #CSE.',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: 'MZdDIMXmL7Y',
+      title: 'SHORT VIDOE- UBUZIMA BW\'IMYOROROKERE',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: 'HMev4vycg1o',
+      title: 'SHORT-VIDEO UBUZIMA BW\'IMYOROROKERE',
+      description: 'RNADW educational content and advocacy',
       category: 'srhr'
     },
     {
       id: 'enlmQx3695Q',
-      title: 'UBUMENYI KU MIBEREHO N\'IMIBANIRE Y\'URUBYIRUKO',
-      description: 'Knowledge about youth behavior and relationships.',
+      title: 'SHORT-VIDEO 2 UBUMENYI KU MIBEREHO N\'IMIBANIRE  Y\'URUBYIRUKO',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'RuvQCiX5Qbs',
+      title: 'SHORT- VIDEO 1 UBUMENYI KU MIBEREHO N\'IMIBANIRE  Y\'URUBYIRUKO',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'GePEk4Vz3Go',
+      title: 'LONG-VIDEO UBUMENYI KU MIBEREHO N\'IMIBANIRE  Y\'URUBYIRUKO',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'kufgb6Ry7eU',
+      title: 'SHORT-VIDEO IBIYOBYABWENGE',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: '9imWYTcn82w',
+      title: 'LONG-VIDEO IBIYOBYABWENGE',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'sEFtdcLz_t8',
+      title: 'Ukwezi k\'Umugore (Imihango)',
+      description: 'RNADW educational content and advocacy',
+      category: 'menstruation'
+    },
+    {
+      id: 'baWmY9iFU4M',
+      title: 'Ukwezi k\'Umugore (Imihango)',
+      description: 'RNADW educational content and advocacy',
+      category: 'menstruation'
+    },
+    {
+      id: 'zq9xjkE47Rw',
+      title: 'Short-video 2 Ukwezi k\'Umugore (Imihango)',
+      description: 'RNADW educational content and advocacy',
+      category: 'menstruation'
+    },
+    {
+      id: 'N5X5GNBHZm0',
+      title: 'Short -video 1 Ukwezi k\'Umugore (Imihango)',
+      description: 'RNADW educational content and advocacy',
+      category: 'menstruation'
+    },
+    {
+      id: 'z_Bws3K-nbU',
+      title: 'Long-video Ukwezi k\'Umugore (Imihango)',
+      description: 'RNADW educational content and advocacy',
+      category: 'menstruation'
+    },
+    {
+      id: 'Uhi2uNfwXVw',
+      title: 'Long -video Serivice z\'Ubuzima bw\'Imyororokere',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: 'Z3gqJLFE5hY',
+      title: 'Short-video 3 Serivice z\'Ubuzima bw\'Imyororokere',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: '9hzwq6KYzik',
+      title: 'Short -video 2 Serivice z\'Ubuzima bw\'Imyororokere',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: 'tpc-etyBkFQ',
+      title: 'Serivice z\'Ubuzima bw\'Imyororokere',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: 'g57i1-Lw-Pg',
+      title: '#IKIGANIRO CYA 2 IGICE CYA 2: SERIVICE Z\'UBUZIMA BW\'IMYOROROKERE',
+      description: 'RNADW educational content and advocacy',
       category: 'srhr'
     },
     {
       id: 'KyyhxMSJvjA',
-      title: 'SERIVICE Z\'UBUZIMA BW\'IMYOROROKERE',
-      description: 'Reproductive health services and access for all.',
+      title: '#IKIGANIRO CYA 2 IGICE CYA 1: SERIVICE Z\'UBUZIMA BW\'IMYOROROKERE',
+      description: 'RNADW educational content and advocacy',
       category: 'srhr'
+    },
+    {
+      id: 'bviu4ZbH9B8',
+      title: '#IKIGANIRO CYA 3: GUSAMA, GUTWITA , N\'UBUGUMBA',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: 'vb4lDo5BKFY',
+      title: '#ikiganiro  CYA 1: UBUZIMA BW\'IMYOROROKERE #srhr',
+      description: 'RNADW educational content and advocacy',
+      category: 'srhr'
+    },
+    {
+      id: 'SFhndjv-PfY',
+      title: 'About Rwanda National Association of Deaf women _RNADW',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'AAj6khtk8mA',
+      title: '#MyNameMyIdentity: Meet IBISHAKA Lucie',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: '7au490_-ZRE',
+      title: '#MyNameMyIdentity: Meet Mushimiyimana Jeannette.',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'kFNbkZAnKX8',
+      title: '#MyNameMyIdentity :I feel pain calling my child "IKIRAGI"',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'JuhNND3NPgM',
+      title: '#MyNameMyIdentity; Mrs.Nsanga Sylvie : The Gender, social justice, and inclusion activist.',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: '-LulMcMM1LE',
+      title: 'Deaf women and girls deserve right names - #MyNameMyIdentity',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
+    },
+    {
+      id: 'f-DcGIL8Je0',
+      title: 'Forms of Gender Based Violence #GBV',
+      description: 'RNADW educational content and advocacy',
+      category: 'stories'
     }
   ];
 
@@ -386,7 +658,7 @@ export default function VideosPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#"
+              href="https://www.youtube.com/@rwandanationalassociationo8664"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative px-8 py-4 rounded-full font-black text-lg text-white transition-all hover:scale-105"
@@ -415,11 +687,6 @@ export default function VideosPage() {
               </span>
             </button>
           </div>
-
-          {/* Note about YouTube URL */}
-          <p className="text-sm text-gray-500 mt-8 max-w-xl mx-auto">
-            📝 <strong>Note:</strong> Add your YouTube channel URL to the link above to enable direct access to all RNADW videos.
-          </p>
         </div>
       </section>
 
