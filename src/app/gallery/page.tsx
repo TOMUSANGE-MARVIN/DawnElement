@@ -8,6 +8,42 @@ export default function GalleryPage() {
   const heroTitle = useScrollAnimation(0.1);
   const heroDescription = useScrollAnimation(0.1);
 
+  // Gallery card animations - 24 hooks for 24 images (must be at top level, not in loop)
+  const galleryCard1 = useScrollAnimation(0.2);
+  const galleryCard2 = useScrollAnimation(0.2);
+  const galleryCard3 = useScrollAnimation(0.2);
+  const galleryCard4 = useScrollAnimation(0.2);
+  const galleryCard5 = useScrollAnimation(0.2);
+  const galleryCard6 = useScrollAnimation(0.2);
+  const galleryCard7 = useScrollAnimation(0.2);
+  const galleryCard8 = useScrollAnimation(0.2);
+  const galleryCard9 = useScrollAnimation(0.2);
+  const galleryCard10 = useScrollAnimation(0.2);
+  const galleryCard11 = useScrollAnimation(0.2);
+  const galleryCard12 = useScrollAnimation(0.2);
+  const galleryCard13 = useScrollAnimation(0.2);
+  const galleryCard14 = useScrollAnimation(0.2);
+  const galleryCard15 = useScrollAnimation(0.2);
+  const galleryCard16 = useScrollAnimation(0.2);
+  const galleryCard17 = useScrollAnimation(0.2);
+  const galleryCard18 = useScrollAnimation(0.2);
+  const galleryCard19 = useScrollAnimation(0.2);
+  const galleryCard20 = useScrollAnimation(0.2);
+  const galleryCard21 = useScrollAnimation(0.2);
+  const galleryCard22 = useScrollAnimation(0.2);
+  const galleryCard23 = useScrollAnimation(0.2);
+  const galleryCard24 = useScrollAnimation(0.2);
+
+  // Array of animation hooks for easy mapping
+  const galleryCardAnimations = [
+    galleryCard1, galleryCard2, galleryCard3, galleryCard4,
+    galleryCard5, galleryCard6, galleryCard7, galleryCard8,
+    galleryCard9, galleryCard10, galleryCard11, galleryCard12,
+    galleryCard13, galleryCard14, galleryCard15, galleryCard16,
+    galleryCard17, galleryCard18, galleryCard19, galleryCard20,
+    galleryCard21, galleryCard22, galleryCard23, galleryCard24
+  ];
+
   // Gallery images with categories - Real RNADW photos from International Week of Deaf People 2025 (All 3 Days)
   const galleryImages = [
     // Day 1 - Parents Day (8 photos)
@@ -453,7 +489,7 @@ export default function GalleryPage() {
           {/* Neon Billboard Grid - Bento Style */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[280px]">
             {galleryImages.map((image, index) => {
-              const cardAnimation = useScrollAnimation(0.2);
+              const cardAnimation = galleryCardAnimations[index];
 
               // Bento-style spans for varied sizes
               const layouts = [
