@@ -504,14 +504,13 @@ export default function Home() {
 
                 {/* Main heading */}
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-8 leading-[0.95] text-gray-900">
-                  A Society<br />
-                  of Equals
+                  An Inclusive<br />
+                  Just Society
                 </h2>
 
                 {/* Content */}
                 <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed mb-8 font-light">
-                  A society which respects the basic rights of Deaf Women and girls, considers their education and
-                  welfare as priority, and provides equal opportunities and perfect integration.
+                  An inclusive and just society where Deaf Women and Girls fully enjoy their rights, participate in decision-making processes and benefit from all aspects of life.
                 </p>
 
                 {/* Decorative element */}
@@ -546,13 +545,13 @@ export default function Home() {
                 {/* Main heading */}
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-8 leading-[0.95] text-white">
                   Defend.<br />
-                  Empower.<br />
-                  Transform.
+                  Promote.<br />
+                  Empower.
                 </h2>
 
                 {/* Content */}
                 <p className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-8 font-light">
-                  RNADW exists to defend the rights of Deaf women and promoting their health and socio-economic welfare through advocacy, education, and community empowerment programs.
+                  To defend the rights of Deaf Women and Girls and promote their health rights, human rights, education and socio-economic justice.
                 </p>
 
                 {/* Decorative element */}
@@ -737,8 +736,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Program 1 - Economic Empowerment (Top) */}
-            <Link href="/activities/21"
+            {/* Program 1 - My Body, My Rights (Top) */}
+            <Link href="/activities/20"
               className="group absolute top-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80">
               <div
                 ref={programCard1.ref}
@@ -751,8 +750,8 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-4_820x620-1755000886621-95849572.jpg"
-                      alt="Economic empowerment"
+                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-3_820x620-1755000263234-690758480.jpg"
+                      alt="My Body, My Rights - SRHR"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -767,12 +766,12 @@ export default function Home() {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">💼</div>
+                    <div className="text-3xl mb-2">🏥</div>
                     <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      Economic Empowerment
+                      My Body, My Rights
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Life skills and entrepreneurship training for sustainable livelihoods
+                      Sexual and Reproductive Health and Rights (SRHR) for deaf women and girls
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
                       style={{ color: '#FACC15' }}>
@@ -783,8 +782,8 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Program 2 - Reproductive Health (Right) */}
-            <Link href="/activities/20"
+            {/* Program 2 - Spear N' Shield (Right) */}
+            <Link href="/activities/21"
               className="group absolute top-1/2 right-0 transform -translate-y-1/2 w-72 lg:w-80">
               <div
                 ref={programCard2.ref}
@@ -796,8 +795,8 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-x-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-3_820x620-1755000263234-690758480.jpg"
-                      alt="Reproductive Health Rights"
+                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-4_820x620-1755000886621-95849572.jpg"
+                      alt="Spear N' Shield - Education & Skills"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -810,12 +809,12 @@ export default function Home() {
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">🏥</div>
+                    <div className="text-3xl mb-2">📚</div>
                     <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      Reproductive Health Rights
+                      Spear N&apos; Shield
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Comprehensive sexual education and health rights advocacy
+                      Education, Skilling, Digitalization and Business Development
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
                       style={{ color: '#FACC15' }}>
@@ -826,7 +825,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Program 3 - Ending Violence (Bottom) */}
+            {/* Program 3 - Her Voice, Her Power (Bottom) */}
             <Link href="/activities/19"
               className="group absolute bottom-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80">
               <div
@@ -840,7 +839,7 @@ export default function Home() {
                   <div className="aspect-[4/3] relative">
                     <Image
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-2_820x620-1754999964914-58402428.jpg"
-                      alt="Ending Violence"
+                      alt="Her Voice, Her Power"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -852,12 +851,12 @@ export default function Home() {
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">🛡️</div>
+                    <div className="text-3xl mb-2">📢</div>
                     <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      Ending Violence
+                      Her Voice, Her Power
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      GBV/SGBV prevention and protection for deaf women and girls
+                      Leadership, Voice and Agency for deaf women and girls
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all text-white">
                       Explore →
@@ -867,7 +866,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Program 4 - Education (Left) */}
+            {/* Program 4 - Her Environment (Left) */}
             <Link href="/activities/18"
               className="group absolute top-1/2 left-0 transform -translate-y-1/2 w-72 lg:w-80">
               <div
@@ -881,7 +880,7 @@ export default function Home() {
                   <div className="aspect-[4/3] relative">
                     <Image
                       src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-main_2-1754996414270-440707368.jpg"
-                      alt="Education & Skills Training"
+                      alt="Her Environment - Climate Adaptation"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -894,12 +893,12 @@ export default function Home() {
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">📚</div>
+                    <div className="text-3xl mb-2">🌍</div>
                     <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      Education & Skills
+                      Her Environment
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Accessible education and vocational training opportunities
+                      Climate Adaptation and Resilience for deaf women and girls
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
                       style={{ color: '#2563EB' }}>
@@ -972,16 +971,13 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 mb-16">
 
             {[
-              { name: 'US Embassy', area: 'Governance & Rights', color: '#FACC15', span: 'lg:col-span-2 lg:row-span-2', ref: partnerCard1, delay: 'delay-100' },
-              { name: 'RIB', area: 'Law Enforcement', color: '#2563EB', span: '', ref: partnerCard2, delay: 'delay-200' },
-              { name: 'UNHCR', area: 'Humanitarian Aid', color: '#FACC15', span: '', ref: partnerCard3, delay: 'delay-300' },
-              { name: 'UNFPA', area: 'Women\'s Health', color: '#2563EB', span: 'lg:col-span-2', ref: partnerCard4, delay: 'delay-400' },
-              { name: 'Ministry of Youth', area: 'Youth Programs', color: '#FACC15', span: '', ref: partnerCard5, delay: 'delay-500' },
-              { name: 'German Embassy', area: 'Development', color: '#2563EB', span: '', ref: partnerCard6, delay: 'delay-600' },
-              { name: 'AWDF', area: 'Women\'s Fund', color: '#FACC15', span: '', ref: partnerCard7, delay: 'delay-100' },
-              { name: 'KVINNA', area: 'Equality', color: '#2563EB', span: '', ref: partnerCard8, delay: 'delay-200' },
-              { name: 'NUDOR', area: 'Disability Rights', color: '#FACC15', span: 'lg:col-span-2', ref: partnerCard9, delay: 'delay-300' },
-              { name: 'Sweden Embassy', area: 'International Aid', color: '#2563EB', span: '', ref: partnerCard10, delay: 'delay-400' },
+              { name: 'RIB', area: 'Law Enforcement', color: '#2563EB', span: '', ref: partnerCard1, delay: 'delay-100' },
+              { name: 'UNHCR', area: 'Humanitarian Aid', color: '#FACC15', span: '', ref: partnerCard2, delay: 'delay-200' },
+              { name: 'Ministry of Youth', area: 'Youth Programs', color: '#FACC15', span: 'lg:col-span-2', ref: partnerCard3, delay: 'delay-300' },
+              { name: 'German Embassy', area: 'Development', color: '#2563EB', span: '', ref: partnerCard4, delay: 'delay-400' },
+              { name: 'KVINNA', area: 'Equality', color: '#2563EB', span: '', ref: partnerCard5, delay: 'delay-500' },
+              { name: 'NUDOR', area: 'Disability Rights', color: '#FACC15', span: 'lg:col-span-2', ref: partnerCard6, delay: 'delay-600' },
+              { name: 'Sweden Embassy', area: 'International Aid', color: '#2563EB', span: '', ref: partnerCard7, delay: 'delay-100' },
             ].map((partner, i) => (
               <div
                 key={i}

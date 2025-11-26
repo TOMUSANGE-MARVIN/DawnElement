@@ -115,8 +115,7 @@ export default function AboutPage() {
               {/* Content */}
               <h3 className="text-2xl font-black text-gray-900 mb-4">Our Mission</h3>
               <p className="text-gray-800 leading-relaxed">
-                To advocate for the rights of deaf women and girls, promote their social and economic empowerment,
-                and ensure equal access to education, healthcare, and opportunities across Rwanda.
+                To defend the rights of Deaf Women and Girls and promote their health rights, human rights, education and socio-economic justice.
               </p>
             </div>
 
@@ -137,8 +136,7 @@ export default function AboutPage() {
               {/* Content */}
               <h3 className="text-2xl font-black text-white mb-4">Our Vision</h3>
               <p className="text-white/90 leading-relaxed">
-                A Rwanda where every deaf woman and girl has equal opportunities, full inclusion in society,
-                and the ability to reach their full potential without barriers or discrimination.
+                An inclusive and just society where Deaf Women and Girls fully enjoy their rights, participate in decision-making processes and benefit from all aspects of life.
               </p>
             </div>
 

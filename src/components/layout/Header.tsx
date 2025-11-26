@@ -50,8 +50,8 @@ export default function Header() {
             ref={headerLogo.ref}
             className={`flex items-center scroll-animate-left delay-100 ${headerLogo.isVisible ? 'visible' : ''}`}>
             <Link href="/" className="flex items-center gap-3 group">
-              {/* Logo Image */}
-              <div className="relative w-14 h-14 transition-transform group-hover:scale-105">
+              {/* Logo Image - Increased size for better visibility */}
+              <div className="relative w-20 h-20 transition-transform group-hover:scale-105">
                 <Image
                   src="/Logo.png"
                   alt="RNADW Logo"
@@ -64,10 +64,10 @@ export default function Header() {
               {/* Brand Text */}
               <div className="hidden sm:block">
                 <div className="flex items-center gap-2">
-                  <span className="text-xl font-black text-gray-900 tracking-tight">RNADW</span>
+                  <span className="text-2xl font-black text-gray-900 tracking-tight">RNADW</span>
                   <div className="w-1 h-1 rounded-full" style={{ backgroundColor: '#FACC15' }} />
                 </div>
-                <p className="text-xs font-medium text-gray-500 tracking-wide">Empowering Deaf Women</p>
+                <p className="text-sm font-medium text-gray-500 tracking-wide">Empowering Deaf Women</p>
               </div>
             </Link>
           </div>
