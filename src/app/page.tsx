@@ -98,7 +98,7 @@ export default function Home() {
           <iframe
             className="absolute inset-0 w-full h-full"
             style={{ width: '100vw', height: '100vh', objectFit: 'cover', pointerEvents: 'none' }}
-            src="https://www.youtube.com/embed/CpKlW3lK6XI?autoplay=1&mute=1&loop=1&playlist=CpKlW3lK6XI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+            src="https://www.youtube.com/embed/SFhndjv-PfY?autoplay=1&mute=1&loop=1&playlist=SFhndjv-PfY&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
             title="RNADW Background Video"
             allow="autoplay; encrypted-media"
             allowFullScreen
