@@ -22,15 +22,19 @@
 
 #### Day 2 - Community Celebration
 - **URL:** https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day2/
-- **Photos:** TBD
-- **Status:** ⏸️ Access restricted (Cloudflare CAPTCHA) - Manual extraction needed
-- **Usage:** Not yet integrated
+- **Photos:** 17 high-resolution images
+- **Status:** ✅ Extracted and integrated into website
+- **Usage:** Gallery page (photo grid), Full Albums section
+- **Cover Image:** `https://images.pixieset.com/410444001/fb3f28389ce2aed2e190b8bd1e9d0849-cover.jpg`
+- **Image URLs File:** `/evidence/pixieset-day2-day3-extraction/day-2-photos.json`
 
 #### Day 3 - Final Celebration
 - **URL:** https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day3/
-- **Photos:** TBD
-- **Status:** ⏸️ Access restricted (Cloudflare CAPTCHA) - Manual extraction needed
-- **Usage:** Not yet integrated
+- **Photos:** 17 high-resolution images
+- **Status:** ✅ Extracted and integrated into website
+- **Usage:** Gallery page (photo grid), Full Albums section
+- **Cover Image:** `https://images.pixieset.com/659165001/fdb4686c22335a9a3e5c2af49b623177-cover.JPG`
+- **Image URLs File:** `/evidence/pixieset-day2-day3-extraction/day-3-photos.json`
 
 ---
 
@@ -178,8 +182,9 @@
 
 ## 📊 Media Statistics
 
-- **Total Photo Albums:** 3 (International Week 2025)
-- **Photos Extracted:** 33 (Day 1 only)
+- **Total Photo Albums:** 3 (International Week 2025 - All 3 Days)
+- **Photos Extracted:** 67 (Day 1: 33, Day 2: 17, Day 3: 17)
+- **Gallery Grid Photos:** 24 photos (8 from each day)
 - **Total Videos:** 56 (on YouTube)
 - **Videos on Website:** 56 (all videos integrated)
 - **Video Categories:** 6 (SGBV/VAWG, CEDAW, SRHR/CSE, HIV/AIDS, Menstrual Health, Impact Stories)

@@ -8,103 +8,202 @@ export default function GalleryPage() {
   const heroTitle = useScrollAnimation(0.1);
   const heroDescription = useScrollAnimation(0.1);
 
-  // Gallery images with categories - Real RNADW photos from International Week of Deaf People 2025
+  // Gallery images with categories - Real RNADW photos from International Week of Deaf People 2025 (All 3 Days)
   const galleryImages = [
+    // Day 1 - Parents Day (8 photos)
     {
       id: 1,
       url: 'https://images.pixieset.com/763373001/312a2946fc306bd81120cac612274c59-cover.jpg',
-      title: 'Community Workshop',
-      category: 'Training & Education',
+      title: 'Parents Day Opening',
+      category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
-      description: 'Skills development workshop for deaf women'
+      description: 'Welcoming parents and families to the celebration'
     },
     {
       id: 2,
       url: 'https://images.pixieset.com/763373001/8b5564626598f9d4a1a8b19670b10d67-large.jpg',
       title: 'Leadership Summit',
-      category: 'Events',
-      categoryColor: '#2563EB',
-      description: 'Annual leadership conference bringing women together'
+      category: 'Day 1 - Parents',
+      categoryColor: '#FACC15',
+      description: 'Conference bringing families together'
     },
     {
       id: 3,
       url: 'https://images.pixieset.com/763373001/2b255b3c3c31e09d0bad31e02f62cb40-large.jpg',
-      title: 'Sign Language Class',
-      category: 'Training & Education',
+      title: 'Sign Language Session',
+      category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Teaching sign language to community members'
     },
     {
       id: 4,
       url: 'https://images.pixieset.com/763373001/7eb1454c02cd1fbbc86b79d9cb977edd-large.jpg',
-      title: 'Advocacy Campaign',
-      category: 'Advocacy',
-      categoryColor: '#EC4899',
-      description: 'Raising awareness for deaf women\'s rights'
+      title: 'Family Engagement',
+      category: 'Day 1 - Parents',
+      categoryColor: '#FACC15',
+      description: 'Parents connecting with deaf community'
     },
     {
       id: 5,
       url: 'https://images.pixieset.com/763373001/b603c9b9c49700a8fcdd4f08d3286575-large.jpg',
-      title: 'Vocational Training',
-      category: 'Economic Empowerment',
-      categoryColor: '#10B981',
-      description: 'Tailoring and crafts training program'
+      title: 'Skills Workshop',
+      category: 'Day 1 - Parents',
+      categoryColor: '#FACC15',
+      description: 'Vocational training demonstration for families'
     },
     {
       id: 6,
       url: 'https://images.pixieset.com/763373001/891771924f7d80bdf9469eb5a30ee93c-large.jpg',
-      title: 'Team Meeting',
-      category: 'Events',
-      categoryColor: '#2563EB',
-      description: 'Planning session with RNADW leadership'
+      title: 'Community Discussion',
+      category: 'Day 1 - Parents',
+      categoryColor: '#FACC15',
+      description: 'Open dialogue with parents and advocates'
     },
     {
       id: 7,
       url: 'https://images.pixieset.com/763373001/ed73e7a7f1d57bc95e8d7f8d927007e2-large.jpg',
-      title: 'Health Awareness',
-      category: 'SRHR',
-      categoryColor: '#EC4899',
-      description: 'Sexual and reproductive health education session'
+      title: 'Health Education',
+      category: 'Day 1 - Parents',
+      categoryColor: '#FACC15',
+      description: 'Health awareness session for families'
     },
     {
       id: 8,
       url: 'https://images.pixieset.com/763373001/859411c7dc6201ba5807bf4c3d1ebef9-large.jpg',
-      title: 'Business Training',
-      category: 'Economic Empowerment',
-      categoryColor: '#10B981',
-      description: 'Entrepreneurship workshop for deaf women'
+      title: 'Parents Day Closing',
+      category: 'Day 1 - Parents',
+      categoryColor: '#FACC15',
+      description: 'Wrapping up day one activities'
     },
+    // Day 2 - Community Celebration (8 photos)
     {
       id: 9,
-      url: 'https://images.pixieset.com/763373001/ee422d904fcfc700aed8265655dd9490-large.jpg',
-      title: 'Community Outreach',
-      category: 'Advocacy',
-      categoryColor: '#EC4899',
-      description: 'Reaching out to rural communities'
+      url: 'https://images.pixieset.com/410444001/fb3f28389ce2aed2e190b8bd1e9d0849-cover.jpg',
+      title: 'Community Gathering',
+      category: 'Day 2 - Community',
+      categoryColor: '#2563EB',
+      description: 'Coming together as one community'
     },
     {
       id: 10,
-      url: 'https://images.pixieset.com/763373001/46bbd7376face3762ac1aee2b8f3c5c7-large.jpg',
-      title: 'Celebration Event',
-      category: 'Events',
+      url: 'https://images.pixieset.com/410444001/6fb282d14c404d076563830605eeb18d-large.jpg',
+      title: 'Cultural Celebration',
+      category: 'Day 2 - Community',
       categoryColor: '#2563EB',
-      description: 'Celebrating achievements and milestones'
+      description: 'Showcasing deaf culture and traditions'
     },
     {
       id: 11,
-      url: 'https://images.pixieset.com/763373001/417d1e5956c2290edbec562c2f465284-large.jpg',
-      title: 'Mentorship Program',
-      category: 'Training & Education',
-      categoryColor: '#FACC15',
-      description: 'One-on-one mentorship for young deaf women'
+      url: 'https://images.pixieset.com/410444001/3a029c3d63b6c8a32a92e92775abe184-large.jpg',
+      title: 'Unity in Action',
+      category: 'Day 2 - Community',
+      categoryColor: '#2563EB',
+      description: 'Community members working together'
     },
     {
       id: 12,
-      url: 'https://images.pixieset.com/763373001/14667cda9a43afd88b47f71884ac3374-large.jpg',
-      title: 'Cooperative Meeting',
-      category: 'Economic Empowerment',
-      categoryColor: '#10B981',
-      description: 'Women\'s savings cooperative gathering'
+      url: 'https://images.pixieset.com/410444001/3d1362af40a2fb6dbf921337108f33c9-large.jpg',
+      title: 'Advocacy Showcase',
+      category: 'Day 2 - Community',
+      categoryColor: '#2563EB',
+      description: 'Highlighting women\'s rights initiatives'
+    },
+    {
+      id: 13,
+      url: 'https://images.pixieset.com/410444001/e340162dd944c1fdac89d6d5135594bc-large.jpg',
+      title: 'Empowerment Session',
+      category: 'Day 2 - Community',
+      categoryColor: '#2563EB',
+      description: 'Building confidence and skills'
+    },
+    {
+      id: 14,
+      url: 'https://images.pixieset.com/410444001/d0b5c583357d120c814a769bc4ceed68-large.jpg',
+      title: 'Community Pride',
+      category: 'Day 2 - Community',
+      categoryColor: '#2563EB',
+      description: 'Celebrating deaf identity together'
+    },
+    {
+      id: 15,
+      url: 'https://images.pixieset.com/410444001/e57c68ca1b64691b02080d6a46785124-large.jpg',
+      title: 'Networking Event',
+      category: 'Day 2 - Community',
+      categoryColor: '#2563EB',
+      description: 'Building connections across regions'
+    },
+    {
+      id: 16,
+      url: 'https://images.pixieset.com/410444001/d9c4f2f23be11df91ef9e2e9e3bf59f5-large.jpg',
+      title: 'Day 2 Highlights',
+      category: 'Day 2 - Community',
+      categoryColor: '#2563EB',
+      description: 'Memorable moments from community day'
+    },
+    // Day 3 - Final Celebration (8 photos)
+    {
+      id: 17,
+      url: 'https://images.pixieset.com/659165001/fdb4686c22335a9a3e5c2af49b623177-cover.JPG',
+      title: 'Grand Finale Opening',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Starting the final day of celebrations'
+    },
+    {
+      id: 18,
+      url: 'https://images.pixieset.com/659165001/56df644baee870b0faa7efabe6c2c3a4-large.JPG',
+      title: 'Achievement Awards',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Recognizing outstanding contributions'
+    },
+    {
+      id: 19,
+      url: 'https://images.pixieset.com/659165001/41565e4d7e0e5819586f466bd2b481f8-large.JPG',
+      title: 'Unity Celebration',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Coming together for the finale'
+    },
+    {
+      id: 20,
+      url: 'https://images.pixieset.com/659165001/b2443d482c3a60578d56c3cff39f5615-large.JPG',
+      title: 'Closing Ceremony',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Wrapping up three days of celebration'
+    },
+    {
+      id: 21,
+      url: 'https://images.pixieset.com/659165001/41fb17fff4e18940333356c7773b2fc4-large.JPG',
+      title: 'Final Reflections',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Looking back on achievements'
+    },
+    {
+      id: 22,
+      url: 'https://images.pixieset.com/659165001/32954ecae54c90ddfa7b5545e77ff4a8-large.JPG',
+      title: 'Celebration Joy',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Happiness and pride in our community'
+    },
+    {
+      id: 23,
+      url: 'https://images.pixieset.com/659165001/c1ce3828dcb963cc573a4bc599cccfb3-large.JPG',
+      title: 'Final Gathering',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Last moments together as a community'
+    },
+    {
+      id: 24,
+      url: 'https://images.pixieset.com/659165001/55f6553575a11ca24d96153fbac64458-large.JPG',
+      title: 'Farewell Celebration',
+      category: 'Day 3 - Finale',
+      categoryColor: '#EC4899',
+      description: 'Closing festivities and achievements'
     },
   ];
 
@@ -192,7 +291,7 @@ export default function GalleryPage() {
               International Week of Deaf People 2025
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              Explore the complete photo albums from our three-day celebration
+              Explore the complete photo albums from our three-day celebration (67 photos total)
             </p>
             <p className="text-sm text-gray-500 max-w-2xl mx-auto">
               📸 These albums are our constant source for all images across the website. Visit anytime for more photos and videos.
@@ -248,8 +347,8 @@ export default function GalleryPage() {
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.pixieset.com/763373001/8b5564626598f9d4a1a8b19670b10d67-large.jpg"
-                  alt="Day 2"
+                  src="https://images.pixieset.com/410444001/fb3f28389ce2aed2e190b8bd1e9d0849-cover.jpg"
+                  alt="Day 2 - Community Celebration"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -265,7 +364,7 @@ export default function GalleryPage() {
                     Coming together as a community
                   </p>
                   <div className="flex items-center gap-2 text-sm font-bold" style={{ color: '#2563EB' }}>
-                    <span>View Full Album</span>
+                    <span>View Full Album (17 Photos)</span>
                     <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -284,8 +383,8 @@ export default function GalleryPage() {
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.pixieset.com/763373001/2b255b3c3c31e09d0bad31e02f62cb40-large.jpg"
-                  alt="Day 3"
+                  src="https://images.pixieset.com/659165001/fdb4686c22335a9a3e5c2af49b623177-cover.JPG"
+                  alt="Day 3 - Final Celebration"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -301,7 +400,7 @@ export default function GalleryPage() {
                     Closing festivities and achievements
                   </p>
                   <div className="flex items-center gap-2 text-sm font-bold" style={{ color: '#EC4899' }}>
-                    <span>View Full Album</span>
+                    <span>View Full Album (17 Photos)</span>
                     <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
