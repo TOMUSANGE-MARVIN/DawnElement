@@ -8,11 +8,11 @@ export default function GalleryPage() {
   const heroTitle = useScrollAnimation(0.1);
   const heroDescription = useScrollAnimation(0.1);
 
-  // Gallery images with categories
+  // Gallery images with categories - Real RNADW photos from International Week of Deaf People 2025
   const galleryImages = [
     {
       id: 1,
-      url: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/312a2946fc306bd81120cac612274c59-cover.jpg',
       title: 'Community Workshop',
       category: 'Training & Education',
       categoryColor: '#FACC15',
@@ -20,7 +20,7 @@ export default function GalleryPage() {
     },
     {
       id: 2,
-      url: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/8b5564626598f9d4a1a8b19670b10d67-large.jpg',
       title: 'Leadership Summit',
       category: 'Events',
       categoryColor: '#2563EB',
@@ -28,7 +28,7 @@ export default function GalleryPage() {
     },
     {
       id: 3,
-      url: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/2b255b3c3c31e09d0bad31e02f62cb40-large.jpg',
       title: 'Sign Language Class',
       category: 'Training & Education',
       categoryColor: '#FACC15',
@@ -36,7 +36,7 @@ export default function GalleryPage() {
     },
     {
       id: 4,
-      url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/7eb1454c02cd1fbbc86b79d9cb977edd-large.jpg',
       title: 'Advocacy Campaign',
       category: 'Advocacy',
       categoryColor: '#EC4899',
@@ -44,7 +44,7 @@ export default function GalleryPage() {
     },
     {
       id: 5,
-      url: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/b603c9b9c49700a8fcdd4f08d3286575-large.jpg',
       title: 'Vocational Training',
       category: 'Economic Empowerment',
       categoryColor: '#10B981',
@@ -52,7 +52,7 @@ export default function GalleryPage() {
     },
     {
       id: 6,
-      url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/891771924f7d80bdf9469eb5a30ee93c-large.jpg',
       title: 'Team Meeting',
       category: 'Events',
       categoryColor: '#2563EB',
@@ -60,7 +60,7 @@ export default function GalleryPage() {
     },
     {
       id: 7,
-      url: 'https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/ed73e7a7f1d57bc95e8d7f8d927007e2-large.jpg',
       title: 'Health Awareness',
       category: 'SRHR',
       categoryColor: '#EC4899',
@@ -68,7 +68,7 @@ export default function GalleryPage() {
     },
     {
       id: 8,
-      url: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/859411c7dc6201ba5807bf4c3d1ebef9-large.jpg',
       title: 'Business Training',
       category: 'Economic Empowerment',
       categoryColor: '#10B981',
@@ -76,7 +76,7 @@ export default function GalleryPage() {
     },
     {
       id: 9,
-      url: 'https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/ee422d904fcfc700aed8265655dd9490-large.jpg',
       title: 'Community Outreach',
       category: 'Advocacy',
       categoryColor: '#EC4899',
@@ -84,7 +84,7 @@ export default function GalleryPage() {
     },
     {
       id: 10,
-      url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/46bbd7376face3762ac1aee2b8f3c5c7-large.jpg',
       title: 'Celebration Event',
       category: 'Events',
       categoryColor: '#2563EB',
@@ -92,7 +92,7 @@ export default function GalleryPage() {
     },
     {
       id: 11,
-      url: 'https://images.unsplash.com/photo-1573497161161-c3e73707e25c?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/417d1e5956c2290edbec562c2f465284-large.jpg',
       title: 'Mentorship Program',
       category: 'Training & Education',
       categoryColor: '#FACC15',
@@ -100,7 +100,7 @@ export default function GalleryPage() {
     },
     {
       id: 12,
-      url: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=800&h=600&fit=crop',
+      url: 'https://images.pixieset.com/763373001/14667cda9a43afd88b47f71884ac3374-large.jpg',
       title: 'Cooperative Meeting',
       category: 'Economic Empowerment',
       categoryColor: '#10B981',
@@ -327,6 +327,151 @@ export default function GalleryPage() {
                 </div>
               );
             })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* FULL EVENT ALBUMS SECTION */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+
+        {/* Decorative background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-10 right-10 w-96 h-96 rounded-full blur-3xl opacity-10"
+            style={{ background: 'radial-gradient(circle, #FACC15 0%, transparent 70%)' }} />
+          <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full blur-3xl opacity-10"
+            style={{ background: 'radial-gradient(circle, #2563EB 0%, transparent 70%)' }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+              <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Full Albums</span>
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#2563EB' }} />
+            </div>
+
+            <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
+              International Week of Deaf People 2025
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore the complete photo albums from our three-day celebration
+            </p>
+          </div>
+
+          {/* Gallery Links Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {/* Day 1 - Parents */}
+            <a
+              href="https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+              <div className="relative h-80">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.pixieset.com/763373001/312a2946fc306bd81120cac612274c59-cover.jpg"
+                  alt="Day 1 - Parents Day"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                {/* Content */}
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                  <div className="inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-3"
+                    style={{ backgroundColor: '#FACC15', color: '#000' }}>
+                    Day 1
+                  </div>
+                  <h3 className="text-2xl font-black mb-2">Parents Day</h3>
+                  <p className="text-sm text-gray-300 mb-4">
+                    Celebrating with parents and families
+                  </p>
+                  <div className="flex items-center gap-2 text-sm font-bold" style={{ color: '#FACC15' }}>
+                    <span>View Full Album</span>
+                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* Day 2 */}
+            <a
+              href="https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+              <div className="relative h-80">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.pixieset.com/763373001/8b5564626598f9d4a1a8b19670b10d67-large.jpg"
+                  alt="Day 2"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                {/* Content */}
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                  <div className="inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-3"
+                    style={{ backgroundColor: '#2563EB', color: '#fff' }}>
+                    Day 2
+                  </div>
+                  <h3 className="text-2xl font-black mb-2">Community Celebration</h3>
+                  <p className="text-sm text-gray-300 mb-4">
+                    Coming together as a community
+                  </p>
+                  <div className="flex items-center gap-2 text-sm font-bold" style={{ color: '#2563EB' }}>
+                    <span>View Full Album</span>
+                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* Day 3 */}
+            <a
+              href="https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day3/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+              <div className="relative h-80">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.pixieset.com/763373001/2b255b3c3c31e09d0bad31e02f62cb40-large.jpg"
+                  alt="Day 3"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                {/* Content */}
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                  <div className="inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-3"
+                    style={{ backgroundColor: '#EC4899', color: '#fff' }}>
+                    Day 3
+                  </div>
+                  <h3 className="text-2xl font-black mb-2">Final Celebration</h3>
+                  <p className="text-sm text-gray-300 mb-4">
+                    Closing festivities and achievements
+                  </p>
+                  <div className="flex items-center gap-2 text-sm font-bold" style={{ color: '#EC4899' }}>
+                    <span>View Full Album</span>
+                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+
           </div>
 
         </div>

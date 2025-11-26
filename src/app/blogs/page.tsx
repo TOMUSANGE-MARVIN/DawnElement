@@ -8,7 +8,7 @@ export default function BlogsPage() {
   const heroTitle = useScrollAnimation(0.1);
   const heroDescription = useScrollAnimation(0.1);
 
-  // Blog posts data
+  // Blog posts data - Real RNADW photos from International Week of Deaf People 2025
   const blogPosts = [
     {
       id: 1,
@@ -19,7 +19,7 @@ export default function BlogsPage() {
       readTime: '5 min read',
       category: 'Impact Stories',
       categoryColor: '#10B981',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/2da396f1b0a757c09cf8ce69ed468653-large.jpg',
       featured: true
     },
     {
@@ -31,7 +31,7 @@ export default function BlogsPage() {
       readTime: '8 min read',
       category: 'Legal Rights',
       categoryColor: '#2563EB',
-      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/f2837fe0802cf61dd427f56e187bdd9b-large.jpg',
       featured: false
     },
     {
@@ -43,7 +43,7 @@ export default function BlogsPage() {
       readTime: '6 min read',
       category: 'SGBV/VAWG',
       categoryColor: '#EC4899',
-      image: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/24ff7a47078a7efec48e7810dfec3b59-large.jpg',
       featured: false
     },
     {
@@ -55,7 +55,7 @@ export default function BlogsPage() {
       readTime: '7 min read',
       category: 'Education',
       categoryColor: '#FACC15',
-      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/2b0b09d9f9937d2d6c9c2c12ee987fcc-large.jpg',
       featured: false
     },
     {
@@ -67,7 +67,7 @@ export default function BlogsPage() {
       readTime: '5 min read',
       category: 'Economic Empowerment',
       categoryColor: '#10B981',
-      image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/3d3fa176dbd4cc02d46e668ce437158a-large.jpg',
       featured: false
     },
     {
@@ -79,7 +79,7 @@ export default function BlogsPage() {
       readTime: '6 min read',
       category: 'SRHR',
       categoryColor: '#EC4899',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/5b83dcee9e161b4f28fd7c52382b349b-large.jpg',
       featured: false
     },
     {
@@ -91,7 +91,7 @@ export default function BlogsPage() {
       readTime: '4 min read',
       category: 'Impact Stories',
       categoryColor: '#10B981',
-      image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/f64bc10857ade7461b9c6458a227be58-large.jpg',
       featured: false
     },
     {
@@ -103,7 +103,7 @@ export default function BlogsPage() {
       readTime: '5 min read',
       category: 'Advocacy',
       categoryColor: '#2563EB',
-      image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=500&fit=crop',
+      image: 'https://images.pixieset.com/763373001/c0efa6817dfe8e0519ea90fc421f021b-large.jpg',
       featured: false
     },
   ];
