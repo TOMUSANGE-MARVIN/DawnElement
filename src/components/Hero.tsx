@@ -116,7 +116,7 @@ export default function Hero() {
                 }}
               />
               <img
-                src="/src/assets/images/hero1.png"
+                src="/images/hero1.png"
                 alt="Hero"
                 className="relative w-full max-w-lg mx-auto object-cover z-10"
               />

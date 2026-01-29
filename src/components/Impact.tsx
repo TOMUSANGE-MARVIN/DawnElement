@@ -70,7 +70,7 @@ export default function Impact() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-full max-w-md">
                 <img 
-                  src="/src/assets/images/side.png" 
+                  src="/images/side.png" 
                   alt="Community impact"
                   className="w-full h-auto object-cover "
                 />

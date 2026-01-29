@@ -33,7 +33,7 @@ export default function Header() {
           {/* Logo */}
           <a href="#home" className="flex items-center">
             <img 
-              src="/src/assets/images/log.png" 
+              src="/images/log.png" 
               alt="Dawn Elements" 
               className="h-12 w-auto object-contain"
             />
