@@ -98,16 +98,16 @@ export default function Footer() {
               </div>
             </ScrollAnimate>
             <ScrollAnimate animation="fade-left" delay={200}>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-5 py-3 bg-white/10 border border-white/20 rounded-full text-white placeholder:text-gray-500 focus:outline-none focus:border-dawn-orange transition-colors"
+                  className="flex-1 w-full sm:w-auto px-5 py-3 bg-white/10 border border-white/20 rounded-full text-white placeholder:text-gray-500 focus:outline-none focus:border-dawn-orange transition-colors"
                 />
-                <button className="inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 bg-dawn-orange text-white font-medium rounded-full hover:bg-dawn-orange-light transition-colors duration-300 group">
+                <button className="w-fit inline-flex items-center gap-2 pl-4 pr-0.5 py-0.5 sm:pl-6 sm:pr-1.5 sm:py-1.5 bg-dawn-orange text-white text-xs sm:text-base font-medium rounded-full hover:bg-dawn-orange-light transition-colors duration-300 group">
                   <span>Subscribe</span>
-                  <span className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <span className="w-7 h-7 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </span>
@@ -254,10 +254,10 @@ export default function Footer() {
       {/* Back to top button */}
       <a
         href="#home"
-        className="fixed bottom-8 right-8 w-12 h-12 bg-[#2D3B2D] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-dawn-orange transform hover:-translate-y-1 transition-all duration-300 z-40 group"
+        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 bg-[#2D3B2D] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-dawn-orange transform hover:-translate-y-1 transition-all duration-300 z-40 group"
         aria-label="Back to top"
       >
-        <svg className="w-5 h-5 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
       </a>

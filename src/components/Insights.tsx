@@ -113,12 +113,12 @@ export default function Insights() {
 
         {/* Tab navigation */}
         <ScrollAnimate animation="fade-up" delay={200}>
-          <div className="flex justify-center gap-4 mb-12">
+          <div className="flex justify-center gap-2 sm:gap-4 mb-12">
             {(['events', 'stories'] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full font-medium transition-all duration-300 group ${
+                className={`inline-flex items-center gap-2 sm:gap-3 pl-4 sm:pl-6 pr-1 sm:pr-1.5 py-1 sm:py-1.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 group ${
                   activeTab === tab
                     ? 'bg-[#2D3B2D] text-white shadow-lg'
                     : 'bg-dawn-cream text-dawn-gray hover:bg-dawn-yellow/30'
@@ -126,14 +126,14 @@ export default function Insights() {
               >
                 <span>{tab === 'events' ? 'Upcoming Events' : 'Stories'}</span>
                 <span 
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                     activeTab === tab 
                       ? 'bg-dawn-orange scale-100' 
                       : 'bg-dawn-gray/20 scale-75 group-hover:scale-90'
                   }`}
                 >
                   <svg
-                    className={`w-4 h-4 transition-all duration-300 ${
+                    className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-all duration-300 ${
                       activeTab === tab ? 'text-white ml-0.5' : 'text-dawn-gray'
                     }`}
                     fill="currentColor"
@@ -237,10 +237,10 @@ export default function Insights() {
           <div className="text-center mt-12">
             <a
               href="#"
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-dawn-dark text-dawn-dark font-semibold rounded-full hover:bg-dawn-dark hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 border-2 border-dawn-dark text-dawn-dark text-sm sm:text-base font-semibold rounded-full hover:bg-dawn-dark hover:text-white transition-all duration-300"
             >
               View All {activeTab === 'events' ? 'Events' : 'Stories'}
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>

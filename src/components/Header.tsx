@@ -57,12 +57,12 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 pl-5 pr-1 py-1 bg-[#2D3B2D] text-white text-sm font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group"
+              className="inline-flex items-center gap-2 sm:gap-3 pl-4 sm:pl-5 pr-1 py-1 bg-[#2D3B2D] text-white text-xs sm:text-sm font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group"
             >
               <span>Get in Touch</span>
-              <span className="w-8 h-8 bg-dawn-orange rounded-full flex items-center justify-center">
+              <span className="w-7 h-7 sm:w-8 sm:h-8 bg-dawn-orange rounded-full flex items-center justify-center">
                 <svg
-                  className="w-3.5 h-3.5 text-white"
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -118,12 +118,12 @@ export default function Header() {
             <li className="pt-4">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 pl-5 pr-1 py-1 bg-[#2D3B2D] text-white text-sm font-medium rounded-full"
+                className="inline-flex items-center gap-2 pl-4 pr-1 py-1 bg-[#2D3B2D] text-white text-xs font-medium rounded-full"
               >
                 <span>Get in Touch</span>
-                <span className="w-8 h-8 bg-dawn-orange rounded-full flex items-center justify-center">
+                <span className="w-7 h-7 bg-dawn-orange rounded-full flex items-center justify-center">
                   <svg
-                    className="w-3.5 h-3.5 text-white"
+                    className="w-3 h-3 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

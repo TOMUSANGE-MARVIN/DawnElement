@@ -26,7 +26,7 @@ export default function Cause() {
           </ScrollAnimate>
           <ScrollAnimate animation="zoom-in" duration={800} delay={100}>
             <h1 
-              className="glitch text-5xl md:text-6xl lg:text-7xl font-extrabold text-dawn-orange mb-6 tracking-tight whitespace-nowrap"
+              className="glitch text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-dawn-orange mb-6 tracking-tight"
               data-text="OUR MISSION IS SIMPLE"
             >
               OUR MISSION IS SIMPLE

@@ -60,15 +60,15 @@ export default function Hero() {
               investing, storytelling, and systemic change.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-slide-up delay-300" style={{ opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="flex flex-col sm:flex-row gap-4 animate-slide-up delay-300 items-center sm:items-start" style={{ opacity: 0, animationFillMode: 'forwards' }}>
               <a
                 href="#what-we-do"
-                className="inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 bg-[#2D3B2D] text-white font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group"
+                className="w-fit inline-flex items-center gap-2 pl-4 pr-0.5 py-0.5 sm:pl-6 sm:pr-1.5 sm:py-1.5 bg-[#2D3B2D] text-white text-xs sm:text-base font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group"
               >
                 <span>Learn More</span>
-                <span className="w-10 h-10 bg-dawn-orange rounded-full flex items-center justify-center">
+                <span className="w-7 h-7 sm:w-10 sm:h-10 bg-dawn-orange rounded-full flex items-center justify-center">
                   <svg
-                    className="w-4 h-4 text-white ml-0.5"
+                    className="w-3 h-3 sm:w-4 sm:h-4 text-white ml-0.5"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >

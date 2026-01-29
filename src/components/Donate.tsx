@@ -56,11 +56,11 @@ export default function Donate() {
             <ScrollAnimate animation="fade-up" delay={300}>
               <a
                 href="#donate"
-                className="inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 bg-[#2D3B2D] text-white font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group"
+                className="inline-flex items-center gap-2 sm:gap-3 pl-5 sm:pl-6 pr-1 sm:pr-1.5 py-1 sm:py-1.5 bg-[#2D3B2D] text-white text-sm sm:text-base font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group"
               >
                 <span>Contribute Now</span>
-                <span className="w-10 h-10 bg-dawn-orange rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <span className="w-8 h-8 sm:w-10 sm:h-10 bg-dawn-orange rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                   </svg>
                 </span>
