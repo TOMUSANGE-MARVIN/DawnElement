@@ -25,7 +25,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
-          : 'bg-transparent py-5'
+          : 'bg-white/10 backdrop-blur-lg border-b border-white/10 shadow-sm py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
