@@ -26,14 +26,22 @@ export default function Testimonial() {
     <section
       ref={sectionRef}
       className="relative py-24 lg:py-32 overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&auto=format&fit=crop')`,
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-      }}
+      style={{ clipPath: 'inset(0)' }}
     >
+      {/* Video background - fixed position for parallax effect */}
+      <div className="fixed inset-0 -z-10">
+        <video
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/Dawn.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-dawn-dark/85 to-dawn-dark/90" />
+      </div>
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-10 w-32 h-32 border border-white/10 rounded-full" />
