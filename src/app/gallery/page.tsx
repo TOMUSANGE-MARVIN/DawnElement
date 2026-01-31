@@ -49,7 +49,7 @@ export default function GalleryPage() {
     // Day 1 - Parents Day (8 photos)
     {
       id: 1,
-      url: 'https://images.pixieset.com/763373001/312a2946fc306bd81120cac612274c59-cover.jpg',
+      url: '/images/image5.png',
       title: 'Parents Day Opening',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
@@ -347,7 +347,7 @@ export default function GalleryPage() {
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.pixieset.com/763373001/312a2946fc306bd81120cac612274c59-cover.jpg"
+                  src="/images/image5.png"
                   alt="Day 1 - Parents Day"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -383,7 +383,7 @@ export default function GalleryPage() {
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.pixieset.com/410444001/fb3f28389ce2aed2e190b8bd1e9d0849-cover.jpg"
+                  src="/images/0U9A5554.JPG"
                   alt="Day 2 - Community Celebration"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -419,7 +419,7 @@ export default function GalleryPage() {
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.pixieset.com/659165001/fdb4686c22335a9a3e5c2af49b623177-cover.JPG"
+                  src="/images/image6.png"
                   alt="Day 3 - Final Celebration"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

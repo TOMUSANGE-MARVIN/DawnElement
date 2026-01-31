@@ -111,7 +111,7 @@ export default function ActivitiesPage() {
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-4_820x620-1755000886621-95849572.jpg"
+                      src="/images/image1.png"
                       alt="Economic Empowerment"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
@@ -186,7 +186,7 @@ export default function ActivitiesPage() {
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-3_820x620-1755000263234-690758480.jpg"
+                      src="/images/image2.png"
                       alt="Reproductive Health Rights"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
@@ -260,7 +260,7 @@ export default function ActivitiesPage() {
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-2_820x620-1754999964914-58402428.jpg"
+                      src="/images/image3.png"
                       alt="Ending Violence"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
@@ -332,7 +332,7 @@ export default function ActivitiesPage() {
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-main_2-1754996414270-440707368.jpg"
+                      src="/images/image4.png"
                       alt="Education & Skills Training"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"

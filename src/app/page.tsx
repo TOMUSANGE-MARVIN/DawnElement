@@ -341,7 +341,7 @@ export default function Home() {
               ref={aboutCard3.ref}
               className={`md:col-span-3 relative rounded-3xl overflow-hidden shadow-lg min-h-[400px] group scroll-animate-left delay-300 ${aboutCard3.isVisible ? 'visible' : ''}`}>
               <Image
-                src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg"
+                src="/images/0U9A5550.JPG"
                 alt="RNADW Team"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -384,7 +384,7 @@ export default function Home() {
               ref={aboutCard6.ref}
               className={`md:col-span-4 relative rounded-3xl overflow-hidden shadow-lg min-h-[350px] group scroll-animate delay-600 ${aboutCard6.isVisible ? 'visible' : ''}`}>
               <Image
-                src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg"
+                src="/images/0U9A5432.JPG"
                 alt="RNADW Activities"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -750,7 +750,7 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-3_820x620-1755000263234-690758480.jpg"
+                      src="/images/0U9A5398.JPG"
                       alt="My Body, My Rights - SRHR"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -795,7 +795,7 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-x-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-4_820x620-1755000886621-95849572.jpg"
+                      src="/images/0U9A5473.JPG"
                       alt="Spear N' Shield - Education & Skills"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -838,7 +838,7 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-y-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-2_820x620-1754999964914-58402428.jpg"
+                      src="/images/0U9A5465.JPG"
                       alt="Her Voice, Her Power"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -879,7 +879,7 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-x-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-main_2-1754996414270-440707368.jpg"
+                      src="/images/0U9A5516.JPG"
                       alt="Her Environment - Climate Adaptation"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
