@@ -68,7 +68,8 @@ export default function ActivitiesPage() {
           <p
             ref={heroDescription.ref}
             className={`text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl scroll-animate delay-300 ${heroDescription.isVisible ? 'visible' : ''}`}>
-            Transforming lives across Rwanda through education, economic empowerment, healthcare access, and advocacy for the rights of deaf women and girls.
+            Our Strategic Plan 2025-2030 is themed <span className="font-bold text-yellow-400">&quot;Loud in Silence: Deaf Women and Girls Driving Change&quot;</span> -
+            fostering inclusive social-economic development that is deaf-women-centred, transformative and accountable across Rwanda.
           </p>
 
         </div>
@@ -90,7 +91,7 @@ export default function ActivitiesPage() {
           {/* Programs Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
-            {/* Program 1: Economic Empowerment */}
+            {/* Program 1: Spear N' Shield - Education & Economic Empowerment */}
             <div
               ref={program1.ref}
               className={`group scroll-animate-scale delay-200 ${program1.isVisible ? 'visible' : ''}`}>
@@ -112,7 +113,7 @@ export default function ActivitiesPage() {
                   <div className="aspect-[16/10] relative">
                     <Image
                       src="/images/image1.png"
-                      alt="Economic Empowerment"
+                      alt="Spear N' Shield - Education & Economic Empowerment"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
@@ -128,30 +129,30 @@ export default function ActivitiesPage() {
 
                   {/* Content - Slides up and expands on hover */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
-                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">💼</div>
+                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">📚</div>
                     <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      Economic<br />Empowerment
+                      Spear N&apos; Shield
                     </h3>
 
                     {/* Description - Hidden by default, slides up on hover */}
                     <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
                       <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        Life skills and entrepreneurship training for sustainable livelihoods and financial independence.
+                        Education, Skilling, Digitalization and Business Development for sustainable livelihoods.
                       </p>
 
                       {/* Features List */}
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Vocational training programs</span>
+                          <span>Rwanda Sign Language (RSL) digitalization</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Business development skills</span>
+                          <span>Business development & SACCO support</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Financial literacy workshops</span>
+                          <span>Umucyo Sign Language App</span>
                         </li>
                       </ul>
 
@@ -165,7 +166,7 @@ export default function ActivitiesPage() {
               </Link>
             </div>
 
-            {/* Program 2: Reproductive Health Rights */}
+            {/* Program 2: My Body, My Rights - SRHR */}
             <div
               ref={program2.ref}
               className={`group scroll-animate-scale delay-300 ${program2.isVisible ? 'visible' : ''}`}>
@@ -187,7 +188,7 @@ export default function ActivitiesPage() {
                   <div className="aspect-[16/10] relative">
                     <Image
                       src="/images/image2.png"
-                      alt="Reproductive Health Rights"
+                      alt="My Body, My Rights - Sexual and Reproductive Health"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
@@ -204,28 +205,28 @@ export default function ActivitiesPage() {
                   <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
                     <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">🏥</div>
                     <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      Reproductive<br />Health Rights
+                      My Body,<br />My Rights
                     </h3>
 
                     {/* Description - Hidden by default, slides up on hover */}
                     <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
                       <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        Comprehensive sexual education and health rights advocacy for informed decision-making.
+                        Sexual and Reproductive Health and Rights (SRHR) and GBV prevention for deaf women and girls.
                       </p>
 
                       {/* Features List */}
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Sexual health education</span>
+                          <span>Deaf-friendly CSE modules</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Access to healthcare services</span>
+                          <span>GBV prevention & Deaf Theatre</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Family planning support</span>
+                          <span>PSEAH awareness & support</span>
                         </li>
                       </ul>
 
@@ -239,7 +240,7 @@ export default function ActivitiesPage() {
               </Link>
             </div>
 
-            {/* Program 3: Ending Violence */}
+            {/* Program 3: Her Voice, Her Power - Leadership */}
             <div
               ref={program3.ref}
               className={`group scroll-animate-scale delay-400 ${program3.isVisible ? 'visible' : ''}`}>
@@ -261,7 +262,7 @@ export default function ActivitiesPage() {
                   <div className="aspect-[16/10] relative">
                     <Image
                       src="/images/image3.png"
-                      alt="Ending Violence"
+                      alt="Her Voice, Her Power - Leadership"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
@@ -275,30 +276,30 @@ export default function ActivitiesPage() {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
-                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">🛡️</div>
+                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">📢</div>
                     <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      Ending<br />Violence
+                      Her Voice,<br />Her Power
                     </h3>
 
                     {/* Description - Hidden by default, slides up on hover */}
                     <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
                       <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        GBV/SGBV prevention and protection for deaf women and girls through awareness and support.
+                        Leadership, Voice and Agency - strengthening deaf women&apos;s participation in decision-making.
                       </p>
 
                       {/* Features List */}
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>GBV awareness campaigns</span>
+                          <span>Feminist Leadership Institutes</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Survivor support services</span>
+                          <span>Deaf Women Leaders Forum</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Community protection networks</span>
+                          <span>Advocacy & media campaigns</span>
                         </li>
                       </ul>
 
@@ -311,7 +312,7 @@ export default function ActivitiesPage() {
               </Link>
             </div>
 
-            {/* Program 4: Education & Skills */}
+            {/* Program 4: Her Environment - Climate Resilience */}
             <div
               ref={program4.ref}
               className={`group scroll-animate-scale delay-500 ${program4.isVisible ? 'visible' : ''}`}>
@@ -333,7 +334,7 @@ export default function ActivitiesPage() {
                   <div className="aspect-[16/10] relative">
                     <Image
                       src="/images/image4.png"
-                      alt="Education & Skills Training"
+                      alt="Her Environment - Climate Adaptation"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                     />
@@ -348,30 +349,30 @@ export default function ActivitiesPage() {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
-                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">📚</div>
+                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">🌍</div>
                     <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      Education &<br />Skills Training
+                      Her<br />Environment
                     </h3>
 
                     {/* Description - Hidden by default, slides up on hover */}
                     <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
                       <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        Literacy programs and skills development for personal growth and career advancement.
+                        Climate Adaptation and Resilience - equipping deaf women for environmental challenges.
                       </p>
 
                       {/* Features List */}
                       <ul className="space-y-2 mb-6">
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Sign language education</span>
+                          <span>Climate-smart agriculture training</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Literacy & numeracy programs</span>
+                          <span>Accessible climate information in RSL</span>
                         </li>
                         <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
                           <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Technical skills workshops</span>
+                          <span>Climate justice advocacy</span>
                         </li>
                       </ul>
 

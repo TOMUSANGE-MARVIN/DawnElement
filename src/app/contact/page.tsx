@@ -98,8 +98,8 @@ export default function ContactPage() {
               {/* Content */}
               <h3 className="text-xl font-black text-gray-900 mb-3">Visit Us</h3>
               <p className="text-gray-600 leading-relaxed">
-                KG 11 Ave, Kigali<br />
-                Kigali City, Rwanda
+                KG 125 ST, 304, Ikaro Plaza<br />
+                Nyarugunga, Kicukiro, Kigali
               </p>
             </div>
 
@@ -120,8 +120,8 @@ export default function ContactPage() {
               {/* Content */}
               <h3 className="text-xl font-black text-gray-900 mb-3">Call Us</h3>
               <p className="text-gray-600 leading-relaxed">
-                +250 788 123 456<br />
-                +250 788 654 321
+                +250 784 591 495<br />
+                +250 788 428 965
               </p>
             </div>
 

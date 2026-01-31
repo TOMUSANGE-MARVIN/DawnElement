@@ -127,7 +127,7 @@ export default function Footer() {
               <p
                 ref={footerRegistration.ref}
                 className={`text-gray-500 text-sm leading-relaxed max-w-md scroll-animate delay-500 ${footerRegistration.isVisible ? 'visible' : ''}`}>
-                Organization of People with Disabilities (OPD) fully registered with Rwanda Governance Board (RGB).
+                Organization of People with Disabilities (OPD) fully registered with Rwanda Governance Board (RGB) under Registration N° 055/2014.
               </p>
 
               {/* Social Links - Large Buttons */}
@@ -208,7 +208,7 @@ export default function Footer() {
                       </div>
                       <div className="flex-1 pt-1">
                         <p className="text-xs font-bold uppercase tracking-wider text-blue-300 mb-1">Address</p>
-                        <p className="text-sm text-gray-300 leading-relaxed">KK 78ST Kanombe,<br />Kigali, Rwanda</p>
+                        <p className="text-sm text-gray-300 leading-relaxed">KG 125 ST, 304, Ikaro Plaza,<br />Nyarugunga, Kicukiro, Kigali</p>
                       </div>
                     </div>
                   </li>

@@ -300,13 +300,13 @@ export default function Home() {
                 </h3>
 
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Rwanda National Association of Deaf Women (RNADW) is an Organization of People with Disabilities (OPD)
-                  fully registered with Rwanda Governance Board (RGB).
+                  Rwanda National Association of Deaf Women (RNADW) is a Deaf constituency-led organization
+                  fully registered with Rwanda Governance Board (RGB) under Registration N° 055/2014.
                 </p>
 
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Founded in <span className="font-black" style={{ color: '#FACC15' }}>2005</span> by a group of deaf women human rights activists to advocate for the rights
-                  of women and girls, after realizing the gaps in service provision and insufficient advocacy efforts.
+                  Founded in <span className="font-black" style={{ color: '#FACC15' }}>2005</span> by Deaf Women Human Rights Activists to advocate for the rights
+                  of deaf women and girls. We fight for full and meaningful social integration across all 22 districts of Rwanda.
                 </p>
 
                 <Link href="/aboutus" className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-black text-white transition-all hover:scale-105"
@@ -662,7 +662,7 @@ export default function Home() {
                 <p
                   ref={programsTagline.ref}
                   className={`text-xl lg:text-2xl text-gray-600 font-light max-w-2xl mt-8 leading-relaxed scroll-animate delay-600 ${programsTagline.isVisible ? 'visible' : ''}`}>
-                  Four pillars of empowerment transforming lives across Rwanda
+                  Strategic Plan 2025-2030: Participation ~ Power ~ Partnership!
                 </p>
               </div>
 
@@ -771,7 +771,7 @@ export default function Home() {
                       My Body, My Rights
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Sexual and Reproductive Health and Rights (SRHR) for deaf women and girls
+                      Sexual and Reproductive Health and Rights (SRHR) and GBV prevention
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
                       style={{ color: '#FACC15' }}>
@@ -814,7 +814,7 @@ export default function Home() {
                       Spear N&apos; Shield
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Education, Skilling, Digitalization and Business Development
+                      Education, Skilling, Digitalization & the Umucyo Sign Language App
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
                       style={{ color: '#FACC15' }}>
@@ -856,7 +856,7 @@ export default function Home() {
                       Her Voice, Her Power
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Leadership, Voice and Agency for deaf women and girls
+                      Feminist Leadership, Deaf Women Leaders Forum & Advocacy
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all text-white">
                       Explore →
@@ -898,7 +898,7 @@ export default function Home() {
                       Her Environment
                     </h3>
                     <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Climate Adaptation and Resilience for deaf women and girls
+                      Climate-smart agriculture & accessible climate information in RSL
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
                       style={{ color: '#2563EB' }}>
@@ -1405,7 +1405,7 @@ export default function Home() {
                       </div>
                       <div className="flex-1">
                         <div className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: '#2563EB' }}>Location</div>
-                        <div className="text-gray-900 font-semibold text-sm">KK 78ST Kanombe, Kigali</div>
+                        <div className="text-gray-900 font-semibold text-sm">KG 125 ST, 304 Ikaro Plaza, Kigali</div>
                       </div>
                     </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import Link from 'next/link';
 
 export default function BlogsPage() {
   // Hero animations
@@ -12,98 +13,182 @@ export default function BlogsPage() {
   const blogPosts = [
     {
       id: 1,
-      title: 'Breaking Barriers: Deaf Women Leading Change in Rwanda',
-      excerpt: 'Meet the inspiring deaf women entrepreneurs, advocates, and community leaders who are transforming their communities and breaking down barriers across Rwanda.',
-      author: 'RNADW Team',
-      date: 'Nov 20, 2024',
-      readTime: '5 min read',
-      category: 'Impact Stories',
-      categoryColor: '#10B981',
-      image: 'https://images.pixieset.com/763373001/2da396f1b0a757c09cf8ce69ed468653-large.jpg',
+      title: 'Loud in Silence: Launching Our Strategic Plan 2025-2030',
+      excerpt: 'RNADW proudly unveils our new Strategic Plan themed "Loud in Silence: Deaf Women and Girls Driving Change" - a bold vision for the next five years focusing on Participation, Power, and Partnership.',
+      author: 'Executive Director',
+      date: 'Jan 15, 2025',
+      readTime: '8 min read',
+      category: 'Announcements',
+      categoryColor: '#FACC15',
+      image: '/images/image12.png',
       featured: true
     },
     {
       id: 2,
-      title: 'Understanding CEDAW: Rights for Women with Disabilities',
-      excerpt: 'An in-depth look at how CEDAW protections apply to deaf women and what these rights mean in practice.',
-      author: 'Legal Team',
-      date: 'Nov 15, 2024',
-      readTime: '8 min read',
-      category: 'Legal Rights',
+      title: 'Umucyo Sign Language App: Digital Innovation for Accessibility',
+      excerpt: 'Introducing the Umucyo Sign Language App - our groundbreaking digital platform providing remote sign language interpretation, accessible information, and community building for deaf women across Rwanda.',
+      author: 'ICT Team',
+      date: 'Jan 10, 2025',
+      readTime: '6 min read',
+      category: 'Digital Innovation',
       categoryColor: '#2563EB',
-      image: 'https://images.pixieset.com/763373001/f2837fe0802cf61dd427f56e187bdd9b-large.jpg',
+      image: '/images/image8.png',
       featured: false
     },
     {
       id: 3,
-      title: 'SGBV Prevention: Community-Led Solutions',
-      excerpt: 'How deaf women are creating safe spaces and prevention programs to address gender-based violence.',
-      author: 'Advocacy Team',
-      date: 'Nov 10, 2024',
-      readTime: '6 min read',
-      category: 'SGBV/VAWG',
-      categoryColor: '#EC4899',
-      image: 'https://images.pixieset.com/763373001/24ff7a47078a7efec48e7810dfec3b59-large.jpg',
+      title: 'Her Environment: Climate Adaptation for Deaf Women',
+      excerpt: 'Our new Climate Adaptation and Resilience program equips deaf women with climate-smart agriculture skills and ensures climate information is accessible in Rwanda Sign Language.',
+      author: 'Programs Team',
+      date: 'Jan 5, 2025',
+      readTime: '7 min read',
+      category: 'Climate Action',
+      categoryColor: '#10B981',
+      image: '/images/image11.png',
       featured: false
     },
     {
       id: 4,
-      title: 'Sign Language Education: Bridging the Communication Gap',
-      excerpt: 'The importance of sign language education and how RNADW is making it accessible to all.',
-      author: 'Education Team',
-      date: 'Nov 5, 2024',
-      readTime: '7 min read',
-      category: 'Education',
-      categoryColor: '#FACC15',
-      image: 'https://images.pixieset.com/763373001/2b0b09d9f9937d2d6c9c2c12ee987fcc-large.jpg',
+      title: 'Deaf Women Leaders Forum: Building Collective Power',
+      excerpt: 'The Deaf Women Leaders Forum brings together emerging leaders from across 22 districts for peer support, collective strategy, and sustained advocacy for disability rights.',
+      author: 'Leadership Team',
+      date: 'Dec 20, 2024',
+      readTime: '5 min read',
+      category: 'Leadership',
+      categoryColor: '#EC4899',
+      image: '/images/image13.png',
       featured: false
     },
     {
       id: 5,
-      title: 'Economic Empowerment Through Vocational Training',
-      excerpt: 'Success stories from our vocational training programs and how they are changing lives.',
-      author: 'Programs Team',
-      date: 'Oct 28, 2024',
-      readTime: '5 min read',
-      category: 'Economic Empowerment',
-      categoryColor: '#10B981',
-      image: 'https://images.pixieset.com/763373001/3d3fa176dbd4cc02d46e668ce437158a-large.jpg',
+      title: 'Feminist Leadership Institute: Cultivating the Next Generation',
+      excerpt: 'Our Feminist Leadership Institute and boot camps are nurturing emerging deaf women leaders through targeted training, mentorship programs, and confidence-building workshops.',
+      author: 'Advocacy Team',
+      date: 'Dec 15, 2024',
+      readTime: '6 min read',
+      category: 'Leadership',
+      categoryColor: '#EC4899',
+      image: '/images/image14.png',
       featured: false
     },
     {
       id: 6,
-      title: 'SRHR Access: Breaking Down Healthcare Barriers',
-      excerpt: 'Addressing sexual and reproductive health rights for deaf women in Rwanda.',
-      author: 'Health Advocacy',
-      date: 'Oct 20, 2024',
-      readTime: '6 min read',
+      title: 'Deaf Theatre: Using Art to Advocate for SRHR',
+      excerpt: 'Deaf Theatre has become a powerful platform for building agency and raising awareness about sexual and reproductive health rights among deaf women and girls.',
+      author: 'SRHR Team',
+      date: 'Dec 10, 2024',
+      readTime: '5 min read',
       category: 'SRHR',
-      categoryColor: '#EC4899',
-      image: 'https://images.pixieset.com/763373001/5b83dcee9e161b4f28fd7c52382b349b-large.jpg',
+      categoryColor: '#F97316',
+      image: '/images/image15.png',
       featured: false
     },
     {
       id: 7,
-      title: 'Youth Leadership: Empowering the Next Generation',
-      excerpt: 'Young deaf women are stepping up as leaders and advocates in their communities.',
-      author: 'Youth Programs',
-      date: 'Oct 15, 2024',
-      readTime: '4 min read',
-      category: 'Impact Stories',
+      title: 'SACCO Success: Financial Independence for Deaf Women',
+      excerpt: 'Our Saving and Credit Cooperative (SACCO) initiative is helping deaf women access capital, build savings, and achieve economic independence through community-based financial services.',
+      author: 'Economic Empowerment',
+      date: 'Dec 5, 2024',
+      readTime: '6 min read',
+      category: 'Economic Empowerment',
       categoryColor: '#10B981',
-      image: 'https://images.pixieset.com/763373001/f64bc10857ade7461b9c6458a227be58-large.jpg',
+      image: '/images/image9.png',
       featured: false
     },
     {
       id: 8,
-      title: 'Building Partnerships: Collaborating for Change',
-      excerpt: 'How partnerships with government, NGOs, and community organizations amplify our impact.',
-      author: 'Partnerships',
-      date: 'Oct 8, 2024',
-      readTime: '5 min read',
-      category: 'Advocacy',
+      title: 'Expanding to 22 Districts: RNADW Across All Provinces',
+      excerpt: 'RNADW now has robust programming and members across 22 districts in all 5 provinces of Rwanda - from Nyagatare to Rusizi, Musanze to Huye.',
+      author: 'Operations Team',
+      date: 'Nov 28, 2024',
+      readTime: '4 min read',
+      category: 'Growth',
       categoryColor: '#2563EB',
-      image: 'https://images.pixieset.com/763373001/c0efa6817dfe8e0519ea90fc421f021b-large.jpg',
+      image: '/images/image16.png',
+      featured: false
+    },
+    {
+      id: 9,
+      title: 'My Body, My Rights: Comprehensive Sexuality Education for Deaf Girls',
+      excerpt: 'Our Deaf-friendly CSE Module is transforming how healthcare providers deliver inclusive and accessible sexuality education to deaf women and girls.',
+      author: 'Health Team',
+      date: 'Nov 20, 2024',
+      readTime: '7 min read',
+      category: 'SRHR',
+      categoryColor: '#F97316',
+      image: '/images/image17.png',
+      featured: false
+    },
+    {
+      id: 10,
+      title: 'Rwanda Sign Language Digitalization: Breaking Communication Barriers',
+      excerpt: 'Our initiative to promote and digitalize Rwanda Sign Language (RSL) is enhancing access to information, education, and services for deaf women and girls nationwide.',
+      author: 'Education Team',
+      date: 'Nov 15, 2024',
+      readTime: '5 min read',
+      category: 'Education',
+      categoryColor: '#FACC15',
+      image: '/images/image18.png',
+      featured: false
+    },
+    {
+      id: 11,
+      title: 'PSEAH: Preventing Sexual Exploitation and Abuse',
+      excerpt: 'RNADW is committed to Prevention of Sexual Exploitation, Abuse and Harassment (PSEAH) - creating safe spaces and support systems for deaf women survivors.',
+      author: 'Protection Team',
+      date: 'Nov 10, 2024',
+      readTime: '6 min read',
+      category: 'SGBV/VAWG',
+      categoryColor: '#EC4899',
+      image: '/images/image7.png',
+      featured: false
+    },
+    {
+      id: 12,
+      title: 'Partnering with NUDOR: Strengthening the Disability Movement',
+      excerpt: 'Our strategic partnership with the National Union of Disability Organizations of Rwanda (NUDOR) amplifies advocacy for deaf women within the broader disability rights movement.',
+      author: 'Partnerships',
+      date: 'Nov 5, 2024',
+      readTime: '5 min read',
+      category: 'Partnerships',
+      categoryColor: '#2563EB',
+      image: '/images/image10.png',
+      featured: false
+    },
+    {
+      id: 13,
+      title: 'Children of Deaf Women (CODA): Supporting the Whole Family',
+      excerpt: 'Our ecological model extends support to Children of Deaf Women (CODA), recognizing the importance of the entire family ecosystem in empowering deaf women.',
+      author: 'Community Team',
+      date: 'Oct 28, 2024',
+      readTime: '5 min read',
+      category: 'Community',
+      categoryColor: '#10B981',
+      image: '/images/image19.png',
+      featured: false
+    },
+    {
+      id: 14,
+      title: 'Climate Justice: Deaf Women in Environmental Decision-Making',
+      excerpt: 'Advocating for disability-inclusive climate policies and ensuring deaf women participate in climate adaptation planning and environmental conservation efforts.',
+      author: 'Advocacy Team',
+      date: 'Oct 20, 2024',
+      readTime: '6 min read',
+      category: 'Climate Action',
+      categoryColor: '#10B981',
+        image: '/images/image20.png',
+        featured: false
+    },
+    {
+      id: 15,
+      title: 'From 2005 to 2025: 20 Years of Empowering Deaf Women',
+      excerpt: 'Celebrating two decades of advocacy, from our founding by deaf women human rights activists to becoming a leading OPD with presence across all provinces of Rwanda.',
+      author: 'RNADW Team',
+      date: 'Oct 15, 2024',
+      readTime: '8 min read',
+      category: 'Impact Stories',
+      categoryColor: '#FACC15',
+      image: '/images/image21.png',
       featured: false
     },
   ];
@@ -238,7 +323,8 @@ export default function BlogsPage() {
                   <div
                     ref={featuredCTA.ref}
                     className={`lg:flex lg:justify-end scroll-animate-scale delay-500 ${featuredCTA.isVisible ? 'visible' : ''}`}>
-                    <button
+                    <Link
+                      href={`/blogs/${featuredPost.id}`}
                       className="px-8 py-4 rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 flex items-center gap-3 group"
                       style={{
                         backgroundColor: featuredPost.categoryColor,
@@ -246,7 +332,7 @@ export default function BlogsPage() {
                       }}>
                       Read Full Story
                       <span className="transition-transform duration-300 group-hover:translate-x-1 text-lg">→</span>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -307,7 +393,7 @@ export default function BlogsPage() {
                   }}>
 
                   {/* Card with expanding overlay */}
-                  <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer">
+                  <Link href={`/blogs/${post.id}`} className="block relative w-full h-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer">
 
                     {/* Background Image */}
                     <div className="absolute inset-0">
@@ -399,12 +485,12 @@ export default function BlogsPage() {
                       </div>
 
                       {/* CTA Button */}
-                      <button className="px-8 py-3 rounded-full bg-white text-black font-black text-sm uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl flex items-center gap-2">
+                      <span className="px-8 py-3 rounded-full bg-white text-black font-black text-sm uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl flex items-center gap-2">
                         Read Article
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                      </button>
+                      </span>
                     </div>
 
                     {/* Corner accent - visible on hover */}
@@ -415,7 +501,7 @@ export default function BlogsPage() {
                         clipPath: 'polygon(100% 0, 100% 100%, 0 0)'
                       }}
                     />
-                  </div>
+                  </Link>
                 </article>
               );
             })}

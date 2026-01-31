@@ -75,9 +75,9 @@ export default function AboutPage() {
           <p
             ref={heroDescription.ref}
             className={`text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl scroll-animate delay-300 ${heroDescription.isVisible ? 'visible' : ''}`}>
-            Rwanda National Association of Deaf Women (RNADW) is an Organization of People with Disabilities (OPD)
-            fully registered with Rwanda Governance Board (RGB), dedicated to advocating for the rights and empowerment
-            of deaf women and girls across Rwanda.
+            Rwanda National Association of Deaf Women (RNADW) is a Deaf constituency-led Rwandan sign language users organization
+            fully registered with Rwanda Governance Board (RGB) under Registration N° 055/2014. We exist to empower Deaf Women and Girls
+            and build their agency and voices across Rwanda. Our theme: <span className="font-bold text-yellow-400">&quot;Loud in Silence: Deaf Women and Girls Driving Change&quot;</span>
           </p>
 
         </div>
@@ -155,23 +155,31 @@ export default function AboutPage() {
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Our Values</h3>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">Our Core Values</h3>
               <ul className="space-y-2 text-gray-700 leading-relaxed">
                 <li className="flex items-start gap-2">
                   <span style={{ color: '#FACC15' }}>●</span>
-                  <span><strong>Inclusion:</strong> Everyone belongs</span>
+                  <span><strong>Grassroots-Based</strong></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: '#FACC15' }}>●</span>
-                  <span><strong>Empowerment:</strong> Enabling self-determination</span>
+                  <span><strong>Diversity & Inclusion</strong></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: '#FACC15' }}>●</span>
-                  <span><strong>Advocacy:</strong> Speaking up for rights</span>
+                  <span><strong>Mutual Respect</strong></span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span style={{ color: '#FACC15' }}>●</span>
-                  <span><strong>Community:</strong> Stronger together</span>
+                  <span><strong>Empowerment & Participation</strong></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span style={{ color: '#FACC15' }}>●</span>
+                  <span><strong>Teamwork</strong></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span style={{ color: '#FACC15' }}>●</span>
+                  <span><strong>Integrity, Transparency & Accountability</strong></span>
                 </li>
               </ul>
             </div>
@@ -221,9 +229,9 @@ export default function AboutPage() {
               <div className="flex-1 bg-white p-8 rounded-3xl shadow-lg">
                 <h3 className="text-2xl font-black text-gray-900 mb-4">The Beginning</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  RNADW was founded by a group of passionate deaf women human rights activists who recognized
-                  critical gaps in service provision and insufficient advocacy efforts for deaf women and girls
-                  in Rwanda. They came together with a shared vision to create lasting change.
+                  RNADW was founded by a group of Deaf Women Human Rights Activists to advocate for the rights of deaf women and girls,
+                  after realizing gaps in service provision and insufficient advocacy efforts to fight for their rights.
+                  We fight for full and meaningful social integration of deaf women and girls in the entire Rwandan society.
                 </p>
               </div>
             </div>
@@ -233,19 +241,17 @@ export default function AboutPage() {
               ref={story2.ref}
               className={`flex flex-col lg:flex-row gap-8 items-start scroll-animate-right delay-300 ${story2.isVisible ? 'visible' : ''}`}>
               <div className="flex-shrink-0 lg:order-2">
-                <div className="w-32 h-32 rounded-2xl flex items-center justify-center"
+                <div className="w-32 h-32 rounded-2xl flex items-center justify-center text-4xl font-black text-white"
                   style={{ backgroundColor: '#2563EB' }}>
-                  <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
+                  2013
                 </div>
               </div>
               <div className="flex-1 lg:order-1 bg-white p-8 rounded-3xl shadow-lg">
                 <h3 className="text-2xl font-black text-gray-900 mb-4">Official Recognition</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  RNADW achieved full registration with the Rwanda Governance Board (RGB) as an Organization
-                  of People with Disabilities (OPD). This official recognition enabled us to expand our reach
-                  and strengthen our advocacy efforts across the country.
+                  On 5th January 2013, RNADW attained Formal Registration with the Rwanda Governance Board (RGB) under Registration N° 055/2014.
+                  We established branches in Nyagatare and Muhanga, and received support from partners like MALMO Deaf Association of Sweden.
+                  The Board of Directors was formally constituted, strengthening our governance structure.
                 </p>
               </div>
             </div>
@@ -255,19 +261,18 @@ export default function AboutPage() {
               ref={story3.ref}
               className={`flex flex-col lg:flex-row gap-8 items-start scroll-animate-left delay-400 ${story3.isVisible ? 'visible' : ''}`}>
               <div className="flex-shrink-0">
-                <div className="w-32 h-32 rounded-2xl flex items-center justify-center text-white"
+                <div className="w-32 h-32 rounded-2xl flex items-center justify-center text-3xl font-black text-gray-900"
                   style={{ backgroundColor: '#FACC15' }}>
-                  <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
+                  2025
                 </div>
               </div>
               <div className="flex-1 bg-white p-8 rounded-3xl shadow-lg">
-                <h3 className="text-2xl font-black text-gray-900 mb-4">Today & Beyond</h3>
+                <h3 className="text-2xl font-black text-gray-900 mb-4">Strategic Plan 2025-2030</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Today, RNADW has empowered over 500 lives through our four core programs: Education & Literacy,
-                  Economic Empowerment, Healthcare Access, and Advocacy & Rights. We continue to grow our impact,
-                  partnering with leading organizations to create lasting change across Rwanda and beyond.
+                  Today, RNADW has robust programming across 22 Districts in all 5 Provinces of Rwanda. Our Strategic Plan 2025-2030
+                  focuses on four pillars: My Body, My Rights (SRHR), Spear N&apos; Shield (Education & Economic Empowerment),
+                  Her Voice Her Power (Leadership & Agency), and Her Environment (Climate Resilience).
+                  We continue expanding our reach with partners like Kvinna till Kvinna, CREA, NUDOR, and government ministries.
                 </p>
               </div>
             </div>
@@ -304,8 +309,8 @@ export default function AboutPage() {
             <div
               ref={impactStat2.ref}
               className={`text-center scroll-animate-scale delay-300 ${impactStat2.isVisible ? 'visible' : ''}`}>
-              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#2563EB' }}>19</div>
-              <div className="text-xl font-bold text-gray-300">Years of Service</div>
+              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#2563EB' }}>22</div>
+              <div className="text-xl font-bold text-gray-300">Districts Covered</div>
             </div>
 
             {/* Stat 3 */}
@@ -359,16 +364,33 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Team Placeholder - Can be populated with actual team members */}
-          <div className="bg-gray-50 rounded-3xl p-12 text-center">
-            <div className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              style={{ backgroundColor: '#FEF3C7' }}>
-              <svg className="w-10 h-10" style={{ color: '#FACC15' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
+          {/* Leadership Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Board President */}
+            <div className="bg-gray-50 rounded-3xl p-8 text-center">
+              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
+                style={{ backgroundColor: '#FACC15' }}>
+                <svg className="w-12 h-12 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-2">Muhorakeye Pelagie</h3>
+              <p className="text-lg font-bold mb-3" style={{ color: '#2563EB' }}>Board President</p>
+              <p className="text-gray-600">Leading RNADW&apos;s governance and strategic direction for the empowerment of deaf women and girls.</p>
             </div>
-            <h3 className="text-2xl font-black text-gray-900 mb-3">Team Profiles Coming Soon</h3>
-            <p className="text-gray-600">We're updating our team section with detailed profiles of our leadership and staff.</p>
+
+            {/* Executive Director */}
+            <div className="bg-gray-50 rounded-3xl p-8 text-center">
+              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
+                style={{ backgroundColor: '#2563EB' }}>
+                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 mb-2">Mukashema Dative</h3>
+              <p className="text-lg font-bold mb-3" style={{ color: '#FACC15' }}>Executive Director</p>
+              <p className="text-gray-600">Driving the day-to-day operations and program implementation across all 22 districts of Rwanda.</p>
+            </div>
           </div>
 
         </div>
