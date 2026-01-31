@@ -49,194 +49,178 @@ export default function GalleryPage() {
     // Day 1 - Parents Day (8 photos)
     {
       id: 1,
-      url: '/images/image5.png',
-      title: 'Parents Day Opening',
-      category: 'Day 1 - Parents',
-      categoryColor: '#FACC15',
-      description: 'Welcoming parents and families to the celebration'
-    },
-    {
-      id: 2,
-      url: 'https://images.pixieset.com/763373001/8b5564626598f9d4a1a8b19670b10d67-large.jpg',
-      title: 'Leadership Summit',
+      url: '/images/gallery/Conference-bringing-families-together.jpg',
+      title: 'Conference Bringing Families Together',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Conference bringing families together'
     },
     {
-      id: 3,
-      url: 'https://images.pixieset.com/763373001/2b255b3c3c31e09d0bad31e02f62cb40-large.jpg',
-      title: 'Sign Language Session',
+      id: 2,
+      url: '/images/gallery/Teaching-sign-language-to-community-members.jpg',
+      title: 'Teaching Sign Language To Community Members',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Teaching sign language to community members'
     },
     {
-      id: 4,
-      url: 'https://images.pixieset.com/763373001/7eb1454c02cd1fbbc86b79d9cb977edd-large.jpg',
-      title: 'Family Engagement',
+      id: 3,
+      url: '/images/gallery/Parents-connecting-with-deaf-community.jpg',
+      title: 'Parents Connecting With Deaf Community',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Parents connecting with deaf community'
     },
     {
-      id: 5,
-      url: 'https://images.pixieset.com/763373001/b603c9b9c49700a8fcdd4f08d3286575-large.jpg',
-      title: 'Skills Workshop',
+      id: 4,
+      url: '/images/gallery/Vocational-training-demonstration-for-families.jpg',
+      title: 'Vocational Training Demonstration For Families',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Vocational training demonstration for families'
     },
     {
-      id: 6,
-      url: 'https://images.pixieset.com/763373001/891771924f7d80bdf9469eb5a30ee93c-large.jpg',
-      title: 'Community Discussion',
+      id: 5,
+      url: '/images/gallery/Open-dialogue-with-parents-and-advocates.jpg',
+      title: 'Open Dialogue With Parents And Advocates',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Open dialogue with parents and advocates'
     },
     {
-      id: 7,
-      url: 'https://images.pixieset.com/763373001/ed73e7a7f1d57bc95e8d7f8d927007e2-large.jpg',
-      title: 'Health Education',
+      id: 6,
+      url: '/images/gallery/Health-awareness-session-for-families.jpg',
+      title: 'Health Awareness Session For Families',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Health awareness session for families'
     },
     {
-      id: 8,
-      url: 'https://images.pixieset.com/763373001/859411c7dc6201ba5807bf4c3d1ebef9-large.jpg',
-      title: 'Parents Day Closing',
+      id: 7,
+      url: '/images/gallery/Wrapping-up day-one-activities.jpg',
+      title: 'Wrapping Up Day One Activities',
       category: 'Day 1 - Parents',
       categoryColor: '#FACC15',
       description: 'Wrapping up day one activities'
     },
     // Day 2 - Community Celebration (8 photos)
     {
-      id: 9,
-      url: 'https://images.pixieset.com/410444001/fb3f28389ce2aed2e190b8bd1e9d0849-cover.jpg',
-      title: 'Community Gathering',
+      id: 8,
+      url: '/images/gallery/Coming-together-as-one-community.jpg',
+      title: 'Coming Together As One Community',
       category: 'Day 2 - Community',
       categoryColor: '#2563EB',
       description: 'Coming together as one community'
     },
     {
-      id: 10,
-      url: 'https://images.pixieset.com/410444001/6fb282d14c404d076563830605eeb18d-large.jpg',
-      title: 'Cultural Celebration',
+      id: 9,
+      url: '/images/gallery/Showcasing-deaf-culture-and-traditions.jpg',
+      title: 'Showcasing Deaf Culture And Traditions',
       category: 'Day 2 - Community',
       categoryColor: '#2563EB',
       description: 'Showcasing deaf culture and traditions'
     },
     {
-      id: 11,
-      url: 'https://images.pixieset.com/410444001/3a029c3d63b6c8a32a92e92775abe184-large.jpg',
-      title: 'Unity in Action',
-      category: 'Day 2 - Community',
-      categoryColor: '#2563EB',
-      description: 'Community members working together'
-    },
-    {
-      id: 12,
-      url: 'https://images.pixieset.com/410444001/3d1362af40a2fb6dbf921337108f33c9-large.jpg',
-      title: 'Advocacy Showcase',
+      id: 10,
+      url: '/images/gallery/Highlighting-women\'s-rights-initiatives.jpg',
+      title: 'Highlighting Women\'s Rights Initiatives',
       category: 'Day 2 - Community',
       categoryColor: '#2563EB',
       description: 'Highlighting women\'s rights initiatives'
     },
     {
-      id: 13,
-      url: 'https://images.pixieset.com/410444001/e340162dd944c1fdac89d6d5135594bc-large.jpg',
-      title: 'Empowerment Session',
+      id: 11,
+      url: '/images/gallery/Building-confidence-and-skills.jpg',
+      title: 'Building Confidence And Skills',
       category: 'Day 2 - Community',
       categoryColor: '#2563EB',
       description: 'Building confidence and skills'
     },
     {
-      id: 14,
-      url: 'https://images.pixieset.com/410444001/d0b5c583357d120c814a769bc4ceed68-large.jpg',
-      title: 'Community Pride',
+      id: 12,
+      url: '/images/gallery/Celebrating-deaf-identity-together.jpg',
+      title: 'Celebrating Deaf Identity Together',
       category: 'Day 2 - Community',
       categoryColor: '#2563EB',
       description: 'Celebrating deaf identity together'
     },
     {
-      id: 15,
-      url: 'https://images.pixieset.com/410444001/e57c68ca1b64691b02080d6a46785124-large.jpg',
-      title: 'Networking Event',
+      id: 13,
+      url: '/images/gallery/Building-connections-across-regions.jpg',
+      title: 'Building Connections Across Regions',
       category: 'Day 2 - Community',
       categoryColor: '#2563EB',
       description: 'Building connections across regions'
     },
     {
-      id: 16,
-      url: 'https://images.pixieset.com/410444001/d9c4f2f23be11df91ef9e2e9e3bf59f5-large.jpg',
-      title: 'Day 2 Highlights',
+      id: 14,
+      url: '/images/gallery/Memorable-moments-from-community-day.jpg',
+      title: 'Memorable Moments From Community Day',
       category: 'Day 2 - Community',
       categoryColor: '#2563EB',
       description: 'Memorable moments from community day'
     },
     // Day 3 - Final Celebration (8 photos)
     {
-      id: 17,
-      url: 'https://images.pixieset.com/659165001/fdb4686c22335a9a3e5c2af49b623177-cover.JPG',
-      title: 'Grand Finale Opening',
+      id: 15,
+      url: '/images/gallery/Starting-the-final-day-of-celebrations.jpg',
+      title: 'Starting The Final Day Of Celebrations',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Starting the final day of celebrations'
     },
     {
-      id: 18,
-      url: 'https://images.pixieset.com/659165001/56df644baee870b0faa7efabe6c2c3a4-large.JPG',
-      title: 'Achievement Awards',
+      id: 16,
+      url: '/images/gallery/Recognizing-outstanding-contributions.jpg',
+      title: 'Recognizing Outstanding Contributions',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Recognizing outstanding contributions'
     },
     {
-      id: 19,
-      url: 'https://images.pixieset.com/659165001/41565e4d7e0e5819586f466bd2b481f8-large.JPG',
-      title: 'Unity Celebration',
+      id: 17,
+      url: '/images/gallery/Coming-together-for-the-finale.jpg',
+      title: 'Coming Together For The Finale',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Coming together for the finale'
     },
     {
-      id: 20,
-      url: 'https://images.pixieset.com/659165001/b2443d482c3a60578d56c3cff39f5615-large.JPG',
-      title: 'Closing Ceremony',
+      id: 18,
+      url: '/images/gallery/Wrapping-up-three-days-of-celebration.jpg',
+      title: 'Wrapping Up Three Days Of Celebration',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Wrapping up three days of celebration'
     },
     {
-      id: 21,
-      url: 'https://images.pixieset.com/659165001/41fb17fff4e18940333356c7773b2fc4-large.JPG',
-      title: 'Final Reflections',
+      id: 19,
+      url: '/images/gallery/Looking-back-on-achievements.jpg',
+      title: 'Looking Back On Achievements',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Looking back on achievements'
     },
     {
-      id: 22,
-      url: 'https://images.pixieset.com/659165001/32954ecae54c90ddfa7b5545e77ff4a8-large.JPG',
-      title: 'Celebration Joy',
+      id: 20,
+      url: '/images/gallery/Happiness-and-pride-in-our-community.jpg',
+      title: 'Happiness And Pride In Our Community',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Happiness and pride in our community'
     },
     {
-      id: 23,
-      url: 'https://images.pixieset.com/659165001/c1ce3828dcb963cc573a4bc599cccfb3-large.JPG',
-      title: 'Final Gathering',
+      id: 21,
+      url: '/images/gallery/Last-moments-together-as-a-community.jpg',
+      title: 'Last Moments Together As A Community',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Last moments together as a community'
     },
     {
-      id: 24,
-      url: 'https://images.pixieset.com/659165001/55f6553575a11ca24d96153fbac64458-large.JPG',
-      title: 'Farewell Celebration',
+      id: 22,
+      url: '/images/gallery/Closing-festivities-and-achievements.jpg',
+      title: 'Closing Festivities And Achievements',
       category: 'Day 3 - Finale',
       categoryColor: '#EC4899',
       description: 'Closing festivities and achievements'
