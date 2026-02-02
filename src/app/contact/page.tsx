@@ -120,8 +120,7 @@ export default function ContactPage() {
               {/* Content */}
               <h3 className="text-xl font-black text-gray-900 mb-3">Call Us</h3>
               <p className="text-gray-600 leading-relaxed">
-                +250 784 591 495<br />
-                +250 788 428 965
+                +250 784 591 495
               </p>
             </div>
 

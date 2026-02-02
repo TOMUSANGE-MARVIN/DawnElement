@@ -228,9 +228,6 @@ export default function Footer() {
                         <a href="tel:+250784591495" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors block">
                           +250 784 591 495
                         </a>
-                        <a href="tel:+250788428965" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors block">
-                          +250 788 428 965
-                        </a>
                       </div>
                     </div>
                   </li>
