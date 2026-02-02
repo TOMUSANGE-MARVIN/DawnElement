@@ -41,7 +41,7 @@ export default function Cause() {
             
             <ScrollAnimate animation="fade-up" delay={300}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dawn-dark leading-tight mb-6">
-                Making Social Investments And Shaping Narratives
+                Making Social Investments That Shape Narratives
               </h2>
             </ScrollAnimate>
             

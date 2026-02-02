@@ -5,7 +5,7 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'What We Do', href: '#what-we-do' },
   { name: 'Insights', href: '#insights' },
-  { name: 'Join Us', href: '#join' },
+
 ];
 
 export default function Header() {
@@ -25,7 +25,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
-          : 'bg-white/10 backdrop-blur-lg border-b border-white/10 shadow-sm py-5'
+          : 'bg-white backdrop-blur-lg border-b border-white/10 shadow-sm py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -53,25 +53,7 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 sm:gap-3 pl-4 sm:pl-5 pr-1 py-1 bg-[#2D3B2D] text-white text-xs sm:text-sm font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group"
-            >
-              <span>Get in Touch</span>
-              <span className="w-7 h-7 sm:w-8 sm:h-8 bg-dawn-orange rounded-full flex items-center justify-center">
-                <svg
-                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </a>
-          </div>
+         
 
           {/* Mobile Menu Button */}
           <button

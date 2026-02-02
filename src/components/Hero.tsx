@@ -1,16 +1,28 @@
+import { useState, useRef } from 'react';
 import ScrollAnimate from './ScrollAnimate';
 
 export default function Hero() {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <>
       {/* Video Hero Section */}
       <section
         id="home"
-        className="relative h-screen overflow-hidden"
+        className="relative lg:h-screen overflow-hidden"
       >
-        {/* Video background */}
-        <div className="absolute inset-0 z-0">
+        {/* Desktop: Background Video */}
+        <div className="hidden lg:block absolute inset-0 z-0">
           <video
+            ref={videoRef}
             className="w-full h-full object-cover"
             autoPlay
             muted
@@ -19,38 +31,36 @@ export default function Hero() {
           >
             <source src="/Dawn.mp4" type="video/mp4" />
           </video>
+
+          {/* Audio Control Button - Desktop */}
+          <button
+            onClick={toggleMute}
+            className="absolute bottom-8 right-8 z-10 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group"
+            aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+          >
+            {isMuted ? (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+              </svg>
+            )}
+          </button>
         </div>
 
-        {/* Circular Text Animation - at bottom of video */}
-        <div className="absolute bottom-8 lg:bottom-16 left-0 right-0 flex justify-center z-10">
-          <ScrollAnimate animation="zoom-in" delay={500}>
-            <a href="#hero-content" className="group cursor-pointer relative w-[120px] h-[120px] block">
-              {/* Rotating text */}
-              <svg 
-                className="absolute inset-0 w-full h-full animate-spin-slow"
-                viewBox="0 0 100 100"
-                style={{ animationDuration: '10s' }}
-              >
-                <defs>
-                  <path
-                    id="circlePath"
-                    d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
-                  />
-                </defs>
-                <text className="text-[9px] font-semibold uppercase tracking-wider" fill="#1A1A1A">
-                  <textPath href="#circlePath">
-                    • EXPLORE MORE • EXPLORE MORE • EXPLORE MORE 
-                  </textPath>
-                </text>
-              </svg>
-              {/* Orange center button */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] bg-dawn-orange rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
-            </a>
-          </ScrollAnimate>
+        {/* Mobile: Regular Video Player */}
+        <div className="lg:hidden pt-20 px-4">
+          <video
+            className="w-full rounded-lg shadow-lg"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source src="/Dawn.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
     </>

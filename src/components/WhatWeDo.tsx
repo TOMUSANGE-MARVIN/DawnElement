@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import CircularGallery from './CircularGallery';
 import ScrollAnimate from './ScrollAnimate';
 
 const services = [
@@ -7,9 +6,9 @@ const services = [
     id: 'opportunities',
     title: 'Extending Opportunities',
     description:
-      'Opportunities allow for people to fulfill their own dreams with agency and dignity. Our work recognises that for people and communities, opportunities come in many shades.',
+      'extending opportunities” with “Social Investment” under that including this text “We deploy capital across sectors from housing and agriculture to private credit and money markets. We believe in investing in the full spectrum of human needs for blended returns.” Also replace the words “Food Security” with the “Marifa Village',
     highlights: ['Food Security', 'Agribusiness Value Addition'],
-    quote: '"There is no such thing as a single-issue struggle because we do not live single-issue lives."',
+    quote: '',
     quoteAuthor: 'Audre Lorde',
     image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop',
   },
@@ -18,7 +17,7 @@ const services = [
     title: 'Narratives',
     description:
       'Narratives shape our perceptions, which in turn form our realities. Those realities influence our attitudes and our actions. We believe narratives, storytelling and thought leadership are one of the most powerful ways to influence and inspire thought and action.',
-    highlights: ['Peacock Village', 'Arts & Culture Platform'],
+    highlights: ['Public Art', 'Alternative Thinking Spaces'],
     quote: null,
     quoteAuthor: null,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop',
@@ -33,36 +32,8 @@ const services = [
     quoteAuthor: null,
     image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&auto=format&fit=crop',
   },
-  {
-    id: 'community',
-    title: 'Community Building',
-    description:
-      'We foster connections between changemakers, innovators, and communities. By creating spaces for dialogue and collaboration, we help build resilient networks that drive lasting social change.',
-    highlights: ['Network Development', 'Partnership Building'],
-    quote: null,
-    quoteAuthor: null,
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop',
-  },
-  {
-    id: 'research',
-    title: 'Research & Learning',
-    description:
-      'We generate knowledge and insights that inform better decision-making. Through rigorous research and continuous learning, we contribute to the evidence base for effective social investment.',
-    highlights: ['Impact Measurement', 'Policy Research'],
-    quote: null,
-    quoteAuthor: null,
-    image: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800&auto=format&fit=crop',
-  },
-  {
-    id: 'capacity',
-    title: 'Capacity Strengthening',
-    description:
-      'We invest in building the capabilities of individuals and organizations. From leadership development to organizational strengthening, we help partners maximize their impact potential.',
-    highlights: ['Leadership Programs', 'Skills Development'],
-    quote: null,
-    quoteAuthor: null,
-    image: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&auto=format&fit=crop',
-  },
+  
+  
 ];
 
 export default function WhatWeDo() {
@@ -116,26 +87,24 @@ export default function WhatWeDo() {
     >
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
-        <ScrollAnimate animation="fade-right" duration={600}>
-          <div className="max-w-3xl mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-widest text-dawn-gray uppercase mb-4 relative inline-block">
+        <ScrollAnimate animation="fade-up" duration={600}>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-widest text-dawn-gray uppercase mb-4 inline-block relative">
               What We Do
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-dawn-orange/20 rounded" />
-              <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-dawn-orange rounded" />
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-dawn-orange rounded" />
             </h2>
           </div>
         </ScrollAnimate>
         
         <ScrollAnimate animation="fade-up" delay={200}>
-          <div className="max-w-3xl mb-16">
+          <div className="max-w-3xl mx-auto mb-16 text-center">
          
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dawn-dark leading-tight mb-6">
-              Building bridges between impact and opportunity
+             Building bridges between social investment and the things that matter to us.
             </h2>
             <p className="text-lg text-dawn-gray leading-relaxed">
-              We use our strategic investments in food security and agribusiness value addition 
-              to weave opportunities that acknowledge intersectionality and enable systems change 
-              for the world's most marginalised groups.
+             We use our strategic investments to advance systems (social) change for the development issues that are not seen as "sexy " or "urgent enough.”
             </p>
           </div>
         </ScrollAnimate>
@@ -175,20 +144,6 @@ export default function WhatWeDo() {
                 </div>
               </div>
             ))}
-          </div>
-        </ScrollAnimate>
-
-        {/* Circular Gallery */}
-        <ScrollAnimate animation="zoom-in" delay={400}>
-          <div className="mt-20">
-            <div className="h-[500px] w-full">
-              <CircularGallery
-                bend={2}
-                textColor="#1A1A1A"
-                borderRadius={0.05}
-                font="bold 24px sans-serif"
-              />
-            </div>
           </div>
         </ScrollAnimate>
       </div>
