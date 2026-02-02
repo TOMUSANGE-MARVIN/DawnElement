@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import ScrollAnimate from './ScrollAnimate';
 
 export default function Hero() {
   const [isMuted, setIsMuted] = useState(true);
