@@ -28,7 +28,7 @@ export default function Footer() {
             <ScrollAnimate animation="fade-up" duration={600}>
               <a href="#home" className="flex items-center mb-6">
                 <img 
-                  src="/images/log.png" 
+                  src="/images/footerlogo.png" 
                   alt="Dawn Elements" 
                   className="h-14 w-auto object-contain brightness-0 invert"
                 />

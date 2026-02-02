@@ -1,57 +1,67 @@
 import { useEffect, useRef, useState } from 'react';
 import ScrollAnimate from './ScrollAnimate';
+import BlogDetail from './BlogDetail';
 
-const events = [
+const blogPosts = [
   {
     id: 1,
-    day: '08',
-    month: 'Mar',
-    title: 'Big Pink Jump March',
-    time: '8:00 am',
-    location: 'New York',
+    date: '02 Feb 2026',
+    title: 'Building a New Oven: Hegemony, Capital and the African Investor\'s Dilemma',
+    excerpt: 'The dominant external narrative on African investment is riddled with contradictions, fixated on potential yet blind to lived economic reality.',
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=600&fit=crop',
+    category: 'Investment',
+    readTime: '12 min read',
   },
   {
     id: 2,
-    day: '16',
-    month: 'Mar',
-    title: 'Younger Women Together Online',
-    time: '18:00 pm',
-    location: 'Online',
+    date: '02 Feb 2026',
+    title: 'Beyond Risk Models: Why Political Fixers Matter More Than PEPs',
+    excerpt: 'What global finance labels a "Politically Exposed Person" is often, in context, a vital "Political Fixer" who understands how power and regulation actually function.',
+    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop',
+    category: 'Analysis',
+    readTime: '8 min read',
   },
   {
     id: 3,
-    day: '21',
-    month: 'Mar',
-    title: 'Women V Cancer – Ride the Night',
-    time: '10:00 am',
-    location: 'New York',
-  },
-];
-
-const stories = [
-  {
-    id: 1,
-    date: '20 Jun 2020',
-    title: 'How a First-Time Streamer—and a Surprise Visit from Dr. Lupo—Raised $12,000 for Research',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop',
+    date: '02 Feb 2026',
+    title: 'Contextual Intelligence: The Ultimate Competitive Advantage',
+    excerpt: 'Local investors deploy intimate understanding of informal supply chains, community trust networks, and real purchasing power. In nascent markets, this intelligence is everything.',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop',
+    category: 'Strategy',
+    readTime: '7 min read',
   },
   {
-    id: 2,
-    date: '26 Jun 2020',
-    title: 'COVID-19 and Breast Cancer Care: What Patients Need to Know',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=300&fit=crop',
+    id: 4,
+    date: '02 Feb 2026',
+    title: 'The Psychology Barrier: Reimagining Capitalist Systems',
+    excerpt: 'The most significant barrier is often not capital but psychology. African investors must see themselves as people helping to reimagine the systems we all live in.',
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop',
+    category: 'Thought Leadership',
+    readTime: '6 min read',
   },
   {
-    id: 3,
-    date: '24 Jul 2020',
-    title: 'Caridad-Supported Study First to Determine Risk for Women With Gene Mutations',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop',
+    id: 5,
+    date: '02 Feb 2026',
+    title: 'Cooperatives as Capital Engines: Beyond Primitive Finance',
+    excerpt: 'SACCOs, mutual investment funds, and collective vehicles are not substitutes for "real" finance. They are sophisticated mechanisms rooted in social trust and patient capital.',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop',
+    category: 'Alternative Finance',
+    readTime: '9 min read',
+  },
+  {
+    id: 6,
+    date: '02 Feb 2026',
+    title: 'Seeing from the Inside Out: The Future of Investment',
+    excerpt: 'The ability to build profitable businesses despite structural friction is not evidence of a risky market. It is evidence of an exceptional one.',
+    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop',
+    category: 'Investment',
+    readTime: '10 min read',
   },
 ];
 
 export default function Insights() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState<'events' | 'stories'>('events');
+  const [selectedBlog, setSelectedBlog] = useState<typeof blogPosts[0] | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -72,15 +82,20 @@ export default function Insights() {
   }, []);
 
   return (
-    <section
-      id="insights"
-      ref={sectionRef}
-      className="relative py-24 lg:py-32 bg-white overflow-hidden"
-    >
-      {/* Minimal background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-dawn-cream/30 rounded-full blur-3xl pointer-events-none" />
+    <>
+      {selectedBlog && (
+        <BlogDetail blog={selectedBlog} onClose={() => setSelectedBlog(null)} />
+      )}
+      
+      <section
+        id="insights"
+        ref={sectionRef}
+        className="relative py-24 lg:py-32 bg-white overflow-hidden"
+      >
+        {/* Minimal background */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-dawn-cream/30 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <ScrollAnimate animation="fade-up" duration={600}>
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -103,144 +118,85 @@ export default function Insights() {
             </svg>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dawn-dark mb-6">
-              Insights we love to share
+              Insights & Perspectives
             </h2>
             <p className="text-lg text-dawn-gray">
-              Ngozi Okonjo-Iweala: How to help Africa? Do business there
+              Exploring ideas, sharing learnings, and amplifying voices for social change
             </p>
           </div>
         </ScrollAnimate>
 
-        {/* Tab navigation */}
-        <ScrollAnimate animation="fade-up" delay={200}>
-          <div className="flex justify-center gap-2 sm:gap-4 mb-12">
-            {(['events', 'stories'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`inline-flex items-center gap-2 sm:gap-3 pl-4 sm:pl-6 pr-1 sm:pr-1.5 py-1 sm:py-1.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 group ${
-                  activeTab === tab
-                    ? 'bg-[#2D3B2D] text-white shadow-lg'
-                    : 'bg-dawn-cream text-dawn-gray hover:bg-dawn-yellow/30'
-                }`}
+        {/* Blog Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post, index) => (
+            <ScrollAnimate key={post.id} animation="fade-up" delay={index * 100}>
+              <article 
+                onClick={() => setSelectedBlog(post)}
+                className="group cursor-pointer h-full flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
               >
-                <span>{tab === 'events' ? 'Upcoming Events' : 'Stories'}</span>
-                <span 
-                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    activeTab === tab 
-                      ? 'bg-dawn-orange scale-100' 
-                      : 'bg-dawn-gray/20 scale-75 group-hover:scale-90'
-                  }`}
-                >
-                  <svg
-                    className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-all duration-300 ${
-                      activeTab === tab ? 'text-white ml-0.5' : 'text-dawn-gray'
-                    }`}
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+                {/* Image */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-dawn-orange text-white text-xs font-semibold rounded-full">
+                      {post.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 flex flex-col p-6">
+                  <div className="flex items-center gap-3 text-sm text-dawn-gray mb-3">
+                    <span>{post.date}</span>
+                    <span>•</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                  
+                  <h3 className="font-bold text-xl text-dawn-dark leading-tight mb-3 group-hover:text-dawn-orange transition-colors duration-300">
+                    {post.title}
+                  </h3>
+                  
+                  <p className="text-dawn-gray leading-relaxed mb-4 flex-1">
+                    {post.excerpt}
+                  </p>
+                  
+                  <a
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedBlog(post);
+                    }}
+                    className="w-fit inline-flex items-center gap-2 pl-4 pr-0.5 py-0.5 bg-[#2D3B2D] text-white text-xs font-medium rounded-full hover:bg-[#3D4B3D] transition-colors duration-300 group/link"
                   >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
-              </button>
-            ))}
-          </div>
-        </ScrollAnimate>
-
-        {/* Content */}
-        <ScrollAnimate animation="fade-up" delay={300}>
-          <div>
-            {activeTab === 'events' ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {events.map((event, index) => (
-                  <ScrollAnimate key={event.id} animation="fade-up" delay={index * 100}>
-                    <div
-                      className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover"
-                    >
-                      <div className="flex gap-5">
-                        {/* Date */}
-                        <div className="flex-shrink-0 w-16 text-center">
-                          <div className="text-3xl font-bold text-dawn-dark">{event.day}</div>
-                          <div className="text-sm font-medium text-dawn-orange uppercase">{event.month}</div>
-                        </div>
-                        
-                        {/* Details */}
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-dawn-dark mb-2 group-hover:text-dawn-orange transition-colors">
-                            {event.title}
-                          </h3>
-                          <div className="flex items-center gap-2 text-sm text-dawn-gray mb-2">
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            {event.time}
-                          </div>
-                          <div className="flex items-center gap-2 text-sm text-dawn-gray">
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            {event.location}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Hover accent line */}
-                      <div className="mt-4 h-0.5 bg-gradient-to-r from-dawn-yellow to-dawn-orange transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                    </div>
-                  </ScrollAnimate>
-                ))}
-              </div>
-            ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {stories.map((story, index) => (
-                  <ScrollAnimate key={story.id} animation="fade-up" delay={index * 100}>
-                    <article className="group cursor-pointer">
-                      {/* Image */}
-                      <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-gray-100">
-                        <img
-                          src={story.image}
-                          alt={story.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-
-                      {/* Content */}
-                      <div className="text-sm text-dawn-gray mb-2">{story.date}</div>
-                      <h3 className="font-semibold text-dawn-dark leading-snug group-hover:text-dawn-orange transition-colors duration-300">
-                        {story.title}
-                      </h3>
-                      <a
-                        href="#"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-dawn-orange mt-3 group/link"
+                    <span>Read Full Article</span>
+                    <span className="w-7 h-7 bg-dawn-orange rounded-full flex items-center justify-center">
+                      <svg
+                        className="w-3 h-3 text-white ml-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        Read more
-                        <svg
-                          className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </a>
-                    </article>
-                  </ScrollAnimate>
-                ))}
-              </div>
-            )}
-          </div>
-        </ScrollAnimate>
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </article>
+            </ScrollAnimate>
+          ))}
+        </div>
 
         {/* View all link */}
         <ScrollAnimate animation="fade-up" delay={500}>
           <div className="text-center mt-12">
             <a
               href="#"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 border-2 border-dawn-dark text-dawn-dark text-sm sm:text-base font-semibold rounded-full hover:bg-dawn-dark hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-dawn-dark text-dawn-dark text-base font-semibold rounded-full hover:bg-dawn-dark hover:text-white transition-all duration-300"
             >
-              View All {activeTab === 'events' ? 'Events' : 'Stories'}
-              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              View All Insights
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
@@ -248,5 +204,6 @@ export default function Insights() {
         </ScrollAnimate>
       </div>
     </section>
+    </>
   );
 }

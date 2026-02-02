@@ -5,7 +5,7 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'What We Do', href: '#what-we-do' },
   { name: 'Insights', href: '#insights' },
-
+  { name: 'Join Us', href: '#join-us' },
 ];
 
 export default function Header() {
@@ -33,7 +33,7 @@ export default function Header() {
           {/* Logo */}
           <a href="#home" className="flex items-center">
             <img 
-              src="/images/log2.png" 
+              src="/images/dlogo.png" 
               alt="Dawn Elements" 
               className="h-12 w-auto object-contain"
             />
