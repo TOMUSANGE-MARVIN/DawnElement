@@ -272,7 +272,7 @@ export default function AboutPage() {
                   Today, RNADW has robust programming across 22 Districts in all 5 Provinces of Rwanda. Our Strategic Plan 2025-2030
                   focuses on four pillars: My Body, My Rights (SRHR), Spear N&apos; Shield (Education & Economic Empowerment),
                   Her Voice Her Power (Leadership & Agency), and Her Environment (Climate Resilience).
-                  We continue expanding our reach with partners like Kvinna till Kvinna, CREA, NUDOR, and government ministries.
+
                 </p>
               </div>
             </div>

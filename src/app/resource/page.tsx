@@ -1,6 +1,7 @@
 'use client';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import Link from 'next/link';
 
 export default function ResourcesPage() {
   // Hero animations
@@ -19,7 +20,10 @@ export default function ResourcesPage() {
       type: 'ONLINE',
       size: '33+ Photos',
       icon: '📸',
-      downloadUrl: 'https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day1/'
+      downloadUrl: 'https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day1/',
+      viewUrl: 'https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day1/',
+      canView: true,
+      isExternal: true
     },
     {
       id: 1,
@@ -30,7 +34,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '2.4 MB',
       icon: '📘',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 2,
@@ -41,7 +47,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '5.8 MB',
       icon: '📖',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 3,
@@ -52,7 +60,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '1.2 MB',
       icon: '⚖️',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 4,
@@ -63,7 +73,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '3.1 MB',
       icon: '🏥',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 5,
@@ -74,7 +86,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '4.5 MB',
       icon: '💼',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 6,
@@ -85,7 +99,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '2.8 MB',
       icon: '📜',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 7,
@@ -96,7 +112,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '3.7 MB',
       icon: '📢',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 8,
@@ -107,7 +125,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '2.1 MB',
       icon: '💰',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
     {
       id: 9,
@@ -118,7 +138,9 @@ export default function ResourcesPage() {
       type: 'PDF',
       size: '1.9 MB',
       icon: '🤟',
-      downloadUrl: '#'
+      downloadUrl: '#',
+      canView: true,
+      isExternal: false
     },
   ];
 
@@ -164,7 +186,7 @@ export default function ResourcesPage() {
           <p
             ref={heroDescription.ref}
             className={`text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl mb-10 scroll-animate delay-300 ${heroDescription.isVisible ? 'visible' : ''}`}>
-            Access educational materials, guides, and tools to support deaf women's empowerment, advocacy, and economic independence.
+            Access educational materials, guides, and tools to support deaf women&apos;s empowerment, advocacy, and economic independence.
           </p>
 
         </div>
@@ -240,18 +262,56 @@ export default function ResourcesPage() {
                         <span>{resource.size}</span>
                       </div>
 
-                      {/* Download button */}
-                      <button
-                        className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
-                        style={{
-                          backgroundColor: resource.categoryColor,
-                          color: '#000'
-                        }}>
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Download
-                      </button>
+                      {/* Action Buttons */}
+                      <div className="space-y-3">
+                        {/* View Document Button */}
+                        {resource.canView && (
+                          resource.isExternal ? (
+                            <a
+                              href={resource.viewUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800"
+                            >
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                              View Document
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </a>
+                          ) : (
+                            <Link
+                              href={`/resource/${resource.id}`}
+                              className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800"
+                            >
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                              View Document
+                            </Link>
+                          )
+                        )}
+
+                        {/* Download button */}
+                        <a
+                          href={resource.downloadUrl}
+                          target={resource.isExternal ? "_blank" : undefined}
+                          rel={resource.isExternal ? "noopener noreferrer" : undefined}
+                          className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
+                          style={{
+                            backgroundColor: resource.categoryColor,
+                            color: resource.categoryColor === '#FACC15' ? '#000' : '#fff'
+                          }}>
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Download
+                        </a>
+                      </div>
                     </div>
 
                     {/* Hover glow effect */}
