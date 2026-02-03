@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Cause from './components/Cause';
 import WhatWeDo from './components/WhatWeDo';
 import Insights from './components/Insights';
+import JoinUs from './components/JoinUs';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 
@@ -16,6 +17,7 @@ function App() {
         <Cause />
         <WhatWeDo />
         <Insights />
+        <JoinUs />
       </main>
       <Footer />
     </div>

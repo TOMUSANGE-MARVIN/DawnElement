@@ -4,10 +4,10 @@ import ScrollAnimate from './ScrollAnimate';
 const services = [
   {
     id: 'opportunities',
-    title: 'Extending Opportunities',
+    title: 'Social Investment',
     description:
-      'extending opportunities” with “Social Investment” under that including this text “We deploy capital across sectors from housing and agriculture to private credit and money markets. We believe in investing in the full spectrum of human needs for blended returns.” Also replace the words “Food Security” with the “Marifa Village',
-    highlights: ['Food Security', 'Agribusiness Value Addition'],
+      'We deploy capital across sectors from housing and agriculture to private credit and money markets. We believe in investing in the full spectrum of human needs for blended returns.',
+    highlights: ['Marifa Village', 'Agribusiness Value Addition'],
     quote: '',
     quoteAuthor: 'Audre Lorde',
     image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop',

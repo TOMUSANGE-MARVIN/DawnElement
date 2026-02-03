@@ -121,7 +121,7 @@ export default function Insights() {
               Insights & Perspectives
             </h2>
             <p className="text-lg text-dawn-gray">
-              Exploring ideas, sharing learnings, and amplifying voices for social change
+              What we are thinking and feeling
             </p>
           </div>
         </ScrollAnimate>
