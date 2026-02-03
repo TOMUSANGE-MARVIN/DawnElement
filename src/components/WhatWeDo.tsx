@@ -10,7 +10,7 @@ const services = [
     highlights: ['Marifa Village', 'Agribusiness Value Addition'],
     quote: '',
     quoteAuthor: 'Audre Lorde',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop',
+    image: '/images/image1.png',
   },
   {
     id: 'narratives',
@@ -20,7 +20,7 @@ const services = [
     highlights: ['Public Art', 'Alternative Thinking Spaces'],
     quote: null,
     quoteAuthor: null,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop',
+    image: '/images/Narratives.jpg',
   },
   {
     id: 'advisory',
@@ -30,7 +30,7 @@ const services = [
     highlights: ['Strategy & Insights', 'Knowledge Economy'],
     quote: null,
     quoteAuthor: null,
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&auto=format&fit=crop',
+    image: '/images/image.png',
   },
   
   
