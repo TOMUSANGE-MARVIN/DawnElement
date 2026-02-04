@@ -249,7 +249,7 @@ export default function AboutPage() {
               <div className="flex-1 lg:order-1 bg-white p-8 rounded-3xl shadow-lg">
                 <h3 className="text-2xl font-black text-gray-900 mb-4">Official Recognition</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  On 5th January 2013, RNADW attained Formal Registration with the Rwanda Governance Board (RGB) under Registration N° 055/2014.
+                  On 5th January 2014, RNADW attained Formal Registration with the Rwanda Governance Board (RGB) under Registration N° 055/2014.
                   We established branches in Nyagatare and Muhanga, and received support from partners like MALMO Deaf Association of Sweden.
                   The Board of Directors was formally constituted, strengthening our governance structure.
                 </p>

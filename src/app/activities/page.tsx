@@ -261,7 +261,7 @@ export default function ActivitiesPage() {
                   {/* Image */}
                   <div className="aspect-[16/10] relative">
                     <Image
-                      src="/images/image3.png"
+                      src="/images/w1.png"
                       alt="Her Voice, Her Power - Leadership"
                       fill
                       className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"

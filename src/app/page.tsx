@@ -750,7 +750,7 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="/images/0U9A5398.JPG"
+                      src="/images/w2.png"
                       alt="My Body, My Rights - SRHR"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -838,7 +838,7 @@ export default function Home() {
                 <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-y-2">
                   <div className="aspect-[4/3] relative">
                     <Image
-                      src="/images/0U9A5465.JPG"
+                      src="/images/w1.png"
                       alt="Her Voice, Her Power"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"

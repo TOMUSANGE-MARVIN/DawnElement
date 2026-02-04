@@ -63,7 +63,7 @@ const activities = [
     subtitle: 'Leadership, Voice and Agency',
     emoji: '📢',
     color: '#1F2937',
-    heroImage: '/images/image3.png',
+    heroImage: '/images/w1.png',
     overview: 'Her Voice, Her Power is dedicated to strengthening deaf women and girls\' voice, leadership, and participation in all spheres of life. We believe that deaf women must be at the forefront of decisions that affect their lives, communities, and futures.',
     mission: 'To cultivate confident, capable deaf women leaders who can advocate for their rights and drive positive change in their communities and beyond.',
     objectives: [

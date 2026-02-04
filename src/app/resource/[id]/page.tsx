@@ -5,8 +5,32 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
 
+// Resource interface
+interface Resource {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  categoryColor: string;
+  type: string;
+  size: string;
+  icon: string;
+  downloadUrl: string;
+  lastUpdated: string;
+  hasVideo?: boolean;
+  videoUrl?: string;
+  isPolicyBrief?: boolean;
+  content: {
+    introduction: string;
+    sections: {
+      title: string;
+      content: string;
+    }[];
+  };
+}
+
 // Resources data with full content
-const resources = [
+const resources: Resource[] = [
   {
     id: 1,
     title: 'SGBV Prevention Guide',
@@ -1049,6 +1073,322 @@ Ways to participate:
         }
       ]
     }
+  },
+  // Policy Briefs
+  {
+    id: 10,
+    title: 'SRHR Policy Brief',
+    description: 'Policy brief on Sexual and Reproductive Health Rights for Deaf Women and Girls in Rwanda',
+    category: 'Policy Brief',
+    categoryColor: '#8B5CF6',
+    type: 'PDF',
+    size: '3.7 MB',
+    icon: '📋',
+    downloadUrl: '/documents/policy-briefs/srhr-policy-brief.pdf',
+    lastUpdated: 'October 2025',
+    hasVideo: true,
+    videoUrl: '',
+    isPolicyBrief: true,
+    content: {
+      introduction: 'This policy brief presents key findings and recommendations on Sexual and Reproductive Health Rights (SRHR) for Deaf Women and Girls in Rwanda. It highlights the unique challenges faced by this population and provides actionable recommendations for policymakers, healthcare providers, and civil society organizations.',
+      sections: [
+        {
+          title: 'Background',
+          content: `Deaf women and girls in Rwanda face significant barriers in accessing Sexual and Reproductive Health (SRH) services and information. These barriers include:
+
+• Lack of sign language interpreters in healthcare facilities
+• Limited SRHR information in accessible formats
+• Stigma and discrimination from healthcare providers
+• Communication barriers during consultations
+• Lack of awareness about their rights`
+        },
+        {
+          title: 'Key Findings',
+          content: `Research conducted by RNADW reveals:
+
+• Over 70% of deaf women have never received SRHR information in sign language
+• Many deaf girls reach puberty without understanding menstruation
+• Deaf women are more vulnerable to sexual violence due to communication barriers
+• Few healthcare providers have basic sign language skills
+• Deaf women often miss critical information during antenatal care`
+        },
+        {
+          title: 'Recommendations for Ministry of Health',
+          content: `1. Train healthcare workers in basic Rwanda Sign Language
+2. Ensure sign language interpreters are available at health facilities
+3. Develop SRHR materials in video format with RSL
+4. Include deaf women in the design of health programs
+5. Establish protocols for serving deaf patients`
+        },
+        {
+          title: 'Recommendations for Development Partners',
+          content: `1. Fund programs that specifically target deaf women's SRHR needs
+2. Support training of deaf community health workers
+3. Include disability indicators in health program monitoring
+4. Partner with organizations of deaf women
+5. Support research on deaf women's health needs`
+        },
+        {
+          title: 'Call to Action',
+          content: `RNADW calls on all stakeholders to work together to ensure that deaf women and girls in Rwanda can fully exercise their sexual and reproductive health rights. This requires commitment, resources, and meaningful inclusion of deaf women in all health initiatives.
+
+"Nothing About Us Without Us" - Deaf women must be at the center of programs designed to serve them.`
+        }
+      ]
+    }
+  },
+  {
+    id: 11,
+    title: 'Ministry of Health Brief',
+    description: 'Policy brief addressing health sector recommendations for inclusive services for Deaf Women',
+    category: 'Policy Brief',
+    categoryColor: '#8B5CF6',
+    type: 'PDF',
+    size: '3.6 MB',
+    icon: '📋',
+    downloadUrl: '/documents/policy-briefs/ministry-of-health-brief.pdf',
+    lastUpdated: 'October 2025',
+    hasVideo: true,
+    videoUrl: '',
+    isPolicyBrief: true,
+    content: {
+      introduction: 'This policy brief is specifically directed to the Ministry of Health and health sector stakeholders. It outlines concrete steps to make health services accessible and inclusive for Deaf Women and Girls in Rwanda.',
+      sections: [
+        {
+          title: 'Current Situation',
+          content: `The health sector in Rwanda has made significant progress in improving healthcare access. However, deaf women continue to face barriers:
+
+• No standardized protocol for serving deaf patients
+• Limited availability of sign language interpreters
+• Healthcare information predominantly in audio/text formats
+• Deaf women often rely on family members to interpret sensitive health information
+• Lack of privacy during medical consultations`
+        },
+        {
+          title: 'Impact on Health Outcomes',
+          content: `These barriers lead to:
+
+• Delayed healthcare seeking behavior
+• Missed diagnoses and incorrect treatments
+• Lower rates of preventive care utilization
+• Poor maternal health outcomes
+• Mental health challenges from healthcare exclusion`
+        },
+        {
+          title: 'Policy Recommendations',
+          content: `1. Establish a Sign Language Interpretation Service
+   - Train and deploy medical sign language interpreters
+   - Create a pool of interpreters accessible to health facilities
+
+2. Healthcare Worker Training
+   - Include basic RSL in health professional curricula
+   - Provide in-service training on deaf culture and communication
+
+3. Accessible Health Information
+   - Develop health education videos in RSL
+   - Create visual health materials
+
+4. Infrastructure Improvements
+   - Install visual alert systems in waiting areas
+   - Ensure deaf-friendly appointment systems`
+        },
+        {
+          title: 'Implementation Framework',
+          content: `Short-term (1 year):
+• Develop guidelines for serving deaf patients
+• Begin training of sign language interpreters
+• Create key health messages in RSL video format
+
+Medium-term (2-3 years):
+• Deploy interpreters to district hospitals
+• Integrate RSL basics into health worker training
+• Establish feedback mechanisms for deaf patients
+
+Long-term (5 years):
+• Full accessibility in all health facilities
+• Deaf community health workers in all districts
+• Comprehensive monitoring of deaf health indicators`
+        },
+        {
+          title: 'Partnership with RNADW',
+          content: `RNADW offers to support the Ministry of Health through:
+
+• Training health workers in sign language and deaf culture
+• Developing accessible health education materials
+• Connecting deaf women to health services
+• Monitoring and evaluating program effectiveness
+• Advocating for deaf women's health rights
+
+Contact RNADW to discuss partnership opportunities.`
+        }
+      ]
+    }
+  },
+  {
+    id: 12,
+    title: 'Education Stakeholders Brief',
+    description: 'Policy brief for education stakeholders on inclusive education for Deaf Girls and Women',
+    category: 'Policy Brief',
+    categoryColor: '#8B5CF6',
+    type: 'PDF',
+    size: '4.4 MB',
+    icon: '📋',
+    downloadUrl: '/documents/policy-briefs/education-stakeholders-brief.pdf',
+    lastUpdated: 'October 2025',
+    hasVideo: true,
+    videoUrl: '',
+    isPolicyBrief: true,
+    content: {
+      introduction: 'This policy brief addresses the education sector, highlighting the need for inclusive education for Deaf Girls and Women in Rwanda. Quality education is fundamental to empowerment, yet deaf learners continue to face significant barriers.',
+      sections: [
+        {
+          title: 'Education Challenges',
+          content: `Deaf girls in Rwanda face multiple barriers to quality education:
+
+• Limited schools with sign language instruction
+• Shortage of qualified deaf teachers
+• Lack of learning materials in visual formats
+• Limited access to Comprehensive Sexuality Education
+• Higher dropout rates compared to hearing peers
+• Social isolation and bullying in mainstream schools`
+        },
+        {
+          title: 'The Cost of Exclusion',
+          content: `When deaf girls are excluded from quality education:
+
+• Lower literacy and numeracy skills
+• Limited employment opportunities
+• Greater vulnerability to exploitation
+• Reduced civic participation
+• Intergenerational poverty
+• Loss of potential contributions to society`
+        },
+        {
+          title: 'Recommendations for MINEDUC',
+          content: `1. Strengthen Schools for the Deaf
+   - Increase funding and resources
+   - Recruit and train more deaf teachers
+   - Develop curriculum materials in RSL
+
+2. Support Inclusive Education
+   - Train mainstream teachers in basic RSL
+   - Provide sign language interpreters
+   - Adapt examinations for deaf learners
+
+3. Comprehensive Sexuality Education
+   - Ensure CSE reaches deaf students
+   - Train teachers to deliver CSE to deaf learners
+   - Develop CSE materials in accessible formats`
+        },
+        {
+          title: 'Vocational Training',
+          content: `Deaf women need access to vocational training:
+
+• Technical and vocational schools should be accessible
+• Skills training programs should accommodate deaf learners
+• Entrepreneurship training in sign language
+• Linkages to employment opportunities
+• Support for deaf women-owned businesses
+
+RNADW's economic empowerment programs can serve as models.`
+        },
+        {
+          title: 'Way Forward',
+          content: `RNADW calls for:
+
+• Increased budget allocation for deaf education
+• Recognition of RSL as a language of instruction
+• Inclusion of deaf women in education policy development
+• Partnerships between MINEDUC and deaf organizations
+• Regular monitoring of deaf learners' outcomes
+
+Together, we can ensure that no deaf girl is left behind in Rwanda's education system.`
+        }
+      ]
+    }
+  },
+  {
+    id: 13,
+    title: 'Development Partners Brief',
+    description: 'Policy brief for development partners on supporting Deaf Women and Girls programs in Rwanda',
+    category: 'Policy Brief',
+    categoryColor: '#8B5CF6',
+    type: 'PDF',
+    size: '4.5 MB',
+    icon: '📋',
+    downloadUrl: '/documents/policy-briefs/development-partners-brief.pdf',
+    lastUpdated: 'October 2025',
+    hasVideo: false,
+    isPolicyBrief: true,
+    content: {
+      introduction: 'This policy brief is directed to development partners, donors, and international organizations working in Rwanda. It makes the case for targeted investment in programs for Deaf Women and Girls and provides guidance on inclusive programming.',
+      sections: [
+        {
+          title: 'Why Focus on Deaf Women?',
+          content: `Deaf women and girls face intersecting discrimination:
+
+• Gender-based discrimination
+• Disability-based discrimination
+• Often also rural, poor, or from marginalized groups
+
+This intersection means they are frequently left behind even in programs targeting women or persons with disabilities. Targeted investment is essential.`
+        },
+        {
+          title: 'Investment Gaps',
+          content: `Current development funding often excludes deaf women:
+
+• Disability inclusion is often an afterthought
+• Programs for women rarely consider deaf women's needs
+• Few programs specifically target deaf women
+• Limited funding for deaf-led organizations
+• Lack of disaggregated data on deaf women`
+        },
+        {
+          title: 'Recommendations for Donors',
+          content: `1. Fund Deaf-Led Organizations
+   - Support organizations like RNADW directly
+   - Build organizational capacity
+   - Provide core/flexible funding
+
+2. Mainstream Disability Inclusion
+   - Require accessibility in all funded programs
+   - Include disability indicators in monitoring
+   - Budget for accessibility costs
+
+3. Target Deaf Women Specifically
+   - Fund programs addressing deaf women's unique needs
+   - Support SRHR, education, economic empowerment
+   - Include deaf women in program design`
+        },
+        {
+          title: 'How to Partner Effectively',
+          content: `Best practices for inclusive programming:
+
+• Consult deaf women from the start
+• Ensure sign language access at all events
+• Adapt communication materials
+• Budget for interpretation costs
+• Train staff on deaf culture
+• Monitor outcomes for deaf participants
+
+RNADW can support partners to make their programs accessible.`
+        },
+        {
+          title: 'Call to Action',
+          content: `Development partners have a crucial role in advancing the rights of deaf women and girls. We call on you to:
+
+• Include deaf women in your strategies
+• Fund deaf-led organizations
+• Hold implementing partners accountable for inclusion
+• Advocate for deaf women's rights
+• Learn about and respect deaf culture
+
+Together, we can ensure that Rwanda's development leaves no one behind.
+
+Contact RNADW: info@rnadw.org`
+        }
+      ]
+    }
   }
 ];
 
@@ -1202,6 +1542,53 @@ export default function ResourceViewerPage() {
 
         </div>
       </section>
+
+      {/* VIDEO SECTION - For Policy Briefs with videos */}
+      {resource.hasVideo && (
+        <section className="py-16 bg-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: resource.categoryColor }} />
+              <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Watch Video</span>
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: resource.categoryColor }} />
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 shadow-lg">
+              <h2 className="text-2xl font-black text-gray-900 mb-4">
+                Video Summary in Sign Language
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Watch the video version of this policy brief presented in Rwanda Sign Language for accessibility.
+              </p>
+
+              {resource.videoUrl ? (
+                <div className="aspect-video rounded-2xl overflow-hidden bg-gray-900">
+                  <iframe
+                    src={resource.videoUrl}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={`${resource.title} - Video`}
+                  />
+                </div>
+              ) : (
+                <div className="aspect-video rounded-2xl bg-gray-200 flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <p className="text-gray-500 font-medium">Video coming soon</p>
+                    <p className="text-gray-400 text-sm mt-2">The sign language video for this policy brief is being prepared</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* RELATED RESOURCES */}
       <section className="py-16 bg-gray-50">
