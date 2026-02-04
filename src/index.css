@@ -291,6 +291,12 @@
   scroll-snap-align: start;
 }
 
+/* Fix for Social Investment image to fit properly */
+.card-item:first-child {
+  background-position: center top;
+  background-size: cover;
+}
+
 .card-item.active {
   width: 500px;
   box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);

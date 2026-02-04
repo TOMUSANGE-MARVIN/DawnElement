@@ -152,22 +152,12 @@ To participate requires outsiders to abandon inherited lenses and recognize a fu
 
           {/* Content */}
           <div className="p-8 lg:p-12">
-            {/* Meta */}
-            <div className="flex items-center gap-4 text-sm text-dawn-gray mb-6">
-              <span>{blog.date}</span>
-              <span>•</span>
-              <span>{blog.readTime}</span>
-            </div>
-
             {/* Title */}
             <h1 className="text-3xl lg:text-4xl font-bold text-dawn-dark leading-tight mb-6">
               {blog.title}
             </h1>
 
-            {/* Excerpt */}
-            <p className="text-xl text-dawn-gray leading-relaxed mb-8 pb-8 border-b border-gray-200">
-              {blog.excerpt}
-            </p>
+            
 
             {/* Full Content */}
             <div className="prose prose-lg max-w-none">

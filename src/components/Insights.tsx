@@ -7,7 +7,7 @@ const blogPosts = [
     id: 1,
     date: '02 Feb 2026',
     title: 'The Road to Cultural Influence',
-    excerpt: 'How we take a Ugandan writer and turn her into a globally recognized cultural influence. Building the boat as we sail it so that those who come after us might find the makings of a boat they could also use.',
+    excerpt: 'For most of 2023 and 2024, Twasiima Bigirwa, the international development expert turned poet and fiction writer was in a fury of activity involving endless hours of writing-this-and-editing-that.',
     image: '/images/The road to cultural influence.png',
     category: 'Narratives',
     readTime: '15 min read',
@@ -16,7 +16,7 @@ const blogPosts = [
     id: 2,
     date: '02 Feb 2026',
     title: 'A Museum, a Lodge and Other Short Stories',
-    excerpt: 'Building spaces for the intellectual and cultural expression of thinkers and creators. The eco-lodge is merely the vessel, showing that lodges can be living repositories of history rather than just commercial ventures.',
+    excerpt: 'In 2019, our investment arm, Dawn Elements Ventures, acquired four properties strategically overlooking the shores of Lake Victoria. Africa’s largest freshwater lake. On paper, our goal is to build a chain of eco-lodges. ',
     image: '/images/A museaum, a lodge and short stories.jpg',
     category: 'Social Investment',
     readTime: '12 min read',
@@ -24,7 +24,7 @@ const blogPosts = [
   {
     id: 3,
     date: '02 Feb 2026',
-    title: 'Building a New Oven: Hegemony, Capital and the African Investor\'s Dilemma',
+    title: 'Building a New Oven',
     excerpt: 'The dominant external narrative on African investment is riddled with contradictions, fixated on potential yet blind to lived economic reality. There must be a way to not simply ask for a larger slice of the pie but to instead build new ovens and new systems.',
     image: '/images/Building a new oven.png',
     category: 'Investment',
@@ -123,12 +123,6 @@ export default function Insights() {
 
                 {/* Content */}
                 <div className="flex-1 flex flex-col p-6">
-                  <div className="flex items-center gap-3 text-sm text-dawn-gray mb-3">
-                    <span>{post.date}</span>
-                    <span>•</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  
                   <h3 className="font-bold text-xl text-dawn-dark leading-tight mb-3 group-hover:text-dawn-orange transition-colors duration-300">
                     {post.title}
                   </h3>
