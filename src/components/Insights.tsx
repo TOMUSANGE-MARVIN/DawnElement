@@ -26,7 +26,7 @@ const blogPosts = [
     date: '02 Feb 2026',
     title: 'Building a New Oven',
     excerpt: 'The dominant external narrative on African investment is riddled with contradictions, fixated on potential yet blind to lived economic reality. There must be a way to not simply ask for a larger slice of the pie but to instead build new ovens and new systems.',
-    image: '/images/Building a new oven.png',
+    image: '/images/b1.png',
     category: 'Investment',
     readTime: '14 min read',
   },
