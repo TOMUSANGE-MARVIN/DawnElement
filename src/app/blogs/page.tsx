@@ -56,7 +56,7 @@ export default function BlogsPage() {
       readTime: '8 min read',
       category: 'Inclusion',
       categoryColor: '#2563EB',
-      image: '/images/blogs/disability-inclusive/image1.jpg',
+      image: '/images/blogs/disability-inclusive/image3.jpg',
       featured: false
     },
     {

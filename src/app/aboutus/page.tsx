@@ -281,58 +281,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* IMPACT STATS SECTION */}
-      <section className="py-24 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Section Label */}
-          <div
-            ref={impactLabel.ref}
-            className={`flex items-center gap-4 mb-16 justify-center scroll-animate delay-100 ${impactLabel.isVisible ? 'visible' : ''}`}>
-            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
-            <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Our Impact</span>
-            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            {/* Stat 1 */}
-            <div
-              ref={impactStat1.ref}
-              className={`text-center scroll-animate-scale delay-200 ${impactStat1.isVisible ? 'visible' : ''}`}>
-              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#FACC15' }}>500+</div>
-              <div className="text-xl font-bold text-gray-300">Lives Empowered</div>
-            </div>
-
-            {/* Stat 2 */}
-            <div
-              ref={impactStat2.ref}
-              className={`text-center scroll-animate-scale delay-300 ${impactStat2.isVisible ? 'visible' : ''}`}>
-              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#2563EB' }}>22</div>
-              <div className="text-xl font-bold text-gray-300">Districts Covered</div>
-            </div>
-
-            {/* Stat 3 */}
-            <div
-              ref={impactStat3.ref}
-              className={`text-center scroll-animate-scale delay-400 ${impactStat3.isVisible ? 'visible' : ''}`}>
-              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#FACC15' }}>04</div>
-              <div className="text-xl font-bold text-gray-300">Core Programs</div>
-            </div>
-
-            {/* Stat 4 */}
-            <div
-              ref={impactStat4.ref}
-              className={`text-center scroll-animate-scale delay-500 ${impactStat4.isVisible ? 'visible' : ''}`}>
-              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#2563EB' }}>10+</div>
-              <div className="text-xl font-bold text-gray-300">Partner Organizations</div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* TEAM SECTION */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -393,6 +341,58 @@ export default function AboutPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* COVERAGE STATS SECTION */}
+      <section className="py-24 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Section Label */}
+          <div
+            ref={impactLabel.ref}
+            className={`flex items-center gap-4 mb-16 justify-center scroll-animate delay-100 ${impactLabel.isVisible ? 'visible' : ''}`}>
+            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+            <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Our Coverage</span>
+            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            {/* Stat 1 */}
+            <div
+              ref={impactStat1.ref}
+              className={`text-center scroll-animate-scale delay-200 ${impactStat1.isVisible ? 'visible' : ''}`}>
+              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#FACC15' }}>500+</div>
+              <div className="text-xl font-bold text-gray-300">Lives Empowered</div>
+            </div>
+
+            {/* Stat 2 */}
+            <div
+              ref={impactStat2.ref}
+              className={`text-center scroll-animate-scale delay-300 ${impactStat2.isVisible ? 'visible' : ''}`}>
+              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#2563EB' }}>22</div>
+              <div className="text-xl font-bold text-gray-300">Districts Covered</div>
+            </div>
+
+            {/* Stat 3 */}
+            <div
+              ref={impactStat3.ref}
+              className={`text-center scroll-animate-scale delay-400 ${impactStat3.isVisible ? 'visible' : ''}`}>
+              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#FACC15' }}>04</div>
+              <div className="text-xl font-bold text-gray-300">Core Programs</div>
+            </div>
+
+            {/* Stat 4 */}
+            <div
+              ref={impactStat4.ref}
+              className={`text-center scroll-animate-scale delay-500 ${impactStat4.isVisible ? 'visible' : ''}`}>
+              <div className="text-6xl lg:text-7xl font-black mb-4" style={{ color: '#2563EB' }}>10+</div>
+              <div className="text-xl font-bold text-gray-300">Partner Organizations</div>
+            </div>
+
+          </div>
         </div>
       </section>
 

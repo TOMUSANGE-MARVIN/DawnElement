@@ -59,6 +59,7 @@ const blogPosts = [
     title: '"CSE Training Transformed My Perspective" – A Parent-Teacher\'s Heartfelt Testimony',
     excerpt: 'Jean Paul Nshimiyimana, a dedicated teacher and adoptive father to a Deaf girl, shares how RNADW\'s Comprehensive Sexuality Education training transformed his ability to guide and protect Deaf adolescents.',
     content: `
+    <img src="/images/blogs/image.png" alt="Jean Paul Nshimiyimana" class="w-full rounded-xl my-8" />
       <p><strong>Jean Paul Nshimiyimana</strong> has always poured his heart into supporting Deaf children—both as a dedicated teacher and, most profoundly, as a loving adoptive father. Years ago, he opened his home and his life to a Deaf girl who could neither hear nor speak, rescuing her from vulnerability on the streets. Raising her became his sacred dual responsibility: nurturing her as a parent while equipping her, and others like her, with the tools to thrive.</p>
 
       <p>As his daughter entered adolescence, Jean Paul witnessed the subtle yet unmistakable changes that come with puberty. He longed to guide her safely through this delicate phase, to shield her from the risks of exploitation, unwanted pregnancy, or heartbreak. With his background as a science-educated teacher, he offered what wisdom he had—simple warnings about avoiding certain peers or situations—but he felt the limits of his knowledge keenly. Words alone could not convey the full complexity of the female life cycle, bodily changes, or the emotional depth of healthy decision-making. His heart ached knowing she deserved more complete, compassionate understanding.</p>
@@ -193,7 +194,7 @@ const blogPosts = [
       <p>So when RNADW "UMUCYO" approached him with the invitation to attend a sign language training, he jumped at the opportunity! Together with other youth center service providers (10 in total), Thadeo attended a three-month training course from March to May 2024 on Rwandan Sign Language. Classes took place three times a week for 3 hours each, facilitated by qualified deaf sign language instructors.</p>
 
       <h2>Strategic Partnerships</h2>
-      <img src="/images/blogs/disability-inclusive/image3.jpg" alt="Alphonsine Uwimana, RNADW Field Officer" class="w-full rounded-xl my-8" />
+      <img src="/images/blogs/disability-inclusive/image4.jpg" alt="Alphonsine Uwimana, RNADW Field Officer" class="w-full rounded-xl my-8" />
       <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Alphonsine Uwimana, RNADW "UMUCYO" Field Officer</p>
 
       <p>According to <strong>Alphonsine Uwimana</strong>, RNADW "UMUCYO" Field Officer, working strategically with district authorities including those in charge of youth and disability was of utmost importance to identify disability-friendly and safe spaces for convening, and the needs in the community. This is why training sessions took place within youth centres.</p>
@@ -208,7 +209,7 @@ const blogPosts = [
       <p>He also hopes such training can be extended to 32 other youth centres across the country as this will mobilise and encourage Deaf young people to use these services.</p>
 
       <h2>Leadership Commitment</h2>
-      <img src="/images/blogs/disability-inclusive/image4.jpg" alt="Dative Mukashema, Executive Director" class="w-full rounded-xl my-8" />
+      <img src="/images/blogs/disability-inclusive/image.png" alt="Dative Mukashema, Executive Director" class="w-full rounded-xl my-8" />
       <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Dative Mukashema, RNADW "UMUCYO" Executive Director</p>
 
       <p><strong>Dative Mukashema</strong>, RNADW "UMUCYO" Executive Director acknowledges that resources are limited, however forging partnerships with various stakeholders and putting Deaf women and girls needs at the centre is key to ensure delivery of an inclusive and sustainable agenda for Deaf adolescent girls and young women.</p>
@@ -301,7 +302,7 @@ const blogPosts = [
       <h2>Parent Training Program</h2>
       <p>To select participants, RNADW "UMUCYO" worked with local authorities in Huye and Nyarugenge Districts to select possible participants with no prior exposure to Sign Language. <strong>20 parents</strong> were then invited to attend the training, which was organized as 3 sessions per week for 3 months, each session lasting 3 hours. These trainings took place at community youth centers, and were facilitated by qualified Sign Language instructors.</p>
 
-      <img src="/images/blogs/empowering-parents/image1.jpg" alt="Appoline receiving certificate" class="w-full rounded-xl my-8" />
+      <img src="/images/blogs/empowering-parents/image2.jpg" alt="Appoline receiving certificate" class="w-full rounded-xl my-8" />
       <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Appoline (second from right) receives a certificate for the completion of a sign language training.</p>
 
       <h2>Appoline's Story</h2>
@@ -312,7 +313,7 @@ const blogPosts = [
       <blockquote>"This was an opportunity for me to learn how to sign. I also learned so much about adolescent sexual health. My daughter now has two children of her own. She trusts me more, and she opens up to me more about family planning and other issues. So in a way, this training did two things at once."</blockquote>
 
       <h2>Project Coordination</h2>
-      <img src="/images/blogs/empowering-parents/image2.jpg" alt="Training session" class="w-full rounded-xl my-8" />
+      
 
       <p><strong>Diane Niyonkuru</strong> is a RNADW "UMUCYO" Project coordinator and staff overseeing the project activities. She said she saw firsthand the desire that many parents have had to learn to communicate with their children better beyond the training period.</p>
 
