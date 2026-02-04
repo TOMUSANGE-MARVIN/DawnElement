@@ -36,5 +36,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /var/www/rnadw
-            npm ci --production
+            npm ci
             pm2 restart rnadw || pm2 start npm --name rnadw -- start

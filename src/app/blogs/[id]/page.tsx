@@ -9,651 +9,395 @@ import { useParams } from 'next/navigation';
 const blogPosts = [
   {
     id: 1,
-    title: 'Loud in Silence: Launching Our Strategic Plan 2025-2030',
-    excerpt: 'RNADW proudly unveils our new Strategic Plan themed "Loud in Silence: Deaf Women and Girls Driving Change" - a bold vision for the next five years focusing on Participation, Power, and Partnership.',
+    title: 'Empowering Voices Long Silenced: Deaf Girls and Women Trained to Prevent and Report SGBV',
+    excerpt: 'In Musanze District, deaf girls, single mothers, and girls with disabilities gathered to reclaim their right to safety and dignity through groundbreaking SGBV prevention training organized by RNADW, Afro Ark, and HSMD under the campaign "Your protection doesn\'t protect me."',
     content: `
-      <p>The Rwanda National Association of Deaf Women (RNADW) is proud to announce the launch of our Strategic Plan 2025-2030, themed <strong>"Loud in Silence: Deaf Women and Girls Driving Change"</strong>. This comprehensive five-year roadmap represents our commitment to fostering inclusive social-economic development that is deaf-women-centred, transformative, and accountable.</p>
+      <p>In the quiet hills of Musanze District, a group of young deaf girls, single mothers, and girls living with various disabilities gathered—not just to learn, but to reclaim their right to safety, dignity, and a future free from fear.</p>
 
-      <h2>Our Strategic Vision</h2>
-      <p>We envision an inclusive and just society where Deaf Women and Girls fully enjoy their rights, participate in decision-making processes, and benefit from all aspects of life. Our mission remains steadfast: to defend the rights of Deaf Women and Girls and promote their health rights, human rights, education, and socio-economic justice.</p>
+      <p>For too long, these young women have faced heightened vulnerability: communication barriers that silence their cries for help, deep-seated stigma that dismisses their experiences, and a stark reality where sexual and gender-based violence (SGBV) strikes disproportionately hard. <strong>Research shows that women and girls with disabilities in Rwanda can be up to ten times more likely to experience violence</strong>, often suffering in isolation with limited access to justice or healing.</p>
 
-      <h2>Four Strategic Pillars</h2>
-      <p>Our strategy is built on four transformative pillars:</p>
+      <h2>A Powerful Training Session</h2>
+      <p>On January 18, 2023, a powerful training session changed that narrative for many. Organized by the <strong>Rwanda National Association of Deaf Women (RNADW "UMUCYO")</strong>, <strong>Afro Ark</strong>, and <strong>Hope for Single Mothers with Disabilities (HSMD)</strong>, this initiative equipped participants with essential knowledge on SGBV prevention, sexual and reproductive health, and pathways to seek medical care, legal support, and justice when violence occurs.</p>
 
-      <h3>1. My Body, My Rights (Sexual and Reproductive Health and Rights)</h3>
-      <p>Enabling a legal, policy, social, economic, and cultural environment that promotes, respects, and guarantees sexual and reproductive health and rights for deaf women and girls. This includes GBV prevention, Deaf Theatre for awareness, and Deaf-friendly CSE modules.</p>
+      <h2>"Your Protection Doesn't Protect Me"</h2>
+      <p>Held under the poignant campaign theme <strong>"Your protection doesn't protect me,"</strong> the training sought to shatter the illusion that general protections automatically shield the most marginalized. It focused on building knowledge, strengthening decision-making power, and fostering the confidence these young women need to protect themselves—especially in and out of school—against sexual violence that threatens their health, education, and dreams.</p>
 
-      <h3>2. Spear N' Shield (Education, Skilling, Digitalization and Business Development)</h3>
-      <p>Building and sustaining the education, skills, knowledge, and digitalization competencies of deaf women and girls. Key initiatives include the Umucyo Sign Language App, SACCO support, and Rwanda Sign Language digitalization.</p>
+      <blockquote>"Deaf young girls, single mothers, and other girls with disabilities live under constant threat of sexual violence. This training is about more than information—it's about empowering them to make choices that safeguard their bodies, their futures, and their voices. When they learn to recognize danger, report abuse, and demand support, we begin to break cycles of silence and suffering that have lasted far too long."</blockquote>
+      <p><em>— Dativa Mukashema, Executive Director of RNADW "UMUCYO"</em></p>
 
-      <h3>3. Her Voice, Her Power (Leadership, Voice and Agency)</h3>
-      <p>Strengthening deaf women and girls' voice, leadership, and participation in all spheres of life. Through our Feminist Leadership Institutes and Deaf Women Leaders Forum, we're cultivating the next generation of leaders.</p>
+      <h2>Support from Women Gaining Ground</h2>
+      <p>This vital work was made possible through the support of <strong>Women Gaining Ground (WGG)</strong>, a Global South-led consortium led by CREA, with deep expertise in feminist leadership, movement-building, and advocacy for marginalized groups. WGG's five-year program (2021–2025) operates in Bangladesh, India, Kenya, Rwanda, and Uganda, amplifying the voices of those often left behind.</p>
 
-      <h3>4. Her Environment (Climate Adaptation and Resilience)</h3>
-      <p>Mobilizing Deaf Women and Girls to effectively influence and participate in national, regional, and global climate justice agenda. This includes climate-smart agriculture training and accessible climate information in RSL.</p>
+      <h2>Sobering Statistics from Local Authorities</h2>
+      <p>The urgency of this training was underscored by local authorities. <strong>Joseph Murenzi</strong>, District Chief Investigator at the Rwanda Investigation Bureau (RIB) in Musanze, shared sobering statistics from 2021–2022: among deaf victims, authorities recorded one case of child defilement, two rapes, and one assault with battery.</p>
 
-      <h2>Participation ~ Power ~ Partnership</h2>
-      <p>Our approach is guided by three core principles: meaningful participation of deaf women and girls in all decisions that affect them, building their power and agency, and forging strategic partnerships across government, civil society, and development partners.</p>
+      <blockquote>"SGBV is not distant—it is here, and it devastates lives. For these young girls and women, the consequences ripple far: physical injuries, emotional trauma, unwanted pregnancies, disrupted education, and shattered futures. Child defilement remains one of the most heartbreaking cases we fight daily. We urge every girl to know that help exists and that reporting early can save lives."</blockquote>
+      <p><em>— Joseph Murenzi, District Chief Investigator, RIB Musanze</em></p>
 
-      <h2>Looking Ahead</h2>
-      <p>With programming across 22 districts in all 5 provinces of Rwanda, RNADW is positioned to make significant impact over the next five years. We invite partners, donors, and community members to join us in this journey of transformation.</p>
+      <h2>Comprehensive Support Services</h2>
+      <p><strong>Kagiraneza Mujyambere</strong>, an investigator at the Isange One Stop Centre (IOSC) in Musanze, detailed the comprehensive services available: immediate medical care, psychological support, legal aid, trauma counseling, and pathways to justice. He warned against the dangers of illegal abortions, which pose life-threatening risks, and stressed the <strong>critical 72-hour window to preserve evidence after an assault</strong>—empowering survivors to act swiftly and decisively.</p>
+
+      <h2>From Victims to Advocates</h2>
+      <p>Through this training, participants left not as victims waiting for rescue, but as <strong>informed, resilient advocates for their own protection</strong>. They gained tools to recognize warning signs, assert boundaries, seek timely help, and support one another. In a country where many girls with disabilities face barriers to reporting and disbelief from services, such knowledge can mean the difference between continued suffering and healing, between silence and justice.</p>
+
+      <h2>A Beacon of Hope</h2>
+      <p>This initiative is more than an event—it is a beacon of hope. By centering the experiences of deaf girls and women with disabilities, RNADW "UMUCYO", Afro Ark, HSMD, and their partners are lighting the path toward a Rwanda where every girl can live without fear, where her voice is heard, and where protection truly reaches those who need it most.</p>
+
+      <p><strong>Together, we can ensure that "Your protection doesn't protect me" becomes a rallying cry for change—and a promise kept.</strong></p>
     `,
-    author: 'Executive Director',
-    authorRole: 'Mukashema Dative',
-    date: 'Jan 15, 2025',
-    readTime: '8 min read',
-    category: 'Announcements',
-    categoryColor: '#FACC15',
-    image: '/images/image12.png',
+    author: 'RNADW Team',
+    authorRole: 'Communications',
+    date: 'Jan 18, 2023',
+    readTime: '10 min read',
+    category: 'SGBV/VAWG',
+    categoryColor: '#EC4899',
+    image: '/images/b1.png',
     featured: true
   },
   {
     id: 2,
-    title: 'Umucyo Sign Language App: Digital Innovation for Accessibility',
-    excerpt: 'Introducing the Umucyo Sign Language App - our groundbreaking digital platform providing remote sign language interpretation, accessible information, and community building for deaf women across Rwanda.',
+    title: '"CSE Training Transformed My Perspective" – A Parent-Teacher\'s Heartfelt Testimony',
+    excerpt: 'Jean Paul Nshimiyimana, a dedicated teacher and adoptive father to a Deaf girl, shares how RNADW\'s Comprehensive Sexuality Education training transformed his ability to guide and protect Deaf adolescents.',
     content: `
-      <p>In our commitment to breaking communication barriers, RNADW is proud to introduce the <strong>Umucyo Sign Language App</strong> - a revolutionary digital platform designed to transform how deaf women and girls access information, services, and community support across Rwanda.</p>
+      <p><strong>Jean Paul Nshimiyimana</strong> has always poured his heart into supporting Deaf children—both as a dedicated teacher and, most profoundly, as a loving adoptive father. Years ago, he opened his home and his life to a Deaf girl who could neither hear nor speak, rescuing her from vulnerability on the streets. Raising her became his sacred dual responsibility: nurturing her as a parent while equipping her, and others like her, with the tools to thrive.</p>
 
-      <h2>What is Umucyo?</h2>
-      <p>"Umucyo" means "light" in Kinyarwanda, and this app aims to be exactly that - a beacon of accessibility in a world where communication barriers often leave deaf individuals in the dark. The app serves as a central hub for remote sign language interpretation, accessible information dissemination, and community building.</p>
+      <p>As his daughter entered adolescence, Jean Paul witnessed the subtle yet unmistakable changes that come with puberty. He longed to guide her safely through this delicate phase, to shield her from the risks of exploitation, unwanted pregnancy, or heartbreak. With his background as a science-educated teacher, he offered what wisdom he had—simple warnings about avoiding certain peers or situations—but he felt the limits of his knowledge keenly. Words alone could not convey the full complexity of the female life cycle, bodily changes, or the emotional depth of healthy decision-making. His heart ached knowing she deserved more complete, compassionate understanding.</p>
 
-      <h2>Key Features</h2>
+      <h2>A Transformative Training Experience</h2>
+      <p>Everything changed in mid-2022 when Jean Paul participated in a transformative <strong>Comprehensive Sexuality Education (CSE) training</strong> organized by the <strong>Rwanda National Association of Deaf Women (RNADW)</strong>. This experience did not merely add information; it ignited a deeper empathy and equipped him with accessible, inclusive tools tailored to Deaf adolescents. Suddenly, the boundaries that once constrained him dissolved.</p>
 
-      <h3>Remote Sign Language Interpretation</h3>
-      <p>Connect with certified RSL interpreters for healthcare appointments, legal services, business transactions, and more - all from your smartphone.</p>
+      <h2>A Father's Renewed Bond</h2>
+      <blockquote>"Before the training, my support as a parent felt incomplete and ineffective. I could only say, 'Avoid boys' groups' or 'Don't spend time alone with boys,' without explaining the beautiful yet challenging journey from childhood to womanhood. I lacked the full picture to help her navigate with confidence and dignity."</blockquote>
 
-      <h3>Accessible Information Hub</h3>
-      <p>Access vital information about SRHR, climate adaptation, economic opportunities, and rights - all presented in Rwanda Sign Language with visual aids.</p>
+      <p>Now armed with comprehensive knowledge, he sat with his daughter—now 26—and used visual teaching aids from a reliable website. Step by step, he walked her through the stages of a girl's development: the onset of menstruation, hormonal shifts, emotional changes, and the importance of self-respect and boundaries. For each milestone, he gently asked if she had experienced it, listening intently to her signs, then explaining what it meant and how to respond healthily.</p>
 
-      <h3>Community Connection</h3>
-      <p>Connect with other deaf women across the 22 districts where RNADW operates, share experiences, and build supportive networks.</p>
+      <p>He spoke openly yet tenderly about peer pressures, the dangers of premature sexual activity, and the beauty of waiting for a committed, respectful partnership—perhaps one day leading to marriage and planned family.</p>
 
-      <h3>Business Services</h3>
-      <p>Deaf women entrepreneurs can access business development support, financial literacy resources, and connect with markets and financial institutions.</p>
+      <h2>Rippling Impact in the Community</h2>
+      <p>His guidance extended beyond his home. Recently, while chatting with neighborhood girls, Jean Paul discovered to his shock that none knew what a sanitary pad was. He pulled one from his wallet, demonstrated its use with care and clarity, and later received grateful feedback from relieved parents. These small acts ripple outward, building safety and awareness in his community.</p>
 
-      <h2>Digital Innovation for Inclusion</h2>
-      <p>The Umucyo App represents our cross-cutting commitment to digital innovation. By leveraging technology, we're ensuring that deaf women and girls can directly access services, knowledge, and peer support regardless of their location.</p>
+      <p>Jean Paul's devotion shines brightest in his long-term vision: after rescuing his daughter, he introduced her to bakery work to build skills and independence. He dreams of establishing a small home bakery where she can find purpose, employment, and joy—ensuring she remains secure, valued, and empowered.</p>
 
-      <h2>Download and Join</h2>
-      <p>The Umucyo Sign Language App is available for download and represents a significant step toward our vision of an inclusive society. Join thousands of deaf women already using the platform to access services and connect with their community.</p>
+      <h2>A Teacher's Renewed Mission</h2>
+      <p>At <strong>Centre des Jeunes Sourds-Muets (CJSM)</strong> in Huye district, where Jean Paul teaches, Deaf girls face alarming realities. Research in Rwanda highlights that adolescents with hearing disabilities often encounter limited access to SRH information, heightening their vulnerability to sexual violence, including defilement and rape—risks amplified by communication barriers and societal stigma.</p>
+
+      <p>Before the training, Jean Paul relied on basic science knowledge to address these issues. Now, he creates engaging, sign-language-based materials drawing from real-life examples of past struggles caused by ignorance. In lively classroom debates, students discuss concrete scenarios, menstrual cycles, contraceptive options, SRHR rights for both genders, and the full spectrum of sexuality from childhood to adulthood.</p>
+
+      <blockquote>"The training gave us the right language and methods to reach our students deeply. We explore not just risks, but prevention, mutual respect, and protection. Deaf girls now understand how to recognize dangers, assert boundaries, and support one another. I see their confidence grow—the fear in their eyes replaced by knowledge and strength."</blockquote>
+
+      <h2>Lasting Impact and Hope</h2>
+      <p>Jean Paul's story is one of quiet triumph. The CSE training did not just inform him; it deepened his love, sharpened his advocacy, and multiplied his protective reach. One father-teacher's empowered voice now safeguards his daughter's future and echoes in the lives of countless Deaf girls at school and in the neighborhood.</p>
+
+      <blockquote>"I will never stop striving for her well-being—and for every Deaf girl who deserves to grow up informed, safe, and full of possibility."</blockquote>
+
+      <p>Through initiatives like RNADW's training, stories like Jean Paul's remind us that <strong>knowledge, delivered with empathy and accessibility, can break cycles of vulnerability and build futures filled with dignity and hope</strong>.</p>
     `,
-    author: 'ICT Team',
-    authorRole: 'RNADW Technology',
-    date: 'Jan 10, 2025',
-    readTime: '6 min read',
-    category: 'Digital Innovation',
-    categoryColor: '#2563EB',
-    image: '/images/image8.png',
+    author: 'Jean Paul Nshimiyimana',
+    authorRole: 'Teacher & Adoptive Father',
+    date: 'Jul 21, 2025',
+    readTime: '8 min read',
+    category: 'SRHR',
+    categoryColor: '#F97316',
+    image: '/images/b2.png',
     featured: false
   },
   {
     id: 3,
-    title: 'Her Environment: Climate Adaptation for Deaf Women',
-    excerpt: 'Our new Climate Adaptation and Resilience program equips deaf women with climate-smart agriculture skills and ensures climate information is accessible in Rwanda Sign Language.',
+    title: 'CSE Training: Empowering Nurses to Protect and Uplift Deaf Girls',
+    excerpt: 'Powerful testimonies from nurses reveal how RNADW\'s Comprehensive Sexuality Education training is transforming healthcare for deaf girls in Rwanda, plus how SRHR efforts are bearing fruit in Nyamasheke District.',
     content: `
-      <p>Climate change poses significant risks to vulnerable communities, and deaf women and girls face unique challenges as emergency response mechanisms and resilience programs often fail to consider their specific needs. RNADW's <strong>"Her Environment"</strong> program addresses this critical gap.</p>
+      <p>Deaf girls in Rwanda remain among the most vulnerable members of our society. Too often, they fall victim to forced sex, rape, and exploitation, leading to devastating consequences: unwanted pregnancies, sexually transmitted infections (STIs), and lifelong trauma. The root of this injustice lies in a painful silence—deaf girls are frequently denied accessible, accurate information about sexual and reproductive health (SRH), while many healthcare providers lack the specialized knowledge and confidence to serve them with dignity and effectiveness.</p>
 
-      <h2>The Challenge</h2>
-      <p>Climate change compounds existing challenges for deaf women and girls, leaving them more vulnerable to displacement, food insecurity, and health crises. Early warning systems, adaptation strategies, and disaster risk reduction information are rarely accessible in sign language.</p>
+      <p>A recent training on <strong>Comprehensive Sexuality Education (CSE)</strong>, organized by the <strong>Rwanda National Association of Deaf Women (RNADW)</strong>, is beginning to change this heartbreaking reality. By equipping nurses with essential skills and insights, the program is not only bridging critical knowledge gaps but also fostering compassion, breaking down barriers, and restoring hope for deaf adolescent girls who deserve protection, respect, and the right to make informed choices about their bodies.</p>
 
-      <h2>Our Approach</h2>
+      <h2>Testimony: Donatille Mukarutamu, Huye District</h2>
+      <p><strong>Donatille Mukarutamu</strong>, a dedicated nurse from Huye District in Southern Province, shares a deeply personal reflection on her transformation:</p>
 
-      <h3>Mainstream Disability Inclusion in Climate Action</h3>
-      <p>We advocate for climate policies and programs that are inclusive, ensuring the integration of deaf women's needs and promoting their participation in environmental decision-making at all levels.</p>
+      <blockquote>"Before this training, deaf girls would come to our health center seeking sexual and reproductive health services, yet we felt helpless. We lacked the tools and understanding to communicate effectively or provide the care they desperately needed. It broke my heart to see their confusion and fear, knowing we were failing them."</blockquote>
 
-      <h3>Build Climate Resilience Capacities</h3>
-      <p>Through targeted training programs, we equip deaf women and girls with knowledge and skills for climate adaptation, including climate-smart agriculture and sustainable livelihoods.</p>
+      <p>Through the RNADW initiative, Mukarutamu gained comprehensive knowledge across vital SRH topics: the importance of age-appropriate, truthful conversations with children; distinguishing between sex and gender; understanding gender-based behaviors; youth-friendly services; family planning methods; HIV/AIDS counseling, testing, prevention, and treatment; STI management; violence prevention; safe abortion alternatives; menstrual health education; and more.</p>
 
-      <h3>Ensure Accessible Climate Information</h3>
-      <p>We translate climate-related early warnings, adaptation strategies, and disaster risk reduction information into accessible formats, including Rwanda Sign Language (RSL).</p>
+      <blockquote>"Since the training, the few deaf girls who have sought our services have received the accurate information and compassionate support they deserve. I now confidently share these skills with my colleagues, ensuring our entire team is better prepared. This training didn't just teach us facts—it gave us the power to truly help and protect these young women."</blockquote>
 
-      <h2>Climate-Smart Agriculture</h2>
-      <p>Our training programs teach deaf women modern farming techniques that are resilient to climate variability, including water conservation, drought-resistant crops, and sustainable land management practices.</p>
+      <h2>Testimony: Anathalie Musanzimfura, Kigali</h2>
+      <p><strong>Anathalie Musanzimfura</strong>, a nurse at Nyarurenzi Health Center in Kigali, echoes this sentiment:</p>
 
-      <h2>Climate Justice Advocacy</h2>
-      <p>RNADW actively participates in national and regional climate justice discussions, ensuring that the voices of deaf women are heard in environmental policy-making. Our advocacy aligns with Rwanda's commitments under the Paris Agreement and SDG 13 (Climate Action).</p>
+      <blockquote>"We learned how SRH journeys begin in childhood and evolve into adulthood, and how crucial it is to speak openly and honestly with children. We were taught that giving deaf girls the full truth about their bodies empowers them to recognize and resist those who might exploit or harm them."</blockquote>
 
-      <h2>Join the Movement</h2>
-      <p>A critical mass of environmentally engaged, resilient, and empowered deaf women and girls is essential for sustainable development. Join us in building climate resilience for all.</p>
+      <p>Before the training, Musanzimfura admits, many providers—including herself—unintentionally isolated deaf adolescents, underestimating their right to knowledge or assuming they were less at risk of manipulation and abuse.</p>
+
+      <blockquote>"We didn't fully grasp that withholding information left them even more exposed to danger. Now, we understand: every girl has the fundamental right to learn about her reproductive health, to understand consent, and to protect herself from sexual violence. We are prepared to welcome and support them fully, and I have already shared what I learned with my fellow nurses. This knowledge is spreading, and it will save lives."</blockquote>
+
+      <h2>The Transformative Power of CSE Training</h2>
+      <p>These testimonies reveal the transformative power of targeted CSE training. By addressing communication barriers, dispelling myths, and instilling empathy, the program is enabling nurses to deliver inclusive, rights-based care. Deaf girls are no longer turned away or misunderstood—they are seen, heard (through sign language and adapted approaches), and protected.</p>
+
+      <hr />
+
+      <h2>SRHR Efforts Bear Fruit in Nyamasheke District</h2>
+      <p>In Nyamasheke, adolescents and women with disabilities faced numerous challenges accessing sexual and reproductive health services and information. Throughout much of history, societies have often misconstrued and misrepresented deaf individuals, emphasizing their limitations rather than their capabilities. This was worse in Nyamasheke district, where some cultural beliefs still regarded the deaf as sexually inactive.</p>
+
+      <p>A lack of disability-inclusive policies further compounds the vulnerabilities of Young People with Disabilities (YPWD). Reports from UNFPA Rwanda show that YPWD often cannot obtain even the basic information about SRHR; they remain ignorant of the basic facts about their bodies and rights, limiting their choices in living healthy, empowered lives.</p>
+
+      <h3>RNADW's Intervention</h3>
+      <p><strong>Rwanda National Association of Deaf Women (RNADW "UMUCYO")</strong> recognizes that persons with disabilities have similar SRHR needs as other people but often face barriers to information and services. Today, the situation has changed after RNADW spearheaded education through comprehensive SRHR knowledge and economic empowerment in Nyamasheke District.</p>
+
+      <p>Through RNADW, existing services have been adapted to accommodate persons with disabilities. There is now universal realization that gender and disability-sensitive debates on autonomy, equality, and access to health care benefit all people.</p>
+
+      <h3>Partnership with KOICA, UNFPA, and Good Neighbors</h3>
+      <p>With generous support from <strong>KOICA</strong> (the aid agency of the Republic of Korea), <strong>UNFPA Rwanda</strong> has partnered with <strong>Good Neighbors International</strong> and <strong>RNADW</strong>. Through this partnership, comprehensive activities and resources have been made available to <strong>80 Deaf Girls and young women</strong>, providing valuable information on SRHR, life skills, financial literacy, and business development skills.</p>
+
+      <h3>The Resource Training Centre</h3>
+      <p>RNADW has established a resource training Centre (a modern goat farm) with capacity to accommodate 100 goats, equipped with running water, electricity, and green fodder for making goat feeds, through support of Nyamasheke District leadership. The project provides 80 YPWD with necessary knowledge to access comprehensive SRHR services, including psychosocial support, economic empowerment training, and income generation support.</p>
+
+      <p>A devoted team of five full-time employees—consisting of four highly skilled deaf young women and a male security guard—oversees the project. YPWD are offered ongoing training in Village Savings and Loan Associations (VSLAs), management, and financial support including bookkeeping for the cooperative.</p>
+
+      <h3>Community Support</h3>
+      <p><strong>Ms. MUKANKUSI Athanasie</strong>, Vice Mayor of Nyamasheke District, recommended that to properly support RNADW in sustaining the resource Centre, there is need to buy more land to cultivate various types of fodder grass, construct a maternity paddock for breastfeeding mothers and a sick bay for sick goats. She added that the community of Nyamasheke is committed to the success of the resource Centre.</p>
+
+      <p><strong>Joseph UWABAKURIKIZA</strong>, NCPD Focal Person, asserts: "RNADW is making great strides in promoting SRHR among Vulnerable Youth. RNADW's efforts are truly commendable, and we must acknowledge their dedication to creating a safe and inclusive environment for all."</p>
+
+      <h2>A Step Toward Equity and Justice</h2>
+      <p>Initiatives like RNADW's CSE training represent a vital step toward equity and justice. When nurses are empowered, deaf girls gain the knowledge to safeguard their health, dignity, and futures. The ripple effect is clear: fewer vulnerabilities, reduced instances of exploitation and unintended pregnancies, lower STI rates, and a healthcare system that truly serves everyone. <strong>This is not just education—it is empowerment, healing, and hope for a more inclusive Rwanda.</strong></p>
     `,
-    author: 'Programs Team',
-    authorRole: 'Climate Action Unit',
-    date: 'Jan 5, 2025',
-    readTime: '7 min read',
-    category: 'Climate Action',
-    categoryColor: '#10B981',
-    image: '/images/image11.png',
+    author: 'RNADW Team',
+    authorRole: 'Communications',
+    date: 'Jul 21, 2025',
+    readTime: '12 min read',
+    category: 'SRHR',
+    categoryColor: '#F97316',
+    image: '/images/b3.png',
     featured: false
   },
   {
     id: 4,
-    title: 'Deaf Women Leaders Forum: Building Collective Power',
-    excerpt: 'The Deaf Women Leaders Forum brings together emerging leaders from across 22 districts for peer support, collective strategy, and sustained advocacy for disability rights.',
+    title: 'RNADW "UMUCYO" Champions Disability-Inclusive Youth Centers in Rwanda',
+    excerpt: 'Since 2022, RNADW "UMUCYO" has been promoting comprehensive sexuality education among school-going Deaf adolescent girls. This blog highlights our efforts in promoting disability inclusion, particularly sign language and deaf culture in Rwanda.',
     content: `
-      <p>Leadership and collective action are at the heart of social change. The <strong>Deaf Women Leaders Forum</strong> is RNADW's flagship initiative for building collective power and nurturing the leadership of deaf women across Rwanda.</p>
+      <p>Since 2022, RNADW "UMUCYO" has been promoting comprehensive sexuality education (CSE) among school-going Deaf adolescent girls with the aim to improve access to SRHR information among Deaf adolescents girls and young women in the community, a project implemented in Nyarugenge and Huye Districts.</p>
 
-      <h2>What is the Deaf Women Leaders Forum?</h2>
-      <p>The Forum is a network that brings together emerging and established deaf women leaders from all 22 districts where RNADW operates. It provides a platform for peer support, collective strategy development, and sustained advocacy for disability and gender rights.</p>
+      <p>While the Government of Rwanda adopted the school-based CSE curriculum in 2016, marginalized girls and young women face numerous challenges due to a predominantly patriarchal and conservative society where sex education is a taboo topic, thereby making the delivery of the program inadequate, if not lacking in quality. As a result, girls continue to face unwanted pregnancy, sexual violence and unsafe abortion. This situation is precarious enough for all young people, however <strong>Deaf adolescent girls and young women who find themselves at the intersection of disability and gender face double discrimination.</strong></p>
 
-      <h2>Building Collective Power</h2>
-      <p>Under our "Her Voice, Her Power" strategic pillar, the Forum enables deaf women to:</p>
-      <ul>
-        <li>Share experiences and learn from each other</li>
-        <li>Develop collective advocacy strategies</li>
-        <li>Amplify their voices in public discourse and policy debates</li>
-        <li>Build solidarity across districts and provinces</li>
-      </ul>
+      <h2>Challenges in CSE Delivery</h2>
+      <p>During the course of the project implementation, we faced challenges with school authorities who opposed and closely scrutinized the delivery of the CSE where we intervened. For instance, many school headmasters opposed the demonstration of male condom use. Also, teachers lack Sign Language skills and knowledge of technical jargon to deliver CSE to girls with disabilities.</p>
 
-      <h2>Forum Activities</h2>
+      <p>Having experienced this, we devised new approaches to engage young people via out-of-school programs in youth centres. In the long run, the project will reach at least <strong>200 Deaf adolescent girls and young women aged 14-35</strong> in the two districts. To achieve that, it is paramount to work with youth centre service providers.</p>
 
-      <h3>Quarterly Convenings</h3>
-      <p>Regular meetings bring together forum members for skill-building, strategy sessions, and networking.</p>
+      <h2>Meet Thadeo Talemwa</h2>
+      <p><strong>Thadeo Talemwa</strong> (male, 35 years) is a coordinator of Kimisagara Youth Centre, situated at the heart of Kigali City in Nyarugenge District. Thadeo is responsible for providing health-related information and services to adolescents and young women clients. These include voluntary HIV testing and counseling, sexuality education, linkage to government livelihood programs, and many others.</p>
 
-      <h3>Advocacy Campaigns</h3>
-      <p>Coordinated campaigns on issues affecting deaf women, from SRHR to economic rights to climate justice.</p>
+      <img src="/images/blogs/disability-inclusive/image2.png" alt="Mr. Tadeo TALEMWA receiving sign language certificate" class="w-full rounded-xl my-8" />
+      <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Mr. Tadeo TALEMWA (second from the right, in Yellow T-shirt) receiving sign language certificate of completion.</p>
 
-      <h3>Media Engagement</h3>
-      <p>Training and support for forum members to engage with media and amplify deaf women's voices in public discourse.</p>
+      <p>Thadeo shed light on challenges faced by young people with disabilities. He explains that Deaf girls and young women are to an extent demotivated to reach out to them because of communication barriers. <em>"Those who come to the center are often accompanied by someone else, usually a member of their family or anyone else who assists with interpretation, so my clients are forced to disclose their needs in the presence of other people. Privacy is an issue!"</em></p>
 
-      <h2>Impact</h2>
-      <p>Forum members have gone on to take leadership positions in their communities, advocate successfully for policy changes, and mentor the next generation of deaf women leaders.</p>
+      <p>So when RNADW "UMUCYO" approached him with the invitation to attend a sign language training, he jumped at the opportunity! Together with other youth center service providers (10 in total), Thadeo attended a three-month training course from March to May 2024 on Rwandan Sign Language. Classes took place three times a week for 3 hours each, facilitated by qualified deaf sign language instructors.</p>
 
-      <h2>Join the Forum</h2>
-      <p>If you are a deaf woman in Rwanda interested in leadership and advocacy, we invite you to join the Deaf Women Leaders Forum. Together, we are stronger.</p>
+      <h2>Strategic Partnerships</h2>
+      <img src="/images/blogs/disability-inclusive/image3.jpg" alt="Alphonsine Uwimana, RNADW Field Officer" class="w-full rounded-xl my-8" />
+      <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Alphonsine Uwimana, RNADW "UMUCYO" Field Officer</p>
+
+      <p>According to <strong>Alphonsine Uwimana</strong>, RNADW "UMUCYO" Field Officer, working strategically with district authorities including those in charge of youth and disability was of utmost importance to identify disability-friendly and safe spaces for convening, and the needs in the community. This is why training sessions took place within youth centres.</p>
+
+      <blockquote>"Even though Sign Language services are lacking, many Deaf girls feel more comfortable approaching youth centre workers, compared to learning about CSE in schools because unlike formal schools, youth centres do not restrict information or services. So RNADW "UMUCYO" sees this as an opportunity, and not a challenge."</blockquote>
+
+      <p>It is worth mentioning as well that most often, Deaf girls with no formal education lack Sign Language skills, so youth centres can potentially be a safe space for them.</p>
+
+      <h2>Thadeo's Takeaway</h2>
+      <blockquote>"Before I attended this training, I had no prior exposure to Sign Language. Now I have acquired basic knowledge which gives me confidence to interact with my Deaf clients. I also learned not to assume every Deaf client uses Sign Language, so respecting every client's preferred mode of communication is important, for example using written communication like notes. Of course, my skills are not at a standard level, so I will continue to practice, hoping to receive an advanced course in the future or coaching from RNADW 'UMUCYO'."</blockquote>
+
+      <p>He also hopes such training can be extended to 32 other youth centres across the country as this will mobilise and encourage Deaf young people to use these services.</p>
+
+      <h2>Leadership Commitment</h2>
+      <img src="/images/blogs/disability-inclusive/image4.jpg" alt="Dative Mukashema, Executive Director" class="w-full rounded-xl my-8" />
+      <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Dative Mukashema, RNADW "UMUCYO" Executive Director</p>
+
+      <p><strong>Dative Mukashema</strong>, RNADW "UMUCYO" Executive Director acknowledges that resources are limited, however forging partnerships with various stakeholders and putting Deaf women and girls needs at the centre is key to ensure delivery of an inclusive and sustainable agenda for Deaf adolescent girls and young women.</p>
+
+      <blockquote>"Our advocacy efforts in the districts where we work encourage greater accountability of district officials to plan and budget for Sign Language interpretation and training on deaf culture in annual performance contracts, also known as Imihigo. If these efforts are institutionalised, then we will see more inclusion of Deaf people."</blockquote>
+
+      <p>We extend our heartfelt gratitude to our valued donor, <strong>Kvinna till Kvinna</strong>, and our esteemed partners, the <strong>Ministry of Youth and Arts</strong>, <strong>Kimisagara YEGO Center</strong>, and <strong>Nyarugenge District</strong>, for their invaluable support in making these initiatives successful.</p>
     `,
-    author: 'Leadership Team',
-    authorRole: 'Forum Coordinator',
-    date: 'Dec 20, 2024',
-    readTime: '5 min read',
-    category: 'Leadership',
-    categoryColor: '#EC4899',
-    image: '/images/image13.png',
+    author: 'RNADW Team',
+    authorRole: 'Communications',
+    date: 'Feb 2025',
+    readTime: '8 min read',
+    category: 'Inclusion',
+    categoryColor: '#2563EB',
+    image: '/images/blogs/disability-inclusive/image1.jpg',
     featured: false
   },
   {
     id: 5,
-    title: 'Feminist Leadership Institute: Cultivating the Next Generation',
-    excerpt: 'Our Feminist Leadership Institute and boot camps are nurturing emerging deaf women leaders through targeted training, mentorship programs, and confidence-building workshops.',
+    title: 'RNADW "UMUCYO" Forges Dynamic Alliances for Disability Inclusion',
+    excerpt: 'RNADW "UMUCYO" forges dynamic alliances to champion disability inclusion and intersectional feminism, creating empowering spaces for women and marginalized communities through Sign Language training partnerships.',
     content: `
-      <p>True social transformation requires a pipeline of confident, skilled, and visionary leaders. RNADW's <strong>Feminist Leadership Institute</strong> is designed to cultivate this pipeline among deaf women and girls.</p>
+      <p>Partnerships and alliances are very important to our mission. We believe that in order to achieve lasting impact in the lives of women and girls with disabilities, we need to engage with like-minded institutions including disability-rights networks, feminist and women's rights organizations and intergovernmental organizations.</p>
 
-      <h2>Our Approach to Leadership Development</h2>
-      <p>We believe in feminist leadership that is collaborative, inclusive, and transformative. Our programs identify and nurture emerging leaders through targeted institutes, boot camps, and mentorship programs that build confidence and skills.</p>
+      <p>This is why in our efforts to promote disability inclusion, in particular deaf culture, we organised Sign Language training for women's rights organisations that promote young women's access to sexual and reproductive justice and the prevention of gender-based violence among adolescents and young people.</p>
 
-      <h2>Program Components</h2>
+      <h2>Partnership with UNHCR Rwanda</h2>
+      <p>Since our partnership with the UNHCR in Rwanda kicked off in 2023, we mapped out the needs of refugee women with disabilities and assessed current programs that promote education on gender equality and access to sexual and reproductive health services. Our assessment showed that these programs and the staff responsible for delivering these services including those based at the headquarters, humanitarian workers and community mobilizers lack basic Sign Language skills.</p>
 
-      <h3>Feminist Leadership Institutes</h3>
-      <p>Intensive residential programs that cover leadership theory, advocacy skills, public speaking, and strategic planning - all delivered in an accessible format with RSL interpretation.</p>
+      <p>We then organised a three-months training course from March to May 2024, with 3 weekly sessions, each lasting 3 hours. In total, <strong>16 people were trained.</strong></p>
 
-      <h3>Leadership Boot Camps</h3>
-      <p>Short, intensive workshops focused on specific skills like media engagement, policy advocacy, or organizational management.</p>
+      <h2>Rochee Dusabe's Story</h2>
+      <p><strong>Rochee Dusabe</strong> (female, 35 years) is a Field Coordinator at Empower Rwanda, a women-led non-governmental organisation that supports women and youth through skills and knowledge enhancing to create sustainable change for them, their families, and their communities. Rochee is responsible for linking the organisation's constituency of young women and adolescent girls from vulnerable backgrounds to existing community health services.</p>
 
-      <h3>Mentorship Program</h3>
-      <p>Pairing emerging leaders with experienced deaf women executives and advocates for ongoing guidance and support.</p>
+      <blockquote>"Sign Language is like any other languages spoken in Rwanda, and I always welcome an opportunity to learn something new. I also knew I wanted to be a better communicator with our constituencies with disabilities."</blockquote>
 
-      <h2>Curriculum Highlights</h2>
-      <ul>
-        <li>Human rights and feminist frameworks</li>
-        <li>Advocacy and campaign strategies</li>
-        <li>Public speaking and communication</li>
-        <li>Organizational leadership and management</li>
-        <li>Self-care and resilience</li>
-      </ul>
+      <h2>Ceasar Manzi's Perspective</h2>
+      <p><strong>Ceasar Manzi</strong> (male, 33 years) is a Human Resources Associate at UNHCR in Kigali. The institution is mandated to protect and assist refugees and other displaced persons.</p>
 
-      <h2>Alumni Impact</h2>
-      <p>Graduates of our leadership programs have gone on to lead community initiatives, serve on boards, advocate before policymakers, and mentor others. They are the embodiment of "Her Voice, Her Power."</p>
+      <blockquote>"This training enabled me to create an inclusive and diverse environment for Deaf persons I communicate with, to bridge communication gaps, promote accessibility, and create a space for those with a hearing disability so they can be heard. It was a step towards breaking down barriers and fostering a more connected and equitable culture as a lack we had in our Human Resources unit."</blockquote>
 
-      <h2>Apply Now</h2>
-      <p>We accept applications for our Feminist Leadership Institute on a rolling basis. If you're a deaf woman ready to step into leadership, we want to hear from you.</p>
+      <img src="/images/blogs/dynamic-alliances/image2.jpg" alt="Rochee Dusabe during sign language class at UNHCR office" class="w-full rounded-xl my-8" />
+      <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Rochee Dusabe (in Red) during sign language class at UNHCR office in Kigali</p>
+
+      <h2>Changing Attitudes</h2>
+      <p>Rochee Dusabe believes she changed her attitude towards the language: <em>"I used to think Sign Language was so complicated that I could never master it. However, these past three months I have proven myself otherwise, Sign Language is like any other language. You just need to put your efforts into it. I now enjoy it. To think that so many of us hearing individuals cannot bridge that gap and engage with Deaf people, especially those to whom we provide services, is unacceptable."</em></p>
+
+      <h2>What Needs to Be Done</h2>
+      <p>Ceasar Manzi thinks having a three months' basic Sign Language is only a teaser; more is needed like additional advanced courses, including mentorship from qualified instructors. As a Human Resources person, he believes organisations and leadership need to put in place mechanisms for integration and adoption of Sign Language in the workplace.</p>
+
+      <p>Rochee Dusabe also agreed: <em>"We need to mobilise as many people as possible, especially at the community level so they can learn Sign Language. I believe this can be done using community youth centres where many young people congregate. We can also take advantage of existing and free of charge visual resources available on social media like on YouTube to self-teach."</em></p>
+
+      <h2>Advocacy for Sign Language Recognition</h2>
+      <img src="/images/blogs/dynamic-alliances/image3.jpg" alt="RNADW advocacy efforts" class="w-full rounded-xl my-8" />
+
+      <p><strong>Dative Mukashema</strong>, RNADW "UMUCYO" Executive Director said: <em>"We are working to make our organisation a partner of choice when it comes to disability inclusion, in particular in the advocacy for Deaf women and girls. We recognise that the women's movement in Rwanda has a long way to go when it comes to promoting an intersectional agenda that leaves nobody behind. The will is there, and so our role is to lead and support others to learn about deaf culture so they can be advocates for Deaf women and girls where we are not present."</em></p>
+
+      <p>RNADW "UMUCYO" and allies advocate for the enactment of an organic law which recognises Sign Language as the 4th official language used in Rwanda. In September 2023, the government began the distribution of the Rwandan Sign Language Dictionary. RNADW "UMUCYO" advocates for expedition in the dissemination of the dictionary across the country.</p>
+
+      <p>We sincerely appreciate the invaluable support and collaboration of our partners, <strong>UNHCR Rwanda</strong> and <strong>Kvinna till Kvinna</strong>, whose contributions have been instrumental in the success of these initiatives.</p>
     `,
-    author: 'Advocacy Team',
-    authorRole: 'Leadership Programs',
-    date: 'Dec 15, 2024',
-    readTime: '6 min read',
-    category: 'Leadership',
-    categoryColor: '#EC4899',
-    image: '/images/image14.png',
+    author: 'RNADW Team',
+    authorRole: 'Communications',
+    date: 'Feb 2025',
+    readTime: '7 min read',
+    category: 'Partnerships',
+    categoryColor: '#10B981',
+    image: '/images/blogs/dynamic-alliances/image1.png',
     featured: false
   },
   {
     id: 6,
-    title: 'Deaf Theatre: Using Art to Advocate for SRHR',
-    excerpt: 'Deaf Theatre has become a powerful platform for building agency and raising awareness about sexual and reproductive health rights among deaf women and girls.',
+    title: "Empowering Rwanda's Parents to Connect with Their Deaf Children",
+    excerpt: 'This blog underscores our commitment to advancing intersectional disability inclusion, with a focus on elevating sign language and Deaf culture in Rwanda through parent education programs.',
     content: `
-      <p>Art has always been a powerful tool for social change. At RNADW, <strong>Deaf Theatre</strong> has emerged as one of our most impactful approaches to building agency and raising awareness about sexual and reproductive health and rights (SRHR).</p>
+      <p>Sign language is a language that is expressed through manual articulations in combination with non-manual elements; it is a full-fledged natural language with its own grammar and lexicon. The Deaf community in Rwanda comprises of Deaf and Hard-of-Hearing individuals with varying levels of hearing loss, who share a common language, common experiences, values, and a common way of interacting with each other and with hearing people. This is what is commonly referred to as <strong>Deaf culture</strong>.</p>
 
-      <h2>What is Deaf Theatre?</h2>
-      <p>Deaf Theatre is a performance art form that uses visual storytelling, sign language, movement, and expression to convey powerful narratives. It's accessible to deaf audiences while also engaging hearing viewers in understanding deaf experiences.</p>
+      <p>International and Rwandan laws recognize Deaf people's right to cultural and linguistic identity as stipulated in the United Nations Convention on the Rights of Persons with Disabilities (UNCRPD) which was ratified by the Government of Rwanda in 2008. Article 30 section 4 says: <em>"Persons with disabilities shall be entitled, on an equal basis with others, to recognition and support of their specific cultural and linguistic identity, including sign languages and deaf culture."</em></p>
 
-      <h2>SRHR Through Storytelling</h2>
-      <p>Under our "My Body, My Rights" pillar, Deaf Theatre productions address critical SRHR topics including:</p>
+      <h2>Our Mission</h2>
+      <p>As a Deaf women-led organization, we have made it our mission to defend and advance the rights of Deaf women and girls in Rwanda. We promote inclusion and equality in education, justice, health and other aspects of life where Deaf women and girls face discrimination.</p>
+
+      <p>Since the beginning of 2024, we embarked on the journey to promote Rwanda Sign Language skills and educate the public on deaf culture. Our purpose was twofold:</p>
+
       <ul>
-        <li>Bodily autonomy and consent</li>
-        <li>Access to healthcare services</li>
-        <li>Prevention of gender-based violence</li>
-        <li>Family planning and reproductive choices</li>
-        <li>HIV/AIDS awareness and prevention</li>
+        <li><strong>To promote inclusion:</strong> we recognize that communication barriers prevent Deaf women and girls from accessing and using services they are entitled to live a life free from violence and discrimination.</li>
+        <li><strong>To promote healthy interpersonal relationships:</strong> Sign Language education challenges hearing individuals to think visually and adapt their communication style, thereby fostering meaningful interactions and interpersonal skills with Deaf and Hard-of-Hearing people in their surroundings.</li>
       </ul>
 
-      <h2>Empowering Right-Holders</h2>
-      <p>Deaf Theatre does more than raise awareness - it empowers deaf women and girls to understand, claim, and defend their SRHR. Participants build confidence, develop communication skills, and become advocates in their communities.</p>
+      <h2>Parent Training Program</h2>
+      <p>To select participants, RNADW "UMUCYO" worked with local authorities in Huye and Nyarugenge Districts to select possible participants with no prior exposure to Sign Language. <strong>20 parents</strong> were then invited to attend the training, which was organized as 3 sessions per week for 3 months, each session lasting 3 hours. These trainings took place at community youth centers, and were facilitated by qualified Sign Language instructors.</p>
 
-      <h2>Community Performances</h2>
-      <p>Our Deaf Theatre troupe performs across Rwanda's districts, reaching communities that might not otherwise access SRHR information. Performances are followed by facilitated discussions where audience members can ask questions and share experiences.</p>
+      <img src="/images/blogs/empowering-parents/image1.jpg" alt="Appoline receiving certificate" class="w-full rounded-xl my-8" />
+      <p class="text-sm text-gray-500 italic text-center -mt-4 mb-8">Appoline (second from right) receives a certificate for the completion of a sign language training.</p>
 
-      <h2>Training Programs</h2>
-      <p>We offer Deaf Theatre training programs for deaf women and girls interested in using art for advocacy. Participants learn performance skills while deepening their understanding of SRHR issues.</p>
+      <h2>Appoline's Story</h2>
+      <p><strong>Appoline Nzambazimana</strong> (female, 42 years) is a mother to a Deaf daughter and a parent participant in the training. She lives in Mbazi Sector, Huye District, in the Southern Province. Prior to the training, she explains that she always had challenges communicating with her Deaf daughter, especially during her teenage years.</p>
 
-      <h2>Join Our Troupe</h2>
-      <p>If you're passionate about art and advocacy, consider joining our Deaf Theatre troupe or attending our next community performance.</p>
+      <p>Her daughter is currently enrolled in a technical college and has had the chance to learn and use Rwanda Sign Language. This created a vacuum in their communication and relationship. Her daughter had always felt uncomfortable opening up to her mother due to this communication barrier.</p>
+
+      <blockquote>"This was an opportunity for me to learn how to sign. I also learned so much about adolescent sexual health. My daughter now has two children of her own. She trusts me more, and she opens up to me more about family planning and other issues. So in a way, this training did two things at once."</blockquote>
+
+      <h2>Project Coordination</h2>
+      <img src="/images/blogs/empowering-parents/image2.jpg" alt="Training session" class="w-full rounded-xl my-8" />
+
+      <p><strong>Diane Niyonkuru</strong> is a RNADW "UMUCYO" Project coordinator and staff overseeing the project activities. She said she saw firsthand the desire that many parents have had to learn to communicate with their children better beyond the training period.</p>
+
+      <blockquote>"Sign Language propels parents to think of how to better communicate with their children. Beyond that, it also gives them the urge to expand their learning so they can keep the communication with their children going."</blockquote>
+
+      <h2>Challenges and Future Plans</h2>
+      <p>While this training was without a doubt impactful to those who were in dire need, it came with challenges:</p>
+      <ul>
+        <li>Some parents found it hard to consistently attend 3 sessions a week, especially female parents who often have to juggle domestic duties and public life.</li>
+        <li>There is a shortage of professional sign language instructors across the country.</li>
+      </ul>
+
+      <p>In the future, RNADW "UMUCYO" hopes to solve this by increasing accessibility of Sign Language learning using technology. Together with partners, we are exploring the development of a mobile application with more practical, visual and accessible learning aids.</p>
+
+      <h2>Recommendations</h2>
+      <p>Appoline recommends keeping this fire burning: <em>"As a parent whose child now has good knowledge of Sign Language, she would like to see Deaf young people empowered enough to make better decisions about their sexuality and wellbeing, and parents accompanied in their journey of learning. She believes the next level of advanced learning will significantly enhance skills she acquired. She also believes it's important to teach other members of the family and hospital workers in order to improve overall community acceptance of Deaf people and Deaf culture."</em></p>
     `,
-    author: 'SRHR Team',
-    authorRole: 'Arts & Advocacy',
-    date: 'Dec 10, 2024',
-    readTime: '5 min read',
-    category: 'SRHR',
-    categoryColor: '#F97316',
-    image: '/images/image15.png',
+    author: 'RNADW Team',
+    authorRole: 'Communications',
+    date: 'Feb 2025',
+    readTime: '6 min read',
+    category: 'Education',
+    categoryColor: '#8B5CF6',
+    image: '/images/blogs/empowering-parents/image1.jpg',
     featured: false
   },
   {
     id: 7,
-    title: 'SACCO Success: Financial Independence for Deaf Women',
-    excerpt: 'Our Saving and Credit Cooperative (SACCO) initiative is helping deaf women access capital, build savings, and achieve economic independence through community-based financial services.',
+    title: 'RNADW Survey Calls for Action on SRH Communication for Young Deaf Girls',
+    excerpt: 'A new baseline survey found that young deaf girls do not have a formal channel to access information on Sexual Reproductive Health. The survey calls for urgent action to address this gap.',
     content: `
-      <p>Economic independence is fundamental to empowerment. RNADW's <strong>SACCO (Saving and Credit Cooperative)</strong> initiative is transforming the financial lives of deaf women across Rwanda.</p>
+      <p>A new baseline survey and needs assessment report on access to sexual reproductive health and rights (SRHR) services among deaf women and girls in Huye and Nyarugenge districts found out that <strong>young deaf girls do not have a formal channel to access information on the issues surrounding Sexual Reproductive Health (SRH).</strong></p>
 
-      <h2>The Challenge</h2>
-      <p>Deaf women often face significant barriers in accessing formal financial services. Communication barriers, discrimination, and lack of understanding from financial institutions leave many excluded from the economic mainstream.</p>
-
-      <h2>Our SACCO Model</h2>
-      <p>Under our "Spear N' Shield" pillar, we've established a SACCO specifically designed for and led by deaf women. Key features include:</p>
-
-      <h3>Accessible Services</h3>
-      <p>All services are provided with RSL interpretation and by staff trained in deaf culture and communication.</p>
-
-      <h3>Savings Programs</h3>
-      <p>Members can build savings through regular contributions, with competitive interest rates and flexible terms.</p>
-
-      <h3>Credit Access</h3>
-      <p>Loans are available for business development, education, healthcare, and other needs, with terms that recognize the realities of deaf women's economic situations.</p>
-
-      <h3>Financial Literacy</h3>
-      <p>Comprehensive training in budgeting, saving, investing, and business management - all in accessible formats.</p>
-
-      <h2>Success Stories</h2>
-      <p>SACCO members have used their savings and loans to start businesses, improve their homes, educate their children, and build financial security. Many have gone from financial exclusion to becoming employers in their communities.</p>
-
-      <h2>Linkages to Financial Institutions</h2>
-      <p>Beyond our own SACCO, we work to link deaf women entrepreneurs with mainstream financial institutions and markets, advocating for accessible services across the financial sector.</p>
-
-      <h2>Join Our SACCO</h2>
-      <p>Membership is open to deaf women across Rwanda. Contact us to learn how to join and start your journey to financial independence.</p>
-    `,
-    author: 'Economic Empowerment',
-    authorRole: 'SACCO Coordinator',
-    date: 'Dec 5, 2024',
-    readTime: '6 min read',
-    category: 'Economic Empowerment',
-    categoryColor: '#10B981',
-    image: '/images/image9.png',
-    featured: false
-  },
-  {
-    id: 8,
-    title: 'Expanding to 22 Districts: RNADW Across All Provinces',
-    excerpt: 'RNADW now has robust programming and members across 22 districts in all 5 provinces of Rwanda - from Nyagatare to Rusizi, Musanze to Huye.',
-    content: `
-      <p>From humble beginnings in Kigali to a truly national presence, RNADW now operates across <strong>22 districts in all 5 provinces of Rwanda</strong>. This expansion represents our commitment to reaching deaf women and girls wherever they are.</p>
-
-      <h2>Our Geographic Reach</h2>
-
-      <h3>Eastern Province (7 Districts)</h3>
-      <p>Bugesera, Gatsibo, Kayonza, Kirehe, Ngoma, Nyagatare, and Rwamagana</p>
-
-      <h3>Northern Province (2 Districts)</h3>
-      <p>Musanze and Rulindo</p>
-
-      <h3>Southern Province (6 Districts)</h3>
-      <p>Gisagara, Huye, Kamonyi, Muhanga, Nyamagabe, and Ruhango</p>
-
-      <h3>Western Province (4 Districts)</h3>
-      <p>Nyabihu, Nyamasheke, Rubavu, and Rusizi</p>
-
-      <h3>Kigali Province (3 Districts)</h3>
-      <p>Gasabo, Kicukiro, and Nyarugenge</p>
-
-      <h2>District Representatives</h2>
-      <p>Each of our 22 districts has a representative who serves as a link between local deaf women and the national organization. These representatives are nominated in accordance with RNADW internal rules and serve as effective members of the organization.</p>
-
-      <h2>Localized Programming</h2>
-      <p>While our strategic direction is national, our programming is localized to meet the specific needs of deaf women in each district. Local context shapes how we deliver our four strategic pillars.</p>
-
-      <h2>Building National Networks</h2>
-      <p>Our geographic expansion enables deaf women from different regions to connect, share experiences, and build solidarity. The Deaf Women Leaders Forum brings together representatives from across the country for collective action.</p>
-
-      <h2>Headquarters</h2>
-      <p>Our Head Office remains in Nyarugunga Sector, Kicukiro District, City of Kigali - KG 125 ST, 304, Ikaro Plaza. From here, we coordinate our nationwide programming and advocacy efforts.</p>
-    `,
-    author: 'Operations Team',
-    authorRole: 'National Coordinator',
-    date: 'Nov 28, 2024',
-    readTime: '4 min read',
-    category: 'Growth',
-    categoryColor: '#2563EB',
-    image: '/images/image16.png',
-    featured: false
-  },
-  {
-    id: 9,
-    title: 'My Body, My Rights: Comprehensive Sexuality Education for Deaf Girls',
-    excerpt: 'Our Deaf-friendly CSE Module is transforming how healthcare providers deliver inclusive and accessible sexuality education to deaf women and girls.',
-    content: `
-      <p>Comprehensive Sexuality Education (CSE) is a right, yet deaf girls and young women are often excluded from these vital programs due to communication barriers. RNADW's <strong>Deaf-friendly CSE Module</strong> is changing this reality.</p>
-
-      <h2>The Gap in CSE Access</h2>
-      <p>Traditional CSE programs rely heavily on spoken language, leaving deaf participants unable to fully access the information. This gap leaves deaf girls vulnerable to misinformation, unintended pregnancies, STIs, and exploitation.</p>
-
-      <h2>Our Deaf-Friendly Approach</h2>
-      <p>Under our "My Body, My Rights" pillar, we've developed a comprehensive CSE module specifically designed for deaf learners:</p>
-
-      <h3>Visual Learning</h3>
-      <p>Content is delivered through visual aids, demonstrations, and RSL, ensuring full comprehension.</p>
-
-      <h3>Age-Appropriate Content</h3>
-      <p>Materials are tailored for different age groups - from young girls to adolescents to adult women.</p>
-
-      <h3>Interactive Methods</h3>
-      <p>Participatory activities, role-plays, and discussions in RSL create engaging learning experiences.</p>
-
-      <h2>Training Service Providers</h2>
-      <p>Beyond direct education, we train healthcare workers, teachers, and counselors on how to deliver CSE to deaf learners. This builds sustainable capacity in the health and education systems.</p>
-
-      <h2>Topics Covered</h2>
+      <h2>Key Findings</h2>
+      <p>The survey report shows that the majority of Deaf girls/women get SRH information through:</p>
       <ul>
-        <li>Anatomy and puberty</li>
-        <li>Menstrual health</li>
-        <li>Consent and healthy relationships</li>
-        <li>Contraception and family planning</li>
-        <li>STI and HIV prevention</li>
-        <li>Gender-based violence prevention</li>
+        <li>Peer groups: 26%</li>
+        <li>School: 24%</li>
+        <li>Parents: 15%</li>
+        <li>Social media: 14%</li>
       </ul>
 
-      <h2>Impact</h2>
-      <p>Deaf girls and women who participate in our CSE programs report increased confidence in claiming their rights and making informed decisions about their sexual and reproductive health.</p>
+      <blockquote>"There is a lot to be done so as to come out with formal channels to communicate issues of SRH to young deaf girls."</blockquote>
+
+      <h2>The Reality for Young Deaf Persons</h2>
+      <p>The survey learnt that young deaf girls become sexually active and experience their sexuality as early and as often as young people without disabilities, however, for them, access to SRHR services is particularly challenging.</p>
+
+      <p><em>"Therefore, young deaf persons require access to SRHR services and education in the same manner that young people without disabilities do. Enabling young deaf girls to realize their SRHR, such as the delay of pregnancy and prevention of infection, in turn helps to ensure other rights are realized, such as the right to education, economic opportunities, financial independence, and social empowerment."</em></p>
+
+      <h2>Increased Risk of Violence</h2>
+      <p>The increased risk of violence, negligence, sexual abuse, discrimination and denial of rights faced by deaf women and girls means that provision of SRHR services and education is essential for young deaf girls and women.</p>
+
+      <h2>Survey Methodology</h2>
+      <p>A sample size of <strong>112 participants</strong> was chosen to participate in this study:</p>
+      <ul>
+        <li>79 participated in school Youth Focus group discussions</li>
+        <li>33 including heads of health centers, parents of Deaf Girls and deaf girls out of school participated in key Informants Interviews</li>
+      </ul>
+
+      <h2>Knowledge on SRH by Deaf Girls Students</h2>
+      <p>Participants from Nyarugenge District showed an improved level on SRH knowledge with a 50% scale compared to those in Huye district, and even those with medium level were the youngest ones in the group who haven't had their first period.</p>
+
+      <blockquote>"Most of the knowledge are acquired from different school curriculums including CSE (Comprehensive Sex Education module), which is delivered in formal education system, thus those undergoing Vocational trainings in TVET schools don't benefit from CSE."<br/><em>— Girls currently in TVET program at Huye during focus groups discussions</em></blockquote>
+
+      <h2>Menstrual Hygiene Management</h2>
+      <p>The kind of menstrual hygiene management being used by 79 Deaf girls who participated in focus group discussions remains archaic, whereby, the highest figure shows that they are still using traditional means such as the usage of a cloth.</p>
+
+      <h2>Survey Recommendations</h2>
+      <p>The baseline survey and needs assessment report recommends:</p>
+      <ul>
+        <li>Training of teachers on sign language communication on the topics covered in school comprehensive Sexual Education (CSE) curriculum</li>
+        <li>Creating an inclusive safe space for teenage deaf girls in schools</li>
+        <li>Providing training modules and activities focused on topics such as puberty, HIV, delaying sexual debut</li>
+        <li>Facilitating visits to community health centers</li>
+      </ul>
+
+      <p><strong>This survey underscores the urgent need for accessible, formal channels of SRH information for young deaf girls in Rwanda.</strong></p>
     `,
-    author: 'Health Team',
-    authorRole: 'SRHR Educator',
-    date: 'Nov 20, 2024',
-    readTime: '7 min read',
-    category: 'SRHR',
-    categoryColor: '#F97316',
-    image: '/images/image17.png',
-    featured: false
-  },
-  {
-    id: 10,
-    title: 'Rwanda Sign Language Digitalization: Breaking Communication Barriers',
-    excerpt: 'Our initiative to promote and digitalize Rwanda Sign Language (RSL) is enhancing access to information, education, and services for deaf women and girls nationwide.',
-    content: `
-      <p>Communication is fundamental to participation in society. RNADW's initiative to <strong>promote and digitalize Rwanda Sign Language (RSL)</strong> is breaking down the barriers that have long excluded deaf women and girls.</p>
-
-      <h2>Why RSL Digitalization?</h2>
-      <p>Rwanda Sign Language is the primary language of the deaf community in Rwanda, yet digital content in RSL remains scarce. This digital divide limits deaf people's access to information, education, and services in the modern world.</p>
-
-      <h2>Our Digitalization Efforts</h2>
-
-      <h3>Video Content Library</h3>
-      <p>We're building a comprehensive library of RSL video content covering health, rights, education, and practical skills.</p>
-
-      <h3>Umucyo Sign Language App</h3>
-      <p>Our flagship digital platform delivers RSL content directly to smartphones, making information accessible anywhere, anytime.</p>
-
-      <h3>Online Learning</h3>
-      <p>Digital courses in RSL enable deaf women to continue their education and skill development remotely.</p>
-
-      <h3>Remote Interpretation</h3>
-      <p>Technology enables deaf women to access sign language interpretation for services even when in-person interpreters aren't available.</p>
-
-      <h2>Promoting RSL</h2>
-      <p>Beyond digitalization, we advocate for the broader recognition and use of RSL across Rwandan society. This includes training service providers, advocating for RSL in education, and raising awareness about deaf culture.</p>
-
-      <h2>Partnership with RNUD</h2>
-      <p>We work closely with the Rwanda National Union of the Deaf (RNUD) and other partners to advance RSL promotion and ensure our digital content meets the highest standards.</p>
-
-      <h2>Join the Movement</h2>
-      <p>Whether you're deaf, a hearing ally, or an organization seeking to become more accessible, we invite you to join our efforts to promote and digitalize RSL.</p>
-    `,
-    author: 'Education Team',
-    authorRole: 'RSL Coordinator',
-    date: 'Nov 15, 2024',
+    author: 'Elias Hakizimana',
+    authorRole: 'Researcher',
+    date: 'Feb 2025',
     readTime: '5 min read',
-    category: 'Education',
-    categoryColor: '#FACC15',
-    image: '/images/image18.png',
-    featured: false
-  },
-  {
-    id: 11,
-    title: 'PSEAH: Preventing Sexual Exploitation and Abuse',
-    excerpt: 'RNADW is committed to Prevention of Sexual Exploitation, Abuse and Harassment (PSEAH) - creating safe spaces and support systems for deaf women survivors.',
-    content: `
-      <p>Sexual exploitation, abuse, and harassment (SEAH) disproportionately affects deaf women and girls due to communication barriers that hinder their ability to seek help, report abuse, and access justice. RNADW is committed to <strong>Prevention of Sexual Exploitation, Abuse and Harassment (PSEAH)</strong>.</p>
-
-      <h2>The Reality for Deaf Women</h2>
-      <p>Gender-based violence (GBV) disproportionately affects deaf women and girls. Communication barriers make it difficult to report abuse, access services, or navigate the justice system. Many survivors suffer in silence.</p>
-
-      <h2>Our PSEAH Commitment</h2>
-      <p>Under our "My Body, My Rights" pillar, RNADW implements comprehensive PSEAH measures:</p>
-
-      <h3>Prevention</h3>
-      <p>Awareness campaigns, education programs, and community mobilization to prevent SEAH before it occurs.</p>
-
-      <h3>Safe Reporting</h3>
-      <p>Accessible reporting mechanisms in RSL, ensuring deaf survivors can report abuse safely and confidentially.</p>
-
-      <h3>Survivor Support</h3>
-      <p>Psychological support, legal aid, and accompaniment services for survivors, all provided with RSL interpretation.</p>
-
-      <h3>Community Protection</h3>
-      <p>Building community-based protection networks that include deaf women as active participants and leaders.</p>
-
-      <h2>Training Service Providers</h2>
-      <p>We train healthcare workers, legal professionals, counselors, and humanitarian aid workers on providing accessible, deaf-friendly services to GBV survivors.</p>
-
-      <h2>Policy Advocacy</h2>
-      <p>We advocate for policy reforms that recognize and address the specific vulnerabilities of deaf women and girls to SEAH, and ensure accessible services in response mechanisms.</p>
-
-      <h2>If You Need Help</h2>
-      <p>If you or someone you know has experienced sexual exploitation, abuse, or harassment, please reach out to RNADW. We provide confidential, accessible support services.</p>
-    `,
-    author: 'Protection Team',
-    authorRole: 'GBV Response',
-    date: 'Nov 10, 2024',
-    readTime: '6 min read',
-    category: 'SGBV/VAWG',
-    categoryColor: '#EC4899',
-    image: '/images/image7.png',
-    featured: false
-  },
-  {
-    id: 12,
-    title: 'Partnering with NUDOR: Strengthening the Disability Movement',
-    excerpt: 'Our strategic partnership with the National Union of Disability Organizations of Rwanda (NUDOR) amplifies advocacy for deaf women within the broader disability rights movement.',
-    content: `
-      <p>Collective action amplifies impact. RNADW's partnership with the <strong>National Union of Disability Organizations of Rwanda (NUDOR)</strong> strengthens our advocacy within the broader disability rights movement.</p>
-
-      <h2>NUDOR and the Disability Movement</h2>
-      <p>NUDOR is the umbrella organization for disability organizations in Rwanda, coordinating advocacy and representing the interests of persons with disabilities at the national level. As a member organization, RNADW contributes to and benefits from this collective voice.</p>
-
-      <h2>Strategic Alignment</h2>
-      <p>Our partnership with NUDOR aligns with our commitment to:</p>
-      <ul>
-        <li>Nothing About Us Without Us - ensuring deaf women are included in all decisions that affect them</li>
-        <li>Coalition Building - working with other OPDs to amplify our collective voice</li>
-        <li>Policy Influence - advocating for disability-inclusive laws and policies</li>
-      </ul>
-
-      <h2>Joint Advocacy</h2>
-      <p>Together with NUDOR and fellow OPDs, RNADW advocates for:</p>
-      <ul>
-        <li>Implementation of the UN Convention on the Rights of Persons with Disabilities (CRPD)</li>
-        <li>Disability-inclusive social protection</li>
-        <li>Accessible healthcare, education, and public services</li>
-        <li>Recognition of Rwanda Sign Language</li>
-      </ul>
-
-      <h2>Capacity Building</h2>
-      <p>Through NUDOR networks, RNADW staff and members access training, resources, and peer learning opportunities that strengthen our organizational capacity.</p>
-
-      <h2>Other Key Partners</h2>
-      <p>Beyond NUDOR, RNADW partners with organizations including RNUD, Kvinna till Kvinna, CREA, NCPD, and various government ministries to advance our mission.</p>
-
-      <h2>Join the Movement</h2>
-      <p>The disability rights movement is stronger when we work together. Join RNADW and our partners in advocating for an inclusive Rwanda.</p>
-    `,
-    author: 'Partnerships',
-    authorRole: 'External Relations',
-    date: 'Nov 5, 2024',
-    readTime: '5 min read',
-    category: 'Partnerships',
-    categoryColor: '#2563EB',
-    image: '/images/image10.png',
-    featured: false
-  },
-  {
-    id: 13,
-    title: 'Children of Deaf Women (CODA): Supporting the Whole Family',
-    excerpt: 'Our ecological model extends support to Children of Deaf Women (CODA), recognizing the importance of the entire family ecosystem in empowering deaf women.',
-    content: `
-      <p>Empowering deaf women means supporting their entire ecosystem. RNADW's programming recognizes the important role of <strong>Children of Deaf Adults (CODA)</strong> and extends support to the whole family.</p>
-
-      <h2>Understanding CODA</h2>
-      <p>CODA refers to hearing children who have one or more deaf parents. These children often serve as bridges between the deaf and hearing worlds, sometimes taking on interpreting responsibilities from a young age.</p>
-
-      <h2>Our Ecological Model</h2>
-      <p>RNADW uses an ecological model that prioritizes reaching out to the entire ecosystem around our primary communities of deaf women and girls. This includes:</p>
-      <ul>
-        <li>Parents and caregivers of deaf children</li>
-        <li>Service providers (interpreters, teachers, healthcare workers)</li>
-        <li>Children of Deaf Women (CODA)</li>
-      </ul>
-
-      <h2>Supporting CODA</h2>
-      <p>Our support for CODA includes:</p>
-
-      <h3>Family Communication</h3>
-      <p>Programs that strengthen communication within deaf-parented families, ensuring CODA children don't bear inappropriate interpreting burdens.</p>
-
-      <h3>Understanding Deaf Culture</h3>
-      <p>Helping CODA children understand and appreciate their deaf parents' culture and community.</p>
-
-      <h3>Peer Support</h3>
-      <p>Connecting CODA children with peers who share similar experiences.</p>
-
-      <h2>Why This Matters</h2>
-      <p>When deaf women are supported within their family context, outcomes improve for everyone. CODA children thrive when they're not overburdened, and deaf mothers can focus on parenting rather than navigating communication barriers.</p>
-
-      <h2>Family-Centered Approach</h2>
-      <p>All of RNADW's programs consider the family context. Whether we're providing economic empowerment training or SRHR education, we recognize that deaf women's lives are embedded in family relationships.</p>
-    `,
-    author: 'Community Team',
-    authorRole: 'Family Programs',
-    date: 'Oct 28, 2024',
-    readTime: '5 min read',
-    category: 'Community',
-    categoryColor: '#10B981',
-    image: '/images/image19.png',
-    featured: false
-  },
-  {
-    id: 14,
-    title: 'Climate Justice: Deaf Women in Environmental Decision-Making',
-    excerpt: 'Advocating for disability-inclusive climate policies and ensuring deaf women participate in climate adaptation planning and environmental conservation efforts.',
-    content: `
-      <p>Climate justice cannot be achieved without disability justice. RNADW advocates for <strong>disability-inclusive climate policies</strong> and ensures deaf women participate in climate adaptation planning and environmental decision-making.</p>
-
-      <h2>The Intersection of Disability and Climate</h2>
-      <p>Climate change disproportionately affects persons with disabilities. Emergency warnings may not be accessible, evacuation plans may not accommodate different needs, and recovery programs may exclude disabled people.</p>
-
-      <h2>Our Climate Justice Advocacy</h2>
-      <p>Under our "Her Environment" pillar, RNADW:</p>
-
-      <h3>Policy Advocacy</h3>
-      <p>We advocate for the integration of disability perspectives into national climate policies, disaster risk reduction strategies, and environmental programs.</p>
-
-      <h3>Representation</h3>
-      <p>We ensure deaf women are represented in climate discussions at local, national, and regional levels.</p>
-
-      <h3>Accessible Information</h3>
-      <p>We push for climate early warnings and adaptation information to be available in accessible formats, including RSL.</p>
-
-      <h2>Alignment with National and International Frameworks</h2>
-      <p>Our advocacy aligns with:</p>
-      <ul>
-        <li>Rwanda's Vision 2050 and National Strategy for Transformation</li>
-        <li>The Paris Agreement on climate change</li>
-        <li>Sustainable Development Goals (SDG 10 - Reduced Inequalities, SDG 13 - Climate Action)</li>
-        <li>UN Convention on the Rights of Persons with Disabilities</li>
-      </ul>
-
-      <h2>Building a Movement</h2>
-      <p>Climate justice requires collective action. RNADW works with environmental organizations, disability rights groups, and government agencies to build a movement for disability-inclusive climate action.</p>
-
-      <h2>Take Action</h2>
-      <p>Join us in advocating for climate policies that include deaf women and all persons with disabilities. Together, we can build a sustainable and inclusive future.</p>
-    `,
-    author: 'Advocacy Team',
-    authorRole: 'Climate Justice',
-    date: 'Oct 20, 2024',
-    readTime: '6 min read',
-    category: 'Climate Action',
-    categoryColor: '#10B981',
-    image: '/images/image20.png',
-    featured: false
-  },
-  {
-    id: 15,
-    title: 'From 2005 to 2025: 20 Years of Empowering Deaf Women',
-    excerpt: 'Celebrating two decades of advocacy, from our founding by deaf women human rights activists to becoming a leading OPD with presence across all provinces of Rwanda.',
-    content: `
-      <p>In 2025, RNADW celebrates <strong>20 years</strong> of advocacy, empowerment, and transformation. From humble beginnings to a leading Organization of Persons with Disabilities, our journey reflects the resilience and power of deaf women.</p>
-
-      <h2>The Beginning (2005-2007)</h2>
-      <p>RNADW was founded in 2005 by a group of Deaf Women Human Rights Activists who recognized critical gaps in service provision and insufficient advocacy efforts for deaf women and girls. With no staff, no board, and limited resources, these pioneers laid the foundation for change.</p>
-
-      <h2>Building Foundations (2008-2012)</h2>
-      <p>We secured our first office, recruited staff, and began building partnerships with organizations like Handicap International and PEPFAR. In 2013, RNADW achieved formal registration with the Rwanda Governance Board (Registration N° 055/2014).</p>
-
-      <h2>Growing Impact (2013-2020)</h2>
-      <p>We expanded to districts across Rwanda, developed our first Strategic Plan, and secured funding from partners like the Disability Rights Fund, MALMO Deaf Association of Sweden, and Kvinna till Kvinna. Despite challenges including COVID-19, we persevered.</p>
-
-      <h2>Strategic Transformation (2021-Present)</h2>
-      <p>Our 2021-2026 Strategic Plan focused on accelerating rights promotion, building organizational capacity, and improving health and livelihoods. Now, our 2025-2030 Strategic Plan - "Loud in Silence" - takes us to the next level.</p>
-
-      <h2>Where We Are Today</h2>
-      <p>Today, RNADW:</p>
-      <ul>
-        <li>Operates in 22 districts across all 5 provinces</li>
-        <li>Has empowered over 500 lives</li>
-        <li>Runs four strategic programs plus institutional development initiatives</li>
-        <li>Partners with government, civil society, and international organizations</li>
-        <li>Is led by a dedicated Board and professional staff</li>
-      </ul>
-
-      <h2>Looking to the Future</h2>
-      <p>As we celebrate 20 years, we look forward to the next chapter. With our Strategic Plan 2025-2030, we're positioned to achieve even greater impact. Thank you to everyone who has been part of this journey.</p>
-
-      <h2>Join the Celebration</h2>
-      <p>Stay tuned for anniversary events and celebrations throughout 2025. Here's to 20 more years of empowering deaf women and girls!</p>
-    `,
-    author: 'RNADW Team',
-    authorRole: 'Communications',
-    date: 'Oct 15, 2024',
-    readTime: '8 min read',
-    category: 'Impact Stories',
-    categoryColor: '#FACC15',
-    image: '/images/image21.png',
+    category: 'Research',
+    categoryColor: '#EF4444',
+    image: '/images/b1.png',
     featured: false
   },
 ];
