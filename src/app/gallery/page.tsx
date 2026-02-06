@@ -331,7 +331,7 @@ export default function GalleryPage() {
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/image5.png"
+                  src="/images/g1.png"
                   alt="Day 1 - Parents Day"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

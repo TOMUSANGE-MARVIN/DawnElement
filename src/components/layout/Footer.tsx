@@ -208,7 +208,7 @@ export default function Footer() {
                       </div>
                       <div className="flex-1 pt-1">
                         <p className="text-xs font-bold uppercase tracking-wider text-blue-300 mb-1">Address</p>
-                        <p className="text-sm text-gray-300 leading-relaxed">KG 125 ST, 304, Ikaro Plaza,<br />Nyarugunga, Kicukiro, Kigali</p>
+                        <p className="text-sm text-gray-300 leading-relaxed">KK 78 St, Kanombe</p>
                       </div>
                     </div>
                   </li>

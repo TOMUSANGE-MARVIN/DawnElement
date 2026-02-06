@@ -17,35 +17,6 @@ const activities = [
     heroImage: '/images/image4.png',
     overview: 'Climate change poses significant risks to vulnerable communities, and deaf women and girls face unique challenges as emergency response mechanisms and resilience programs often fail to consider their specific needs. Her Environment addresses this critical gap by mobilizing deaf women and girls to effectively influence and participate in national, regional, and global climate justice agendas.',
     mission: 'To equip deaf women and girls with climate-smart skills, accessible information, and advocacy platforms to build resilience and drive climate justice in Rwanda.',
-    objectives: [
-      'Provide climate-smart agriculture training accessible to deaf women',
-      'Develop and disseminate climate information in Rwanda Sign Language (RSL)',
-      'Build capacity of deaf women as climate justice advocates',
-      'Create accessible early warning systems for climate emergencies',
-      'Promote sustainable livelihood practices within deaf communities'
-    ],
-    keyInitiatives: [
-      {
-        title: 'Climate-Smart Agriculture Training',
-        description: 'Hands-on training programs teaching deaf women sustainable farming techniques, crop diversification, water management, and soil conservation methods adapted to changing climate conditions.',
-        icon: '🌱'
-      },
-      {
-        title: 'RSL Climate Information Hub',
-        description: 'A comprehensive platform providing weather forecasts, agricultural advisories, and climate adaptation resources all translated into Rwanda Sign Language with visual aids.',
-        icon: '📱'
-      },
-      {
-        title: 'Deaf Women Climate Advocates Network',
-        description: 'Building a network of trained deaf women advocates who can represent their communities in climate policy discussions at local, national, and regional levels.',
-        icon: '📢'
-      },
-      {
-        title: 'Green Livelihoods Program',
-        description: 'Supporting deaf women entrepreneurs in establishing environmentally sustainable businesses including organic farming, eco-friendly products, and renewable energy solutions.',
-        icon: '💚'
-      }
-    ],
     impact: {
       beneficiaries: '150+',
       districts: '12',
@@ -66,35 +37,6 @@ const activities = [
     heroImage: '/images/w1.png',
     overview: 'Her Voice, Her Power is dedicated to strengthening deaf women and girls\' voice, leadership, and participation in all spheres of life. We believe that deaf women must be at the forefront of decisions that affect their lives, communities, and futures.',
     mission: 'To cultivate confident, capable deaf women leaders who can advocate for their rights and drive positive change in their communities and beyond.',
-    objectives: [
-      'Develop leadership skills among deaf women and girls through specialized training',
-      'Increase representation of deaf women in decision-making bodies',
-      'Build advocacy capacity for policy influence at all levels',
-      'Create platforms for deaf women to share their stories and experiences',
-      'Foster mentorship networks connecting emerging and established deaf women leaders'
-    ],
-    keyInitiatives: [
-      {
-        title: 'Feminist Leadership Institutes',
-        description: 'Intensive leadership development programs combining feminist principles with practical skills in public speaking, negotiation, project management, and advocacy - all delivered in RSL.',
-        icon: '🎓'
-      },
-      {
-        title: 'Deaf Women Leaders Forum',
-        description: 'Regular gatherings bringing together deaf women leaders from across Rwanda to share experiences, strategize on common challenges, and build solidarity.',
-        icon: '🤝'
-      },
-      {
-        title: 'Media & Advocacy Campaigns',
-        description: 'High-visibility campaigns amplifying the voices of deaf women on issues that matter to them, challenging stereotypes, and promoting inclusion in mainstream media.',
-        icon: '📺'
-      },
-      {
-        title: 'Political Participation Program',
-        description: 'Preparing deaf women for civic engagement including voter education, candidate training, and support for those seeking elected or appointed positions.',
-        icon: '🗳️'
-      }
-    ],
     impact: {
       beneficiaries: '200+',
       districts: '18',
@@ -115,35 +57,6 @@ const activities = [
     heroImage: '/images/image2.png',
     overview: 'My Body, My Rights works to enable a legal, policy, social, economic, and cultural environment that promotes, respects, and guarantees sexual and reproductive health and rights (SRHR) for deaf women and girls. We address the unique barriers deaf women face in accessing healthcare information and services.',
     mission: 'To ensure every deaf woman and girl has access to comprehensive, accessible sexual and reproductive health information and services, free from violence and discrimination.',
-    objectives: [
-      'Increase access to deaf-friendly SRHR information and services',
-      'Prevent and respond to gender-based violence (GBV) against deaf women and girls',
-      'Train healthcare providers in deaf-inclusive service delivery',
-      'Advocate for SRHR policies that include deaf women\'s perspectives',
-      'Build awareness on consent, bodily autonomy, and rights'
-    ],
-    keyInitiatives: [
-      {
-        title: 'Deaf-Friendly CSE Modules',
-        description: 'Comprehensive Sexuality Education materials developed specifically for deaf learners, delivered in RSL with visual aids, covering anatomy, relationships, consent, and family planning.',
-        icon: '📚'
-      },
-      {
-        title: 'Deaf Theatre for GBV Prevention',
-        description: 'Powerful theatrical performances by deaf actors addressing gender-based violence, breaking stigma, and promoting reporting and support-seeking behaviors.',
-        icon: '🎭'
-      },
-      {
-        title: 'Healthcare Provider Training',
-        description: 'Training medical professionals and healthcare workers on communicating with deaf patients, basic RSL, and creating accessible healthcare environments.',
-        icon: '⚕️'
-      },
-      {
-        title: 'GBV Response & Support Services',
-        description: 'Comprehensive support for GBV survivors including counseling in RSL, legal aid, safe shelter referrals, and accompaniment through reporting and justice processes.',
-        icon: '💜'
-      }
-    ],
     impact: {
       beneficiaries: '300+',
       districts: '22',
@@ -164,35 +77,6 @@ const activities = [
     heroImage: '/images/image1.png',
     overview: 'Spear N\' Shield is our flagship economic empowerment program, building and sustaining the education, skills, knowledge, and digital competencies of deaf women and girls. We believe economic independence is foundational to full inclusion and equality.',
     mission: 'To equip deaf women and girls with the education, vocational skills, digital literacy, and business acumen needed for sustainable livelihoods and economic independence.',
-    objectives: [
-      'Expand access to quality education for deaf girls and women',
-      'Provide market-relevant vocational training in accessible formats',
-      'Build digital literacy and technology skills',
-      'Support deaf women entrepreneurs with business development services',
-      'Strengthen Savings and Credit Cooperatives (SACCOs) for deaf women'
-    ],
-    keyInitiatives: [
-      {
-        title: 'Rwanda Sign Language (RSL) Digitalization',
-        description: 'Creating digital RSL dictionaries, learning apps, and educational content to preserve and promote Rwanda Sign Language while making learning resources widely accessible.',
-        icon: '🔤'
-      },
-      {
-        title: 'Umucyo Sign Language App',
-        description: 'Our groundbreaking mobile application providing remote sign language interpretation, accessible information, educational content, and community connection for deaf users.',
-        icon: '📱'
-      },
-      {
-        title: 'Business Development & SACCO Support',
-        description: 'Comprehensive entrepreneurship training, business mentorship, access to startup capital, and strengthening of deaf women\'s savings groups and cooperatives.',
-        icon: '💼'
-      },
-      {
-        title: 'Vocational Skills Training',
-        description: 'Hands-on training in tailoring, hairdressing, crafts, agriculture, ICT, and other marketable skills with RSL instruction and visual learning approaches.',
-        icon: '✂️'
-      }
-    ],
     impact: {
       beneficiaries: '400+',
       districts: '22',
@@ -219,8 +103,6 @@ export default function ActivityDetailPage() {
   // Animations
   const heroSection = useScrollAnimation(0.1);
   const overviewSection = useScrollAnimation(0.1);
-  const objectivesSection = useScrollAnimation(0.1);
-  const initiativesSection = useScrollAnimation(0.1);
   const impactSection = useScrollAnimation(0.1);
   const testimonialSection = useScrollAnimation(0.1);
   const ctaSection = useScrollAnimation(0.1);
@@ -305,64 +187,6 @@ export default function ActivityDetailPage() {
             <p className="text-2xl lg:text-3xl text-gray-700 leading-relaxed font-light">
               {activity.mission}
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* OBJECTIVES SECTION */}
-      <section
-        ref={objectivesSection.ref}
-        className={`py-20 bg-white scroll-animate delay-100 ${objectivesSection.isVisible ? 'visible' : ''}`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: activity.color }} />
-            <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Objectives</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {activity.objectives.map((objective, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-2xl bg-gray-50 border-l-4 hover:shadow-lg transition-shadow"
-                style={{ borderLeftColor: activity.color }}
-              >
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mb-4"
-                  style={{ backgroundColor: activity.color, color: activity.color === '#FACC15' ? '#000' : '#fff' }}
-                >
-                  {index + 1}
-                </div>
-                <p className="text-gray-700 leading-relaxed">{objective}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* KEY INITIATIVES SECTION */}
-      <section
-        ref={initiativesSection.ref}
-        className={`py-20 scroll-animate delay-100 ${initiativesSection.isVisible ? 'visible' : ''}`}
-        style={{ backgroundColor: activity.color === '#FACC15' ? '#FFFBEB' : '#EFF6FF' }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: activity.color }} />
-            <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Key Initiatives</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {activity.keyInitiatives.map((initiative, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
-              >
-                <span className="text-5xl mb-6 block">{initiative.icon}</span>
-                <h3 className="text-2xl font-black text-gray-900 mb-4">{initiative.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{initiative.description}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

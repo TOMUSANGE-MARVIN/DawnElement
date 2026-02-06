@@ -3,6 +3,157 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import Link from 'next/link';
 
+// Resource interface
+interface Resource {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  categoryColor: string;
+  type: string;
+  size: string;
+  icon: string;
+  downloadUrl: string;
+  viewUrl?: string;
+  canView: boolean;
+  isExternal: boolean;
+  hasVideo?: boolean;
+  videoUrl?: string;
+}
+
+// Resource Card Component - extracted to properly use hooks
+function ResourceCard({ resource, index }: { resource: Resource; index: number }) {
+  const cardAnimation = useScrollAnimation(0.2);
+  const delayClass = `delay-${(index % 6 + 1) * 100}`;
+
+  return (
+    <div
+      ref={cardAnimation.ref}
+      className={`group relative scroll-animate-scale ${delayClass} ${cardAnimation.isVisible ? 'visible' : ''}`}>
+
+      {/* Resource Card */}
+      <div className="relative h-full bg-white rounded-2xl border-2 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+        style={{ borderColor: resource.categoryColor }}>
+
+        {/* Top accent bar */}
+        <div
+          className="h-2"
+          style={{ backgroundColor: resource.categoryColor }}
+        />
+
+        {/* Content */}
+        <div className="p-6">
+
+          {/* Icon */}
+          <div className="text-5xl mb-4">
+            {resource.icon}
+          </div>
+
+          {/* Category badge */}
+          <div
+            className="inline-block px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-4"
+            style={{
+              backgroundColor: `${resource.categoryColor}20`,
+              color: resource.categoryColor
+            }}>
+            {resource.category}
+          </div>
+
+          {/* Title */}
+          <h3 className="text-xl font-black text-gray-900 mb-3 leading-tight">
+            {resource.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            {resource.description}
+          </p>
+
+          {/* Meta info */}
+          <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
+            <span className="font-semibold">{resource.type}</span>
+            <span>•</span>
+            <span>{resource.size}</span>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="space-y-3">
+            {/* View Document Button */}
+            {resource.canView && (
+              resource.isExternal ? (
+                <a
+                  href={resource.viewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  View Document
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              ) : resource.downloadUrl && resource.downloadUrl !== '#' ? (
+                <a
+                  href={resource.downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  View Document
+                </a>
+              ) : (
+                <Link
+                  href={`/resource/${resource.id}`}
+                  className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  View Summary
+                </Link>
+              )
+            )}
+
+            {/* Download button */}
+            <a
+              href={resource.downloadUrl}
+              download={!resource.isExternal ? true : undefined}
+              target={resource.isExternal ? "_blank" : undefined}
+              rel={resource.isExternal ? "noopener noreferrer" : undefined}
+              className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
+              style={{
+                backgroundColor: resource.categoryColor,
+                color: resource.categoryColor === '#FACC15' ? '#000' : '#fff'
+              }}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download
+            </a>
+          </div>
+        </div>
+
+        {/* Hover glow effect */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at center, ${resource.categoryColor} 0%, transparent 70%)`
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function ResourcesPage() {
   // Hero animations
   const heroLabel = useScrollAnimation(0.1);
@@ -11,20 +162,6 @@ export default function ResourcesPage() {
 
   // Resources data (including media sources)
   const resources = [
-    {
-      id: 0,
-      title: 'Photo Albums - International Week 2025',
-      description: 'Complete photo albums from International Week of Deaf People 2025 (3 days of celebrations)',
-      category: 'Media',
-      categoryColor: '#10B981',
-      type: 'ONLINE',
-      size: '33+ Photos',
-      icon: '📸',
-      downloadUrl: 'https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day1/',
-      viewUrl: 'https://emmanuelirumva.pixieset.com/internationalweekofdeafpeople2025day1/',
-      canView: true,
-      isExternal: true
-    },
     // Policy Briefs
     {
       id: 10,
@@ -85,120 +222,43 @@ export default function ResourcesPage() {
       isExternal: false,
       hasVideo: false
     },
+    // Research & Reports
     {
-      id: 1,
-      title: 'SGBV Prevention Guide',
-      description: 'Comprehensive guide on preventing sexual and gender-based violence in deaf communities',
-      category: 'SGBV/VAWG',
-      categoryColor: '#EC4899',
+      id: 14,
+      title: 'Baseline Survey on Access to SRHR and GBV Services',
+      description: 'Comprehensive baseline survey on access to Sexual and Reproductive Health Rights and Gender-Based Violence services in Huye and Kigali districts',
+      category: 'Research',
+      categoryColor: '#06B6D4',
       type: 'PDF',
-      size: '2.4 MB',
-      icon: '📘',
-      downloadUrl: '#',
+      size: '2.5 MB',
+      icon: '📊',
+      downloadUrl: '/documents/Baseline survey on Access to SRHR and GBV services in Huye and Kigali.pdf',
       canView: true,
       isExternal: false
     },
     {
-      id: 2,
-      title: 'Sign Language Dictionary',
-      description: 'Rwandan sign language reference guide with illustrations',
-      category: 'Education',
-      categoryColor: '#FACC15',
-      type: 'PDF',
-      size: '5.8 MB',
-      icon: '📖',
-      downloadUrl: '#',
-      canView: true,
-      isExternal: false
-    },
-    {
-      id: 3,
-      title: 'CEDAW Rights Overview',
-      description: 'Understanding CEDAW rights for women with disabilities',
+      id: 15,
+      title: 'Guidelines: Access to Justice for Deaf Women & Girls',
+      description: 'Comprehensive guidelines on ensuring access to justice for Deaf Women and Girls in Rwanda',
       category: 'Legal Rights',
       categoryColor: '#2563EB',
       type: 'PDF',
-      size: '1.2 MB',
+      size: '1.8 MB',
       icon: '⚖️',
-      downloadUrl: '#',
+      downloadUrl: '/documents/Guidelines_Access_Justice_for_Deaf_Women & Girls  .pdf',
       canView: true,
       isExternal: false
     },
     {
-      id: 4,
-      title: 'SRHR Education Materials',
-      description: 'Sexual and reproductive health rights educational resources',
-      category: 'SRHR/CSE',
-      categoryColor: '#EC4899',
-      type: 'PDF',
-      size: '3.1 MB',
-      icon: '🏥',
-      downloadUrl: '#',
-      canView: true,
-      isExternal: false
-    },
-    {
-      id: 5,
-      title: 'Business Skills Training',
-      description: 'Entrepreneurship and business development workbook for deaf women',
-      category: 'Economic Empowerment',
-      categoryColor: '#10B981',
-      type: 'PDF',
-      size: '4.5 MB',
-      icon: '💼',
-      downloadUrl: '#',
-      canView: true,
-      isExternal: false
-    },
-    {
-      id: 6,
-      title: 'Legal Aid Handbook',
-      description: 'Step-by-step guide to accessing legal services and support',
-      category: 'Legal Rights',
-      categoryColor: '#2563EB',
-      type: 'PDF',
-      size: '2.8 MB',
-      icon: '📜',
-      downloadUrl: '#',
-      canView: true,
-      isExternal: false
-    },
-    {
-      id: 7,
-      title: 'Community Organizing Toolkit',
-      description: 'Tools and strategies for grassroots advocacy and organizing',
+      id: 16,
+      title: 'RNADW CEDAW Shadow Report',
+      description: 'Shadow report submitted to the CEDAW Committee on the status of Deaf Women and Girls in Rwanda',
       category: 'Advocacy',
       categoryColor: '#EC4899',
-      type: 'PDF',
-      size: '3.7 MB',
-      icon: '📢',
-      downloadUrl: '#',
-      canView: true,
-      isExternal: false
-    },
-    {
-      id: 8,
-      title: 'Financial Literacy Guide',
-      description: 'Money management and savings strategies for women entrepreneurs',
-      category: 'Economic Empowerment',
-      categoryColor: '#10B981',
-      type: 'PDF',
-      size: '2.1 MB',
-      icon: '💰',
-      downloadUrl: '#',
-      canView: true,
-      isExternal: false
-    },
-    {
-      id: 9,
-      title: 'Deaf Culture & Identity',
-      description: 'Celebrating deaf culture, history, and identity in Rwanda',
-      category: 'Education',
-      categoryColor: '#FACC15',
-      type: 'PDF',
-      size: '1.9 MB',
-      icon: '🤟',
-      downloadUrl: '#',
+      type: 'DOCX',
+      size: '1.2 MB',
+      icon: '📄',
+      downloadUrl: '/documents/RNADW-CEDAW -Shadow Report .docx',
       canView: true,
       isExternal: false
     },
@@ -267,124 +327,9 @@ export default function ResourcesPage() {
 
           {/* Resources Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {resources.map((resource, index) => {
-              const cardAnimation = useScrollAnimation(0.2);
-              const delayClass = `delay-${(index % 6 + 1) * 100}`;
-
-              return (
-                <div
-                  key={resource.id}
-                  ref={cardAnimation.ref}
-                  className={`group relative scroll-animate-scale ${delayClass} ${cardAnimation.isVisible ? 'visible' : ''}`}>
-
-                  {/* Resource Card */}
-                  <div className="relative h-full bg-white rounded-2xl border-2 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-                    style={{ borderColor: resource.categoryColor }}>
-
-                    {/* Top accent bar */}
-                    <div
-                      className="h-2"
-                      style={{ backgroundColor: resource.categoryColor }}
-                    />
-
-                    {/* Content */}
-                    <div className="p-6">
-
-                      {/* Icon */}
-                      <div className="text-5xl mb-4">
-                        {resource.icon}
-                      </div>
-
-                      {/* Category badge */}
-                      <div
-                        className="inline-block px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider mb-4"
-                        style={{
-                          backgroundColor: `${resource.categoryColor}20`,
-                          color: resource.categoryColor
-                        }}>
-                        {resource.category}
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl font-black text-gray-900 mb-3 leading-tight">
-                        {resource.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                        {resource.description}
-                      </p>
-
-                      {/* Meta info */}
-                      <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
-                        <span className="font-semibold">{resource.type}</span>
-                        <span>•</span>
-                        <span>{resource.size}</span>
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="space-y-3">
-                        {/* View Document Button */}
-                        {resource.canView && (
-                          resource.isExternal ? (
-                            <a
-                              href={resource.viewUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800"
-                            >
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                              </svg>
-                              View Document
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                            </a>
-                          ) : (
-                            <Link
-                              href={`/resource/${resource.id}`}
-                              className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800"
-                            >
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                              </svg>
-                              View Document
-                            </Link>
-                          )
-                        )}
-
-                        {/* Download button */}
-                        <a
-                          href={resource.downloadUrl}
-                          target={resource.isExternal ? "_blank" : undefined}
-                          rel={resource.isExternal ? "noopener noreferrer" : undefined}
-                          className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
-                          style={{
-                            backgroundColor: resource.categoryColor,
-                            color: resource.categoryColor === '#FACC15' ? '#000' : '#fff'
-                          }}>
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                          Download
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Hover glow effect */}
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
-                      style={{
-                        background: `radial-gradient(circle at center, ${resource.categoryColor} 0%, transparent 70%)`
-                      }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
+            {resources.map((resource, index) => (
+              <ResourceCard key={resource.id} resource={resource} index={index} />
+            ))}
           </div>
 
         </div>
