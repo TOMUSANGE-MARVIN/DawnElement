@@ -191,47 +191,6 @@ export default function ActivityDetailPage() {
         </div>
       </section>
 
-      {/* IMPACT SECTION */}
-      <section
-        ref={impactSection.ref}
-        className={`py-20 bg-gray-900 scroll-animate delay-100 ${impactSection.isVisible ? 'visible' : ''}`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: activity.color }} />
-            <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Our Impact</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8">
-              <div
-                className="text-7xl font-black mb-4"
-                style={{ color: activity.color }}
-              >
-                {activity.impact.beneficiaries}
-              </div>
-              <p className="text-xl text-white font-medium">Beneficiaries Reached</p>
-            </div>
-
-            <div className="text-center p-8">
-              <div
-                className="text-7xl font-black mb-4"
-                style={{ color: activity.color }}
-              >
-                {activity.impact.districts}
-              </div>
-              <p className="text-xl text-white font-medium">Districts Covered</p>
-            </div>
-
-            <div className="text-center p-8 md:col-span-1">
-              <div className="text-white/80 text-lg leading-relaxed">
-                {activity.impact.description}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* TESTIMONIAL SECTION */}
       <section
         ref={testimonialSection.ref}
@@ -292,6 +251,47 @@ export default function ActivityDetailPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* IMPACT SECTION */}
+      <section
+        ref={impactSection.ref}
+        className={`py-20 bg-gray-900 scroll-animate delay-100 ${impactSection.isVisible ? 'visible' : ''}`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-1 w-16 rounded-full" style={{ backgroundColor: activity.color }} />
+            <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Our Impact</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-8">
+              <div
+                className="text-7xl font-black mb-4"
+                style={{ color: activity.color }}
+              >
+                {activity.impact.beneficiaries}
+              </div>
+              <p className="text-xl text-white font-medium">Beneficiaries Reached</p>
+            </div>
+
+            <div className="text-center p-8">
+              <div
+                className="text-7xl font-black mb-4"
+                style={{ color: activity.color }}
+              >
+                {activity.impact.districts}
+              </div>
+              <p className="text-xl text-white font-medium">Districts Covered</p>
+            </div>
+
+            <div className="text-center p-8 md:col-span-1">
+              <div className="text-white/80 text-lg leading-relaxed">
+                {activity.impact.description}
+              </div>
+            </div>
           </div>
         </div>
       </section>
