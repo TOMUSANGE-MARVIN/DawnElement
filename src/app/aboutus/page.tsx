@@ -1,9 +1,43 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import Image from 'next/image';
 
+interface TeamMember {
+  _id: string;
+  name: string;
+  role: string;
+  description: string;
+  image?: string;
+  sortOrder: number;
+  published: boolean;
+}
+
 export default function AboutPage() {
+  const [team, setTeam] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchTeam() {
+      try {
+        const res = await fetch('/api/admin/team');
+        const data = await res.json();
+        if (data.success && data.data) {
+          const sorted = data.data
+            .filter((m: TeamMember) => m.published !== false)
+            .sort((a: TeamMember, b: TeamMember) => (a.sortOrder || 0) - (b.sortOrder || 0));
+          setTeam(sorted);
+        }
+      } catch (error) {
+        console.error('Error fetching team:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchTeam();
+  }, []);
+
   // Hero animations
   const heroLabel = useScrollAnimation(0.1);
   const heroTitle = useScrollAnimation(0.1);
@@ -314,31 +348,76 @@ export default function AboutPage() {
 
           {/* Leadership Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Board President */}
-            <div className="bg-gray-50 rounded-3xl p-8 text-center">
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
-                style={{ backgroundColor: '#FACC15' }}>
-                <svg className="w-12 h-12 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+            {loading ? (
+              <div className="col-span-2 text-center py-12">
+                <div className="text-xl text-gray-400">Loading team...</div>
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-2">Muhorakeye Pelagie</h3>
-              <p className="text-lg font-bold mb-3" style={{ color: '#2563EB' }}>Board President</p>
-              <p className="text-gray-600">Leading RNADW&apos;s governance and strategic direction for the empowerment of deaf women and girls.</p>
-            </div>
+            ) : team.length > 0 ? (
+              team.map((member, index) => (
+                <div key={member._id} className="bg-gray-50 rounded-3xl p-8 text-center">
+                  <div 
+                    className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
+                    style={{ backgroundColor: index % 2 === 0 ? '#FACC15' : '#2563EB' }}
+                  >
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={96}
+                        height={96}
+                        className="rounded-full object-cover"
+                      />
+                    ) : (
+                      <svg 
+                        className="w-12 h-12" 
+                        style={{ color: index % 2 === 0 ? '#000' : '#fff' }}
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    )}
+                  </div>
+                  <h3 className="text-2xl font-black text-gray-900 mb-2">{member.name}</h3>
+                  <p 
+                    className="text-lg font-bold mb-3" 
+                    style={{ color: index % 2 === 0 ? '#2563EB' : '#FACC15' }}
+                  >
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600">{member.description}</p>
+                </div>
+              ))
+            ) : (
+              <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Default Board President */}
+                <div className="bg-gray-50 rounded-3xl p-8 text-center">
+                  <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
+                    style={{ backgroundColor: '#FACC15' }}>
+                    <svg className="w-12 h-12 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-black text-gray-900 mb-2">Muhorakeye Pelagie</h3>
+                  <p className="text-lg font-bold mb-3" style={{ color: '#2563EB' }}>Board President</p>
+                  <p className="text-gray-600">Leading RNADW&apos;s governance and strategic direction for the empowerment of deaf women and girls.</p>
+                </div>
 
-            {/* Executive Director */}
-            <div className="bg-gray-50 rounded-3xl p-8 text-center">
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
-                style={{ backgroundColor: '#2563EB' }}>
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+                {/* Default Executive Director */}
+                <div className="bg-gray-50 rounded-3xl p-8 text-center">
+                  <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
+                    style={{ backgroundColor: '#2563EB' }}>
+                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-black text-gray-900 mb-2">Mukashema Dative</h3>
+                  <p className="text-lg font-bold mb-3" style={{ color: '#FACC15' }}>Executive Director</p>
+                  <p className="text-gray-600">Driving the day-to-day operations and program implementation across all 22 districts of Rwanda.</p>
+                </div>
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-2">Mukashema Dative</h3>
-              <p className="text-lg font-bold mb-3" style={{ color: '#FACC15' }}>Executive Director</p>
-              <p className="text-gray-600">Driving the day-to-day operations and program implementation across all 22 districts of Rwanda.</p>
-            </div>
+            )}
           </div>
 
         </div>

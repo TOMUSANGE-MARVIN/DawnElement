@@ -243,7 +243,6 @@ export default function GalleryPage() {
 
       {/* HERO SECTION - Left Aligned */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-
         {/* Decorative blobs */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl opacity-20"
@@ -255,7 +254,6 @@ export default function GalleryPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
-
           {/* Label */}
           <div
             ref={heroLabel.ref}
@@ -288,7 +286,6 @@ export default function GalleryPage() {
 
       {/* FULL EVENT ALBUMS SECTION - Moved before gallery grid */}
       <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-
         {/* Decorative background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-10 right-10 w-96 h-96 rounded-full blur-3xl opacity-10"
@@ -327,7 +324,6 @@ export default function GalleryPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -336,7 +332,6 @@ export default function GalleryPage() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
                 {/* Content */}
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <div className="inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-3"
@@ -363,7 +358,6 @@ export default function GalleryPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -372,7 +366,6 @@ export default function GalleryPage() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
                 {/* Content */}
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <div className="inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-3"
@@ -399,7 +392,6 @@ export default function GalleryPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-
               <div className="relative h-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -408,7 +400,6 @@ export default function GalleryPage() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
                 {/* Content */}
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <div className="inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-3"
@@ -503,7 +494,6 @@ export default function GalleryPage() {
 
                   {/* Neon Billboard Card */}
                   <div className="relative w-full h-full overflow-hidden cursor-pointer">
-
                     {/* Neon border effect */}
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
@@ -550,7 +540,6 @@ export default function GalleryPage() {
 
                       {/* Content overlay - hidden by default */}
                       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black bg-opacity-90">
-
                         {/* Animated title reveal */}
                         <h3
                           className="text-3xl md:text-4xl font-black mb-4 text-center uppercase tracking-tight transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700"

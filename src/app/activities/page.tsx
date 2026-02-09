@@ -1,31 +1,69 @@
 'use client';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+interface Activity {
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  image: string;
+  icon: string;
+  features: string[];
+  published: boolean;
+  order: number;
+}
+
 export default function ActivitiesPage() {
-  // Hero animations
-  const heroLabel = useScrollAnimation(0.1);
-  const heroTitle = useScrollAnimation(0.1);
-  const heroDescription = useScrollAnimation(0.1);
+  const [activities, setActivities] = useState<Activity[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Programs animations
-  const programsLabel = useScrollAnimation(0.2);
-  const program1 = useScrollAnimation(0.2);
-  const program2 = useScrollAnimation(0.2);
-  const program3 = useScrollAnimation(0.2);
-  const program4 = useScrollAnimation(0.2);
+  useEffect(() => {
+    async function fetchActivities() {
+      try {
+        const res = await fetch('/api/admin/activities');
+        const data = await res.json();
+        if (data.success && data.data) {
+          // Filter published and sort by order or title
+          const sorted = data.data
+            .filter((a: Activity) => a.published !== false)
+            .sort((a: Activity, b: Activity) => {
+              if (a.order !== undefined && b.order !== undefined) {
+                return a.order - b.order;
+              }
+              return a.title.localeCompare(b.title);
+            });
+          setActivities(sorted);
+        }
+      } catch (error) {
+        console.error('Error fetching activities:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchActivities();
+  }, []);
 
-  // Impact animations
-  const impactLabel = useScrollAnimation(0.2);
-  const impactTitle = useScrollAnimation(0.2);
-  const impact1 = useScrollAnimation(0.2);
-  const impact2 = useScrollAnimation(0.2);
-  const impact3 = useScrollAnimation(0.2);
+  // Color schemes for cards
+  const colorSchemes = [
+    { bg: '#FACC15', text: 'black', shadow: 'rgba(250,204,21,0.6)', gradient: 'from-black via-black/50 to-transparent', hoverGradient: 'from-black via-black/80' },
+    { bg: '#2563EB', text: 'white', shadow: 'rgba(37,99,235,0.6)', gradient: 'from-blue-900 via-blue-900/50 to-transparent', hoverGradient: 'from-blue-900 via-blue-900/80' },
+    { bg: '#1F2937', text: 'white', shadow: 'rgba(31,41,55,0.8)', gradient: 'from-yellow-900 via-yellow-900/50 to-transparent', hoverGradient: 'from-yellow-900 via-yellow-900/80' },
+    { bg: '#2563EB', text: 'white', shadow: 'rgba(37,99,235,0.6)', gradient: 'from-black via-black/50 to-transparent', hoverGradient: 'from-black via-black/80' },
+  ];
 
-  // CTA animation
-  const ctaSection = useScrollAnimation(0.2);
+  if (loading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-gray-900">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-white text-lg">Loading activities...</p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen">
@@ -45,8 +83,7 @@ export default function ActivitiesPage() {
 
           {/* Label */}
           <div
-            ref={heroLabel.ref}
-            className={`flex items-center gap-3 mb-6 scroll-animate delay-100 ${heroLabel.isVisible ? 'visible' : ''}`}>
+            className="flex items-center gap-3 mb-6">
             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FACC15' }} />
             <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">What We Do</span>
             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#2563EB' }} />
@@ -54,8 +91,7 @@ export default function ActivitiesPage() {
 
           {/* Title */}
           <h1
-            ref={heroTitle.ref}
-            className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-white mb-6 scroll-animate delay-200 ${heroTitle.isVisible ? 'visible' : ''}`}>
+            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-white mb-6">
             Four Pillars<br />
             of<br />
             <span className="relative inline-block">
@@ -66,8 +102,7 @@ export default function ActivitiesPage() {
 
           {/* Description */}
           <p
-            ref={heroDescription.ref}
-            className={`text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl scroll-animate delay-300 ${heroDescription.isVisible ? 'visible' : ''}`}>
+            className="text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl">
             Our Strategic Plan 2025-2030 is themed <span className="font-bold text-yellow-400">&quot;Loud in Silence: Deaf Women and Girls Driving Change&quot;</span> -
             fostering inclusive social-economic development that is deaf-women-centred, transformative and accountable across Rwanda.
           </p>
@@ -81,8 +116,7 @@ export default function ActivitiesPage() {
 
           {/* Section Label */}
           <div
-            ref={programsLabel.ref}
-            className={`flex items-center gap-4 mb-16 scroll-animate delay-100 ${programsLabel.isVisible ? 'visible' : ''}`}>
+            className="flex items-center gap-4 mb-16">
             <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
             <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Core Programs</span>
             <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
@@ -90,302 +124,90 @@ export default function ActivitiesPage() {
 
           {/* Programs Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {activities.map((activity, index) => {
+              const colors = colorSchemes[index % colorSchemes.length];
 
-            {/* Program 1: Spear N' Shield - Education & Economic Empowerment */}
-            <div
-              ref={program1.ref}
-              className={`group scroll-animate-scale delay-200 ${program1.isVisible ? 'visible' : ''}`}>
-              <Link href="/activities/21" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(250,204,21,0.6)] hover:scale-[1.02]">
+              return (
+                <div
+                  key={activity._id}
+                  className="group">
+                  <Link href={`/activities/${activity._id}`} className="block">
+                    <div 
+                      className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:scale-[1.02]"
+                      style={{ boxShadow: `0 0 0 transparent` }}
+                      onMouseEnter={(e) => e.currentTarget.style.boxShadow = `0 0 40px ${colors.shadow}`}
+                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = `0 0 0 transparent`}
+                    >
 
-                  {/* Glowing border effect on hover */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(45deg, #FACC15, #2563EB, #FACC15)',
-                      padding: '3px',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude'
-                    }}
-                  />
+                      {/* Glowing border effect on hover */}
+                      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                        style={{
+                          background: `linear-gradient(45deg, ${colors.bg}, #FACC15, ${colors.bg})`,
+                          padding: '3px',
+                          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                          WebkitMaskComposite: 'xor',
+                          maskComposite: 'exclude'
+                        }}
+                      />
 
-                  {/* Image */}
-                  <div className="aspect-[16/10] relative">
-                    <Image
-                      src="/images/image1.png"
-                      alt="Spear N' Shield - Education & Economic Empowerment"
-                      fill
-                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
-                    />
-                    {/* Darker overlay on hover to make text more readable */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent group-hover:from-black group-hover:via-black/80 transition-all duration-700" />
-                  </div>
+                      {/* Image */}
+                      <div className="aspect-[16/10] relative">
+                        <Image
+                          src={activity.image || '/images/image1.png'}
+                          alt={activity.title}
+                          fill
+                          className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
+                        />
+                        <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} group-hover:${colors.hoverGradient} transition-all duration-700`} />
+                      </div>
 
-                  {/* Number Badge - Rotates and scales on hover */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-black font-black text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
-                    style={{ backgroundColor: '#FACC15' }}>
-                    01
-                  </div>
+                      {/* Number Badge */}
+                      <div 
+                        className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center font-black text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
+                        style={{ backgroundColor: colors.bg, color: colors.text }}>
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
 
-                  {/* Content - Slides up and expands on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
-                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">📚</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      Spear N&apos; Shield
-                    </h3>
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
+                        <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                          {activity.icon || '📋'}
+                        </div>
+                        <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
+                          {activity.title.split(' ').slice(0, 2).join(' ')}{activity.title.split(' ').length > 2 && <><br />{activity.title.split(' ').slice(2).join(' ')}</>}
+                        </h3>
 
-                    {/* Description - Hidden by default, slides up on hover */}
-                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
-                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        Education, Skilling, Digitalization and Business Development for sustainable livelihoods.
-                      </p>
+                        {/* Description - Always visible */}
+                        <div className="mt-4">
+                          <p className="text-white/90 text-lg mb-4 leading-relaxed">
+                            {activity.description}
+                          </p>
 
-                      {/* Features List */}
-                      <ul className="space-y-2 mb-6">
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Rwanda Sign Language (RSL) digitalization</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Business development & SACCO support</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Umucyo Sign Language App</span>
-                        </li>
-                      </ul>
+                          {/* Features List */}
+                          {activity.features && activity.features.length > 0 && (
+                            <ul className="space-y-2 mb-6">
+                              {activity.features.slice(0, 3).map((feature, fIndex) => (
+                                <li 
+                                  key={fIndex}
+                                  className="flex items-start gap-2 text-white/80">
+                                  <span style={{ color: '#FACC15' }}>●</span>
+                                  <span>{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
 
-                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400"
-                        style={{ color: '#FACC15' }}>
-                        Learn More →
+                          <div className="flex items-center gap-2 text-base font-bold"
+                            style={{ color: '#FACC15' }}>
+                            Learn More →
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
-              </Link>
-            </div>
-
-            {/* Program 2: My Body, My Rights - SRHR */}
-            <div
-              ref={program2.ref}
-              className={`group scroll-animate-scale delay-300 ${program2.isVisible ? 'visible' : ''}`}>
-              <Link href="/activities/20" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:scale-[1.02]">
-
-                  {/* Glowing border effect on hover */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(45deg, #2563EB, #FACC15, #2563EB)',
-                      padding: '3px',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude'
-                    }}
-                  />
-
-                  {/* Image */}
-                  <div className="aspect-[16/10] relative">
-                    <Image
-                      src="/images/image2.png"
-                      alt="My Body, My Rights - Sexual and Reproductive Health"
-                      fill
-                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/50 to-transparent group-hover:from-blue-900 group-hover:via-blue-900/80 transition-all duration-700" />
-                  </div>
-
-                  {/* Number Badge */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
-                    style={{ backgroundColor: '#2563EB' }}>
-                    02
-                  </div>
-
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
-                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">🏥</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      My Body,<br />My Rights
-                    </h3>
-
-                    {/* Description - Hidden by default, slides up on hover */}
-                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
-                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        Sexual and Reproductive Health and Rights (SRHR) and GBV prevention for deaf women and girls.
-                      </p>
-
-                      {/* Features List */}
-                      <ul className="space-y-2 mb-6">
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Deaf-friendly CSE modules</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>GBV prevention & Deaf Theatre</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>PSEAH awareness & support</span>
-                        </li>
-                      </ul>
-
-                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400"
-                        style={{ color: '#FACC15' }}>
-                        Learn More →
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            {/* Program 3: Her Voice, Her Power - Leadership */}
-            <div
-              ref={program3.ref}
-              className={`group scroll-animate-scale delay-400 ${program3.isVisible ? 'visible' : ''}`}>
-              <Link href="/activities/19" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(31,41,55,0.8)] hover:scale-[1.02]">
-
-                  {/* Glowing border effect on hover */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(45deg, #1F2937, #FACC15, #1F2937)',
-                      padding: '3px',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude'
-                    }}
-                  />
-
-                  {/* Image */}
-                  <div className="aspect-[16/10] relative">
-                    <Image
-                      src="/images/w1.png"
-                      alt="Her Voice, Her Power - Leadership"
-                      fill
-                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-yellow-900 via-yellow-900/50 to-transparent group-hover:from-yellow-900 group-hover:via-yellow-900/80 transition-all duration-700" />
-                  </div>
-
-                  {/* Number Badge */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl bg-gray-900 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
-                    03
-                  </div>
-
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
-                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">📢</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      Her Voice,<br />Her Power
-                    </h3>
-
-                    {/* Description - Hidden by default, slides up on hover */}
-                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
-                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        Leadership, Voice and Agency - strengthening deaf women&apos;s participation in decision-making.
-                      </p>
-
-                      {/* Features List */}
-                      <ul className="space-y-2 mb-6">
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Feminist Leadership Institutes</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Deaf Women Leaders Forum</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Advocacy & media campaigns</span>
-                        </li>
-                      </ul>
-
-                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400 text-white">
-                        Learn More →
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            {/* Program 4: Her Environment - Climate Resilience */}
-            <div
-              ref={program4.ref}
-              className={`group scroll-animate-scale delay-500 ${program4.isVisible ? 'visible' : ''}`}>
-              <Link href="/activities/18" className="block">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-700 hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:scale-[1.02]">
-
-                  {/* Glowing border effect on hover */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(45deg, #2563EB, #FACC15, #2563EB)',
-                      padding: '3px',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude'
-                    }}
-                  />
-
-                  {/* Image */}
-                  <div className="aspect-[16/10] relative">
-                    <Image
-                      src="/images/image4.png"
-                      alt="Her Environment - Climate Adaptation"
-                      fill
-                      className="object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent group-hover:from-black group-hover:via-black/80 transition-all duration-700" />
-                  </div>
-
-                  {/* Number Badge */}
-                  <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12"
-                    style={{ backgroundColor: '#2563EB' }}>
-                    04
-                  </div>
-
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-all duration-700 group-hover:-translate-y-4">
-                    <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">🌍</div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-white mb-3 leading-tight transition-all duration-500 group-hover:text-5xl">
-                      Her<br />Environment
-                    </h3>
-
-                    {/* Description - Hidden by default, slides up on hover */}
-                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-96 group-hover:opacity-100 transition-all duration-700">
-                      <p className="text-white/90 text-lg mb-4 leading-relaxed">
-                        Climate Adaptation and Resilience - equipping deaf women for environmental challenges.
-                      </p>
-
-                      {/* Features List */}
-                      <ul className="space-y-2 mb-6">
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Climate-smart agriculture training</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Accessible climate information in RSL</span>
-                        </li>
-                        <li className="flex items-start gap-2 text-white/80 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                          <span style={{ color: '#FACC15' }}>●</span>
-                          <span>Climate justice advocacy</span>
-                        </li>
-                      </ul>
-
-                      <div className="flex items-center gap-2 text-base font-bold transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-400"
-                        style={{ color: '#FACC15' }}>
-                        Learn More →
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-
+              );
+            })}
           </div>
         </div>
       </section>
@@ -397,16 +219,14 @@ export default function ActivitiesPage() {
           {/* Section Header */}
           <div className="mb-16">
             <div
-              ref={impactLabel.ref}
-              className={`flex items-center gap-4 mb-6 scroll-animate delay-100 ${impactLabel.isVisible ? 'visible' : ''}`}>
+              className="flex items-center gap-4 mb-6">
               <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
               <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Our Impact</span>
               <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
             </div>
 
             <h2
-              ref={impactTitle.ref}
-              className={`text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.9] text-gray-900 scroll-animate delay-200 ${impactTitle.isVisible ? 'visible' : ''}`}>
+              className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.9] text-gray-900">
               Making a<br />
               <span className="relative inline-block">
                 <span className="relative z-10" style={{ color: '#2563EB' }}>Difference</span>
@@ -420,8 +240,7 @@ export default function ActivitiesPage() {
 
             {/* Large Hero Stat - Spans 4 columns */}
             <div
-              ref={impact1.ref}
-              className={`md:col-span-4 relative overflow-hidden rounded-3xl p-12 lg:p-16 min-h-[400px] flex flex-col justify-between scroll-animate-left delay-300 ${impact1.isVisible ? 'visible' : ''}`}
+              className="md:col-span-4 relative overflow-hidden rounded-3xl p-12 lg:p-16 min-h-[400px] flex flex-col justify-between"
               style={{
                 background: 'linear-gradient(135deg, #FACC15 0%, #F59E0B 100%)',
                 boxShadow: '0 25px 50px -12px rgba(250, 204, 21, 0.25)'
@@ -459,8 +278,7 @@ export default function ActivitiesPage() {
 
             {/* Vertical Stat - Spans 2 columns, 2 rows */}
             <div
-              ref={impact2.ref}
-              className={`md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl p-10 min-h-[400px] flex flex-col justify-between scroll-animate-right delay-400 ${impact2.isVisible ? 'visible' : ''}`}
+              className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl p-10 min-h-[400px] flex flex-col justify-between"
               style={{
                 background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
                 boxShadow: '0 25px 50px -12px rgba(37, 99, 235, 0.25)'
@@ -495,8 +313,7 @@ export default function ActivitiesPage() {
 
             {/* Wide Stat - Spans 4 columns */}
             <div
-              ref={impact3.ref}
-              className={`md:col-span-4 relative overflow-hidden rounded-3xl p-10 lg:p-12 min-h-[300px] flex items-center scroll-animate-left delay-500 ${impact3.isVisible ? 'visible' : ''}`}
+              className="md:col-span-4 relative overflow-hidden rounded-3xl p-10 lg:p-12 min-h-[300px] flex items-center"
               style={{ backgroundColor: '#1F2937' }}>
 
               {/* Decorative gradient */}
@@ -540,8 +357,7 @@ export default function ActivitiesPage() {
 
       {/* CTA SECTION */}
       <section
-        ref={ctaSection.ref}
-        className={`py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 scroll-animate delay-100 ${ctaSection.isVisible ? 'visible' : ''}`}>
+        className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white mb-6">

@@ -1,11 +1,166 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
+interface Activity {
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  image: string;
+  icon: string;
+  features: string[];
+  published: boolean;
+  order: number;
+}
+
+interface Testimonial {
+  _id: string;
+  quote: string;
+  author: string;
+  role: string;
+  image: string;
+  sortOrder: number;
+  published: boolean;
+}
+
+interface Partner {
+  _id: string;
+  name: string;
+  category: string;
+  color: string;
+  logo: string;
+  website: string;
+  sortOrder: number;
+  published: boolean;
+}
+
+// Default video ID fallback
+const DEFAULT_VIDEO_ID = 'SFhndjv-PfY';
+
+// Helper to extract YouTube video ID from URL
+function extractYouTubeId(url: string): string | null {
+  if (!url) return null;
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\s?]+)/,
+    /^([a-zA-Z0-9_-]{11})$/
+  ];
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
+}
+
 export default function Home() {
+  // Programs/Activities from database
+  const [activities, setActivities] = useState<Activity[]>([]);
+  const [activitiesLoading, setActivitiesLoading] = useState(true);
+
+  // Testimonials from database
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [testimonialsLoading, setTestimonialsLoading] = useState(true);
+
+  // Partners from database
+  const [partners, setPartners] = useState<Partner[]>([]);
+  const [partnersLoading, setPartnersLoading] = useState(true);
+
+  // Hero video from database
+  const [heroVideoId, setHeroVideoId] = useState<string>(DEFAULT_VIDEO_ID);
+
+  // Fetch hero video URL on mount
+  useEffect(() => {
+    async function fetchHeroVideo() {
+      try {
+        const res = await fetch('/api/public/settings?key=hero_video_url');
+        const data = await res.json();
+        if (data.success && data.data?.value) {
+          const videoId = extractYouTubeId(data.data.value);
+          if (videoId) {
+            setHeroVideoId(videoId);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching hero video:', error);
+      }
+    }
+    fetchHeroVideo();
+  }, []);
+
+  // Fetch activities on mount
+  useEffect(() => {
+    async function fetchActivities() {
+      try {
+        const res = await fetch('/api/admin/activities');
+        const data = await res.json();
+        if (data.success && data.data) {
+          // Filter published and sort by order
+          const sorted = data.data
+            .filter((a: Activity) => a.published !== false)
+            .sort((a: Activity, b: Activity) => {
+              if (a.order !== undefined && b.order !== undefined) {
+                return a.order - b.order;
+              }
+              return a.title.localeCompare(b.title);
+            })
+            .slice(0, 4); // Only take first 4 programs
+          setActivities(sorted);
+        }
+      } catch (error) {
+        console.error('Error fetching activities:', error);
+      } finally {
+        setActivitiesLoading(false);
+      }
+    }
+    fetchActivities();
+  }, []);
+
+  // Fetch testimonials on mount
+  useEffect(() => {
+    async function fetchTestimonials() {
+      try {
+        const res = await fetch('/api/public/testimonials');
+        const data = await res.json();
+        if (data.success && data.data) {
+          // Sort by sortOrder and take first 3
+          const sorted = data.data
+            .sort((a: Testimonial, b: Testimonial) => (a.sortOrder || 0) - (b.sortOrder || 0))
+            .slice(0, 3);
+          setTestimonials(sorted);
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      } finally {
+        setTestimonialsLoading(false);
+      }
+    }
+    fetchTestimonials();
+  }, []);
+
+  // Fetch partners on mount
+  useEffect(() => {
+    async function fetchPartners() {
+      try {
+        const res = await fetch('/api/admin/partners');
+        const data = await res.json();
+        if (data.success && data.data) {
+          const sorted = data.data
+            .filter((p: Partner) => p.published !== false)
+            .sort((a: Partner, b: Partner) => (a.sortOrder || 0) - (b.sortOrder || 0));
+          setPartners(sorted);
+        }
+      } catch (error) {
+        console.error('Error fetching partners:', error);
+      } finally {
+        setPartnersLoading(false);
+      }
+    }
+    fetchPartners();
+  }, []);
+
   // Mouse tracking state for center hub animation
   const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = React.useState(false);
@@ -98,7 +253,7 @@ export default function Home() {
           <iframe
             className="absolute inset-0 w-full h-full"
             style={{ width: '100vw', height: '100vh', objectFit: 'cover', pointerEvents: 'none' }}
-            src="https://www.youtube.com/embed/SFhndjv-PfY?autoplay=1&mute=1&loop=1&playlist=SFhndjv-PfY&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+            src={`https://www.youtube.com/embed/${heroVideoId}?autoplay=1&mute=1&loop=1&playlist=${heroVideoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`}
             title="RNADW Background Video"
             allow="autoplay; encrypted-media"
             allowFullScreen
@@ -729,185 +884,117 @@ export default function Home() {
                       color: isHovering ? '#2563EB' : '#FACC15',
                       transform: isHovering ? 'scale(1.1)' : 'scale(1)'
                     }}>
-                    04
+                    {String(activities.length).padStart(2, '0')}
                   </div>
                   <div className="text-sm font-bold text-gray-400 tracking-wider mt-2">PROGRAMS</div>
                 </div>
               </div>
             </div>
 
-            {/* Program 1 - My Body, My Rights (Top) */}
-            <Link href="/activities/20"
-              className="group absolute top-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80">
-              <div
-                ref={programCard1.ref}
-                className={`relative scroll-animate delay-200 ${programCard1.isVisible ? 'visible' : ''}`}>
-                {/* Connection line */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-32 lg:h-48"
-                  style={{ background: 'linear-gradient(to bottom, #FACC15, transparent)' }} />
+            {/* Loading state */}
+            {activitiesLoading && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
 
-                {/* Card with micro-interactions */}
-                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src="/images/w2.png"
-                      alt="My Body, My Rights - SRHR"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                  </div>
+            {/* Dynamic Program Cards - Positioned around the circle */}
+            {!activitiesLoading && activities.map((activity, index) => {
+              // Position configurations for up to 4 cards around the center
+              const positions = [
+                { // Top
+                  className: 'absolute top-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80',
+                  lineClass: 'absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-32 lg:h-48',
+                  lineStyle: { background: 'linear-gradient(to bottom, #FACC15, transparent)' },
+                  cardHover: 'group-hover:-translate-y-2',
+                  gradientClass: 'bg-gradient-to-t from-black via-black/50 to-transparent',
+                  badgeColor: '#FACC15',
+                  badgeTextColor: 'black',
+                  exploreColor: '#FACC15'
+                },
+                { // Right
+                  className: 'absolute top-1/2 right-0 transform -translate-y-1/2 w-72 lg:w-80',
+                  lineClass: 'absolute top-1/2 right-full transform -translate-y-1/2 h-0.5 w-32 lg:w-48',
+                  lineStyle: { background: 'linear-gradient(to left, #2563EB, transparent)' },
+                  cardHover: 'group-hover:translate-x-2',
+                  gradientClass: 'bg-gradient-to-t from-blue-900 via-blue-900/50 to-transparent',
+                  badgeColor: '#FACC15',
+                  badgeTextColor: 'black',
+                  exploreColor: '#FACC15'
+                },
+                { // Bottom
+                  className: 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80',
+                  lineClass: 'absolute bottom-full left-1/2 transform -translate-x-1/2 w-0.5 h-32 lg:h-48',
+                  lineStyle: { background: 'linear-gradient(to top, #FACC15, transparent)' },
+                  cardHover: 'group-hover:translate-y-2',
+                  gradientClass: 'bg-gradient-to-t from-yellow-900 via-yellow-900/50 to-transparent',
+                  badgeColor: '#1F2937',
+                  badgeTextColor: 'white',
+                  exploreColor: 'white'
+                },
+                { // Left
+                  className: 'absolute top-1/2 left-0 transform -translate-y-1/2 w-72 lg:w-80',
+                  lineClass: 'absolute top-1/2 left-full transform -translate-y-1/2 h-0.5 w-32 lg:w-48',
+                  lineStyle: { background: 'linear-gradient(to right, #2563EB, transparent)' },
+                  cardHover: 'group-hover:-translate-x-2',
+                  gradientClass: 'bg-gradient-to-t from-black via-black/50 to-transparent',
+                  badgeColor: '#2563EB',
+                  badgeTextColor: 'white',
+                  exploreColor: '#2563EB'
+                }
+              ];
+              
+              const pos = positions[index % 4];
 
-                  {/* Number badge */}
-                  <div className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center text-black font-black text-lg"
-                    style={{ backgroundColor: '#FACC15' }}>
-                    01
-                  </div>
+              return (
+                <Link 
+                  key={activity._id}
+                  href={`/activities/${activity._id}`}
+                  className={`group ${pos.className}`}>
+                  <div className="relative">
+                    {/* Connection line */}
+                    <div className={pos.lineClass} style={pos.lineStyle} />
 
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">🏥</div>
-                    <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      My Body, My Rights
-                    </h3>
-                    <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Sexual and Reproductive Health and Rights (SRHR) and GBV prevention
-                    </p>
-                    <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
-                      style={{ color: '#FACC15' }}>
-                      Explore →
+                    {/* Card with micro-interactions */}
+                    <div className={`hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 ${pos.cardHover}`}>
+                      <div className="aspect-[4/3] relative">
+                        <Image
+                          src={activity.image || '/images/image1.png'}
+                          alt={activity.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className={`absolute inset-0 ${pos.gradientClass}`} />
+                      </div>
+
+                      {/* Number badge */}
+                      <div 
+                        className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center font-black text-lg"
+                        style={{ backgroundColor: pos.badgeColor, color: pos.badgeTextColor }}>
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <div className="text-3xl mb-2">{activity.icon || '📋'}</div>
+                        <h3 className="text-2xl font-black text-white mb-2 leading-tight">
+                          {activity.title.split(' ').slice(0, 3).join(' ')}
+                          {activity.title.split(' ').length > 3 && <><br />{activity.title.split(' ').slice(3).join(' ')}</>}
+                        </h3>
+                        <p className="text-white/80 text-sm mb-3 line-clamp-2">
+                          {activity.description}
+                        </p>
+                        <div 
+                          className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
+                          style={{ color: pos.exploreColor }}>
+                          Explore →
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Program 2 - Spear N' Shield (Right) */}
-            <Link href="/activities/21"
-              className="group absolute top-1/2 right-0 transform -translate-y-1/2 w-72 lg:w-80">
-              <div
-                ref={programCard2.ref}
-                className={`relative scroll-animate-right delay-400 ${programCard2.isVisible ? 'visible' : ''}`}>
-                {/* Connection line */}
-                <div className="absolute top-1/2 right-full transform -translate-y-1/2 h-0.5 w-32 lg:w-48"
-                  style={{ background: 'linear-gradient(to left, #2563EB, transparent)' }} />
-
-                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-x-2">
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src="/images/0U9A5473.JPG"
-                      alt="Spear N' Shield - Education & Skills"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/50 to-transparent" />
-                  </div>
-
-                  <div className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center text-black font-black text-lg"
-                    style={{ backgroundColor: '#FACC15' }}>
-                    02
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">📚</div>
-                    <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      Spear N&apos; Shield
-                    </h3>
-                    <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Education, Skilling, Digitalization & the Umucyo Sign Language App
-                    </p>
-                    <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
-                      style={{ color: '#FACC15' }}>
-                      Explore →
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Program 3 - Her Voice, Her Power (Bottom) */}
-            <Link href="/activities/19"
-              className="group absolute bottom-0 left-1/2 transform -translate-x-1/2 w-72 lg:w-80">
-              <div
-                ref={programCard3.ref}
-                className={`relative scroll-animate delay-600 ${programCard3.isVisible ? 'visible' : ''}`}>
-                {/* Connection line */}
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0.5 h-32 lg:h-48"
-                  style={{ background: 'linear-gradient(to top, #FACC15, transparent)' }} />
-
-                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:translate-y-2">
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src="/images/w1.png"
-                      alt="Her Voice, Her Power"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-yellow-900 via-yellow-900/50 to-transparent" />
-                  </div>
-
-                  <div className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-lg bg-gray-900">
-                    03
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">📢</div>
-                    <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      Her Voice, Her Power
-                    </h3>
-                    <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Feminist Leadership, Deaf Women Leaders Forum & Advocacy
-                    </p>
-                    <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all text-white">
-                      Explore →
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Program 4 - Her Environment (Left) */}
-            <Link href="/activities/18"
-              className="group absolute top-1/2 left-0 transform -translate-y-1/2 w-72 lg:w-80">
-              <div
-                ref={programCard4.ref}
-                className={`relative scroll-animate-left delay-800 ${programCard4.isVisible ? 'visible' : ''}`}>
-                {/* Connection line */}
-                <div className="absolute top-1/2 left-full transform -translate-y-1/2 h-0.5 w-32 lg:w-48"
-                  style={{ background: 'linear-gradient(to right, #2563EB, transparent)' }} />
-
-                <div className="hover-lift card-tilt relative rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-x-2">
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src="/images/0U9A5516.JPG"
-                      alt="Her Environment - Climate Adaptation"
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                  </div>
-
-                  <div className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-lg"
-                    style={{ backgroundColor: '#2563EB' }}>
-                    04
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-3xl mb-2">🌍</div>
-                    <h3 className="text-2xl font-black text-white mb-2 leading-tight">
-                      Her Environment
-                    </h3>
-                    <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                      Climate-smart agriculture & accessible climate information in RSL
-                    </p>
-                    <div className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all"
-                      style={{ color: '#2563EB' }}>
-                      Explore →
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+                </Link>
+              );
+            })}
 
           </div>
 
@@ -970,83 +1057,100 @@ export default function Home() {
           {/* Masonry/Bento Grid Layout */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 mb-16">
 
-            {[
-              { name: 'RIB', area: 'Law Enforcement', color: '#2563EB', span: '', ref: partnerCard1, delay: 'delay-100' },
-              { name: 'UNHCR', area: 'Humanitarian Aid', color: '#FACC15', span: '', ref: partnerCard2, delay: 'delay-200' },
-              { name: 'Ministry of Youth', area: 'Youth Programs', color: '#FACC15', span: 'lg:col-span-2', ref: partnerCard3, delay: 'delay-300' },
-              { name: 'German Embassy', area: 'Development', color: '#2563EB', span: '', ref: partnerCard4, delay: 'delay-400' },
-              { name: 'KVINNA', area: 'Equality', color: '#2563EB', span: '', ref: partnerCard5, delay: 'delay-500' },
-              { name: 'NUDOR', area: 'Disability Rights', color: '#FACC15', span: 'lg:col-span-2', ref: partnerCard6, delay: 'delay-600' },
-              { name: 'Sweden Embassy', area: 'International Aid', color: '#2563EB', span: '', ref: partnerCard7, delay: 'delay-100' },
-            ].map((partner, i) => (
-              <div
-                key={i}
-                ref={partner.ref.ref}
-                className={`group relative ${partner.span} min-h-[180px] scroll-animate ${partner.delay} ${partner.ref.isVisible ? 'visible' : ''}`}
-                style={{ perspective: '1000px' }}
-              >
-                {/* Flip card container */}
-                <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180"
-                  style={{ transformStyle: 'preserve-3d' }}>
+            {/* Loading state */}
+            {partnersLoading && (
+              <div className="col-span-full flex items-center justify-center py-16">
+                <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
 
-                  {/* Front side */}
-                  <div className="absolute inset-0 rounded-2xl p-6 lg:p-8 flex flex-col justify-between border-3 transition-all"
-                    style={{
-                      borderColor: partner.color,
-                      backgroundColor: 'white',
-                      backfaceVisibility: 'hidden'
-                    }}>
+            {/* Dynamic Partners */}
+            {!partnersLoading && partners.length > 0 && partners.map((partner, i) => {
+              const delays = ['delay-100', 'delay-200', 'delay-300', 'delay-400', 'delay-500', 'delay-600', 'delay-100'];
+              const spans = ['', '', 'lg:col-span-2', '', '', 'lg:col-span-2', ''];
+              const currentDelay = delays[i % delays.length];
+              const currentSpan = spans[i % spans.length];
+              const partnerColor = partner.color || (i % 2 === 0 ? '#2563EB' : '#FACC15');
+              
+              return (
+                <div
+                  key={partner._id}
+                  className={`group relative ${currentSpan} min-h-[180px] scroll-animate ${currentDelay} visible`}
+                  style={{ 
+                    perspective: '1000px',
+                    animation: `fadeSlideUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${(i + 1) * 0.1}s both`
+                  }}
+                >
+                  {/* Flip card container */}
+                  <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180"
+                    style={{ transformStyle: 'preserve-3d' }}>
 
-                    {/* Number badge */}
-                    <div className="flex justify-between items-start">
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-lg"
-                        style={{ backgroundColor: partner.color }}>
-                        {String(i + 1).padStart(2, '0')}
+                    {/* Front side */}
+                    <div className="absolute inset-0 rounded-2xl p-6 lg:p-8 flex flex-col justify-between border-3 transition-all"
+                      style={{
+                        borderColor: partnerColor,
+                        backgroundColor: 'white',
+                        backfaceVisibility: 'hidden'
+                      }}>
+
+                      {/* Number badge */}
+                      <div className="flex justify-between items-start">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-lg"
+                          style={{ backgroundColor: partnerColor }}>
+                          {String(i + 1).padStart(2, '0')}
+                        </div>
+
+                        {/* Handshake icon */}
+                        <svg className="w-8 h-8 opacity-20" style={{ color: partnerColor }} fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
                       </div>
 
-                      {/* Handshake icon */}
-                      <svg className="w-8 h-8 opacity-20" style={{ color: partner.color }} fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                      </svg>
+                      {/* Partner name */}
+                      <div>
+                        <h3 className="text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
+                          {partner.name}
+                        </h3>
+                        <div className="h-1 w-12 rounded-full mb-2" style={{ backgroundColor: partnerColor }} />
+                        <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                          Partnership
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Partner name */}
-                    <div>
-                      <h3 className="text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
-                        {partner.name}
-                      </h3>
-                      <div className="h-1 w-12 rounded-full mb-2" style={{ backgroundColor: partner.color }} />
-                      <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
-                        Partnership
+                    {/* Back side */}
+                    <div className="absolute inset-0 rounded-2xl p-6 lg:p-8 flex flex-col justify-center items-center text-center"
+                      style={{
+                        backgroundColor: partnerColor,
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)'
+                      }}>
+                      <p className="text-white font-bold text-lg mb-3">
+                        {partner.category}
                       </p>
+                      <p className="text-white/80 text-sm leading-relaxed">
+                        Collaborating to empower deaf women through sustainable programs
+                      </p>
+
+                      {/* Checkmark icon */}
+                      <div className="mt-6 w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
                     </div>
+
                   </div>
-
-                  {/* Back side */}
-                  <div className="absolute inset-0 rounded-2xl p-6 lg:p-8 flex flex-col justify-center items-center text-center"
-                    style={{
-                      backgroundColor: partner.color,
-                      backfaceVisibility: 'hidden',
-                      transform: 'rotateY(180deg)'
-                    }}>
-                    <p className="text-white font-bold text-lg mb-3">
-                      {partner.area}
-                    </p>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      Collaborating since 2010 to empower deaf women through sustainable programs
-                    </p>
-
-                    {/* Checkmark icon */}
-                    <div className="mt-6 w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                  </div>
-
                 </div>
+              );
+            })}
+
+            {/* Fallback if no partners */}
+            {!partnersLoading && partners.length === 0 && (
+              <div className="col-span-full text-center py-16">
+                <p className="text-gray-500">Partners coming soon...</p>
               </div>
-            ))}
+            )}
 
           </div>
 
@@ -1103,12 +1207,70 @@ export default function Home() {
           {/* Testimonials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            {[
+            {/* Loading state */}
+            {testimonialsLoading && (
+              <div className="col-span-full flex items-center justify-center py-16">
+                <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+
+            {/* Dynamic Testimonials with CSS-only animations */}
+            {!testimonialsLoading && testimonials.length > 0 && testimonials.map((testimonialItem, i) => {
+              const delays = ['delay-100', 'delay-300', 'delay-500'];
+              const currentDelay = delays[i] || delays[0];
+              
+              return (
+                <div
+                  key={testimonialItem._id}
+                  className={`group relative scroll-animate ${currentDelay} visible`}
+                  style={{ 
+                    animation: `fadeSlideUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${(i + 1) * 0.2}s both`
+                  }}>
+                  {/* Card */}
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-white/10 hover:border-yellow-400/40 transition-all duration-500 hover:-translate-y-2 min-h-[400px] flex flex-col">
+
+                    {/* Quote mark */}
+                    <div className="text-7xl font-black mb-6 leading-none" style={{ color: '#FACC15' }}>"</div>
+
+                    {/* Quote text */}
+                    <p className="text-white/90 text-lg leading-relaxed mb-8 flex-1">
+                      {testimonialItem.quote}
+                    </p>
+
+                    {/* Author */}
+                    <div className="flex items-center gap-4 pt-6 border-t-2 border-white/10">
+                      <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                        <Image
+                          src={testimonialItem.image || '/images/0U9A5550.JPG'}
+                          alt={testimonialItem.author}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="text-white font-black text-lg">{testimonialItem.author}</div>
+                        <div className="text-gray-400 text-sm">{testimonialItem.role}</div>
+                      </div>
+                    </div>
+
+                    {/* Decorative corner */}
+                    <div className="absolute top-0 right-0 w-20 h-20 opacity-20"
+                      style={{
+                        background: 'linear-gradient(135deg, #FACC15 0%, transparent 100%)',
+                        borderRadius: '0 24px 0 0'
+                      }} />
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Fallback if no testimonials from database */}
+            {!testimonialsLoading && testimonials.length === 0 && [
               {
                 quote: "RNADW gave me the confidence to pursue my dreams. Today, I'm a business owner employing 5 people.",
                 name: "Marie K.",
                 role: "Entrepreneur",
-                image: "https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg",
+                image: "/images/0U9A5550.JPG",
                 ref: testimonial1,
                 delay: 'delay-100'
               },
@@ -1116,7 +1278,7 @@ export default function Home() {
                 quote: "The skills training program changed my life. I can now support my family and inspire my daughters.",
                 name: "Grace M.",
                 role: "Program Graduate",
-                image: "https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-main_2-1754996414270-440707368.jpg",
+                image: "/images/0U9A5432.JPG",
                 ref: testimonial2,
                 delay: 'delay-300'
               },
@@ -1124,7 +1286,7 @@ export default function Home() {
                 quote: "Being part of this community showed me I'm not alone. Together we're creating real change.",
                 name: "Sarah N.",
                 role: "Community Leader",
-                image: "https://bkend.rnadw.org.rw/uploads/blog-images/featuredImage-bfhbasd-1754997148545-88502087.jpg",
+                image: "/images/0U9A5473.JPG",
                 ref: testimonial3,
                 delay: 'delay-500'
               }

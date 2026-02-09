@@ -98,8 +98,7 @@ export default function ContactPage() {
               {/* Content */}
               <h3 className="text-xl font-black text-gray-900 mb-3">Visit Us</h3>
               <p className="text-gray-600 leading-relaxed">
-                KG 125 ST, 304, Ikaro Plaza<br />
-                Nyarugunga, Kicukiro, Kigali
+                KK 78 St, Kanombe
               </p>
             </div>
 
@@ -172,22 +171,21 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* MAP SECTION - Street View */}
+      {/* MAP SECTION */}
       <section
         ref={mapSection.ref}
         className={`relative h-[500px] bg-gray-200 scroll-animate delay-100 ${mapSection.isVisible ? 'visible' : ''}`}>
 
-        {/* Google Street View Embed for KG 11 Ave, Kigali, Rwanda */}
-        {/* Coordinates: -1.946528, 30.128222 */}
+        {/* Google Street View Embed for KK 78 St, Kanombe, Kigali, Rwanda */}
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v1732451234567!6m8!1m7!1sCAoSLEFGMVFpcE5VeEhQaXdNWUJiMlBmQnNGdGxuUjZHVThHb0o5cWFsQXhOa2Rm!2m2!1d-1.946528!2d30.128222!3f0!4f0!5f0.7820865974627469"
+          src="https://www.google.com/maps/embed?pb=!4v1770625117591!6m8!1m7!1sjHi_4764WJTesKIY6M_H5A!2m2!1d-1.970939980612279!2d30.1634413769454!3f160.69353953716023!4f2.9396122207625695!5f0.7820865974627469"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="RNADW Office Street View - KG 11 Ave, Kigali, Rwanda"
+          title="RNADW Office Street View - KK 78 St, Kanombe, Kigali, Rwanda"
         />
       </section>
 
