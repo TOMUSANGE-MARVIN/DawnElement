@@ -494,10 +494,11 @@ export default function AdminPanel() {
       }
     });
 
+    // Handle all uploaded images - this includes both new uploads and existing ones
+    // The value can be a URL (uploaded/existing) or empty string (removed)
     Object.keys(uploadedImages).forEach((key) => {
-      if (uploadedImages[key]) {
-        body[key] = uploadedImages[key];
-      }
+      // Always include the field - even empty string means image was removed
+      body[key] = uploadedImages[key];
     });
 
     Object.keys(uploadedDocs).forEach((key) => {
@@ -590,9 +591,12 @@ export default function AdminPanel() {
     setShowForm(true);
     if (item) {
       const imageFields: Record<string, string> = {};
-      ['image', 'src', 'logo'].forEach(field => {
-        if (item[field] && typeof item[field] === 'string') {
-          imageFields[field] = item[field] as string;
+      // Only initialize image fields that exist on the item or are common image field names
+      const possibleImageFields = ['image', 'src', 'logo', 'photo'];
+      possibleImageFields.forEach(field => {
+        // Only add the field if it exists on the item (even if empty)
+        if (field in item) {
+          imageFields[field] = (item[field] as string) || '';
         }
       });
       setUploadedImages(imageFields);
@@ -1153,14 +1157,12 @@ export default function AdminPanel() {
             {activeTab !== 'dashboard' && activeTab !== 'settings' && activeTab !== 'site-settings' && (
               <>
                 <div className="relative">
-                  <Icons.Search />
                   <input
                     type="text"
                     placeholder="Search..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10 pr-4 py-2.5 rounded-xl border-2 border-slate-200 focus:border-yellow-400 focus:outline-none w-64 text-sm"
-                    style={{ paddingLeft: '2.5rem' }}
                   />
                   <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
                     <Icons.Search />
