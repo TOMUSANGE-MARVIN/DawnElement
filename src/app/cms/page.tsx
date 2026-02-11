@@ -1,6 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+
+const RichTextEditor = dynamic(() => import('@/components/editor/RichTextEditor'), { ssr: false });
 
 type Tab = 'overview' | 'blogs' | 'videos' | 'gallery';
 
@@ -55,6 +58,7 @@ export default function AdminPage() {
   const [showModal, setShowModal] = useState(false);
   const [editingItem, setEditingItem] = useState<any>(null);
   const [modalType, setModalType] = useState<'blog' | 'video' | 'gallery'>('blog');
+  const [blogContent, setBlogContent] = useState('');
 
   useEffect(() => {
     loadStats();
@@ -98,6 +102,9 @@ export default function AdminPage() {
   function openModal(type: 'blog' | 'video' | 'gallery', item?: any) {
     setModalType(type);
     setEditingItem(item || null);
+    if (type === 'blog') {
+      setBlogContent(item?.content || '');
+    }
     setShowModal(true);
   }
 
@@ -119,6 +126,9 @@ export default function AdminPage() {
       data[key] = value;
     });
     data.published = (form.querySelector('[name="published"]') as HTMLInputElement)?.checked ?? true;
+    if (modalType === 'blog') {
+      data.content = blogContent;
+    }
 
     const endpoint = modalType === 'blog' ? 'blogs' : modalType === 'video' ? 'videos' : 'gallery';
     const method = editingItem ? 'PUT' : 'POST';
@@ -291,7 +301,7 @@ export default function AdminPage() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+          <div className={`bg-white rounded-2xl w-full max-h-[90vh] overflow-y-auto ${modalType === 'blog' ? 'max-w-4xl' : 'max-w-lg'}`}>
             <div className="p-4 border-b flex justify-between items-center">
               <h2 className="font-bold text-gray-800">
                 {editingItem ? 'Edit' : 'Add'} {modalType === 'blog' ? 'Blog Post' : modalType === 'video' ? 'Video' : 'Image'}
@@ -303,7 +313,14 @@ export default function AdminPage() {
                 <>
                   <Input label="Title" name="title" defaultValue={editingItem?.title} required />
                   <Input label="Excerpt" name="excerpt" defaultValue={editingItem?.excerpt} />
-                  <Textarea label="Content (HTML)" name="content" defaultValue={editingItem?.content} rows={6} />
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Content</label>
+                    <RichTextEditor
+                      content={editingItem?.content || ''}
+                      onChange={(html) => setBlogContent(html)}
+                      placeholder="Write your blog post here..."
+                    />
+                  </div>
                   <div className="grid grid-cols-2 gap-4">
                     <Input label="Author" name="author" defaultValue={editingItem?.author || 'RNADW Team'} />
                     <Input label="Date" name="date" defaultValue={editingItem?.date} placeholder="Jan 2025" />

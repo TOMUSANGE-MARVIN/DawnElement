@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+const RichTextEditor = dynamic(() => import('@/components/editor/RichTextEditor'), { ssr: false });
 
 // CMS Admin Panel - Redesigned
 const API_BASE = '/api/admin';
@@ -416,6 +419,8 @@ export default function AdminPanel() {
   const [uploadedDocs, setUploadedDocs] = useState<Record<string, UploadedDocument>>({});
   const [uploading, setUploading] = useState<UploadingFile | null>(null);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [blogContent, setBlogContent] = useState('');
+  const [saving, setSaving] = useState(false);
   const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
   const docInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
@@ -483,6 +488,7 @@ export default function AdminPanel() {
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSaving(true);
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     const body: Record<string, unknown> = {};
@@ -493,6 +499,11 @@ export default function AdminPanel() {
         body[key] = value;
       }
     });
+
+    // Include rich text editor content for blogs
+    if (activeTab === 'blogs') {
+      body.content = blogContent;
+    }
 
     // Handle all uploaded images - this includes both new uploads and existing ones
     // The value can be a URL (uploaded/existing) or empty string (removed)
@@ -511,16 +522,16 @@ export default function AdminPanel() {
     });
 
     try {
-      const url = editItem?._id 
+      const url = editItem?._id
         ? `${API_BASE}/${activeTab}/${editItem._id}`
         : `${API_BASE}/${activeTab}`;
-      
+
       await fetch(url, {
         method: editItem?._id ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-      
+
       setShowForm(false);
       setEditItem(null);
       setUploadedImages({});
@@ -528,6 +539,8 @@ export default function AdminPanel() {
       loadData();
     } catch {
       alert('Failed to save');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -589,6 +602,7 @@ export default function AdminPanel() {
   const openForm = (item: ContentItem | null = null) => {
     setEditItem(item);
     setShowForm(true);
+    setBlogContent((item?.content as string) || '');
     if (item) {
       const imageFields: Record<string, string> = {};
       // Only initialize image fields that exist on the item or are common image field names
@@ -717,7 +731,7 @@ export default function AdminPanel() {
         return [
           { name: 'title', label: 'Title', type: 'text', required: true },
           { name: 'excerpt', label: 'Excerpt', type: 'textarea' },
-          { name: 'content', label: 'Content (HTML)', type: 'textarea', rows: 10 },
+          { name: 'content', label: 'Content', type: 'richtext' },
           { name: 'author', label: 'Author', type: 'text' },
           { name: 'category', label: 'Category', type: 'text' },
           { name: 'image', label: 'Image', type: 'file' },
@@ -1193,7 +1207,7 @@ export default function AdminPanel() {
               {/* Form Modal */}
               {showForm && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                  <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl">
+                  <div className={`bg-white rounded-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl ${activeTab === 'blogs' ? 'max-w-5xl' : 'max-w-2xl'}`}>
                     <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-slate-50 to-white">
                       <h3 className="text-xl font-bold text-slate-800">
                         {editItem ? 'Edit' : 'Add New'} {activeTab.slice(0, -1)}
@@ -1350,6 +1364,15 @@ export default function AdminPanel() {
                                 </div>
                               </div>
                             </>
+                          ) : field.type === 'richtext' ? (
+                            <>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{field.label}</label>
+                              <RichTextEditor
+                                content={(editItem?.[field.name] as string) || ''}
+                                onChange={(html) => setBlogContent(html)}
+                                placeholder="Write your blog post here..."
+                              />
+                            </>
                           ) : (
                             <>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{field.label}</label>
@@ -1379,9 +1402,17 @@ export default function AdminPanel() {
                       <div className="flex gap-3 pt-4 border-t border-slate-100">
                         <button
                           type="submit"
-                          className="flex-1 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-slate-900 font-bold rounded-xl transition-all"
+                          disabled={saving}
+                          className="flex-1 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-slate-900 font-bold rounded-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                         >
-                          {editItem ? 'Save Changes' : 'Create'}
+                          {saving ? (
+                            <>
+                              <div className="w-5 h-5 border-2 border-slate-900/30 border-t-slate-900 rounded-full animate-spin" />
+                              Saving...
+                            </>
+                          ) : (
+                            editItem ? 'Save Changes' : 'Create'
+                          )}
                         </button>
                         <button
                           type="button"
