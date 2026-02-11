@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 
 interface Resource {
   _id: string;
@@ -23,6 +23,45 @@ export default function ResourcesPage() {
   const [resources, setResources] = useState<Resource[]>([]);
   const [loading, setLoading] = useState(true);
   const [viewingResource, setViewingResource] = useState<Resource | null>(null);
+  const [docxLoading, setDocxLoading] = useState(false);
+  const docxContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!viewingResource) return;
+    const fileType = (viewingResource.fileType || 'PDF').toUpperCase();
+    if (fileType !== 'DOCX' && fileType !== 'DOC') return;
+
+    let cancelled = false;
+    setDocxLoading(true);
+
+    (async () => {
+      try {
+        const response = await fetch(viewingResource.downloadUrl);
+        const blob = await response.blob();
+        if (cancelled || !docxContainerRef.current) return;
+        const docxPreview = await import('docx-preview');
+        if (cancelled || !docxContainerRef.current) return;
+        docxContainerRef.current.innerHTML = '';
+        await docxPreview.renderAsync(blob, docxContainerRef.current, undefined, {
+          className: 'docx-preview',
+          inWrapper: true,
+          ignoreWidth: false,
+          ignoreHeight: false,
+          ignoreFonts: false,
+          breakPages: true,
+        });
+      } catch (error) {
+        console.error('DOCX preview failed:', error);
+        if (docxContainerRef.current && !cancelled) {
+          docxContainerRef.current.innerHTML = '<p style="text-align:center;padding:2rem;color:#666;">Failed to load document preview.</p>';
+        }
+      } finally {
+        if (!cancelled) setDocxLoading(false);
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, [viewingResource]);
 
   const handleDownload = useCallback(async (resource: Resource) => {
     try {
@@ -182,9 +221,21 @@ export default function ResourcesPage() {
                 </button>
               </div>
             </div>
-            <div className="flex-1 bg-gray-100">
+            <div className="flex-1 bg-gray-100 overflow-auto">
               {(viewingResource.fileType || 'PDF').toUpperCase() === 'PDF' ? (
                 <iframe src={viewingResource.downloadUrl} className="w-full h-full border-0" title={viewingResource.title} />
+              ) : ['DOCX', 'DOC'].includes((viewingResource.fileType || '').toUpperCase()) ? (
+                <div className="relative h-full">
+                  {docxLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                      <div className="text-center">
+                        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+                        <p className="text-gray-600 font-medium">Loading document preview...</p>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={docxContainerRef} className="h-full overflow-auto bg-white" />
+                </div>
               ) : (
                 <div className="flex flex-col items-center justify-center h-full gap-6 p-8 text-center">
                   <div className="text-7xl">{viewingResource.icon || '📄'}</div>
