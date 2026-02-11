@@ -184,11 +184,13 @@ export async function GET(
     }
 
     if (id) {
-      const item = await Model.findById(id);
+      const item = await Model.findById(id).lean();
       return NextResponse.json({ success: true, data: item });
     }
 
-    const items = await Model.find().sort({ createdAt: -1 });
+    // For list views, exclude heavy content field to speed up loading
+    const projection = collection === 'blogs' ? { content: 0 } : {};
+    const items = await Model.find({}, projection).sort({ createdAt: -1 }).lean();
     return NextResponse.json({ success: true, data: items });
   } catch (error) {
     console.error('GET error:', error);

@@ -6,7 +6,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   try {
     await connectDB();
     const { id } = await params;
-    const blog = await BlogPost.findById(id);
+    const blog = await BlogPost.findById(id).lean();
     if (!blog) {
       return NextResponse.json({ success: false, message: 'Not found' }, { status: 404 });
     }

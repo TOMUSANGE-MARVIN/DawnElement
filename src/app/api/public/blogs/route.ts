@@ -5,9 +5,10 @@ import { BlogPost } from '@/lib/models';
 export async function GET() {
   try {
     await connectDB();
-    const blogs = await BlogPost.find({ published: true })
+    const blogs = await BlogPost.find({ published: true }, { content: 0 })
       .sort({ createdAt: -1 })
-      .limit(10);
+      .limit(10)
+      .lean();
     
     return NextResponse.json({ success: true, data: blogs });
   } catch (error) {

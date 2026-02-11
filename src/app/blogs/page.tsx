@@ -42,7 +42,7 @@ export default function BlogsPage() {
   }, []);
 
   const featuredPost = blogPosts.find(post => post.featured);
-  const regularPosts = blogPosts.filter(post => !post.featured);
+  const regularPosts = blogPosts.filter(post => post._id !== featuredPost?._id);
 
   if (loading) {
     return (
