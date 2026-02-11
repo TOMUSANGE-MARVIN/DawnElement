@@ -122,6 +122,7 @@ const galleryImageSchema = new Schema<IGalleryImage>({
 // Partner
 export interface IPartner extends Document {
   name: string;
+  description: string;
   category: string;
   color: string;
   logo: string;
@@ -131,6 +132,7 @@ export interface IPartner extends Document {
 
 const partnerSchema = new Schema<IPartner>({
   name: { type: String, required: true },
+  description: String,
   category: String,
   color: { type: String, default: '#2563EB' },
   logo: String,

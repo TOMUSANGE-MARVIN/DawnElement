@@ -787,6 +787,7 @@ export default function AdminPanel() {
       case 'partners':
         return [
           { name: 'name', label: 'Name', type: 'text', required: true },
+          { name: 'description', label: 'Description', type: 'textarea', placeholder: 'Brief description of the partnership...' },
           { name: 'category', label: 'Category', type: 'text' },
           { name: 'logo', label: 'Logo', type: 'file' },
           { name: 'website', label: 'Website', type: 'text' },

@@ -262,7 +262,8 @@ export const teamMembers = [
 
 export const partners = [
   {
-    name: "RIB",
+    name: "Rwanda Investigation Bureau (RIB)",
+    description: "Ensures accessible Isange One-Stop Centre services for Deaf GBV survivors, including sign language interpretation.",
     category: "Law Enforcement",
     color: "#2563EB",
     logo: "",
@@ -271,6 +272,7 @@ export const partners = [
   },
   {
     name: "UNHCR",
+    description: "Supports advocacy, empowerment, and inclusion of refugee Deaf women and girls in humanitarian programs.",
     category: "Humanitarian Aid",
     color: "#FACC15",
     logo: "",
@@ -278,23 +280,8 @@ export const partners = [
     published: true
   },
   {
-    name: "Ministry of Youth",
-    category: "Government",
-    color: "#FACC15",
-    logo: "",
-    website: "",
-    published: true
-  },
-  {
-    name: "German Embassy",
-    category: "Development",
-    color: "#2563EB",
-    logo: "",
-    website: "",
-    published: true
-  },
-  {
-    name: "KVINNA",
+    name: "Kvinna till Kvinna Foundation",
+    description: "Funds SRHR training and leadership empowerment programs for Deaf women.",
     category: "Equality",
     color: "#2563EB",
     logo: "",
@@ -302,16 +289,54 @@ export const partners = [
     published: true
   },
   {
-    name: "NUDOR",
-    category: "Disability Rights",
+    name: "Embassy of Sweden in Kigali / Sida",
+    description: "Funds Rwandan Sign Language awareness, SRHR education, and inclusive advocacy for Deaf women and girls.",
+    category: "International Aid",
     color: "#FACC15",
     logo: "",
     website: "",
     published: true
   },
   {
-    name: "Sweden Embassy",
-    category: "International Aid",
+    name: "Urgent Action Fund-Africa",
+    description: "Provides rapid-response support for feminist human rights initiatives led by Deaf women and girls.",
+    category: "Feminist Action",
+    color: "#2563EB",
+    logo: "",
+    website: "",
+    published: true
+  },
+  {
+    name: "United Nations Human Rights (OHCHR)",
+    description: "Collaborates on rights-based programs for Deaf persons under the CRPD and international standards.",
+    category: "Human Rights",
+    color: "#FACC15",
+    logo: "",
+    website: "",
+    published: true
+  },
+  {
+    name: "CREA",
+    description: "Partners in the Women Gaining Ground consortium for global feminist initiatives and Deaf women's leadership.",
+    category: "Feminist Movement",
+    color: "#2563EB",
+    logo: "",
+    website: "",
+    published: true
+  },
+  {
+    name: "Embassy of Germany in Rwanda",
+    description: "Funds skills development and vocational training for economic empowerment of Deaf individuals.",
+    category: "Development",
+    color: "#FACC15",
+    logo: "",
+    website: "",
+    published: true
+  },
+  {
+    name: "Ministry of Youth and Arts",
+    description: "Supports leadership, inclusion, and participation of Deaf youth in cultural and community activities.",
+    category: "Government",
     color: "#2563EB",
     logo: "",
     website: "",

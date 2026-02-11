@@ -101,6 +101,7 @@ const TeamMemberSchema = new mongoose.Schema({
 
 const PartnerSchema = new mongoose.Schema({
   name: String,
+  description: String,
   category: String,
   color: String,
   logo: String,

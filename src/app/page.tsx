@@ -30,6 +30,7 @@ interface Testimonial {
 interface Partner {
   _id: string;
   name: string;
+  description: string;
   category: string;
   color: string;
   logo: string;
@@ -1129,15 +1130,15 @@ export default function Home() {
                         {partner.category}
                       </p>
                       <p className="text-white/80 text-sm leading-relaxed">
-                        Collaborating to empower deaf women through sustainable programs
+                        {partner.description || 'Collaborating to empower deaf women through sustainable programs'}
                       </p>
 
-                      {/* Checkmark icon */}
-                      <div className="mt-6 w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
+                      {partner.website && (
+                        <a href={partner.website} target="_blank" rel="noopener noreferrer"
+                          className="mt-4 px-4 py-2 bg-white/20 hover:bg-white/30 text-white text-sm font-bold rounded-lg transition-colors">
+                          Visit Website
+                        </a>
+                      )}
                     </div>
 
                   </div>
