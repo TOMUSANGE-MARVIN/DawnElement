@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 interface Resource {
   _id: string;
@@ -22,6 +22,26 @@ interface Resource {
 export default function ResourcesPage() {
   const [resources, setResources] = useState<Resource[]>([]);
   const [loading, setLoading] = useState(true);
+  const [viewingResource, setViewingResource] = useState<Resource | null>(null);
+
+  const handleDownload = useCallback(async (resource: Resource) => {
+    try {
+      const response = await fetch(resource.downloadUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const filename = resource.title.replace(/[^a-zA-Z0-9\s-]/g, '').trim() + '.' + (resource.fileType || 'pdf').toLowerCase();
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      window.open(resource.downloadUrl, '_blank');
+    }
+  }, []);
 
   useEffect(() => {
     async function fetchResources() {
@@ -111,19 +131,19 @@ export default function ResourcesPage() {
                       <div className="space-y-3">
                         {resource.downloadUrl && resource.downloadUrl !== '#' && (
                           <>
-                            <a href={resource.downloadUrl} target="_blank" rel="noopener noreferrer" className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105" style={{ backgroundColor: resource.categoryColor || '#2563EB', color: resource.categoryColor === '#FACC15' ? '#000' : '#fff' }}>
+                            <button onClick={() => setViewingResource(resource)} className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105 cursor-pointer" style={{ backgroundColor: resource.categoryColor || '#2563EB', color: resource.categoryColor === '#FACC15' ? '#000' : '#fff' }}>
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                               </svg>
                               View Document
-                            </a>
-                            <a href={resource.downloadUrl} download className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800">
+                            </button>
+                            <button onClick={() => handleDownload(resource)} className="w-full py-3 px-4 rounded-lg font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gray-900 text-white hover:bg-gray-800 cursor-pointer">
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                               </svg>
                               Download {resource.fileType || 'PDF'}
-                            </a>
+                            </button>
                           </>
                         )}
                       </div>
@@ -136,6 +156,54 @@ export default function ResourcesPage() {
           )}
         </div>
       </section>
+
+      {viewingResource && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={() => setViewingResource(null)}>
+          <div className="relative w-full h-full max-w-6xl max-h-[95vh] m-4 flex flex-col bg-white rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-6 py-4 border-b bg-gray-50">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="text-2xl flex-shrink-0">{viewingResource.icon || '📄'}</span>
+                <div className="min-w-0">
+                  <h3 className="font-black text-gray-900 truncate">{viewingResource.title}</h3>
+                  <p className="text-xs text-gray-500">{viewingResource.fileType || 'PDF'} &bull; {viewingResource.fileSize || 'N/A'}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <button onClick={() => handleDownload(viewingResource)} className="py-2 px-4 rounded-lg font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gray-900 text-white hover:bg-gray-800 cursor-pointer">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download
+                </button>
+                <button onClick={() => setViewingResource(null)} className="p-2 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer" aria-label="Close viewer">
+                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="flex-1 bg-gray-100">
+              {(viewingResource.fileType || 'PDF').toUpperCase() === 'PDF' ? (
+                <iframe src={viewingResource.downloadUrl} className="w-full h-full border-0" title={viewingResource.title} />
+              ) : (
+                <div className="flex flex-col items-center justify-center h-full gap-6 p-8 text-center">
+                  <div className="text-7xl">{viewingResource.icon || '📄'}</div>
+                  <div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Preview not available for {viewingResource.fileType} files</h4>
+                    <p className="text-gray-600 mb-6">Download the document to view its contents.</p>
+                    <button onClick={() => handleDownload(viewingResource)} className="py-3 px-6 rounded-lg font-bold text-sm transition-all duration-300 inline-flex items-center gap-2 text-white cursor-pointer" style={{ backgroundColor: viewingResource.categoryColor || '#2563EB' }}>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      Download {viewingResource.fileType || 'PDF'}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
