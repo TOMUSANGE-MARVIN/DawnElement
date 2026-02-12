@@ -176,16 +176,16 @@ export default function ContactPage() {
         ref={mapSection.ref}
         className={`relative h-[500px] bg-gray-200 scroll-animate delay-100 ${mapSection.isVisible ? 'visible' : ''}`}>
 
-        {/* Google Street View Embed for KK 78 St, Kanombe, Kigali, Rwanda */}
+        {/* Google Maps Embed for RNADW Office */}
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v1770625117591!6m8!1m7!1sjHi_4764WJTesKIY6M_H5A!2m2!1d-1.970939980612279!2d30.1634413769454!3f160.69353953716023!4f2.9396122207625695!5f0.7820865974627469"
+          src="https://www.google.com/maps/embed?pb=!3m2!1sen!2sug!4v1770881125354!5m2!1sen!2sug!6m8!1m7!1sGehYXZfAIexity2kMaftGw!2m2!1d-1.969431676333474!2d30.16100181180695!3f352.66577!4f0!5f0.7820865974627469"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="RNADW Office Street View - KK 78 St, Kanombe, Kigali, Rwanda"
+          title="Rwanda National Association of Deaf Women (RNADW Umucyo) - Kigali, Rwanda"
         />
       </section>
 
