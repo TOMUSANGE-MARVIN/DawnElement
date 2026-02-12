@@ -365,16 +365,15 @@ export default function AboutPage() {
                       .map((member, index) => (
                         <div key={member._id} className="bg-gray-50 rounded-3xl p-8 text-center">
                           <div
-                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden"
+                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden relative"
                             style={{ backgroundColor: index % 2 === 0 ? '#FACC15' : '#2563EB' }}
                           >
                             {member.image ? (
                               <Image
                                 src={member.image}
                                 alt={member.name}
-                                width={96}
-                                height={96}
-                                className="w-full h-full rounded-full object-cover"
+                                fill
+                                className="object-cover"
                               />
                             ) : (
                               <svg
@@ -414,16 +413,15 @@ export default function AboutPage() {
                       .map((member, index) => (
                         <div key={member._id} className="bg-gray-50 rounded-3xl p-8 text-center">
                           <div
-                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden"
+                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden relative"
                             style={{ backgroundColor: index % 2 === 0 ? '#2563EB' : '#FACC15' }}
                           >
                             {member.image ? (
                               <Image
                                 src={member.image}
                                 alt={member.name}
-                                width={96}
-                                height={96}
-                                className="w-full h-full rounded-full object-cover"
+                                fill
+                                className="object-cover"
                               />
                             ) : (
                               <svg
