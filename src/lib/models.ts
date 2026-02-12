@@ -144,6 +144,7 @@ const partnerSchema = new Schema<IPartner>({
 export interface ITeamMember extends Document {
   name: string;
   role: string;
+  memberType: 'board' | 'staff';
   description: string;
   image: string;
   published: boolean;
@@ -152,6 +153,7 @@ export interface ITeamMember extends Document {
 const teamMemberSchema = new Schema<ITeamMember>({
   name: { type: String, required: true },
   role: String,
+  memberType: { type: String, enum: ['board', 'staff'], default: 'board' },
   description: String,
   image: String,
   published: { type: Boolean, default: true }

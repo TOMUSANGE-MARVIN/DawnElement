@@ -93,6 +93,7 @@ const VideoSchema = new mongoose.Schema({
 const TeamMemberSchema = new mongoose.Schema({
   name: String,
   role: String,
+  memberType: { type: String, enum: ['board', 'staff'], default: 'board' },
   description: String,
   image: String,
   sortOrder: { type: Number, default: 0 },

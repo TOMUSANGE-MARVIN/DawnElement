@@ -777,8 +777,9 @@ export default function AdminPanel() {
         ];
       case 'team':
         return [
+          { name: 'memberType', label: 'Member Type', type: 'select', required: true, placeholder: 'board:Board of Directors,staff:Staff Member' },
           { name: 'name', label: 'Name', type: 'text', required: true },
-          { name: 'role', label: 'Role', type: 'text', required: true },
+          { name: 'role', label: 'Position/Title', type: 'text', required: true },
           { name: 'description', label: 'Bio', type: 'textarea' },
           { name: 'image', label: 'Photo', type: 'file' },
           { name: 'sortOrder', label: 'Display Order', type: 'number', placeholder: '1' },
@@ -1374,6 +1375,23 @@ export default function AdminPanel() {
                                 placeholder="Write your blog post here..."
                               />
                             </>
+                          ) : field.type === 'select' ? (
+                            <>
+                              <label className="block text-sm font-medium text-slate-700 mb-2">{field.label}</label>
+                              <select
+                                name={field.name}
+                                defaultValue={(editItem?.[field.name] as string) || field.placeholder?.split(',')[0]?.split(':')[0] || ''}
+                                className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-yellow-400 focus:outline-none transition-colors bg-white"
+                                required={field.required}
+                              >
+                                {field.placeholder?.split(',').map((opt) => {
+                                  const [value, label] = opt.split(':');
+                                  return (
+                                    <option key={value} value={value}>{label}</option>
+                                  );
+                                })}
+                              </select>
+                            </>
                           ) : (
                             <>
                               <label className="block text-sm font-medium text-slate-700 mb-2">{field.label}</label>
@@ -1476,9 +1494,20 @@ export default function AdminPanel() {
                               </span>
                             </td>
                             <td className="px-6 py-4">
-                              <span className="text-slate-500">
-                                {String(item.category || item.role || '-')}
-                              </span>
+                              <div className="flex items-center gap-2">
+                                {activeTab === 'team' && (
+                                  <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold ${
+                                    (item.memberType as string) === 'staff'
+                                      ? 'bg-purple-100 text-purple-700'
+                                      : 'bg-blue-100 text-blue-700'
+                                  }`}>
+                                    {(item.memberType as string) === 'staff' ? 'Staff' : 'Board'}
+                                  </span>
+                                )}
+                                <span className="text-slate-500">
+                                  {String(item.category || item.role || '-')}
+                                </span>
+                              </div>
                             </td>
                             <td className="px-6 py-4">
                               <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${
