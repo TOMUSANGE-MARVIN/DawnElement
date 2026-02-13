@@ -33,26 +33,18 @@ jobs:
           EXCLUDE: ".git, node_modules, .env.local"
 
       - name: Setup environment and restart PM2
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           command_timeout: 10m
+          script_stop: true
           script: |
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
+            source ~/.bashrc || true
+            source ~/.nvm/nvm.sh || true
             cd /var/www/rnadw
-
-            # Create .env.local with MongoDB connection
             echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" > .env.local
-
-            # Ensure uploads directory persists
             mkdir -p /var/www/rnadw/public/uploads
-
-            # Install dependencies
             npm ci --prefer-offline
-
-            # Restart the application
             pm2 restart rnadw || pm2 start npm --name rnadw -- start
