@@ -1209,9 +1209,9 @@ export default function AdminPanel() {
               {/* Form Modal */}
               {showForm && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                  <div className={`bg-white rounded-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl ${activeTab === 'blogs' ? 'max-w-5xl' : 'max-w-2xl'}`}>
-                    <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-slate-50 to-white min-h-[72px]">
-                      <h3 className="text-xl font-bold text-slate-800 truncate mr-4">
+                  <div className={`bg-white rounded-2xl w-full max-h-[90vh] shadow-2xl flex flex-col ${activeTab === 'blogs' ? 'max-w-5xl' : 'max-w-2xl'}`}>
+                    <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-slate-50 to-white rounded-t-2xl shrink-0">
+                      <h3 className="text-xl font-bold text-slate-800">
                         {editItem ? 'Edit' : 'Add New'} {activeTab === 'team' ? 'Team Member' : activeTab === 'gallery' ? 'Gallery Image' : activeTab.slice(0, -1)}
                       </h3>
                       <button
@@ -1221,7 +1221,7 @@ export default function AdminPanel() {
                         <Icons.Close />
                       </button>
                     </div>
-                    <form onSubmit={handleSave} className="p-6 space-y-5 overflow-y-auto max-h-[calc(90vh-140px)]">
+                    <form onSubmit={handleSave} className="p-6 space-y-5 overflow-y-auto flex-1 min-h-0">
                       {getFormFields().map((field) => (
                         <div key={field.name}>
                           {field.type === 'checkbox' ? (
