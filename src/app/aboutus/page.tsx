@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import Image from 'next/image';
 
 interface TeamMember {
   _id: string;
@@ -365,15 +364,14 @@ export default function AboutPage() {
                       .map((member, index) => (
                         <div key={member._id} className="bg-gray-50 rounded-3xl p-8 text-center">
                           <div
-                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden relative"
+                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden"
                             style={{ backgroundColor: index % 2 === 0 ? '#FACC15' : '#2563EB' }}
                           >
                             {member.image ? (
-                              <Image
+                              <img
                                 src={member.image}
                                 alt={member.name}
-                                fill
-                                className="object-cover"
+                                className="w-full h-full object-cover"
                               />
                             ) : (
                               <svg
@@ -413,15 +411,14 @@ export default function AboutPage() {
                       .map((member, index) => (
                         <div key={member._id} className="bg-gray-50 rounded-3xl p-8 text-center">
                           <div
-                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden relative"
+                            className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden"
                             style={{ backgroundColor: index % 2 === 0 ? '#2563EB' : '#FACC15' }}
                           >
                             {member.image ? (
-                              <Image
+                              <img
                                 src={member.image}
                                 alt={member.name}
-                                fill
-                                className="object-cover"
+                                className="w-full h-full object-cover"
                               />
                             ) : (
                               <svg

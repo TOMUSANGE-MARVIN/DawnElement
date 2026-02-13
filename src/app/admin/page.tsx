@@ -1210,9 +1210,9 @@ export default function AdminPanel() {
               {showForm && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
                   <div className={`bg-white rounded-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl ${activeTab === 'blogs' ? 'max-w-5xl' : 'max-w-2xl'}`}>
-                    <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-slate-50 to-white">
-                      <h3 className="text-xl font-bold text-slate-800">
-                        {editItem ? 'Edit' : 'Add New'} {activeTab.slice(0, -1)}
+                    <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-slate-50 to-white min-h-[72px]">
+                      <h3 className="text-xl font-bold text-slate-800 truncate mr-4">
+                        {editItem ? 'Edit' : 'Add New'} {activeTab === 'team' ? 'Team Member' : activeTab === 'gallery' ? 'Gallery Image' : activeTab.slice(0, -1)}
                       </h3>
                       <button
                         onClick={() => { setShowForm(false); setEditItem(null); setUploadedImages({}); setUploadedDocs({}); }}
