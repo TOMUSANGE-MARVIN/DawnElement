@@ -43,8 +43,8 @@ export async function POST(request: NextRequest) {
 
     await writeFile(filepath, buffer);
 
-    // Return the public URL path
-    const publicUrl = `/${subFolder}/${filename}`;
+    // Return the URL path - use API route for uploads to ensure they're served in production
+    const publicUrl = subFolder === 'uploads' ? `/api/uploads/${filename}` : `/${subFolder}/${filename}`;
     
     // Get file size in human readable format
     const fileSizeBytes = buffer.length;

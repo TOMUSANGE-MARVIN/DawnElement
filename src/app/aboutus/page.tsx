@@ -14,6 +14,13 @@ interface TeamMember {
   published: boolean;
 }
 
+// Rewrite old /uploads/ paths to /api/uploads/ for production compatibility
+function getImageUrl(url?: string): string {
+  if (!url) return '';
+  if (url.startsWith('/uploads/')) return `/api/uploads/${url.slice(9)}`;
+  return url;
+}
+
 export default function AboutPage() {
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
@@ -369,7 +376,7 @@ export default function AboutPage() {
                           >
                             {member.image ? (
                               <img
-                                src={member.image}
+                                src={getImageUrl(member.image)}
                                 alt={member.name}
                                 className="w-full h-full object-cover"
                               />
@@ -416,7 +423,7 @@ export default function AboutPage() {
                           >
                             {member.image ? (
                               <img
-                                src={member.image}
+                                src={getImageUrl(member.image)}
                                 alt={member.name}
                                 className="w-full h-full object-cover"
                               />
