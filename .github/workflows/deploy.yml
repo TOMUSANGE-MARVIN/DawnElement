@@ -39,10 +39,13 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           command_timeout: 10m
-          script_stop: true
+          script_stop: false
           script: |
-            source ~/.bashrc || true
-            source ~/.nvm/nvm.sh || true
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            [ -s "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+            export PATH="$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node/ 2>/dev/null | tail -1)/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+            node -v && npm -v
             cd /var/www/rnadw
             echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" > .env.local
             mkdir -p /var/www/rnadw/public/uploads
