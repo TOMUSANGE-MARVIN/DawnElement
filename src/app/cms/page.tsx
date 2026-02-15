@@ -99,11 +99,27 @@ export default function AdminPage() {
     if (data.success) setGallery(data.data);
   }
 
-  function openModal(type: 'blog' | 'video' | 'gallery', item?: any) {
+  async function openModal(type: 'blog' | 'video' | 'gallery', item?: any) {
     setModalType(type);
-    setEditingItem(item || null);
+    let fullItem = item || null;
+
+    // For blogs, the list view excludes content to speed up loading.
+    // Fetch the full item by ID so we get the content for editing.
+    if (type === 'blog' && item?._id) {
+      try {
+        const res = await fetch(`/api/cms/blogs/${item._id}`);
+        const data = await res.json();
+        if (data.success && data.data) {
+          fullItem = data.data;
+        }
+      } catch {
+        console.error('Failed to load full blog content');
+      }
+    }
+
+    setEditingItem(fullItem);
     if (type === 'blog') {
-      setBlogContent(item?.content || '');
+      setBlogContent(fullItem?.content || '');
     }
     setShowModal(true);
   }
