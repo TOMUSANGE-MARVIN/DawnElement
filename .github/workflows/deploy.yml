@@ -38,16 +38,23 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
+          timeout: 60s
           command_timeout: 10m
           script_stop: false
           script: |
+            set -e
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
             [ -s "$HOME/.bashrc" ] && . "$HOME/.bashrc"
             export PATH="$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node/ 2>/dev/null | tail -1)/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+            echo "=== Node/NPM ==="
             node -v && npm -v
+            echo "=== Setting up project ==="
             cd /var/www/rnadw
             echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" > .env.local
             mkdir -p /var/www/rnadw/public/uploads
-            npm ci --prefer-offline
-            pm2 restart rnadw || pm2 start npm --name rnadw -- start
+            echo "=== Installing dependencies ==="
+            npm ci --prefer-offline 2>&1
+            echo "=== Restarting PM2 ==="
+            npx pm2 restart rnadw 2>&1 || npx pm2 start npm --name rnadw -- start 2>&1
+            echo "=== Done ==="
