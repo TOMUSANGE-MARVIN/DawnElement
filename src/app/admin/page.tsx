@@ -599,28 +599,44 @@ export default function AdminPanel() {
     setUploading(null);
   };
 
-  const openForm = (item: ContentItem | null = null) => {
-    setEditItem(item);
+  const openForm = async (item: ContentItem | null = null) => {
+    let fullItem = item;
+
+    // For blogs, the list view excludes content to speed up loading.
+    // Fetch the full item by ID so we get the content for editing.
+    if (item?._id && activeTab === 'blogs') {
+      try {
+        const res = await fetch(`${API_BASE}/${activeTab}/${item._id}`);
+        const json = await res.json();
+        if (json.success && json.data) {
+          fullItem = json.data;
+        }
+      } catch {
+        console.error('Failed to load full blog content');
+      }
+    }
+
+    setEditItem(fullItem);
     setShowForm(true);
-    setBlogContent((item?.content as string) || '');
-    if (item) {
+    setBlogContent((fullItem?.content as string) || '');
+    if (fullItem) {
       const imageFields: Record<string, string> = {};
       // Only initialize image fields that exist on the item or are common image field names
       const possibleImageFields = ['image', 'src', 'logo', 'photo'];
       possibleImageFields.forEach(field => {
         // Only add the field if it exists on the item (even if empty)
-        if (field in item) {
-          imageFields[field] = (item[field] as string) || '';
+        if (field in fullItem) {
+          imageFields[field] = (fullItem[field] as string) || '';
         }
       });
       setUploadedImages(imageFields);
-      
+
       const docFields: Record<string, UploadedDocument> = {};
-      if (item.downloadUrl && typeof item.downloadUrl === 'string') {
+      if (fullItem.downloadUrl && typeof fullItem.downloadUrl === 'string') {
         docFields['downloadUrl'] = {
-          url: item.downloadUrl as string,
-          fileSize: (item.fileSize as string) || '',
-          fileType: (item.fileType as string) || 'PDF'
+          url: fullItem.downloadUrl as string,
+          fileSize: (fullItem.fileSize as string) || '',
+          fileType: (fullItem.fileType as string) || 'PDF'
         };
       }
       setUploadedDocs(docFields);
