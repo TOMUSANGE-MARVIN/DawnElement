@@ -413,6 +413,7 @@ export default function AdminPanel() {
   const [data, setData] = useState<ContentItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [editItem, setEditItem] = useState<ContentItem | null>(null);
+  const [loadingItemId, setLoadingItemId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [uploadedImages, setUploadedImages] = useState<Record<string, string>>({});
@@ -605,6 +606,7 @@ export default function AdminPanel() {
     // For blogs, the list view excludes content to speed up loading.
     // Fetch the full item by ID so we get the content for editing.
     if (item?._id && activeTab === 'blogs') {
+      setLoadingItemId(item._id);
       try {
         const res = await fetch(`${API_BASE}/${activeTab}/${item._id}`);
         const json = await res.json();
@@ -613,6 +615,8 @@ export default function AdminPanel() {
         }
       } catch {
         console.error('Failed to load full blog content');
+      } finally {
+        setLoadingItemId(null);
       }
     }
 
@@ -1538,10 +1542,15 @@ export default function AdminPanel() {
                               <div className="flex items-center justify-end gap-2">
                                 <button
                                   onClick={() => openForm(item)}
-                                  className="p-2 hover:bg-blue-100 text-blue-600 rounded-lg transition-colors"
+                                  disabled={loadingItemId === item._id}
+                                  className="p-2 hover:bg-blue-100 text-blue-600 rounded-lg transition-colors disabled:opacity-50"
                                   title="Edit"
                                 >
-                                  <Icons.Edit />
+                                  {loadingItemId === item._id ? (
+                                    <div className="w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" />
+                                  ) : (
+                                    <Icons.Edit />
+                                  )}
                                 </button>
                                 <button
                                   onClick={() => handleDelete(item._id)}

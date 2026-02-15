@@ -59,6 +59,7 @@ export default function AdminPage() {
   const [editingItem, setEditingItem] = useState<any>(null);
   const [modalType, setModalType] = useState<'blog' | 'video' | 'gallery'>('blog');
   const [blogContent, setBlogContent] = useState('');
+  const [loadingItemId, setLoadingItemId] = useState<string | null>(null);
 
   useEffect(() => {
     loadStats();
@@ -106,6 +107,7 @@ export default function AdminPage() {
     // For blogs, the list view excludes content to speed up loading.
     // Fetch the full item by ID so we get the content for editing.
     if (type === 'blog' && item?._id) {
+      setLoadingItemId(item._id);
       try {
         const res = await fetch(`/api/cms/blogs/${item._id}`);
         const data = await res.json();
@@ -114,6 +116,8 @@ export default function AdminPage() {
         }
       } catch {
         console.error('Failed to load full blog content');
+      } finally {
+        setLoadingItemId(null);
       }
     }
 
@@ -246,7 +250,11 @@ export default function AdminPage() {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button onClick={() => openModal('blog', blog)} className="text-blue-500 hover:text-blue-700">Edit</button>
+                    <button onClick={() => openModal('blog', blog)} disabled={loadingItemId === blog._id} className="text-blue-500 hover:text-blue-700 disabled:opacity-50 inline-flex items-center gap-1">
+                      {loadingItemId === blog._id ? (
+                        <><div className="w-4 h-4 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" /> Loading...</>
+                      ) : 'Edit'}
+                    </button>
                     <button onClick={() => handleDelete('blogs', blog._id)} className="text-red-500 hover:text-red-700">Delete</button>
                   </div>
                 </div>

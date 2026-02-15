@@ -11,7 +11,7 @@ import Highlight from '@tiptap/extension-highlight';
 import { TextStyle } from '@tiptap/extension-text-style';
 import Color from '@tiptap/extension-color';
 import LineHeight from './LineHeightExtension';
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 interface RichTextEditorProps {
   content?: string;
@@ -53,6 +53,17 @@ export default function RichTextEditor({ content = '', onChange, placeholder = '
       },
     },
   });
+
+  // Update editor content when prop changes (e.g. after async fetch)
+  useEffect(() => {
+    if (editor && content !== undefined) {
+      const currentContent = editor.getHTML();
+      // Only update if the content actually differs to avoid cursor jumps
+      if (currentContent !== content) {
+        editor.commands.setContent(content, { emitUpdate: false });
+      }
+    }
+  }, [editor, content]);
 
   const uploadImage = useCallback(async (file: File) => {
     const formData = new FormData();
