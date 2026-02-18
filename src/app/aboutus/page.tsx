@@ -14,6 +14,19 @@ interface TeamMember {
   published: boolean;
 }
 
+interface TargetGroup {
+  _id: string;
+  title: string;
+  ageRange: string;
+  description: string;
+  details: string;
+  icon: string;
+  color: string;
+  image?: string;
+  sortOrder: number;
+  published: boolean;
+}
+
 // Rewrite old /uploads/ paths to /api/uploads/ for production compatibility
 function getImageUrl(url?: string): string {
   if (!url) return '';
@@ -23,7 +36,10 @@ function getImageUrl(url?: string): string {
 
 export default function AboutPage() {
   const [team, setTeam] = useState<TeamMember[]>([]);
+  const [targetGroups, setTargetGroups] = useState<TargetGroup[]>([]);
   const [loading, setLoading] = useState(true);
+  const [targetGroupsLoading, setTargetGroupsLoading] = useState(true);
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchTeam() {
@@ -42,7 +58,26 @@ export default function AboutPage() {
         setLoading(false);
       }
     }
+
+    async function fetchTargetGroups() {
+      try {
+        const res = await fetch('/api/admin/target-groups');
+        const data = await res.json();
+        if (data.success && data.data) {
+          const sorted = data.data
+            .filter((g: TargetGroup) => g.published !== false)
+            .sort((a: TargetGroup, b: TargetGroup) => (a.sortOrder || 0) - (b.sortOrder || 0));
+          setTargetGroups(sorted);
+        }
+      } catch (error) {
+        console.error('Error fetching target groups:', error);
+      } finally {
+        setTargetGroupsLoading(false);
+      }
+    }
+
     fetchTeam();
+    fetchTargetGroups();
   }, []);
 
   // Hero animations
@@ -55,6 +90,11 @@ export default function AboutPage() {
   const missionCard = useScrollAnimation(0.2);
   const visionCard = useScrollAnimation(0.2);
   const valuesCard = useScrollAnimation(0.2);
+
+  // Target Groups animations
+  const targetGroupsLabel = useScrollAnimation(0.2);
+  const targetGroupsTitle = useScrollAnimation(0.2);
+  const targetGroupsDescription = useScrollAnimation(0.2);
 
   // Story animations
   const storyLabel = useScrollAnimation(0.2);
@@ -226,6 +266,185 @@ export default function AboutPage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* TARGET GROUPS SECTION */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Section Header */}
+          <div className="mb-16 text-center">
+            <div
+              ref={targetGroupsLabel.ref}
+              className={`flex items-center gap-4 mb-6 justify-center scroll-animate delay-100 ${targetGroupsLabel.isVisible ? 'visible' : ''}`}>
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#FACC15' }} />
+              <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-400">Who We Serve</span>
+              <div className="h-1 w-16 rounded-full" style={{ backgroundColor: '#2563EB' }} />
+            </div>
+
+            <h2
+              ref={targetGroupsTitle.ref}
+              className={`text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.9] text-gray-900 mb-6 scroll-animate delay-200 ${targetGroupsTitle.isVisible ? 'visible' : ''}`}>
+              Our Target<br />
+              <span className="relative inline-block">
+                <span className="relative z-10" style={{ color: '#2563EB' }}>Communities</span>
+                <div className="absolute bottom-2 left-0 right-0 h-6 opacity-20 -z-10" style={{ backgroundColor: '#2563EB' }} />
+              </span>
+            </h2>
+
+            <p
+              ref={targetGroupsDescription.ref}
+              className={`text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto scroll-animate delay-300 ${targetGroupsDescription.isVisible ? 'visible' : ''}`}>
+              RNADW is primarily responsible to the following communities of Deaf Women and Girls across Rwanda.
+            </p>
+          </div>
+
+          {/* Target Groups Cards */}
+          {targetGroupsLoading ? (
+            <div className="flex justify-center py-12">
+              <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : targetGroups.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {targetGroups.map((group, index) => (
+                <div
+                  key={group._id}
+                  className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                  onClick={() => setExpandedCard(expandedCard === group._id ? null : group._id)}
+                >
+                  {/* Card Background */}
+                  <div 
+                    className="absolute inset-0 opacity-10"
+                    style={{ backgroundColor: group.color }}
+                  />
+                  
+                  <div className="relative p-8 bg-white border-2 rounded-3xl transition-all duration-300 hover:-translate-y-1"
+                    style={{ borderColor: group.color }}>
+                    
+                    {/* Icon & Title Row */}
+                    <div className="flex items-start gap-4 mb-4">
+                      <div 
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 transition-transform group-hover:scale-110"
+                        style={{ backgroundColor: `${group.color}20` }}
+                      >
+                        {group.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-black text-gray-900 mb-1">{group.title}</h3>
+                        <div 
+                          className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold"
+                          style={{ backgroundColor: `${group.color}20`, color: group.color }}
+                        >
+                          {group.ageRange}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-700 leading-relaxed mb-4">{group.description}</p>
+
+                    {/* Expandable Details */}
+                    <div className={`overflow-hidden transition-all duration-300 ${expandedCard === group._id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="pt-4 border-t border-gray-200">
+                        <p className="text-gray-600 leading-relaxed">{group.details}</p>
+                      </div>
+                    </div>
+
+                    {/* Expand Button */}
+                    <button 
+                      className="flex items-center gap-2 mt-4 text-sm font-bold transition-colors"
+                      style={{ color: group.color }}
+                    >
+                      {expandedCard === group._id ? 'Show Less' : 'Learn More'}
+                      <svg 
+                        className={`w-4 h-4 transition-transform duration-300 ${expandedCard === group._id ? 'rotate-180' : ''}`}
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    {/* Decorative Corner */}
+                    <div 
+                      className="absolute top-0 right-0 w-24 h-24 opacity-10 rounded-bl-full"
+                      style={{ backgroundColor: group.color }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            /* Default Target Groups if none in database */
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: "Deaf Women",
+                  ageRange: "19 years and above",
+                  description: "Adult deaf women with diverse sexual orientations, gender identity, educational and social backgrounds.",
+                  icon: "👩",
+                  color: "#2563EB"
+                },
+                {
+                  title: "Deaf Girls",
+                  ageRange: "12-18 years",
+                  description: "Adolescent and Young Girls (AYG) and First Time Teen Young Mothers (FTYM).",
+                  icon: "👧",
+                  color: "#EC4899"
+                },
+                {
+                  title: "Deaf Children",
+                  ageRange: "0-11 years",
+                  description: "Young deaf children requiring early intervention and family support.",
+                  icon: "👶",
+                  color: "#10B981"
+                },
+                {
+                  title: "Deaf Women & Girls Refugees and IDPs",
+                  ageRange: "All ages",
+                  description: "Deaf women and girls who are refugees or internally displaced persons.",
+                  icon: "🤝",
+                  color: "#FACC15"
+                }
+              ].map((group, index) => (
+                <div
+                  key={index}
+                  className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                >
+                  <div className="relative p-8 bg-white border-2 rounded-3xl transition-all duration-300 hover:-translate-y-1"
+                    style={{ borderColor: group.color }}>
+                    
+                    <div className="flex items-start gap-4 mb-4">
+                      <div 
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 transition-transform group-hover:scale-110"
+                        style={{ backgroundColor: `${group.color}20` }}
+                      >
+                        {group.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-black text-gray-900 mb-1">{group.title}</h3>
+                        <div 
+                          className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold"
+                          style={{ backgroundColor: `${group.color}20`, color: group.color }}
+                        >
+                          {group.ageRange}
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-700 leading-relaxed">{group.description}</p>
+
+                    <div 
+                      className="absolute top-0 right-0 w-24 h-24 opacity-10 rounded-bl-full"
+                      style={{ backgroundColor: group.color }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

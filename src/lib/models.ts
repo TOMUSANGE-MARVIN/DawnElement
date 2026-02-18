@@ -176,6 +176,31 @@ const testimonialSchema = new Schema<ITestimonial>({
   published: { type: Boolean, default: true }
 }, { timestamps: true });
 
+// Target Group
+export interface ITargetGroup extends Document {
+  title: string;
+  ageRange: string;
+  description: string;
+  details: string;
+  icon: string;
+  color: string;
+  image: string;
+  sortOrder: number;
+  published: boolean;
+}
+
+const targetGroupSchema = new Schema<ITargetGroup>({
+  title: { type: String, required: true },
+  ageRange: String,
+  description: String,
+  details: String,
+  icon: { type: String, default: '👩' },
+  color: { type: String, default: '#2563EB' },
+  image: String,
+  sortOrder: { type: Number, default: 0 },
+  published: { type: Boolean, default: true }
+}, { timestamps: true });
+
 // Export models (handle hot reloading)
 export const BlogPost = mongoose.models.BlogPost || mongoose.model<IBlogPost>('BlogPost', blogPostSchema);
 export const Activity = mongoose.models.Activity || mongoose.model<IActivity>('Activity', activitySchema);
@@ -185,6 +210,7 @@ export const GalleryImage = mongoose.models.GalleryImage || mongoose.model<IGall
 export const Partner = mongoose.models.Partner || mongoose.model<IPartner>('Partner', partnerSchema);
 export const TeamMember = mongoose.models.TeamMember || mongoose.model<ITeamMember>('TeamMember', teamMemberSchema);
 export const Testimonial = mongoose.models.Testimonial || mongoose.model<ITestimonial>('Testimonial', testimonialSchema);
+export const TargetGroup = mongoose.models.TargetGroup || mongoose.model<ITargetGroup>('TargetGroup', targetGroupSchema);
 
 // Helper to generate slug
 export function slugify(text: string): string {

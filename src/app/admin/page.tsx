@@ -339,6 +339,12 @@ const Icons = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
     </svg>
   ),
+  TargetGroups: () => (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth={2} fill="none" />
+    </svg>
+  ),
   Settings: () => (
     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -740,6 +746,7 @@ export default function AdminPanel() {
     { id: 'gallery', label: 'Gallery', icon: Icons.Gallery },
     { id: 'videos', label: 'Videos', icon: Icons.Videos },
     { id: 'team', label: 'Team', icon: Icons.Team },
+    { id: 'target-groups', label: 'Target Groups', icon: Icons.TargetGroups },
     { id: 'partners', label: 'Partners', icon: Icons.Partners },
     { id: 'testimonials', label: 'Testimonials', icon: Icons.Testimonials },
     { id: 'site-settings', label: 'Site Settings', icon: Icons.Settings },
@@ -822,6 +829,18 @@ export default function AdminPanel() {
           { name: 'image', label: 'Photo', type: 'file' },
           { name: 'published', label: 'Published', type: 'checkbox' },
         ];
+      case 'target-groups':
+        return [
+          { name: 'title', label: 'Title', type: 'text', required: true },
+          { name: 'ageRange', label: 'Age Range', type: 'text', placeholder: 'e.g., 19 years and above' },
+          { name: 'description', label: 'Short Description', type: 'textarea', required: true },
+          { name: 'details', label: 'Detailed Information', type: 'textarea' },
+          { name: 'icon', label: 'Icon (emoji)', type: 'text', placeholder: '👩' },
+          { name: 'color', label: 'Card Color (hex)', type: 'text', placeholder: '#2563EB' },
+          { name: 'image', label: 'Image', type: 'file' },
+          { name: 'sortOrder', label: 'Display Order', type: 'number', placeholder: '1' },
+          { name: 'published', label: 'Published', type: 'checkbox' },
+        ];
       default:
         return [];
     }
@@ -833,7 +852,7 @@ export default function AdminPanel() {
     
     useEffect(() => {
       const fetchStats = async () => {
-        const collections = ['blogs', 'activities', 'resources', 'gallery', 'videos', 'team', 'partners', 'testimonials'];
+        const collections = ['blogs', 'activities', 'resources', 'gallery', 'videos', 'team', 'target-groups', 'partners', 'testimonials'];
         const newStats: Record<string, number> = {};
         
         for (const col of collections) {
@@ -857,6 +876,7 @@ export default function AdminPanel() {
       { id: 'gallery', label: 'Gallery Images', icon: Icons.Gallery, color: 'from-pink-500 to-pink-600' },
       { id: 'videos', label: 'Videos', icon: Icons.Videos, color: 'from-red-500 to-red-600' },
       { id: 'team', label: 'Team Members', icon: Icons.Team, color: 'from-yellow-500 to-yellow-600' },
+      { id: 'target-groups', label: 'Target Groups', icon: Icons.TargetGroups, color: 'from-cyan-500 to-cyan-600' },
       { id: 'partners', label: 'Partners', icon: Icons.Partners, color: 'from-indigo-500 to-indigo-600' },
       { id: 'testimonials', label: 'Testimonials', icon: Icons.Testimonials, color: 'from-teal-500 to-teal-600' },
     ];

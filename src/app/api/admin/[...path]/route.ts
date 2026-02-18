@@ -128,6 +128,18 @@ const SiteSettingsSchema = new mongoose.Schema({
   type: { type: String, default: 'text' }, // text, url, image, etc.
 }, { timestamps: true });
 
+const TargetGroupSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  ageRange: String,
+  description: String,
+  details: String,
+  icon: { type: String, default: '👩' },
+  color: { type: String, default: '#2563EB' },
+  image: String,
+  sortOrder: { type: Number, default: 0 },
+  published: { type: Boolean, default: true },
+}, { timestamps: true });
+
 // Get or create models
 function getModel(name: string) {
   const models: Record<string, mongoose.Schema> = {
@@ -140,6 +152,7 @@ function getModel(name: string) {
     partners: PartnerSchema,
     testimonials: TestimonialSchema,
     settings: SiteSettingsSchema,
+    'target-groups': TargetGroupSchema,
   };
 
   const modelNames: Record<string, string> = {
@@ -152,6 +165,7 @@ function getModel(name: string) {
     partners: 'Partner',
     testimonials: 'Testimonial',
     settings: 'SiteSetting',
+    'target-groups': 'TargetGroup',
   };
 
   const schema = models[name];
