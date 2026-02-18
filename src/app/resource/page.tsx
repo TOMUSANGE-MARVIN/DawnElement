@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 interface Resource {
   _id: string;
@@ -20,6 +21,7 @@ interface Resource {
 }
 
 export default function ResourcesPage() {
+  const searchParams = useSearchParams();
   const [resources, setResources] = useState<Resource[]>([]);
   const [loading, setLoading] = useState(true);
   const [viewingResource, setViewingResource] = useState<Resource | null>(null);
@@ -30,7 +32,7 @@ export default function ResourcesPage() {
 
   const getShareUrl = useCallback((resource: Resource) => {
     if (typeof window !== 'undefined') {
-      return `${window.location.origin}/resource/${resource.slug || resource._id}`;
+      return `${window.location.origin}/resource?view=${resource.slug || resource._id}`;
     }
     return '';
   }, []);
@@ -57,6 +59,32 @@ export default function ResourcesPage() {
         break;
     }
   }, [getShareUrl]);
+
+  // Check URL for resource to view and open modal
+  useEffect(() => {
+    const viewParam = searchParams.get('view');
+    if (viewParam && resources.length > 0) {
+      const resourceToView = resources.find(
+        r => r.slug === viewParam || r._id === viewParam
+      );
+      if (resourceToView) {
+        setViewingResource(resourceToView);
+      }
+    }
+  }, [searchParams, resources]);
+
+  // Update URL when viewing resource changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (viewingResource) {
+        url.searchParams.set('view', viewingResource.slug || viewingResource._id);
+      } else {
+        url.searchParams.delete('view');
+      }
+      window.history.replaceState({}, '', url.toString());
+    }
+  }, [viewingResource]);
 
   useEffect(() => {
     if (!viewingResource) return;
