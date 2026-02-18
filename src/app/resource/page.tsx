@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useRef, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState, useCallback, useRef } from 'react';
 
 interface Resource {
   _id: string;
@@ -21,7 +20,6 @@ interface Resource {
 }
 
 function ResourcesPageContent() {
-  const searchParams = useSearchParams();
   const [resources, setResources] = useState<Resource[]>([]);
   const [loading, setLoading] = useState(true);
   const [viewingResource, setViewingResource] = useState<Resource | null>(null);
@@ -29,10 +27,17 @@ function ResourcesPageContent() {
   const docxContainerRef = useRef<HTMLDivElement>(null);
   const [shareModalResource, setShareModalResource] = useState<Resource | null>(null);
   const [copySuccess, setCopySuccess] = useState<string | null>(null);
+  const hasCheckedUrlRef = useRef(false);
+  // Capture the initial ?view= param immediately at render time, before any
+  // effects can strip it from the URL via history.replaceState
+  const initialViewParam = useRef<string | null>(
+    typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('view') : null
+  );
 
   const getShareUrl = useCallback((resource: Resource) => {
     if (typeof window !== 'undefined') {
-      return `${window.location.origin}/resource?view=${resource.slug || resource._id}`;
+      // Prefer _id for more reliable matching
+      return `${window.location.origin}/resource?view=${resource._id}`;
     }
     return '';
   }, []);
@@ -60,25 +65,40 @@ function ResourcesPageContent() {
     }
   }, [getShareUrl]);
 
-  // Check URL for resource to view and open modal
+  // Check URL for resource to view and open modal when resources first load
   useEffect(() => {
-    const viewParam = searchParams.get('view');
-    if (viewParam && resources.length > 0) {
+    // Skip if no resources loaded yet
+    if (resources.length === 0) return;
+    
+    // Only check URL once when resources are first loaded
+    if (hasCheckedUrlRef.current) return;
+    hasCheckedUrlRef.current = true;
+    
+    // Use the param captured at render time — by now history.replaceState
+    // may have already removed it from window.location.search
+    const viewParam = initialViewParam.current;
+    
+    if (viewParam) {
       const resourceToView = resources.find(
-        r => r.slug === viewParam || r._id === viewParam
+        r => r._id === viewParam || 
+             r.slug === viewParam || 
+             r.slug?.toLowerCase() === viewParam.toLowerCase() ||
+             r.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === viewParam.toLowerCase()
       );
+      
       if (resourceToView) {
         setViewingResource(resourceToView);
       }
     }
-  }, [searchParams, resources]);
+  }, [resources]);
 
   // Update URL when viewing resource changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href);
       if (viewingResource) {
-        url.searchParams.set('view', viewingResource.slug || viewingResource._id);
+        // Use _id for consistency with share URLs
+        url.searchParams.set('view', viewingResource._id);
       } else {
         url.searchParams.delete('view');
       }
@@ -277,6 +297,15 @@ function ResourcesPageContent() {
                 </div>
               </div>
               <div className="flex items-center gap-3 flex-shrink-0">
+                <button 
+                  onClick={() => setShareModalResource(viewingResource)} 
+                  className="py-2 px-4 rounded-lg font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 text-white hover:opacity-90 cursor-pointer"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                  </svg>
+                  Share
+                </button>
                 <button onClick={() => handleDownload(viewingResource)} className="py-2 px-4 rounded-lg font-bold text-sm transition-all duration-300 flex items-center gap-2 bg-gray-900 text-white hover:bg-gray-800 cursor-pointer">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -438,16 +467,5 @@ function ResourcesPageContent() {
 }
 
 export default function ResourcesPage() {
-  return (
-    <Suspense fallback={
-      <main className="min-h-screen flex items-center justify-center bg-gray-900">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-white text-lg">Loading resources...</p>
-        </div>
-      </main>
-    }>
-      <ResourcesPageContent />
-    </Suspense>
-  );
+  return <ResourcesPageContent />;
 }
