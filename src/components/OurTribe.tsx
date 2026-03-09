@@ -43,17 +43,17 @@ export default function OurTribe() {
   return (
     <section className="min-h-screen bg-white pt-28 pb-24">
       {/* Hero area */}
-      <div className="relative bg-[#2D3B2D] py-20 lg:py-28 overflow-hidden">
+      <div className="relative bg-dawn-orange/20 py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 -left-32 w-96 h-96 bg-dawn-orange/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-dawn-cream/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-dawn-yellow/10 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <ScrollAnimate animation="fade-up" duration={600}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dawn-dark mb-6">
               Our Tribe
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-dawn-gray max-w-2xl mx-auto leading-relaxed">
               A collective of free thinkers, problem solvers, and change makers — 
               united by purpose, driven by impact.
             </p>
