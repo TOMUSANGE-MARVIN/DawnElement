@@ -103,7 +103,7 @@ export default function JoinUs() {
           <div className="text-center">
             <p className="text-lg text-white/80 mb-6">Drop us an email via</p>
             <a
-              href="mailto:pesh@dawnelements.com"
+              href="mailto:people@dawnelements.com"
               className="inline-flex items-center gap-2 px-8 py-4 bg-dawn-orange text-white text-lg font-semibold rounded-full hover:bg-dawn-orange/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <svg
@@ -119,7 +119,7 @@ export default function JoinUs() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              pesh@dawnelements.com
+              people@dawnelements.com
             </a>
           </div>
         </ScrollAnimate>

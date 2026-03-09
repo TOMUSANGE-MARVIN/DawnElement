@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ScrollAnimate from './ScrollAnimate';
 
 const footerLinks = {
@@ -6,6 +7,7 @@ const footerLinks = {
     { name: 'About', href: '#about' },
     { name: 'What We Do', href: '#what-we-do' },
     { name: 'Insights', href: '#insights' },
+    { name: 'Our Tribe', href: '/our-tribe', isRoute: true },
   ],
 };
 
@@ -26,13 +28,13 @@ export default function Footer() {
           {/* Brand column */}
           <div>
             <ScrollAnimate animation="fade-up" duration={600}>
-              <a href="#home" className="flex items-center mb-6">
+              <Link to="/" className="flex items-center mb-6">
                 <img 
                   src="/images/footerlogo.png" 
                   alt="Dawn Elements" 
                   className="h-14 w-auto object-contain brightness-0 invert"
                 />
-              </a>
+              </Link>
               <p className="text-gray-400 leading-relaxed max-w-md">
                 Making social investments and shaping narratives to create lasting impact 
                 in communities around the world.
@@ -47,13 +49,23 @@ export default function Footer() {
               <ul className="space-y-3">
                 {footerLinks.quickLinks.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-dawn-orange transition-colors duration-300 flex items-center gap-2 group"
-                    >
-                      <span className="w-0 h-0.5 bg-dawn-orange group-hover:w-2 transition-all duration-300" />
-                      {link.name}
-                    </a>
+                    {'isRoute' in link && link.isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="text-gray-400 hover:text-dawn-orange transition-colors duration-300 flex items-center gap-2 group"
+                      >
+                        <span className="w-0 h-0.5 bg-dawn-orange group-hover:w-2 transition-all duration-300" />
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-gray-400 hover:text-dawn-orange transition-colors duration-300 flex items-center gap-2 group"
+                      >
+                        <span className="w-0 h-0.5 bg-dawn-orange group-hover:w-2 transition-all duration-300" />
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
