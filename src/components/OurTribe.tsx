@@ -72,16 +72,19 @@ export default function OurTribe() {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover opacity-0 transition-opacity duration-500"
+                    className="relative z-10 w-full h-full object-cover opacity-0 transition-opacity duration-500"
                     onLoad={(e) => {
-                      (e.target as HTMLImageElement).classList.remove('opacity-0');
+                      const img = e.target as HTMLImageElement;
+                      img.classList.remove('opacity-0');
+                      const fallback = img.parentElement?.querySelector('[data-fallback]');
+                      if (fallback) (fallback as HTMLElement).style.display = 'none';
                     }}
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
                   />
                   {/* Fallback placeholder shown when image hasn't loaded */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-dawn-gray/40 pointer-events-none">
+                  <div data-fallback className="absolute inset-0 flex flex-col items-center justify-center text-dawn-gray/40 pointer-events-none">
                     <svg
                       className="w-16 h-16 mb-3"
                       fill="none"
