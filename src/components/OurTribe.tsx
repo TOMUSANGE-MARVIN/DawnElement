@@ -43,19 +43,30 @@ export default function OurTribe() {
   return (
     <section className="min-h-screen bg-white pt-28 pb-24">
       {/* Hero area */}
-      <div className="relative overflow-hidden max-h-[80vh]">
+      <div className="relative overflow-hidden">
         <img
-          src="/images/team/image copy.png"
+          src="/images/team/fawn%20header.png"
           alt="Our Tribe"
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover"
         />
+        <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-6">
+          <ScrollAnimate animation="fade-up" duration={600}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight">
+              Our Tribe
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+              A collective of free thinkers, problem solvers, and change makers 
+              united by purpose, driven by impact.
+            </p>
+          </ScrollAnimate>
+        </div>
       </div>
 
       {/* Team grid */}
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-          {teamMembers.map((member, index) => (
-            <ScrollAnimate key={member.name} animation="fade-up" delay={index * 100}>
+          {teamMembers.map((member, index) => {
+            const card = (
               <div className="group">
                 {/* Image placeholder */}
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6 bg-dawn-cream">
@@ -104,8 +115,17 @@ export default function OurTribe() {
                   {member.bio}
                 </p>
               </div>
-            </ScrollAnimate>
-          ))}
+            );
+
+            // First 3 cards visible immediately, rest animate on scroll
+            return index < 3 ? (
+              <div key={member.name}>{card}</div>
+            ) : (
+              <ScrollAnimate key={member.name} animation="fade-up" delay={(index - 3) * 100}>
+                {card}
+              </ScrollAnimate>
+            );
+          })}
         </div>
       </div>
 
