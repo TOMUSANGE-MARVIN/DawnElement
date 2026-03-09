@@ -5,13 +5,13 @@ import ScrollAnimate from './ScrollAnimate';
 const teamMembers = [
   {
     name: 'Pesh',
-    image: '/images/team/Pesh.png',
+    image: '/images/team/Pesh Casual.png',
     bio: 'Pesh comes to Dawn Elements with experience that spans from tax advisory to climate-smart agribusiness and value addition. For over 10 years, she worked in the climate-smart agribusiness production value chain, from supporting farming communities, to managing manufacturing processes. Eventually, negotiating cutting-edge deals to move products across Africa, Europe and Asia. She is a blazing free spirit, and a karaoke regular.',
   },
   {
-    name: 'Eshban',
-    image: '/images/team/Eshban.png',
-    bio: 'Eshban has built experience applying deep systems thinking to an evolving development context. His early career started in the private sector and later evolved to international development and philanthropy. He has over 13 years experience advising impact investment and development organizations as well as governments on creative solutions to complex challenges. He has published on agriculture, macro-financial policy, feminism, energy, and governance. He needs no convincing for plans that involve spending time at the beach.',
+    name: 'Twasiima',
+    image: '/images/team/Twasiima.png',
+    bio: 'Twasiima Bigirwa is a writer and artist. For more than 10 years, Twasiima worked as a lawyer, and later in philanthropy and impact investment. She has an incredible ability to cut through the noise and to see or say things for what they are. Today she spends most of her time in liminal spaces, and currently lives in the UAE where she is in between writing that and editing this for her fifth book.',
   },
   {
     name: 'Pross',
@@ -21,12 +21,12 @@ const teamMembers = [
   {
     name: 'Eva',
     image: '/images/team/Eva.png',
-    bio: 'With over a decade of experience in social impact, she is a driving force dedicated to addressing critical societal challenges through impact work in social development and community-led actions. Her expertise extends to strategic venture philanthropy, insights on sustainable development and designing system solutions. At Dawn Elements, she advises making impactful social investments and shaping narratives for human progress. Eva will "leave it all behind," if she was ever offered an opportunity to play in the soccer world cup.',
+    bio: 'With over a decade of experience in social impact, she is a driving force dedicated to addressing critical societal challenges through impact work in social development and community-led actions. Her expertise extends to strategic venture philanthropy, insights on sustainable development and designing system solutions. At Dawn Elements, she advises on making impactful social investments and shaping narratives for human progress. Eva will "leave it all behind," if she was ever offered an opportunity to play in the soccer world cup.',
   },
   {
-    name: 'Twasiima',
-    image: '/images/team/Twasiima.png',
-    bio: 'Twasiima Bigirwa is a writer and artist. For more than 10 years, Twasiima worked as a lawyer, and later in philanthropy and impact investment. She has an incredible ability to cut through the noise and to see or say things for what they are. Today she spends most of her time in liminal spaces, and currently lives in the UAE where she is in between writing that and editing this for her fourth book.',
+    name: 'Eshban',
+    image: '/images/team/Eshban.png',
+    bio: 'Eshban has built experience applying deep systems thinking to an evolving development context. His early career started in the private sector and later evolved to international development and philanthropy. He has over 13 years experience advising impact investment and development organizations as well as governments on creative solutions to complex challenges. He has published on agriculture, macro-financial policy, feminism, energy, and governance. He needs no convincing for plans that involve spending time at the beach.',
   },
   {
     name: 'Stuart',
@@ -43,22 +43,12 @@ export default function OurTribe() {
   return (
     <section className="min-h-screen bg-white pt-28 pb-24">
       {/* Hero area */}
-      <div className="relative bg-dawn-orange/20 py-20 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 -left-32 w-96 h-96 bg-dawn-orange/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-dawn-yellow/10 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
-          <ScrollAnimate animation="fade-up" duration={600}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dawn-dark mb-6">
-              Our Tribe
-            </h1>
-            <p className="text-lg md:text-xl text-dawn-gray max-w-2xl mx-auto leading-relaxed">
-              A collective of free thinkers, problem solvers, and change makers — 
-              united by purpose, driven by impact.
-            </p>
-          </ScrollAnimate>
-        </div>
+      <div className="relative overflow-hidden max-h-[80vh]">
+        <img
+          src="/images/team/image copy.png"
+          alt="Our Tribe"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Team grid */}
