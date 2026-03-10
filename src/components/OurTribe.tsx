@@ -55,8 +55,7 @@ export default function OurTribe() {
               Our Tribe
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              A collective of free thinkers, problem solvers, and change makers 
-              united by purpose, driven by impact.
+              We are a small part of the many that are building what comes next. We believe that current systems were built by people — so people can build new systems that work for all. We are part of that effort. Come join us.
             </p>
           </ScrollAnimate>
         </div>
