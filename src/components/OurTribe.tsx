@@ -5,8 +5,13 @@ import ScrollAnimate from './ScrollAnimate';
 const teamMembers = [
   {
     name: 'Pesh',
-    image: '/images/team/Pesh Casual.png',
+    image: '/images/team/Pesh.png',
     bio: 'Pesh comes to Dawn Elements with experience that spans from tax advisory to climate-smart agribusiness and value addition. For over 10 years, she worked in the climate-smart agribusiness production value chain, from supporting farming communities, to managing manufacturing processes. Eventually, negotiating cutting-edge deals to move products across Africa, Europe and Asia. She is a blazing free spirit, and a karaoke regular.',
+  },
+  {
+    name: 'Cynthia',
+    image: null,
+    bio: 'Cynthia is prolific at organizing and connecting the dots. She has previously worked across a spectrum of industries ranging from pharmaceuticals to tourism. Her work at Dawn Elements is a cocktail of research, shaping ideas through comms, investment analysis, and advisory services. She is a fan of history, reality shows, and all things that involve weekend escapes out of the city.',
   },
   {
     name: 'Twasiima',
@@ -69,20 +74,25 @@ export default function OurTribe() {
               <div className="group">
                 {/* Image placeholder */}
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6 bg-dawn-cream">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="relative z-10 w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                    onLoad={(e) => {
-                      const img = e.target as HTMLImageElement;
-                      img.classList.remove('opacity-0');
-                      const fallback = img.parentElement?.querySelector('[data-fallback]');
-                      if (fallback) (fallback as HTMLElement).style.display = 'none';
-                    }}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      loading={index < 3 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      fetchPriority={index === 0 ? 'high' : 'auto'}
+                      className="relative z-10 w-full h-full object-cover opacity-0 transition-opacity duration-500"
+                      onLoad={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        img.classList.remove('opacity-0');
+                        const fallback = img.parentElement?.querySelector('[data-fallback]');
+                        if (fallback) (fallback as HTMLElement).style.display = 'none';
+                      }}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                  ) : null}
                   {/* Fallback placeholder shown when image hasn't loaded */}
                   <div data-fallback className="absolute inset-0 flex flex-col items-center justify-center text-dawn-gray/40 pointer-events-none">
                     <svg
