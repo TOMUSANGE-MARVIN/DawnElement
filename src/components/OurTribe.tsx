@@ -10,7 +10,7 @@ const teamMembers = [
   },
   {
     name: 'Cynthia',
-    image: null,
+    image: '/images/team/cy.png',
     bio: 'Cynthia is prolific at organizing and connecting the dots. She has previously worked across a spectrum of industries ranging from pharmaceuticals to tourism. Her work at Dawn Elements is a cocktail of research, shaping ideas through comms, investment analysis, and advisory services. She is a fan of history, reality shows, and all things that involve weekend escapes out of the city.',
   },
   {
