@@ -5,7 +5,7 @@ import ScrollAnimate from './ScrollAnimate';
 const teamMembers = [
   {
     name: 'Pesh',
-    image: '/images/team/Pesh.png',
+    image: '/images/team/Pesh Casual.png',
     bio: 'Pesh comes to Dawn Elements with experience that spans from tax advisory to climate-smart agribusiness and value addition. For over 10 years, she worked in the climate-smart agribusiness production value chain, from supporting farming communities, to managing manufacturing processes. Eventually, negotiating cutting-edge deals to move products across Africa, Europe and Asia. She is a blazing free spirit, and a karaoke regular.',
   },
   {
