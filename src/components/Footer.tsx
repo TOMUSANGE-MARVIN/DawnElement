@@ -84,7 +84,15 @@ export default function Footer() {
             <p className="text-gray-500 text-sm flex items-center gap-1">
               Made with
               <span className="text-dawn-orange animate-pulse">❤</span>
-              for the things that matter to us.
+              by
+              <a
+                href="https://informationvillagelimited.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-dawn-orange transition-colors duration-300"
+              >
+                Information Village
+              </a>
             </p>
           </div>
         </div>
