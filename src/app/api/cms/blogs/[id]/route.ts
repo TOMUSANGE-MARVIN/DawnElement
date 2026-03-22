@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from '@/lib/mongodb';
 import { BlogPost } from '@/lib/models';
+import { requireAuth } from '@/lib/auth';
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -17,6 +18,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 }
 
 export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const authError = requireAuth(request);
+  if (authError) return authError;
+
   try {
     await connectDB();
     const { id } = await params;
@@ -32,6 +36,9 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const authError = requireAuth(request);
+  if (authError) return authError;
+
   try {
     await connectDB();
     const { id } = await params;

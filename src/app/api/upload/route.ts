@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
+import { requireAuth } from '@/lib/auth';
 
 // Allowed file types
-const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml'];
+const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 const DOCUMENT_TYPES = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
 
 export async function POST(request: NextRequest) {
+  const authError = requireAuth(request);
+  if (authError) return authError;
+
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
@@ -23,7 +27,7 @@ export async function POST(request: NextRequest) {
     if (!isImage && !isDocument) {
       return NextResponse.json({ 
         success: false, 
-        error: 'Invalid file type. Allowed: images (JPG, PNG, GIF, WebP, SVG) and documents (PDF, DOC, DOCX)' 
+        error: 'Invalid file type. Allowed: images (JPG, PNG, GIF, WebP) and documents (PDF, DOC, DOCX)'
       }, { status: 400 });
     }
 

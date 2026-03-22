@@ -22,6 +22,7 @@ jobs:
         run: npm run build
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          NEXT_PUBLIC_ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
 
       - name: Deploy
         uses: easingthemes/ssh-deploy@main
@@ -51,10 +52,15 @@ jobs:
             node -v && npm -v
             echo "=== Setting up project ==="
             cd /var/www/rnadw
-            echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" > .env.local
+            printf 'MONGODB_URI=%s\nADMIN_API_KEY=%s\nNEXT_PUBLIC_ADMIN_API_KEY=%s\n' "${{ secrets.MONGODB_URI }}" "${{ secrets.ADMIN_API_KEY }}" "${{ secrets.ADMIN_API_KEY }}" > .env.local
             mkdir -p /var/www/rnadw/public/uploads
             echo "=== Installing dependencies ==="
             npm ci --prefer-offline 2>&1
+            echo "=== Clearing Next.js cache ==="
+            rm -rf /var/www/rnadw/.next/cache
+            echo "=== Malware cleanup ==="
+            find /var/www/rnadw/public/uploads -type f ! -name "*.jpg" ! -name "*.jpeg" ! -name "*.png" ! -name "*.gif" ! -name "*.webp" ! -name "*.pdf" ! -name "*.doc" ! -name "*.docx" -delete 2>/dev/null || true
+            find /var/www/rnadw/public/documents -type f ! -name "*.pdf" ! -name "*.doc" ! -name "*.docx" -delete 2>/dev/null || true
             echo "=== Restarting PM2 ==="
             npx pm2 restart rnadw 2>&1 || npx pm2 start npm --name rnadw -- start 2>&1
             echo "=== Done ==="

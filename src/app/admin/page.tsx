@@ -8,6 +8,15 @@ const RichTextEditor = dynamic(() => import('@/components/editor/RichTextEditor'
 
 // CMS Admin Panel - Redesigned
 const API_BASE = '/api/admin';
+const API_KEY = process.env.NEXT_PUBLIC_ADMIN_API_KEY || '';
+
+function authFetch(url: string, options: RequestInit = {}): Promise<Response> {
+  const headers = new Headers(options.headers);
+  if (API_KEY) {
+    headers.set('x-api-key', API_KEY);
+  }
+  return fetch(url, { ...options, headers });
+}
 
 // Default admin credentials
 const DEFAULT_ADMIN = {
@@ -486,7 +495,7 @@ export default function AdminPanel() {
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this item? This action cannot be undone.')) return;
     try {
-      await fetch(`${API_BASE}/${activeTab}/${id}`, { method: 'DELETE' });
+      await authFetch(`${API_BASE}/${activeTab}/${id}`, { method: 'DELETE' });
       loadData();
     } catch {
       alert('Failed to delete');
@@ -533,7 +542,7 @@ export default function AdminPanel() {
         ? `${API_BASE}/${activeTab}/${editItem._id}`
         : `${API_BASE}/${activeTab}`;
 
-      await fetch(url, {
+      await authFetch(url, {
         method: editItem?._id ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -558,11 +567,11 @@ export default function AdminPanel() {
       formData.append('file', file);
       formData.append('type', 'image');
       
-      const res = await fetch('/api/upload', {
+      const res = await authFetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
-      
+
       const data = await res.json();
       if (data.success) {
         setUploadedImages(prev => ({ ...prev, [fieldName]: data.url }));
@@ -582,14 +591,14 @@ export default function AdminPanel() {
       formData.append('file', file);
       formData.append('type', 'document');
       
-      const res = await fetch('/api/upload', {
+      const res = await authFetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
-      
+
       const data = await res.json();
       if (data.success) {
-        setUploadedDocs(prev => ({ 
+        setUploadedDocs(prev => ({
           ...prev, 
           [fieldName]: {
             url: data.url,
@@ -993,7 +1002,7 @@ export default function AdminPanel() {
 
         if (existingSetting) {
           // Update existing
-          await fetch(`/api/admin/settings/${existingSetting._id}`, {
+          await authFetch(`/api/admin/settings/${existingSetting._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -1006,7 +1015,7 @@ export default function AdminPanel() {
           });
         } else {
           // Create new
-          await fetch('/api/admin/settings', {
+          await authFetch('/api/admin/settings', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
