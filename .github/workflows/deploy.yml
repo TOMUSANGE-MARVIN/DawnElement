@@ -62,5 +62,7 @@ jobs:
             find /var/www/rnadw/public/uploads -type f ! -name "*.jpg" ! -name "*.jpeg" ! -name "*.png" ! -name "*.gif" ! -name "*.webp" ! -name "*.pdf" ! -name "*.doc" ! -name "*.docx" -delete 2>/dev/null || true
             find /var/www/rnadw/public/documents -type f ! -name "*.pdf" ! -name "*.doc" ! -name "*.docx" -delete 2>/dev/null || true
             echo "=== Restarting PM2 ==="
-            npx pm2 restart rnadw 2>&1 || npx pm2 start npm --name rnadw -- start 2>&1
+            npx pm2 delete rnadw 2>/dev/null || true
+            npx pm2 start npm --name rnadw -- start 2>&1
+            npx pm2 save
             echo "=== Done ==="
