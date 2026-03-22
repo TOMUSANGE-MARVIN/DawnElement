@@ -23,10 +23,10 @@
     "docx-preview": "^0.3.7",
     "mongodb": "^7.1.0",
     "mongoose": "^9.1.6",
-    "next": "16.0.3",
+    "next": "^16.1.6",
     "puppeteer": "^24.31.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
