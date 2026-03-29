@@ -27,7 +27,7 @@ export default function BlogsPage() {
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        const res = await fetch('/api/admin/blogs');
+        const res = await fetch('/api/public/blogs');
         const data = await res.json();
         if (data.success && data.data) {
           setBlogPosts(data.data.filter((post: BlogPost) => post.published !== false));

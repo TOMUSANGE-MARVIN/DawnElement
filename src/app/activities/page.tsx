@@ -23,7 +23,7 @@ export default function ActivitiesPage() {
   useEffect(() => {
     async function fetchActivities() {
       try {
-        const res = await fetch('/api/admin/activities');
+        const res = await fetch('/api/public/activities');
         const data = await res.json();
         if (data.success && data.data) {
           // Filter published and sort by order or title

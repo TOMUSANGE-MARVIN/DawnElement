@@ -165,7 +165,7 @@ function ResourcesPageContent() {
   useEffect(() => {
     async function fetchResources() {
       try {
-        const res = await fetch('/api/admin/resources');
+        const res = await fetch('/api/public/resources');
         const data = await res.json();
         if (data.success && data.data) {
           setResources(data.data.filter((r: Resource) => r.published !== false));

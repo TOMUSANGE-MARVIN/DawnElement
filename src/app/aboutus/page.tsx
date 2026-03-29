@@ -44,7 +44,7 @@ export default function AboutPage() {
   useEffect(() => {
     async function fetchTeam() {
       try {
-        const res = await fetch('/api/admin/team');
+        const res = await fetch('/api/public/team');
         const data = await res.json();
         if (data.success && data.data) {
           const sorted = data.data
@@ -61,7 +61,7 @@ export default function AboutPage() {
 
     async function fetchTargetGroups() {
       try {
-        const res = await fetch('/api/admin/target-groups');
+        const res = await fetch('/api/public/target-groups');
         const data = await res.json();
         if (data.success && data.data) {
           const sorted = data.data

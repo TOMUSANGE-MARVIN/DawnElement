@@ -48,7 +48,7 @@ export default function ResourceViewerPage() {
     async function fetchResource() {
       try {
         // Fetch the specific resource
-        const res = await fetch(`/api/admin/resources/${resourceId}`);
+        const res = await fetch(`/api/public/resources/${resourceId}`);
         const data = await res.json();
         if (data.success && data.data) {
           setResource(data.data);
@@ -57,7 +57,7 @@ export default function ResourceViewerPage() {
         }
 
         // Fetch all resources for related section
-        const allRes = await fetch('/api/admin/resources');
+        const allRes = await fetch('/api/public/resources');
         const allData = await allRes.json();
         if (allData.success && allData.data) {
           setAllResources(allData.data.filter((r: Resource) => r.published !== false));

@@ -33,7 +33,7 @@ export default function BlogPostPage() {
   useEffect(() => {
     async function fetchPost() {
       try {
-        const res = await fetch(`/api/admin/blogs/${postId}`);
+        const res = await fetch(`/api/public/blogs/${postId}`);
         const data = await res.json();
         if (data.success && data.data) {
           setPost(data.data);

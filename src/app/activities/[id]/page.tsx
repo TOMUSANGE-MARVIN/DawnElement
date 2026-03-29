@@ -45,7 +45,7 @@ export default function ActivityDetailPage() {
     async function fetchActivity() {
       try {
         // Fetch all activities
-        const res = await fetch('/api/admin/activities');
+        const res = await fetch('/api/public/activities');
         const data = await res.json();
         
         if (data.success && data.data) {

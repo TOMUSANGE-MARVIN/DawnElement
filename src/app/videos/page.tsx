@@ -31,7 +31,7 @@ export default function VideosPage() {
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const res = await fetch('/api/admin/videos');
+        const res = await fetch('/api/public/videos');
         const data = await res.json();
         if (data.success && data.data) {
           setVideos(data.data.filter((v: Video) => v.published !== false));

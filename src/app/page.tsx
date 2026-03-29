@@ -95,7 +95,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchActivities() {
       try {
-        const res = await fetch('/api/admin/activities');
+        const res = await fetch('/api/public/activities');
         const data = await res.json();
         if (data.success && data.data) {
           // Filter published and sort by order
@@ -145,7 +145,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchPartners() {
       try {
-        const res = await fetch('/api/admin/partners');
+        const res = await fetch('/api/public/partners');
         const data = await res.json();
         if (data.success && data.data) {
           const sorted = data.data
